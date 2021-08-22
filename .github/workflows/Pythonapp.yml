@@ -1,4 +1,4 @@
-name: LionZChecker
+name: LionChecker
 
 on: [push, pull_request]
 
