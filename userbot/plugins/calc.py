@@ -13,7 +13,9 @@ plugin_category = "utils"
     info={
         "header": "To solve basic mathematics equations.",
         "description": "Solves the given maths equation by BODMAS rule.",
-        "usage": "{tr}calc 2+9",
+        "usage": [
+                    "{tr}calc 2+9",
+     ],
     },
 )
 async def calculator(event):
