@@ -59,10 +59,14 @@ def main_menu():
         (Button.inline("✍️ Info", data="check"),),
         (
             Button.inline(f"⚡ Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),
+        ),
+        (
             Button.inline(f"✨ Bot ({len(GRP_INFO['bot'])})", data="bot_menu"),
         ),
         (
             Button.inline(f"💥 Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),
+        ),
+        (
             Button.inline(f"✒️ Misc ({len(GRP_INFO['misc'])})", data="misc_menu"),
         ),
         (
@@ -99,9 +103,9 @@ def paginate_help(
     except (ValueError, TypeError):
         number_of_rows = 5
     try:
-        number_of_cols = int(gvarstatus("NO_OF_COLUMNS_IN_HELP") or 1)
+        number_of_cols = int(gvarstatus("NO_OF_COLUMNS_IN_HELP") or 2)
     except (ValueError, TypeError):
-        number_of_cols = 1
+        number_of_cols = 2
     HELP_EMOJI = gvarstatus("HELP_EMOJI") or " "
     helpable_plugins = [p for p in loaded_plugins if not p.startswith("_")]
     helpable_plugins = sorted(helpable_plugins)
