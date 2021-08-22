@@ -59,17 +59,14 @@ def main_menu():
         (Button.inline("✍️ Info", data="check"),),
         (
             Button.inline(f"⚡ Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),
-        ),
             Button.inline(f"✨ Bot ({len(GRP_INFO['bot'])})", data="bot_menu"),
         ),
         (
             Button.inline(f"💥 Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),
-        ),
             Button.inline(f"✒️ Misc ({len(GRP_INFO['misc'])})", data="misc_menu"),
         ),
         (
             Button.inline(f"🧰 Tools ({len(GRP_INFO['tools'])})", data="tools_menu"),
-        ),
             Button.inline(f"💎 Utils ({len(GRP_INFO['utils'])})", data="utils_menu"),
         ),
         (
