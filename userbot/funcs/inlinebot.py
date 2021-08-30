@@ -589,9 +589,9 @@ async def inline_handler(event):  # sourcery no-metrics
 @check_owner
 async def on_plug_in_callback_query_handler(event):
     buttons = [
-        (Button.inline("Open Menu", data="mainmenu"),),
+        (Button.inline("ʀᴇ-ᴏᴘᴇɴ", data="mainmenu"),),
     ]
-    await event.edit("Menu Closed", buttons=buttons)
+    await event.edit("ᴍᴇɴᴜ ᴄʟᴏsᴇᴅ", buttons=buttons)
 
 
 @lionub.tgbot.on(CallbackQuery(data=re.compile(b"check")))
