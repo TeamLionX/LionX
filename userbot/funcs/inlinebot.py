@@ -98,9 +98,9 @@ def paginate_help(
     except (ValueError, TypeError):
         number_of_rows = 6
     try:
-        number_of_cols = int(gvarstatus("NO_OF_COLUMNS_IN_HELP") or 2)
+        number_of_cols = int(gvarstatus("NO_OF_COLUMNS_IN_HELP") or 3)
     except (ValueError, TypeError):
-        number_of_cols = 2
+        number_of_cols = 3
     HELP_EMOJI = gvarstatus("HELP_EMOJI") or " "
     helpable_plugins = [p for p in loaded_plugins if not p.startswith("_")]
     helpable_plugins = sorted(helpable_plugins)
