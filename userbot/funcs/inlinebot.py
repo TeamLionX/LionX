@@ -94,9 +94,9 @@ def paginate_help(
     category_pgno=0,
 ):  # sourcery no-metrics
     try:
-        number_of_rows = int(gvarstatus("NO_OF_ROWS_IN_HELP") or 5)
+        number_of_rows = int(gvarstatus("NO_OF_ROWS_IN_HELP") or 7)
     except (ValueError, TypeError):
-        number_of_rows = 5
+        number_of_rows = 7
     try:
         number_of_cols = int(gvarstatus("NO_OF_COLUMNS_IN_HELP") or 2)
     except (ValueError, TypeError):
@@ -732,7 +732,7 @@ async def on_plug_in_callback_query_handler(event):
                 "🔙",
                 data=f"back_command_{category}_{pgno}_{category_plugins}_{category_pgno}",
             ),
-            Button.inline("🔸 Menu", data="mainmenu"),
+            Button.inline("🔸ᴍᴇɴᴜ", data="mainmenu"),
         )
     ]
     text = f"**Command :** `{tr}{cmd}`\
