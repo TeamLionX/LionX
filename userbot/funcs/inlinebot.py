@@ -94,9 +94,9 @@ def paginate_help(
     category_pgno=0,
 ):  # sourcery no-metrics
     try:
-        number_of_rows = int(gvarstatus("NO_OF_ROWS_IN_HELP") or 7)
+        number_of_rows = int(gvarstatus("NO_OF_ROWS_IN_HELP") or 6)
     except (ValueError, TypeError):
-        number_of_rows = 7
+        number_of_rows = 6
     try:
         number_of_cols = int(gvarstatus("NO_OF_COLUMNS_IN_HELP") or 2)
     except (ValueError, TypeError):
