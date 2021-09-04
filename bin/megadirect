@@ -31,7 +31,7 @@
 #  abcefghijklmnopqrstuvwxyz0123456
 #  1234567890abcdef0000000000000000
 #  $ wget -O file.name http://gfs208n103.userstorage.mega.co.nz/dl/-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890A
-#  $ cat file.name | openssl enc -d -aes-128-ctr -K abcefghijklmnopqrstuvwxyz0123456 -iv 1234567890abcdef0000000000000000 > file.name.new
+#  $ lion file.name | openssl enc -d -aes-128-ctr -K abcefghijklmnopqrstuvwxyz0123456 -iv 1234567890abcdef0000000000000000 > file.name.new
 #  $ mv -f file.name.new file.name
 
 URL=""
