@@ -1,6 +1,6 @@
 import asyncio
 
-from . import lionub, edit_or_reply
+from . import edit_or_reply, lionub
 
 plugin_category = "fun"
 

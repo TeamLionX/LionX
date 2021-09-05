@@ -5,7 +5,7 @@ from telethon.tl.types import ChatBannedRights
 
 from ..sql_helper import antiflood_sql as sql
 from ..utils import is_admin
-from . import lionub, edit_or_reply
+from . import edit_or_reply, lionub
 
 plugin_category = "admin"
 CHAT_FLOOD = sql.__load_flood_settings()

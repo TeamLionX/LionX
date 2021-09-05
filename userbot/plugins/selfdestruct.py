@@ -2,8 +2,6 @@ from asyncio import sleep
 
 from userbot import lionub
 from userbot.funcs.logger import logging
-from ..funcs.managers import *
-from telethon import events, TelegramClient
 
 plugin_category = "tools"
 LOGS = logging.getLogger(__name__)
@@ -50,7 +48,7 @@ async def selfdestruct(destroy):
     await destroy.delete()
     smsg = await destroy.client.send_message(destroy.chat_id, text)
     await sleep(ttl)
-    await smsg.delete() 
+    await smsg.delete()
 
 
 @lionub.lion_cmd(
@@ -64,9 +62,9 @@ async def selfdestruct(destroy):
     },
 )
 async def oho(event):
-  if not event.is_reply:
-    return await event.edit('Reply to a self distructing pic !.!.!')
-  k = await event.get_reply_message()
-  pic = await k.download_media()
-  await lionub.send_file(event.chat_id, pic)
-  await event.delete()
+    if not event.is_reply:
+        return await event.edit("Reply to a self distructing pic !.!.!")
+    k = await event.get_reply_message()
+    pic = await k.download_media()
+    await lionub.send_file(event.chat_id, pic)
+    await event.delete()

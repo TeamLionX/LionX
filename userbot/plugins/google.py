@@ -264,7 +264,9 @@ async def _(img):
         guess = match["best_guess"]
         imgspage = match["similar_images"]
         if guess and imgspage:
-            await lionevent.edit(f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`")
+            await lionevent.edit(
+                f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`"
+            )
         else:
             return await lionevent.edit("`Can't find any kind similar images.`")
         lim = img.pattern_match.group(1) or 3

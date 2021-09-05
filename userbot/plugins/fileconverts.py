@@ -33,7 +33,7 @@ from ..helpers.functions import (
     ud_frames,
     vid_to_gif,
 )
-from ..helpers.utils import _liontools, _lionutils, _format, parse_pre, reply_id
+from ..helpers.utils import _format, _liontools, _lionutils, parse_pre, reply_id
 from . import make_gif
 
 plugin_category = "misc"
@@ -70,7 +70,9 @@ async def pic_gifcmd(event):  # sourcery no-metrics
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
     media_type(reply)
-    lionevent = await edit_or_reply(event, "__Making round spin video wait a sec.....__")
+    lionevent = await edit_or_reply(
+        event, "__Making round spin video wait a sec.....__"
+    )
     output = await _liontools.media_to_pic(event, reply, noedits=True)
     if output[1] is None:
         return await edit_delete(
@@ -736,7 +738,8 @@ async def pic_gifcmd(event):  # sourcery no-metrics
     output = await vid_to_gif("Output.gif", final)
     if output is None:
         await edit_delete(
-            lionevent, "__There was some error in the media. I can't format it to gif.__"
+            lionevent,
+            "__There was some error in the media. I can't format it to gif.__",
         )
         for i in [final, "Output.gif", imag[1]]:
             if os.path.exists(i):

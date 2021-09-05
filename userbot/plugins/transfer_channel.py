@@ -26,7 +26,9 @@ async def _(event):
     user_name = event.pattern_match.group(1)
     try:
         pwd = await event.client(functions.account.GetPasswordRequest())
-        my_srp_password = pwd_mod.compute_check(pwd, Config.TG_2STEP_VERIFILIONLION_CODE)
+        my_srp_password = pwd_mod.compute_check(
+            pwd, Config.TG_2STEP_VERIFILIONLION_CODE
+        )
         await event.client(
             functions.channels.EditCreatorRequest(
                 channel=event.chat_id, user_id=user_name, password=my_srp_password

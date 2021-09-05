@@ -255,16 +255,13 @@ async def upstream(event):
     # Special case for deploy
     if changelog == "" and not force_update:
         await event.edit(
-            "\n`LIONZ is`  **up-to-date**  `with`  "
-            f"**{UPSTREAM_REPO_BRANCH}**\n"
+            "\n`LIONZ is`  **up-to-date**  `with`  " f"**{UPSTREAM_REPO_BRANCH}**\n"
         )
         return repo.__del__()
     if conf == "" and not force_update:
         await print_changelogs(event, ac_br, changelog)
         await event.delete()
-        return await event.respond(
-            f"do `{cmdhd}update deploy` to update the LionZ"
-        )
+        return await event.respond(f"do `{cmdhd}update deploy` to update the LionZ")
 
     if force_update:
         await event.edit(

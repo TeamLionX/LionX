@@ -151,7 +151,9 @@ async def liongban(event):
     count = 0
     madboy = len(san)
     if madboy == 0:
-        return await edit_delete(lionz, "`you are not even admin of atleast one group `")
+        return await edit_delete(
+            lionz, "`you are not even admin of atleast one group `"
+        )
     await lionz.edit(
         f"initiating ungban of the [user](tg://user?id={user.id}) in `{len(san)}` groups"
     )

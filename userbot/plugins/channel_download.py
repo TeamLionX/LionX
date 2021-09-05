@@ -10,7 +10,7 @@ import os
 import subprocess
 
 from ..Config import Config
-from . import lionub, edit_or_reply
+from . import edit_or_reply, lionub
 
 plugin_category = "tools"
 
@@ -22,9 +22,9 @@ plugin_category = "tools"
         "header": "To download channel media files",
         "description": "pass username and no of latest messages to check to command \
              so the bot will download media files from that latest no of messages to server ",
-        "usage": [ 
-                  "{tr}getc count channel_username",
-         ],
+        "usage": [
+            "{tr}getc count channel_username",
+        ],
         "examples": "{tr}getc 10 @LionXupdates",
     },
 )
