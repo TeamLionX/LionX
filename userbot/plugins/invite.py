@@ -1,6 +1,4 @@
 from telethon import functions
-
-from userbot import lionub
 from telethon.errors import (
     ChannelInvalidError,
     ChannelPrivateError,
@@ -9,6 +7,8 @@ from telethon.errors import (
 from telethon.tl import functions
 from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.functions.messages import GetFullChatRequest
+
+from userbot import lionub
 
 from ..funcs.managers import edit_delete, edit_or_reply
 
@@ -52,6 +52,8 @@ async def _(event):
                 return await edit_delete(event, f"`{e}`", 5)
 
     await edit_or_reply(event, f"`{to_add_users} is/are Invited Successfully`")
+
+
 async def get_chatinfo(event):
     chat = event.pattern_match.group(1)
     chat_info = None
@@ -83,7 +85,7 @@ async def get_chatinfo(event):
         except ChannelPublicGroupNaError:
             await event.reply("`Channel or supergroup doesn't exist`")
             return None
-        except (TypeError, ValueError) as err:
+        except (TypeError, ValueError):
             await event.reply("`Invalid channel/group`")
             return None
     return chat_info
@@ -153,4 +155,3 @@ async def get_users(event):
     return await rkp.edit(
         f"**Kidnapping** \n\n• Successfully Invited `{s}` people \n• failed to invite `{f}` people"
     )
-
