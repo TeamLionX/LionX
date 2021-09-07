@@ -80,12 +80,14 @@ async def amireallyalive(event):
 
 
 temp = """{ALIVE_TEXT}
-**{EMOJI} Database :** `{dbhealth}`
-**{EMOJI} Telethon Version :** `{telever}`
-**{EMOJI} Lionuserbot Version :** `{lionver}`
-**{EMOJI} Python Version :** `{pyver}`
-**{EMOJI} Uptime :** `{uptime}`
-**{EMOJI} Master:** {mention}"""
+**┏━━━━━━━━━━━━━━━━━━━
+**┣⧼•{{EMOJI} ᴍᴀsᴛᴇʀ:** {mention}"""
+**┣⧼•{{EMOJI} ʟɪᴏɴ-ᴢ ᴠᴇʀsɪᴏɴ :** `{lionver}`
+**┣⧼•{{EMOJI} ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{telever}`
+**┣⧼•{{EMOJI} ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{pyver}`
+**┣⧼•{{EMOJI} ᴅᴀᴛᴀʙᴀsᴇ :** `{dbhealth}`
+**┣⧼•{{EMOJI} ᴜᴘᴛɪᴍᴇ :** `{uptime}`
+**┗━━━━━━━━━━━━━━━━━━━
 
 
 @lionub.lion_cmd(
@@ -105,10 +107,10 @@ async def amireallyalive(event):
     EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
     ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**Lionuserbot is Up and Running**"
     lion_caption = f"{ALIVE_TEXT}\n"
-    lion_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
-    lion_caption += f"**{EMOJI} Lionuserbot Version :** `{lionversion}`\n"
-    lion_caption += f"**{EMOJI} Python Version :** `{python_version()}\n`"
-    lion_caption += f"**{EMOJI} Master:** {mention}\n"
+    lion_caption += f"**{EMOJI} ᴍᴀsᴛᴇʀ:** {mention}\n"
+    lion_caption += f"**{EMOJI} ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{version.__version__}\n`"
+    lion_caption += f"**{EMOJI} ʟɪᴏɴ-ᴢ ᴠᴇʀsɪᴏɴ :** `{lionversion}`\n"
+    lion_caption += f"**{EMOJI} ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{python_version()}\n`"
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, lion_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
