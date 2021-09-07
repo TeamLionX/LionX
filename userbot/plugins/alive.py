@@ -108,9 +108,9 @@ async def amireallyalive(event):
     ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**ʟɨօռ-ʐ is Up and Running**"
     lion_caption = f"{ALIVE_TEXT}\n"
     lion_caption += f"**{EMOJI} ᴍᴀsᴛᴇʀ:** {mention}\n"
-    lion_caption += f"**{EMOJI} ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{version.__version__}\n`"
+    lion_caption += f"**{EMOJI} ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{version.__version__}`\n"
     lion_caption += f"**{EMOJI} ʟɪᴏɴ-ᴢ ᴠᴇʀsɪᴏɴ :** `{lionversion}`\n"
-    lion_caption += f"**{EMOJI} ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{python_version()}\n`"
+    lion_caption += f"**{EMOJI} ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{python_version()}`\n"
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, lion_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
