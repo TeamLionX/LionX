@@ -1,10 +1,5 @@
 import asyncio
 from datetime import datetime
-import os
-
-from telethon import events
-from telethon.tl.functions.channels import EditAdminRequest
-from telethon.tl.types import ChatAdminRights
 
 from telethon.errors import BadRequestError
 from telethon.tl.functions.channels import EditAdminRequest, EditBannedRequest
@@ -617,9 +612,10 @@ async def gben(userbot):
         f"**Globally Demoted this lavda On [{user.first_name}](tg://user?id={user.id})\n Chats😏 : {i} **"
     )
 
+
 @lionub.lion_cmd(
-  pattern="gcast ?(.*)",
-  command=("gcast", plugin_category),
+    pattern="gcast ?(.*)",
+    command=("gcast", plugin_category),
     info={
         "header": "global groups cast.",
         "description": "Use this command to global broadcast a message in all groups.",
@@ -649,8 +645,8 @@ async def gcast(event):
 
 
 @lionub.lion_cmd(
-  pattern="gucast ?(.*)",
-  command=("gucast", plugin_category),
+    pattern="gucast ?(.*)",
+    command=("gucast", plugin_category),
     info={
         "header": "global users cast.",
         "description": "Use this command to broadcast global message to all users only.",
@@ -677,4 +673,3 @@ async def gucast(event):
             except BaseException:
                 er += 1
     await kk.edit(f"Done in {done} chats, error in {er} chat(s)")
-
