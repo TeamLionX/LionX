@@ -80,14 +80,12 @@ async def amireallyalive(event):
 
 
 temp = """{ALIVE_TEXT}
-**┏━━━━━━━━━━━━━━━━━━━
 **┣⧼•{EMOJI} ᴍᴀsᴛᴇʀ:** {mention}"""
 **┣⧼•{EMOJI} ʟɪᴏɴ-ᴢ ᴠᴇʀsɪᴏɴ :** `{lionver}`
 **┣⧼•{EMOJI} ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{telever}`
 **┣⧼•{EMOJI} ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{pyver}`
 **┣⧼•{EMOJI} ᴅᴀᴛᴀʙᴀsᴇ :** `{dbhealth}`
 **┣⧼•{EMOJI} ᴜᴘᴛɪᴍᴇ :** `{uptime}`
-**┗━━━━━━━━━━━━━━━━━━━
 
 
 @lionub.lion_cmd(
