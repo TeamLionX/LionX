@@ -45,7 +45,7 @@ async def amireallyalive(event):
     ms = (end - start).microseconds / 1000
     _, check_sgnirts = check_data_base_heal_th()
     EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**✮ MY BOT IS RUNNING SUCCESSFULLY ✮**"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**🔥 MY BOT IS RUNNING LIKE A FIRE 🔥**"
     LION_IMG = gvarstatus("ALIVE_PIC")
     lion_caption = gvarstatus("ALIVE_TEMPLATE") or temp
     caption = lion_caption.format(
@@ -86,7 +86,8 @@ temp = """{ALIVE_TEXT}
 ┣⧼•**{EMOJI} ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{telever}`
 ┣⧼•**{EMOJI} ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{pyver}`
 ┣⧼•**{EMOJI} ᴅᴀᴛᴀʙᴀsᴇ :** `{dbhealth}`
-┣⧼•**{EMOJI} ᴜᴘᴛɪᴍᴇ :** `{uptime}`"""
+┣⧼•**{EMOJI} ᴜᴘᴛɪᴍᴇ :** `{uptime}`
+┗━━━━━━━━━━━━━━━━━━━"""
 
 
 @lionub.lion_cmd(
@@ -104,7 +105,7 @@ async def amireallyalive(event):
     "A kind of showing bot details by your inline bot"
     reply_to_id = await reply_id(event)
     EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**Lionuserbot is Up and Running**"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**ʟɨօռ-ʐ is Up and Running**"
     lion_caption = f"{ALIVE_TEXT}\n"
     lion_caption += f"**{EMOJI} ᴍᴀsᴛᴇʀ:** {mention}\n"
     lion_caption += f"**{EMOJI} ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{version.__version__}\n`"
