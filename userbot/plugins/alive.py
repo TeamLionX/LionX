@@ -81,7 +81,7 @@ async def amireallyalive(event):
 
 temp = """{ALIVE_TEXT}
 ┏━━━━━━━━━━━━━━━━━━━
-┣⧼•**{EMOJI} ᴍᴀsᴛᴇʀ:** {mention}"""
+┣⧼•**{EMOJI} ᴍᴀsᴛᴇʀ :** {mention}"""
 ┣⧼•**{EMOJI} ʟɪᴏɴ-ᴢ ᴠᴇʀsɪᴏɴ :** `{lionver}`
 ┣⧼•**{EMOJI} ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{telever}`
 ┣⧼•**{EMOJI} ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{pyver}`
