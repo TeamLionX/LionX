@@ -1,15 +1,15 @@
 import os
 import random
-import time
 
 from PIL import Image, ImageDraw, ImageFont
-from telethon.tl.types import InputMessagesFilterPhotos, InputMessagesFilterDocument
+from telethon.tl.types import InputMessagesFilterDocument, InputMessagesFilterPhotos
 
 from . import *
 
 plugin_category = "tools"
 
 PICS_STR = []
+
 
 @lionub.lion_cmd(
     pattern=r"logo ?(.*)",
@@ -27,8 +27,10 @@ async def lg1(Lionevent):
         rply = await Lionevent.get_reply_message()
         logo_ = await rply.download_media()
     else:
-        async for i in bot.iter_messages("@LionXlogos", filter=InputMessagesFilterPhotos):
-         PICS_STR.append(i)
+        async for i in bot.iter_messages(
+            "@LionXlogos", filter=InputMessagesFilterPhotos
+        ):
+            PICS_STR.append(i)
         pic = random.choice(PICS_STR)
         logo_ = await pic.download_media()
     text = Lionevent.pattern_match.group(1)
@@ -75,7 +77,7 @@ async def lg1(Lionevent):
         os.remove(fnt)
         os.remove(logo_)
     except:
-     pass
+        pass
 
 
 async def get_font_file(client, channel_id):
