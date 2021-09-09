@@ -630,7 +630,7 @@ async def gcast(event):
         return edit_or_reply(event, "`Give some text to Globally Broadcast`")
     tt = event.text
     msg = tt[6:]
-    event = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
+    lion = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
     er = 0
     done = 0
     async for x in bot.iter_dialogs():
@@ -641,7 +641,7 @@ async def gcast(event):
                 await bot.send_message(chat, msg)
             except BaseException:
                 er += 1
-    await kk.edit(f"Done in {done} chats, error in {er} chat(s)")
+    await lion.edit(f"Done in {done} chats, error in {er} chat(s)")
 
 
 @lionub.lion_cmd(
@@ -661,7 +661,7 @@ async def gucast(event):
         return edit_or_reply(event, "`Give some text to Globally Broadcast`")
     tt = event.text
     msg = tt[7:]
-    kk = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
+    lion = await edit_or_reply(event, "`Globally Broadcasting Msg...`")
     er = 0
     done = 0
     async for x in bot.iter_dialogs():
@@ -672,4 +672,4 @@ async def gucast(event):
                 await bot.send_message(chat, msg)
             except BaseException:
                 er += 1
-    await kk.edit(f"Done in {done} chats, error in {er} chat(s)")
+    await lion.edit(f"Done in {done} chats, error in {er} chat(s)")
