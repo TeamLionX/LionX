@@ -32,6 +32,7 @@ A simple Telegram userbot based on Telethon .
   - [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TeamLionX/LionZ)
   
 ## Support
-   <a href="https://t.me/LionXupdates"><img src="https://img.shields.io/badge/Channel%20Support%3F-yes-green?&style=flat-square?&logo=telegram" width=220px></a></p>
-   <a href="https://t.me/LionXSupport"><img src="https://img.shields.io/badge/Group%20Support%3F-yes-green?&style=flat-square?&logo=telegram" width=220px></a></p>
-   
+
+![Channel](https://img.shields.io/badge/dynamic/json?color=red&label=channel%20@LionXUpdates&query=subscribers&url=https%3A%2F%2Fonline-users-api.up.railway.app%2Fcheck%3Fchat%3DLionXUpdates&logo=telegram)
+![Group](https://img.shields.io/badge/dynamic/json?color=red&label=support%20@LionXSupport&query=online&url=https%3A%2F%2Fonline-users-api.up.railway.app%2Fcheck%3Fchat%3DLionXSupport&logo=telegram)
+
