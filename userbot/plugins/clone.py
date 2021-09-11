@@ -16,7 +16,7 @@ from . import (
     lionub,
 )
 
-plugin_category = "utils"
+plugin_category = "tools"
 DEFAULTUSER = str(AUTONAME) if AUTONAME else str(ALIVE_NAME)
 DEFAULTUSERBIO = (
     str(DEFAULT_BIO)

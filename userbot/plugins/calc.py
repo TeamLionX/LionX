@@ -4,7 +4,7 @@ import traceback
 
 from . import edit_or_reply, lionub
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

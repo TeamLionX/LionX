@@ -12,7 +12,7 @@ from ..helpers.tools import media_type
 from ..helpers.utils import _format
 from . import BOTLOG, BOTLOG_CHATID
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 LOGS = logging.getLogger(__name__)
 

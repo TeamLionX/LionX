@@ -14,10 +14,10 @@ plugin_category = "tools"
 hemojis = {
     "admin": "👮‍♂️",
     "fun": "🎨",
-    "misc": "🧩",
+    "tools": "🧩",
     "tools": "🧰",
-    "utils": "🗂",
-    "extra": "➕",
+    "tools": "🗂",
+    "tools": "➕",
 }
 
 
@@ -98,7 +98,7 @@ async def plugininfo(input_str, event, flag):
 async def grpinfo():
     outstr = "**Plugins in Lionuserbot are:**\n\n"
     outstr += f"**👩‍💻 Usage : ** `{cmdprefix}help <plugin name>`\n\n"
-    category = ["admin", "bot", "fun", "misc", "tools", "utils", "extra"]
+    category = ["admin", "bot", "fun", "tools", "tools", "tools", "tools"]
     for lion in category:
         plugins = GRP_INFO[lion]
         outstr += f"**{hemojis[lion]} {lion.title()} **({len(plugins)})\n"
@@ -110,7 +110,7 @@ async def grpinfo():
 
 async def cmdlist():
     outstr = "**Total list of Commands in your Lionuserbot are :**\n\n"
-    category = ["admin", "bot", "fun", "misc", "tools", "utils", "extra"]
+    category = ["admin", "bot", "fun", "tools", "tools", "tools", "tools"]
     for lion in category:
         plugins = GRP_INFO[lion]
         outstr += f"**{hemojis[lion]} {lion.title()} ** - {len(plugins)}\n\n"

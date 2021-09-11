@@ -36,7 +36,7 @@ from ..helpers.functions import (
 from ..helpers.utils import _format, _liontools, _lionutils, parse_pre, reply_id
 from . import make_gif
 
-plugin_category = "misc"
+plugin_category = "tools"
 
 
 if not os.path.isdir("./temp"):

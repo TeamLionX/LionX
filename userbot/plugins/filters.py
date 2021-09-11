@@ -14,7 +14,7 @@ from ..sql_helper.filter_sql import (
 )
 from . import BOTLOG, BOTLOG_CHATID
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(incoming=True)

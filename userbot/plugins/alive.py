@@ -21,7 +21,7 @@ from ..helpers.utils import reply_id
 from ..sql_helper.globals import gvarstatus
 from . import mention
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

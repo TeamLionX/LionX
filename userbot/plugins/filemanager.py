@@ -12,7 +12,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.utils import _format, _lionutils
 from . import humanbytes
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

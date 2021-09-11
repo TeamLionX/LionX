@@ -10,7 +10,7 @@ from ..helpers.tools import media_type
 from ..helpers.utils import _format
 from . import humanbytes
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 TYPES = [

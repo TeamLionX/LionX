@@ -8,7 +8,7 @@ from ..funcs.managers import edit_or_reply
 from ..helpers.google_image_download import googleimagesdownload
 from ..helpers.utils import reply_id
 
-plugin_category = "misc"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

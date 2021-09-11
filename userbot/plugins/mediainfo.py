@@ -10,7 +10,7 @@ from ..funcs.managers import edit_or_reply
 from ..helpers import humanbytes, post_to_telegraph
 from ..helpers.utils import _format, _lionutils
 
-plugin_category = "utils"
+plugin_category = "tools"
 LOGS = logging.getLogger(__name__)
 
 

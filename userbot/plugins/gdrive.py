@@ -40,7 +40,7 @@ from . import (
 )
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "misc"
+plugin_category = "tools"
 
 # Lionuserbot Google Drive managers  ported from Projectbish and added extra things by @Copyless786
 

@@ -11,7 +11,7 @@ from ..Config import Config
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import _liontools, media_type, progress, reply_id
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 FF_MPEG_DOWN_LOAD_MEDIA_PATH = os.path.join(

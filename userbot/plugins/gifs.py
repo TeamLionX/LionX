@@ -8,7 +8,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.utils import _lionutils, reply_id
 from . import lionub
 
-plugin_category = "Extra"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

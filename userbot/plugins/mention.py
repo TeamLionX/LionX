@@ -4,7 +4,7 @@ from userbot import lionub
 
 from ..helpers.utils import get_user_from_event, reply_id
 
-plugin_category = "extra"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

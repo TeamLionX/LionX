@@ -9,7 +9,7 @@ from ..helpers import AioHttp
 from ..helpers.utils import _format
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

@@ -9,7 +9,7 @@ import requests
 
 from . import ALIVE_NAME, edit_or_reply, lionub
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(
