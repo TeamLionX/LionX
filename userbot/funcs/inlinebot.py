@@ -56,13 +56,17 @@ def main_menu():
     text = f"𝐋𝐢𝐨𝐧𝐙 𝗛𝗲𝗹𝗽𝗲𝗿\
         \n𝗣𝗿𝗼𝘃𝗶𝗱𝗲𝗱 𝗯𝘆 {mention}"
     buttons = [
-        (Button.inline("✍️ ɪɴғᴏ", data="check"),),
-        (
+            (
             Button.inline(f"⚡ ᴀᴅᴍɪɴ ({len(GRP_INFO['admin'])})", data="admin_menu"),
+        ),
+        (
             Button.inline(f"💥 ғᴜɴ ({len(GRP_INFO['fun'])})", data="fun_menu"),
         ),
         (
             Button.inline(f"🧰 ᴛᴏᴏʟs ({len(GRP_INFO['tools'])})", data="tools_menu"),
+        ),
+        (
+            Button.inline("✍️ ɪɴғᴏ", data="check"),
             Button.inline("🔐 ᴄʟᴏsᴇ", data="close"),
         ),
     ]
