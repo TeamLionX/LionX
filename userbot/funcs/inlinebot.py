@@ -63,7 +63,8 @@ def main_menu():
         ),
         (
             Button.inline(f"🧰 ᴛᴏᴏʟs ({len(GRP_INFO['tools'])})", data="tools_menu"),
-            Button.inline("🔐 ᴄʟᴏsᴇ", data="close"),),
+            Button.inline("🔐 ᴄʟᴏsᴇ", data="close"),
+        ),
     ]
 
     return text, buttons
