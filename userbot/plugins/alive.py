@@ -89,6 +89,7 @@ temp = """{ALIVE_TEXT}
 ┣⧼•**{EMOJI} ᴜᴘᴛɪᴍᴇ :** `{uptime}`
 ┗━━━━━━━━━━━━━━━━━━━"""
 
+
 @lionub.lion_cmd(
     pattern="ialive$",
     command=("ialive", plugin_category),
