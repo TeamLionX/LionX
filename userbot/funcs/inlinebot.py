@@ -62,14 +62,8 @@ def main_menu():
             Button.inline(f"💥 ғᴜɴ ({len(GRP_INFO['fun'])})", data="fun_menu"),
         ),
         (
-            Button.inline(f"✒️ ᴍɪsᴄ ({len(GRP_INFO['misc'])})", data="misc_menu"),
             Button.inline(f"🧰 ᴛᴏᴏʟs ({len(GRP_INFO['tools'])})", data="tools_menu"),
-        ),
-        (
-            Button.inline(f"💎 ᴜᴛɪʟs ({len(GRP_INFO['utils'])})", data="utils_menu"),
-            Button.inline(f"🖍️ ᴇxᴛʀᴀ ({len(GRP_INFO['extra'])})", data="extra_menu"),
-        ),
-        (Button.inline("🔐 ᴄʟᴏsᴇ", data="close"),),
+            Button.inline("🔐 ᴄʟᴏsᴇ", data="close"),),
     ]
 
     return text, buttons
