@@ -2,7 +2,7 @@ from asyncio import sleep
 
 from userbot import lionub
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

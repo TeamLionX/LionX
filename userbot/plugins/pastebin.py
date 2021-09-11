@@ -18,7 +18,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.tools import media_type
 from ..helpers.utils import pastetext, reply_id
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 extractor = URLExtract()
 

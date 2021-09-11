@@ -18,7 +18,7 @@ from ..Config import Config
 from ..funcs.managers import edit_or_reply
 from . import reply_id
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

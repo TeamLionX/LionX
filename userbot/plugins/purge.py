@@ -22,7 +22,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.utils import reply_id
 from . import BOTLOG, BOTLOG_CHATID
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 purgelist = {}

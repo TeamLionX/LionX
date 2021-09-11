@@ -22,7 +22,7 @@ from ..helpers.functions import name_dl, song_dl, video_dl, yt_search
 from ..helpers.tools import media_type
 from ..helpers.utils import _lionutils, reply_id
 
-plugin_category = "utils"
+plugin_category = "tools"
 LOGS = logging.getLogger(__name__)
 
 # =========================================================== #

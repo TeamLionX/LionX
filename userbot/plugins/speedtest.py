@@ -11,7 +11,7 @@ from userbot import lionub
 from ..funcs.managers import edit_or_reply
 from ..helpers.utils import reply_id
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 def convert_from_bytes(size):

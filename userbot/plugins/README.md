@@ -4,7 +4,7 @@ from userbot import lionub
 
 from ..funcs.managers import edit_delete, edit_or_reply
 
-plugin_category="extra"
+plugin_category="tools"
 ```
 
 ### Formation
@@ -14,7 +14,7 @@ from userbot import lionub
 
 from ..funcs.managers import edit_delete, edit_or_reply
 
-plugin_category="extra"
+plugin_category="tools"
 
 @lionub.lion_cmd(
     pattern="hibuddy(?:\s|$)([\s\S]*)",

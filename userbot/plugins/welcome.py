@@ -15,7 +15,7 @@ from ..sql_helper.welcome_sql import (
 )
 from . import BOTLOG_CHATID
 
-plugin_category = "utils"
+plugin_category = "tools"
 LOGS = logging.getLogger(__name__)
 
 

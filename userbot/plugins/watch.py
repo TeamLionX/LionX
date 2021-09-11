@@ -15,7 +15,7 @@ from ..funcs.logger import logging
 from ..funcs.managers import edit_or_reply
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "utils"
+plugin_category = "tools"
 
 moviepath = os.path.join(os.getcwd(), "temp", "moviethumb.jpg")
 

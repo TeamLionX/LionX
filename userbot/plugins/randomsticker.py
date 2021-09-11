@@ -12,7 +12,7 @@ from userbot import lionub
 
 from ..helpers import reply_id
 
-plugin_category = "extra"
+plugin_category = "tools"
 
 BASE_URL = "https://headp.at/pats/{}"
 PAT_IMAGE = "pat.webp"

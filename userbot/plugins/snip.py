@@ -7,7 +7,7 @@ from ..helpers.utils import reply_id
 from ..sql_helper.snip_sql import add_note, get_note, get_notes, rm_note
 from . import BOTLOG, BOTLOG_CHATID, get_message_link
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

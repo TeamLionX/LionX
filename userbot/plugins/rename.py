@@ -10,7 +10,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.utils import reply_id
 from . import progress, reply_id
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 thumb_image_path = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "thumb_image.jpg")
 

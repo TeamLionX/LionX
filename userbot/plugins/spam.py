@@ -14,7 +14,7 @@ from ..helpers.utils import _lionutils
 from ..sql_helper.globals import addgvar, gvarstatus
 from . import BOTLOG, BOTLOG_CHATID
 
-plugin_category = "extra"
+plugin_category = "tools"
 
 
 async def spam_function(event, madboy, lion, sleeptimem, sleeptimet, DelaySpam=False):

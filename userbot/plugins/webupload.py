@@ -12,7 +12,7 @@ from userbot.funcs.logger import logging
 from ..Config import Config
 from ..funcs.managers import edit_or_reply
 
-plugin_category = "misc"
+plugin_category = "tools"
 LOGS = logging.getLogger(__name__)
 
 # originally created by

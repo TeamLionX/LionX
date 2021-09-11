@@ -16,7 +16,7 @@ from ..funcs.managers import edit_or_reply
 from ..helpers import get_user_from_event, reply_id
 from . import spamwatch
 
-plugin_category = "utils"
+plugin_category = "tools"
 LOGS = logging.getLogger(__name__)
 
 

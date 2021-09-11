@@ -14,7 +14,7 @@ from ..sql_helper.welcomesql import (
 )
 from . import BOTLOG_CHATID
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.on(events.ChatAction)

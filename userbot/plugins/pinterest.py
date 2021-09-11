@@ -8,7 +8,7 @@ from . import *
 
 _base = "https://pinterestdownloader.com/download?url="
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 def gib_link(link):

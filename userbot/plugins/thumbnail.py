@@ -11,7 +11,7 @@ from ..funcs.managers import edit_or_reply
 from ..helpers.utils import _liontools
 from . import CMD_HELP
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 # Thumbnail Utilities ported from uniborg
 # credits @spechide

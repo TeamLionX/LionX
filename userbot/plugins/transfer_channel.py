@@ -9,7 +9,7 @@ from userbot import lionub
 
 from ..Config import Config
 
-plugin_category = "utils"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(
