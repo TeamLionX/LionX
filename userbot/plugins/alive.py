@@ -91,13 +91,13 @@ temp = """{ALIVE_TEXT}
 
 
 @lionub.lion_cmd(
-    pattern="ialive$",
-    command=("ialive", plugin_category),
+    pattern="lion$",
+    command=("lion", plugin_category),
     info={
         "header": "To check bot's alive status via inline mode",
         "options": "To show media in this cmd you need to set ALIVE_PIC with media link, get this by replying the media by .tgm",
         "usage": [
-            "{tr}ialive",
+            "{tr}lion",
         ],
     },
 )
