@@ -22,16 +22,16 @@ PAT_IMAGE = "pat.webp"
     pattern="cat$",
     command=("cat", plugin_category),
     info={
-        "header": "To get random lion stickers.",
+        "header": "To get random cat stickers.",
         "usage": "{tr}cat",
     },
 )
 async def _(event):
-    "To get random lion stickers."
+    "To get random cat stickers."
     await event.delete()
     reply_to_id = await reply_id(event)
     with open("temp.png", "wb") as f:
-        f.write(requests.get(nekos.lion()).content)
+        f.write(requests.get(nekos.cat()).content)
     img = Image.open("temp.png")
     img.save("temp.webp", "webp")
     img.seek(0)
