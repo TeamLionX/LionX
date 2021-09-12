@@ -19,11 +19,11 @@ PAT_IMAGE = "pat.webp"
 
 
 @lionub.lion_cmd(
-    pattern="lion$",
-    command=("lion", plugin_category),
+    pattern="cat$",
+    command=("cat", plugin_category),
     info={
         "header": "To get random lion stickers.",
-        "usage": "{tr}lion",
+        "usage": "{tr}cat",
     },
 )
 async def _(event):
