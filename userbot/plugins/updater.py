@@ -306,30 +306,3 @@ async def upstream(event):
     ups_rem.fetch(ac_br)
     await event.edit("`Deploying userbot, please wait....`")
     await deploy(event, repo, ups_rem, ac_br, txt)
-
-
-@lionub.lion_cmd(
-    pattern="lion$",
-    command=("lion", plugin_category),
-    info={
-        "header": "To update to lion( for extra masala and gali).",
-        "usage": "{tr}lion",
-    },
-)
-async def variable(var):
-    "To update to lion( for extra masala and gali)."
-    if Config.HEROKU_API_KEY is None:
-        return await edit_delete(
-            var,
-            "Set the required var in heroku to function this normally `HEROKU_API_KEY`.",
-        )
-    if Config.HEROKU_APP_NAME is not None:
-        app = Heroku.app(Config.HEROKU_APP_NAME)
-    else:
-        return await edit_delete(
-            var,
-            "Set the required var in heroku to function this normally `HEROKU_APP_NAME`.",
-        )
-    heroku_var = app.config()
-    await edit_or_reply(var, "`Changing lion to lion wait for 2-3 minutes.`")
-    heroku_var["UPSTREAM_REPO"] = "https://github.com/TeamLionX/LionZ"
