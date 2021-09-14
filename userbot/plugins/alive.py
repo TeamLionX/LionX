@@ -91,20 +91,20 @@ temp = """{ALIVE_TEXT}
 
 
 @lionub.lion_cmd(
-    pattern="lion$",
-    command=("lion", plugin_category),
+    pattern="z$",
+    command=("z", plugin_category),
     info={
         "header": "To check bot's alive status via inline mode",
         "options": "To show media in this cmd you need to set ALIVE_PIC with media link, get this by replying the media by .tgm",
         "usage": [
-            "{tr}lion",
+            "{tr}z",
         ],
     },
 )
 async def amireallyalive(event):
     "A kind of showing bot details by your inline bot"
     reply_to_id = await reply_id(event)
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
+    EMOJI = gvarstatus("ALIVE_EMOJI") or " ✥ "
     ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**Lion-Z is Up and Running**"
     lion_caption = f"{ALIVE_TEXT}\n"
     lion_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
