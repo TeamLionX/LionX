@@ -63,6 +63,11 @@ async def liongban(event):  # sourcery no-metrics
         return
     if user.id == lionub.uid:
         return await edit_delete(lionz, "`why would I ban myself`")
+    if user.id == SimpleBoy786:
+        return await edit_delete(lionz, "🥴 **Nashe me hai kya lawde ‽**")
+    if str(user.id) in DEVLIST:
+        return await edit_delete(lionz, "😑 **GBan my creator ?¿ Really‽**")
+
     if gban_sql.is_gbanned(user.id):
         await lionz.edit(
             f"`the `[user](tg://user?id={user.id})` is already in gbanned list any way checking again`"
@@ -254,6 +259,9 @@ async def startgmute(event):
             return
         if user.id == lionub.uid:
             return await edit_or_reply(event, "`Sorry, I can't gmute myself`")
+        if str(user.id) in DEVLIST:
+            return await edit_delete(event, "**Sorry I'm not going to gmute them..**")
+
         userid = user.id
     try:
         user = (await event.client(GetFullUserRequest(userid))).user
@@ -383,6 +391,11 @@ async def liongkick(event):  # sourcery no-metrics
         return
     if user.id == lionub.uid:
         return await edit_delete(lionz, "`why would I kick myself`")
+    if user.id == SimpleBoy786:
+        return await edit_delete(lionz, "**😌Nashe me hai kya lawde!!**")
+    if str(user.id) in DEVLIST:
+        return await edit_delete(lionz, "**😪 I'm not going to gkick my developer!!**")
+
     san = await admin_groups(event.client)
     count = 0
     madboy = len(san)
