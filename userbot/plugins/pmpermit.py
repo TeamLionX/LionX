@@ -11,6 +11,7 @@ from userbot.funcs.logger import logging
 
 from ..Config import Config
 from ..funcs.managers import edit_delete, edit_or_reply
+from ..funcs.devs import DEVLIST
 from ..helpers.utils import _format, get_user_from_event, reply_id
 from ..sql_helper import global_collectionjson as sql
 from ..sql_helper import global_list as sqllist
