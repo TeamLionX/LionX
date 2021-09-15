@@ -319,35 +319,3 @@ async def spammer(event):
     addgvar("spamwork", True)
     await spam_function(event, reply, lion, sleeptimem, sleeptimet, DelaySpam=True)
 
-
-@lionub.lion_cmd(
-    pattern="bspam$",
-    command=("bspam", plugin_category),
-    info={
-        "header": "To spam the without flood.",
-        "description": "Spams the message X times without floodwait. Breaks the spam count to avoid floodwait.",
-        "usage": "{tr}bspam",
-    },
-)
-async def spammer(e):
-    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        message = e.text
-        counter = int(message[7:11])
-        reply_msg = await e.get_reply_message()
-        if reply_msg:
-            spam_message = reply_msg
-        else:
-            spam_message = str(e.text[12:])
-        rd = int(counter % 100)
-        tot = int((counter - rd) / 100)
-        a = 30
-        for q in range(tot):
-            for p in range(100):
-                await asyncio.wait([e.respond(spam_message)])
-            a = a + 2
-            await asyncio.sleep(a)
-
-        await e.delete()
-        await e.client.send_message(
-            lg_id, f"#BREAK_SPAM \n\nSpammed  {counter}  messages!!"
-        )
