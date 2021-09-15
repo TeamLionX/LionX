@@ -810,7 +810,7 @@ async def block_p_m(event):
             event,
             f"__Turn on pmpermit by doing __`{cmdhd}pmguard on` __for working of this plugin__",
         )
-    if str(reply_s.sender_id) in DEVLIST:
+    if str(event.chat_id) in DEVLIST:
         await edit_delete(event, "**I can't Block My Creator !!**")
 
     if event.is_private:
