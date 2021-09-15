@@ -64,10 +64,8 @@ async def liongban(event):  # sourcery no-metrics
         return
     if user.id == lionub.uid:
         return await edit_delete(lionz, "`why would I ban myself`")
-    if user.id == SimpleBoy786:
-        return await edit_delete(lionz, "🥴 **Nashe me hai kya lawde ‽**")
     if str(user.id) in DEVLIST:
-        return await edit_delete(lionz, "😑 **GBan my creator ?¿ Really‽**")
+        return await edit_delete(lionz, "🥴 **GBan my creator ?¿ Really‽**")
 
     if gban_sql.is_gbanned(user.id):
         await lionz.edit(
@@ -392,10 +390,8 @@ async def liongkick(event):  # sourcery no-metrics
         return
     if user.id == lionub.uid:
         return await edit_delete(lionz, "`why would I kick myself`")
-    if user.id == SimpleBoy786:
-        return await edit_delete(lionz, "**😌Nashe me hai kya lawde!!**")
     if str(user.id) in DEVLIST:
-        return await edit_delete(lionz, "**😪 I'm not going to gkick my developer!!**")
+        return await edit_delete(lionz, "**😒 I'm not going to gkick my developer!!**")
 
     san = await admin_groups(event.client)
     count = 0
