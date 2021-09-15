@@ -319,6 +319,7 @@ async def spammer(event):
     addgvar("spamwork", True)
     await spam_function(event, reply, lion, sleeptimem, sleeptimet, DelaySpam=True)
 
+
 @lionub.lion_cmd(
     pattern="bspam$",
     command=("bspam", plugin_category),
@@ -338,7 +339,7 @@ async def spammer(e):
         else:
             spam_message = str(e.text[12:])
         rd = int(counter % 100)
-        tot = int((counter - rd )/100)
+        tot = int((counter - rd) / 100)
         a = 30
         for q in range(tot):
             for p in range(100):
