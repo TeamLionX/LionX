@@ -318,4 +318,3 @@ async def spammer(event):
     await event.delete()
     addgvar("spamwork", True)
     await spam_function(event, reply, lion, sleeptimem, sleeptimet, DelaySpam=True)
-
