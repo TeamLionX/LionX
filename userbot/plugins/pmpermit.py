@@ -773,7 +773,7 @@ async def disapprove_p_m(event):
             event, "__Ok! I have disapproved everyone successfully.__"
         )
     if str(event.chat_id) in DEVLIST:
-        await event edit_delete("**Unable to disapprove this user. Seems like God !!**")
+        await edit_delete(lionz, "**Unable to disapprove this user. Seems like God !!**")
 
     if not reason:
         reason = "Not Mentioned."
@@ -809,7 +809,7 @@ async def block_p_m(event):
             f"__Turn on pmpermit by doing __`{cmdhd}pmguard on` __for working of this plugin__",
         )
     if str(reply_s.sender_id) in DEVLIST:
-        await event edit_delete("**I can't Block My Creator !!**")
+        await  edit_delete(lionz, "**I can't Block My Creator !!**")
 
     if event.is_private:
         user = await event.get_chat()
