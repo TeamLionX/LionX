@@ -556,7 +556,7 @@ async def inline_handler(event):  # sourcery no-metrics
         ]
         markup = event.client.build_reply_markup(buttons)
         photo = types.InputWebDocument(
-            url=LIONLLOGO, size=0, mime_type="image/jpeg", attributes=[]
+            url=LIONLOGO, size=0, mime_type="image/jpeg", attributes=[]
         )
         text, msg_entities = await event.client._parse_message_text(
             "𝗗𝗲𝗽𝗹𝗼𝘆 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝐋𝐢𝐨𝐧𝐙.", "md"
