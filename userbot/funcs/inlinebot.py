@@ -30,7 +30,7 @@ from .logger import logging
 LOGS = logging.getLogger(__name__)
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-LIONLLOGO = "https://telegra.ph/file/c7699bd09d7aacb203bba.jpg"
+LIONLOGO = "https://telegra.ph/file/c7699bd09d7aacb203bba.jpg"
 tr = Config.COMMAND_HAND_LER
 
 
