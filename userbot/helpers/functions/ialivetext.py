@@ -83,7 +83,7 @@ async def lionalive(StartTime):
         dyno = f"{AppHours}h {AppMinutes}m/{hours}h {minutes}m"
     except Exception as e:
         dyno = e
-    return f"Lionuserbot Stats\
+    return f"LionZ Stats\
                  \n\nDatabase : {check_sgnirts}\
                   \nSudo : {sudo}\
                   \nUptime : {uptime}\
