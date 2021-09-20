@@ -140,7 +140,7 @@ class LionZClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        text = "**LionUserbot Error report**\n\n"
+                        text = "**Lion-Z Error report**\n\n"
                         link = "[here](https://t.me/LionXSupport)"
                         text += "If you wanna you can report it"
                         text += f"- just forward this message {link}.\n"
@@ -257,7 +257,7 @@ class LionZClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        text = "**LionUserbot Error report**\n\n"
+                        text = "**Lion-Z Error report**\n\n"
                         link = "[here](https://t.me/LionXSupport)"
                         text += "If you wanna you can report it"
                         text += f"- just forward this message {link}.\n"
