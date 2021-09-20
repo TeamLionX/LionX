@@ -89,6 +89,7 @@ temp = """{ALIVE_TEXT}
 ┣⧼•**{EMOJI} ᴜᴘᴛɪᴍᴇ :** `{uptime}`
 ┗━━━━━━━━━━━━━━━━━━━"""
 
+
 @lionub.lion_cmd(
     pattern="lionz$",
     command=("lionz", plugin_category),
@@ -112,7 +113,6 @@ async def amireallyalive(event):
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, lion_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
-
 
 
 @lionub.tgbot.on(CallbackQuery(data=re.compile(b"stats")))
