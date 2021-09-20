@@ -108,7 +108,7 @@ async def amireallyalive(event):
     ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**Lion-Z is Up and Running**"
     lion_caption = f"{ALIVE_TEXT}\n"
     lion_caption += f"**{EMOJI} Telethon:** `{version.__version__}\n`"
-    lion_caption += f"**{EMOJI} Lion-Z :** `{lionver}`\n"
+    lion_caption += f"**{EMOJI} Lion-Z :** `{lionversion}`\n"
     lion_caption += f"**{EMOJI} Python :** `{python_version()}\n`"
     lion_caption += f"**{EMOJI} Master:** {mention}\n"
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, lion_caption)
