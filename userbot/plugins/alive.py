@@ -111,7 +111,7 @@ async def amireallyalive(event):
     lion_caption += f"**{EMOJI} Lion-Z :** `{lionversion}`\n"
     lion_caption += f"**{EMOJI} Python :** `{python_version()}\n`"
     lion_caption += f"**{EMOJI} Master:** {mention}\n"
-    results = await event.client.inline_query(Config.TG_BOT_USERNAME, lion_caption)
+    results = event.client.inline_query(Config.TG_BOT_USERNAME, lion_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
 
