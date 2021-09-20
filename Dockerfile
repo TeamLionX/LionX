@@ -1,10 +1,12 @@
-FROM debian:latest
 
-RUN apt update && apt upgrade -y
-RUN apt install git curl python3-pip -y
-RUN pip3 install -U pip
-RUN mkdir /app/
-WORKDIR /app/
-COPY . /app/
-RUN pip3 install -U -r Zsetup.txt
-CMD python3 LionZ.py
+#clonning repo 😌🔥❤️⚡
+RUN git clone https://github.com/SimpleBoy786/LION-X.git /root/userbot
+#working directory 
+WORKDIR /root/userbot
+
+# Install requirements
+RUN pip3 install -U -r LionX.txt
+
+ENV PATH="/home/userbot/bin:$PATH"
+
+CMD ["python3","-m","userbot"]

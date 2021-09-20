@@ -1,0 +1,48 @@
+
+
+_get_repolink () {
+    local regex
+    regex='(https?)://github.com/.+/.+'
+    if [[ $LION_REPO == "LIONXBOT" ]]
+    then
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1NpbXBsZUJveTc4Ni9MSU9OLVgvYXJjaGl2ZS9tYXN0ZXIuemlw" | base64 -d
+    elif [[ $LION_REPO == "LIONXBOT" ]]
+    then
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1NpbXBsZUJveTc4Ni9MSU9OLVgvYXJjaGl2ZS9tYXN0ZXIuemlw" | base64 -d
+    elif [[ $LION_REPO =~ $regex ]]
+    then
+        if [[ $LION_REPO_BRANCH ]]
+        then
+            echo "${LION_REPO}/archive/${LION_REPO_BRANCH}.zip"
+        else
+            echo "${LION_REPO}/archive/master.zip"
+        fi
+    else
+        echo "aHR0cHM6Ly9naXRodWIuY29tL1NpbXBsZUJveTc4Ni9MSU9OLVgvYXJjaGl2ZS9tYXN0ZXIuemlw" | base64 -d
+    fi
+}
+
+
+_set_bot () {
+    local zippath
+    zippath="LIONX.zip"
+    echo "  Downloading LegendBot V2.O Source Code..."
+    wget -q $(_get_repolink) -O "$zippath"
+    echo "  Unpacking Data ..."
+    LIONPATH=$(zipinfo -1 "$zippath" | grep -v "/.");
+    unzip -qq "$zippath"
+    echo "Done"
+    echo "  ℓισи-χ V2.O Cleaning.."
+    rm -rf "$zippath"
+    sleep 5
+    cd $LEGENDPATH
+    echo "    🔥Starting ʟɨօռ-Ӽ🔥     "
+    echo "
+    LIONXBOT
+    "
+
+    python3 ../setup/updater.py ../LionX.txt LionX.txt
+    python3 -m userbot
+}
+
+_set_bot

@@ -1,1 +1,1 @@
-worker: python3 LionZ.py
+worker: bash LIONX
