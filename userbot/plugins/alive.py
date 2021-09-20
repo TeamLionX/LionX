@@ -89,31 +89,30 @@ temp = """{ALIVE_TEXT}
 ┣⧼•**{EMOJI} ᴜᴘᴛɪᴍᴇ :** `{uptime}`
 ┗━━━━━━━━━━━━━━━━━━━"""
 
-
 @lionub.lion_cmd(
-    pattern="z$",
-    command=("z", plugin_category),
+    pattern="lionz$",
+    command=("lionz", plugin_category),
     info={
         "header": "To check bot's alive status via inline mode",
         "options": "To show media in this cmd you need to set ALIVE_PIC with media link, get this by replying the media by .tgm",
         "usage": [
-            "{tr}z",
+            "{tr}lionz",
         ],
     },
 )
 async def amireallyalive(event):
     "A kind of showing bot details by your inline bot"
     reply_to_id = await reply_id(event)
-    EMOJI = gvarstatus("ALIVE_EMOJI") or " ✥ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**Lion-Z is Up and Running**"
-    lion_caption = f"{ALIVE_TEXT}\n"
-    lion_caption += f"**{EMOJI} Telethon:** `{version.__version__}\n`"
+    EMOJI = gvarstatus("ALIVE_EMOJI") or "  ♦️ "
+    lion_caption = f"**Lion-Z is Up and Running**\n"
+    lion_caption += f"**{EMOJI} Telethon :** `{version.__version__}\n`"
     lion_caption += f"**{EMOJI} Lion-Z :** `{lionversion}`\n"
     lion_caption += f"**{EMOJI} Python :** `{python_version()}\n`"
-    lion_caption += f"**{EMOJI} Master:** {mention}\n"
-    results = event.client.inline_query(Config.TG_BOT_USERNAME, lion_caption)
+    lion_caption += f"**{EMOJI} Owner:** {mention}\n"
+    results = await event.client.inline_query(Config.TG_BOT_USERNAME, lion_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
+
 
 
 @lionub.tgbot.on(CallbackQuery(data=re.compile(b"stats")))
