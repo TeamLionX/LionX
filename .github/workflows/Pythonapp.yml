@@ -21,7 +21,7 @@ jobs:
           sudo apt-get install libpq-dev
           python -m pip install --upgrade pip
           pip install wheel
-          pip install -r requirements.txt
+          pip install -r LionX.txt
           pip install flake8 flake8-print flake8-quotes
       - name: Check for showstoppers
         run: |
