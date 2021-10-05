@@ -6,7 +6,7 @@ from . import BASE, SESSION
 
 
 class Lion_GlobalCollection(BASE):
-    __tablename__ = "lion_globalcollection"
+    __tablename__ = "cat_globalcollection"
     keywoard = Column(UnicodeText, primary_key=True)
     contents = Column(PickleType, primary_key=True, nullable=False)
 
@@ -15,7 +15,7 @@ class Lion_GlobalCollection(BASE):
         self.contents = tuple(contents)
 
     def __repr__(self):
-        return "<Lion Global Collection lists '%s' for %s>" % (
+        return "<Cat Global Collection lists '%s' for %s>" % (
             self.contents,
             self.keywoard,
         )

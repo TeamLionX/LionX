@@ -15,7 +15,7 @@ class LionBroadcast(BASE):
         self.group_id = str(group_id)
 
     def __repr__(self):
-        return "<Lion Broadcast channels '%s' for %s>" % (self.group_id, self.keywoard)
+        return "<Cat Broadcast channels '%s' for %s>" % (self.group_id, self.keywoard)
 
     def __eq__(self, other):
         return bool(
