@@ -262,9 +262,7 @@ async def upstream(event):
     if conf == "" and not force_update:
         await print_changelogs(event, ac_br, changelog)
         await event.delete()
-        return await event.respond(
-            f"do `{cmdhd}update deploy` to update the LionX"
-        )
+        return await event.respond(f"do `{cmdhd}update deploy` to update the LionX")
 
     if force_update:
         await event.edit(
