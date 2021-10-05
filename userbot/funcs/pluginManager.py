@@ -62,7 +62,7 @@ def run_async(func: callable):
     return loop.run_until_complete(func)
 
 
-async def restart_script(client: TelegramClient, madboy):
+async def restart_script(client: TelegramClient, nadan):
     """Restart the current script."""
     try:
         ulist = get_collectionlist_items()
@@ -72,7 +72,7 @@ async def restart_script(client: TelegramClient, madboy):
     except Exception as e:
         LOGS.error(e)
     try:
-        add_to_collectionlist("restart_update", [madboy.chat_id, madboy.id])
+        add_to_collectionlist("restart_update", [nadan.chat_id, nadan.id])
     except Exception as e:
         LOGS.error(e)
     executable = sys.executable.replace(" ", "\\ ")

@@ -30,7 +30,7 @@ from .logger import logging
 LOGS = logging.getLogger(__name__)
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-LIONLOGO = "https://telegra.ph/file/c7699bd09d7aacb203bba.jpg"
+LIONLOGO = "https://telegra.ph/file/493268c1f5ebedc967eba.jpg"
 tr = Config.COMMAND_HAND_LER
 
 
@@ -53,15 +53,25 @@ def ibuild_keyboard(buttons):
 
 
 def main_menu():
-    text = f"𝐋𝐢𝐨𝐧𝐙 𝗛𝗲𝗹𝗽𝗲𝗿\
+    text = f"𝗖𝗮𝘁𝗨𝘀𝗲𝗿𝗯𝗼𝘁 𝗛𝗲𝗹𝗽𝗲𝗿\
         \n𝗣𝗿𝗼𝘃𝗶𝗱𝗲𝗱 𝗯𝘆 {mention}"
     buttons = [
-        (Button.inline(f"⚡ ᴀᴅᴍɪɴ ({len(GRP_INFO['admin'])})", data="admin_menu"),),
-        (Button.inline(f"💥 ғᴜɴ ({len(GRP_INFO['fun'])})", data="fun_menu"),),
-        (Button.inline(f"🧰 ᴛᴏᴏʟs ({len(GRP_INFO['tools'])})", data="tools_menu"),),
+        (Button.inline("ℹ️ Info", data="check"),),
         (
-            Button.inline("✍️ ɪɴғᴏ", data="check"),
-            Button.inline("🔐 ᴄʟᴏsᴇ", data="close"),
+            Button.inline(f"👮‍♂️ Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),
+            Button.inline(f"🤖 Bot ({len(GRP_INFO['bot'])})", data="bot_menu"),
+        ),
+        (
+            Button.inline(f"🎨 Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),
+            Button.inline(f"🧩 Misc ({len(GRP_INFO['misc'])})", data="misc_menu"),
+        ),
+        (
+            Button.inline(f"🧰 Tools ({len(GRP_INFO['tools'])})", data="tools_menu"),
+            Button.inline(f"🗂 Utils ({len(GRP_INFO['utils'])})", data="utils_menu"),
+        ),
+        (
+            Button.inline(f"➕ Extra ({len(GRP_INFO['extra'])})", data="extra_menu"),
+            Button.inline("🔒 Close Menu", data="close"),
         ),
     ]
 
@@ -85,13 +95,13 @@ def paginate_help(
     category_pgno=0,
 ):  # sourcery no-metrics
     try:
-        number_of_rows = int(gvarstatus("NO_OF_ROWS_IN_HELP") or 6)
+        number_of_rows = int(gvarstatus("NO_OF_ROWS_IN_HELP") or 5)
     except (ValueError, TypeError):
-        number_of_rows = 6
+        number_of_rows = 5
     try:
-        number_of_cols = int(gvarstatus("NO_OF_COLUMNS_IN_HELP") or 3)
+        number_of_cols = int(gvarstatus("NO_OF_COLUMNS_IN_HELP") or 2)
     except (ValueError, TypeError):
-        number_of_cols = 3
+        number_of_cols = 2
     HELP_EMOJI = gvarstatus("HELP_EMOJI") or " "
     helpable_plugins = [p for p in loaded_plugins if not p.startswith("_")]
     helpable_plugins = sorted(helpable_plugins)
@@ -153,13 +163,13 @@ def paginate_help(
                 modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
             ] + [
                 (
-                    Button.inline("🔻", data=f"{prefix}_prev({modulo_page})_plugin"),
-                    Button.inline("🔸 Menu", data="mainmenu"),
-                    Button.inline("🔺", data=f"{prefix}_next({modulo_page})_plugin"),
+                    Button.inline("⌫", data=f"{prefix}_prev({modulo_page})_plugin"),
+                    Button.inline("⚙️ Main Menu", data="mainmenu"),
+                    Button.inline("⌦", data=f"{prefix}_next({modulo_page})_plugin"),
                 )
             ]
         else:
-            pairs = pairs + [(Button.inline("🔸 Menu", data="mainmenu"),)]
+            pairs = pairs + [(Button.inline("⚙️ Main Menu", data="mainmenu"),)]
     elif len(pairs) > number_of_rows:
         if category_pgno < 0:
             category_pgno = len(pairs) + category_pgno
@@ -168,15 +178,15 @@ def paginate_help(
         ] + [
             (
                 Button.inline(
-                    "🔻",
+                    "⌫",
                     data=f"{prefix}_prev({modulo_page})_command_{category_plugins}_{category_pgno}",
                 ),
                 Button.inline(
-                    "🔙",
+                    "⬅️ Back ",
                     data=f"back_plugin_{category_plugins}_{category_pgno}",
                 ),
                 Button.inline(
-                    "🔺",
+                    "⌦",
                     data=f"{prefix}_next({modulo_page})_command_{category_plugins}_{category_pgno}",
                 ),
             )
@@ -187,7 +197,7 @@ def paginate_help(
         pairs = pairs + [
             (
                 Button.inline(
-                    "🔙",
+                    "⬅️ Back ",
                     data=f"back_plugin_{category_plugins}_{category_pgno}",
                 ),
             )
@@ -212,11 +222,11 @@ async def inline_handler(event):  # sourcery no-metrics
         match2 = re.findall(inf, query)
         hid = re.compile("hide (.*)")
         match3 = re.findall(hid, query)
-        if query.startswith("**LionZ"):
+        if query.startswith("**LionXub"):
             buttons = [
                 (
                     Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/TeamLionX/LionZ"),
+                    Button.url("Repo", "https://github.com/TeamLionX/LionX"),
                 )
             ]
             ALIVE_PIC = gvarstatus("ALIVE_PIC")
@@ -240,13 +250,13 @@ async def inline_handler(event):  # sourcery no-metrics
             elif I_IMG:
                 result = builder.document(
                     I_IMG,
-                    title="Alive LION",
+                    title="Alive lion",
                     text=query,
                     buttons=buttons,
                 )
             else:
                 result = builder.article(
-                    title="Alive LION",
+                    title="Alive lion",
                     text=query,
                     buttons=buttons,
                 )
@@ -299,13 +309,13 @@ async def inline_handler(event):  # sourcery no-metrics
                 try:
                     u = await event.client.get_entity(u)
                     if u.username:
-                        madboy = f"@{u.username}"
+                        nadan = f"@{u.username}"
                     else:
-                        madboy = f"[{u.first_name}](tg://user?id={u.id})"
+                        nadan = f"[{u.first_name}](tg://user?id={u.id})"
                     u = int(u.id)
                 except ValueError:
                     # ValueError: Could not find the input entity
-                    madboy = f"[user](tg://user?id={u})"
+                    nadan = f"[user](tg://user?id={u})"
             except ValueError:
                 # if u is username
                 try:
@@ -313,9 +323,9 @@ async def inline_handler(event):  # sourcery no-metrics
                 except ValueError:
                     return
                 if u.username:
-                    madboy = f"@{u.username}"
+                    nadan = f"@{u.username}"
                 else:
-                    madboy = f"[{u.first_name}](tg://user?id={u.id})"
+                    nadan = f"[{u.first_name}](tg://user?id={u.id})"
                 u = int(u.id)
             except Exception:
                 return
@@ -325,7 +335,7 @@ async def inline_handler(event):  # sourcery no-metrics
             buttons = [Button.inline("show message 🔐", data=f"troll_{timestamp}")]
             result = builder.article(
                 title="Troll Message",
-                text=f"Only {madboy} cannot access this message!",
+                text=f"Only {nadan} cannot access this message!",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
@@ -349,13 +359,13 @@ async def inline_handler(event):  # sourcery no-metrics
                 try:
                     u = await event.client.get_entity(u)
                     if u.username:
-                        madboy = f"@{u.username}"
+                        nadan = f"@{u.username}"
                     else:
-                        madboy = f"[{u.first_name}](tg://user?id={u.id})"
+                        nadan = f"[{u.first_name}](tg://user?id={u.id})"
                     u = int(u.id)
                 except ValueError:
                     # ValueError: Could not find the input entity
-                    madboy = f"[user](tg://user?id={u})"
+                    nadan = f"[user](tg://user?id={u})"
             except ValueError:
                 # if u is username
                 try:
@@ -363,9 +373,9 @@ async def inline_handler(event):  # sourcery no-metrics
                 except ValueError:
                     return
                 if u.username:
-                    madboy = f"@{u.username}"
+                    nadan = f"@{u.username}"
                 else:
-                    madboy = f"[{u.first_name}](tg://user?id={u.id})"
+                    nadan = f"[{u.first_name}](tg://user?id={u.id})"
                 u = int(u.id)
             except Exception:
                 return
@@ -375,7 +385,7 @@ async def inline_handler(event):  # sourcery no-metrics
             buttons = [Button.inline("show message 🔐", data=f"secret_{timestamp}")]
             result = builder.article(
                 title="secret message",
-                text=f"🔒 A whisper message to {madboy}, Only he/she can open it.",
+                text=f"🔒 A whisper message to {nadan}, Only he/she can open it.",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
@@ -410,8 +420,8 @@ async def inline_handler(event):  # sourcery no-metrics
         elif string == "help":
             _result = main_menu()
             result = builder.article(
-                title="© LionZ Help",
-                description="Help menu for LionZ",
+                title="© LionX Help",
+                description="Help menu for LionX",
                 text=_result[0],
                 buttons=_result[1],
                 link_preview=False,
@@ -435,7 +445,7 @@ async def inline_handler(event):  # sourcery no-metrics
                             data=f"ytdl_next_{key_}_1",
                         ),
                         Button.inline(
-                            "📝  List all",
+                            "📜  List all",
                             data=f"ytdl_listall_{key_}_1",
                         ),
                         Button.inline(
@@ -547,10 +557,10 @@ async def inline_handler(event):  # sourcery no-metrics
     else:
         buttons = [
             (
-                Button.url("Source code", "https://github.com/TeamLionX/LionZ"),
+                Button.url("Source code", "https://github.com/TeamLionX/LionX"),
                 Button.url(
                     "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX%2F/LionZ&template=https%3A%2F%2Fgithub.com%2FTeamLionX%2F/LionZ",
+                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMdNoor786%2FLionX&template=https%3A%2F%2Fgithub.com%2FMdNoor786%2FLionX",
                 ),
             )
         ]
@@ -559,14 +569,14 @@ async def inline_handler(event):  # sourcery no-metrics
             url=LIONLOGO, size=0, mime_type="image/jpeg", attributes=[]
         )
         text, msg_entities = await event.client._parse_message_text(
-            "𝗗𝗲𝗽𝗹𝗼𝘆 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝐋𝐢𝐨𝐧𝐙.", "md"
+            "𝗗𝗲𝗽𝗹𝗼𝘆 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝗖𝗮𝘁𝗨𝘀𝗲𝗿𝗯𝗼𝘁.", "md"
         )
         result = types.InputBotInlineResult(
             id=str(uuid4()),
             type="photo",
-            title="𝑳𝑰𝑶𝑵𝒁",
+            title="𝘾𝙖𝙩𝙐𝙨𝙚𝙧𝙗𝙤𝙩",
             description="Deploy yourself",
-            url="https://github.com/TeamLionX/LionZ",
+            url="https://github.com/TeamLionX/LionX",
             thumb=photo,
             content=photo,
             send_message=types.InputBotInlineMessageMediaAuto(
@@ -580,18 +590,18 @@ async def inline_handler(event):  # sourcery no-metrics
 @check_owner
 async def on_plug_in_callback_query_handler(event):
     buttons = [
-        (Button.inline("ʀᴇ-ᴏᴘᴇɴ", data="mainmenu"),),
+        (Button.inline("Open Menu", data="mainmenu"),),
     ]
-    await event.edit("ᴍᴇɴᴜ ᴄʟᴏsᴇᴅ", buttons=buttons)
+    await event.edit("Menu Closed", buttons=buttons)
 
 
 @lionub.tgbot.on(CallbackQuery(data=re.compile(b"check")))
 async def on_plugin_callback_query_handler(event):
     text = f"𝙿𝚕𝚞𝚐𝚒𝚗𝚜: {len(PLG_INFO)}\
         \n𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜: {len(CMD_INFO)}\
-        \n\n{tr}ℎ𝑒𝑙𝑝 <𝑝𝑙𝑢𝑔𝑖𝑛> : 𝑓𝑜𝑟 𝑠𝑝𝑒𝑐𝑖𝑓𝑖𝑐 𝑝𝑙𝑢𝑔𝑖𝑛 𝑖𝑛𝑓𝑜.\
-        \n{tr}ℎ𝑒𝑙𝑝 -𝑐 <𝑐𝑜𝑚𝑚𝑎𝑛𝑑> : 𝑓𝑜𝑟 𝑎𝑚𝑦 𝑐𝑜𝑚𝑚𝑎𝑛𝑑 𝑖𝑛𝑓𝑜.\
-        \n{tr}𝚜 <𝑞𝑢𝑒𝑟𝑦> : 𝑇𝑜 𝑠𝑒𝑎𝑟𝑥ℎ 𝑎𝑛𝑦 𝑐𝑜𝑚𝑚𝑎𝑛𝑑𝑠.\
+        \n\n{tr}𝚑𝚎𝚕𝚙 <𝚙𝚕𝚞𝚐𝚒𝚗> : 𝙵𝚘𝚛 𝚜𝚙𝚎𝚌𝚒𝚏𝚒𝚌 𝚙𝚕𝚞𝚐𝚒𝚗 𝚒𝚗𝚏𝚘.\
+        \n{tr}𝚑𝚎𝚕𝚙 -𝚌 <𝚌𝚘𝚖𝚖𝚊𝚗𝚍> : 𝙵𝚘𝚛 𝚊𝚗𝚢 𝚌𝚘𝚖𝚖𝚊𝚗𝚍 𝚒𝚗𝚏𝚘.\
+        \n{tr}𝚜 <𝚚𝚞𝚎𝚛𝚢> : 𝚃𝚘 𝚜𝚎𝚊𝚛𝚌𝚑 𝚊𝚗𝚢 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜.\
         "
     await event.answer(text, cache_time=0, alert=True)
 
@@ -609,7 +619,7 @@ async def on_plug_in_callback_query_handler(event):
 
 @lionub.tgbot.on(
     CallbackQuery(
-        data=re.compile(b"back_([a-z]+)_([a-z1-9]+)_([0-9]+)_?([a-z1-9]+)?_?([0-9]+)?")
+        data=re.compile(b"back_([a-z]+)_([a-z_1-9]+)_([0-9]+)_?([a-z1-9]+)?_?([0-9]+)?")
     )
 )
 @check_owner
@@ -707,7 +717,7 @@ async def on_plug_in_callback_query_handler(event):
 
 @lionub.tgbot.on(
     CallbackQuery(
-        data=re.compile(b"(.*)_cmdhelp_([a-z1-9]+)_([0-9]+)_([a-z]+)_([0-9]+)")
+        data=re.compile(b"(.*)_cmdhelp_([a-z_1-9]+)_([0-9]+)_([a-z]+)_([0-9]+)")
     )
 )
 @check_owner
@@ -720,10 +730,10 @@ async def on_plug_in_callback_query_handler(event):
     buttons = [
         (
             Button.inline(
-                "🔙",
+                "⬅️ Back ",
                 data=f"back_command_{category}_{pgno}_{category_plugins}_{category_pgno}",
             ),
-            Button.inline("🔸ᴍᴇɴᴜ", data="mainmenu"),
+            Button.inline("⚙️ Main Menu", data="mainmenu"),
         )
     ]
     text = f"**Command :** `{tr}{cmd}`\
