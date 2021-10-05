@@ -13,7 +13,7 @@ while flag:
         from .progress import *
         from .qhelper import process
         from .tools import *
-        from .utils import _format, _liontools, _lionutils
+        from .utils import _liontools, _lionutils, _format
 
         break
     except ModuleNotFoundError as e:
