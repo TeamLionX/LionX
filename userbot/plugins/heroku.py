@@ -1,4 +1,4 @@
-# Heroku manager for your LionZ
+# Heroku manager for your LionX
 
 # CC- @refundisillegal\nSyntax:-\n.get var NAME\n.del var NAME\n.set var NAME
 

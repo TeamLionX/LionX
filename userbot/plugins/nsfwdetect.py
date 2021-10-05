@@ -1,5 +1,5 @@
 # Copyright (C) 2020 BY - GitHub.com/code-rgb [TG - @deleteduser420]
-# ported to lion by @Copyless786 (@TeamLionX)
+# ported to lion by @Simpleboy786 (@SimpleBoy786)
 
 import os
 
@@ -10,7 +10,7 @@ from userbot import lionub
 from ..Config import Config
 from ..funcs.managers import edit_delete, edit_or_reply
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(

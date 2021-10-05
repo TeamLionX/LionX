@@ -31,7 +31,7 @@ async def _(event):
     stdout, stderr = await process.communicate()
     result = str(stdout.decode().strip()) + str(stderr.decode().strip())
     lionuser = await event.client.get_me()
-    curruser = lionuser.username or "LionZ"
+    curruser = lionuser.username or "LionX"
     uid = os.geteuid()
     if uid == 0:
         cresult = f"```{curruser}:~#``` ```{cmd}```\n```{result}```"
@@ -56,7 +56,7 @@ async def _(event):
     info={
         "header": "To Execute python script/statements in a subprocess.",
         "usage": "{tr}eval <command>",
-        "examples": "{tr}eval print('LionZ')",
+        "examples": "{tr}eval print('LionX')",
     },
 )
 async def _(event):

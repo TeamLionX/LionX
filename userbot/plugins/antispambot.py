@@ -1,5 +1,5 @@
-#    Copyright (C) 2020  Copyless786(π.$)
-# baning spmmers plugin for LionZ by @TeamLionX
+#    Copyright (C) 2020  @Copyless786(π.$)
+# baning spmmers plugin for LionX by @SimpleBoy786
 # included both cas(combot antispam service) and spamwatch (need to add more feaututres)
 
 from requests import get
@@ -11,7 +11,7 @@ from telethon.utils import get_display_name
 from ..Config import Config
 from ..sql_helper.gban_sql_helper import get_gbanuser, is_gbanned
 from ..utils import is_admin
-from . import BOTLOG, BOTLOG_CHATID, edit_or_reply, lionub, logging, spamwatch
+from . import BOTLOG, BOTLOG_CHATID, lionub, edit_or_reply, logging, spamwatch
 
 LOGS = logging.getLogger(__name__)
 plugin_category = "admin"

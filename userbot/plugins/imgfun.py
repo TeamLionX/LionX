@@ -1,4 +1,4 @@
-# by @Copyless786 (@TeamLionX)
+# by @Simpleboy786 (@SimpleBoy786)
 import io
 import os
 from io import BytesIO
@@ -46,10 +46,10 @@ async def imirror(event):  # sourcery no-metrics
     lionevent = await event.edit("__Reflecting the image....__")
     args = event.pattern_match.group(1)
     if args:
-        filename = "LionZ.webp"
+        filename = "LionX.webp"
         f_format = "webp"
     else:
-        filename = "LionZ.jpg"
+        filename = "LionX.jpg"
         f_format = "jpeg"
     try:
         imag = await _liontools.media_to_pic(lionevent, reply, noedits=True)
@@ -141,7 +141,7 @@ async def irotate(event):
         return await edit_delete(event, "**Error**\n" + str(e))
     await event.delete()
     img = io.BytesIO()
-    img.name = "LionUserbot.png"
+    img.name = "LionX.png"
     image.save(img, "PNG")
     img.seek(0)
     await event.client.send_file(event.chat_id, img, reply_to=reply)
@@ -201,7 +201,7 @@ async def iresize(event):
         return await edit_delete(lionevent, f"**Error:** __While resizing.\n{e}__")
     await event.delete()
     img = io.BytesIO()
-    img.name = "LionUserbot.png"
+    img.name = "LionX.png"
     image.save(img, "PNG")
     img.seek(0)
     await event.client.send_file(event.chat_id, img, reply_to=reply)

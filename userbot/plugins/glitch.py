@@ -1,6 +1,6 @@
 """
 designed By @Krishna_Singhal in userge
-ported to telethon by @Copyless786 and @TeamLionX
+ported to telethon by @Simpleboy786 and @SimpleBoy786
 """
 
 import os
@@ -66,8 +66,8 @@ async def glitch(event):
             duration=DURATION,
             loop=LOOP,
         )
-        madboy = await event.client.send_file(event.chat_id, glitched, reply_to=lionid)
-        await _lionutils.unsavegif(event, madboy)
+        nadan = await event.client.send_file(event.chat_id, glitched, reply_to=lionid)
+        await _lionutils.unsavegif(event, nadan)
     await glitch_file[0].delete()
     for files in (glitch_file[1], glitched):
         if files and os.path.exists(files):

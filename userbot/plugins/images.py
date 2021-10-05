@@ -1,6 +1,8 @@
-# image search for LionZ
+# image search for LionX
 import os
 import shutil
+
+from telethon.errors.rpcerrorlist import MediaEmptyError
 
 from userbot import lionub
 
@@ -8,7 +10,7 @@ from ..funcs.managers import edit_or_reply
 from ..helpers.google_image_download import googleimagesdownload
 from ..helpers.utils import reply_id
 
-plugin_category = "tools"
+plugin_category = "misc"
 
 
 @lionub.lion_cmd(
@@ -19,9 +21,9 @@ plugin_category = "tools"
         "description": "To search images in google. By default will send 3 images.you can get more images(upto 10 only by changing limit value as shown in usage and examples.",
         "usage": ["{tr}img <1-10> <query>", "{tr}img <query>"],
         "examples": [
-            "{tr}img 10 LionZ",
-            "{tr}img LionZ",
-            "{tr}img 7 LionZ",
+            "{tr}img 10 LionX",
+            "{tr}img LionX",
+            "{tr}img 7 LionX",
         ],
     },
 )
@@ -60,6 +62,13 @@ async def img_sampler(event):
     except Exception as e:
         return await lion.edit(f"Error: \n`{e}`")
     lst = paths[0][query.replace(",", " ")]
-    await event.client.send_file(event.chat_id, lst, reply_to=reply_to_id)
+    try:
+        await event.client.send_file(event.chat_id, lst, reply_to=reply_to_id)
+    except MediaEmptyError:
+        for i in lst:
+            try:
+                await event.client.send_file(event.chat_id, i, reply_to=reply_to_id)
+            except MediaEmptyError:
+                pass
     shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))
     await lion.delete()

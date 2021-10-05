@@ -1,5 +1,5 @@
-#  Copyright (C) 2020  Copyless786(π.$)
-# credits to @Copyless786 (@TeamLionX)
+#  Copyright (C) 2020  @Copyless786(π.$)
+# credits to @Simpleboy786 (@SimpleBoy786)
 import asyncio
 import os
 import re
@@ -28,7 +28,7 @@ plugin_category = "fun"
     info={
         "header": "Fake google search meme",
         "usage": "{tr}fakegs search query ; what you mean text",
-        "examples": "{tr}fakegs Lionuserbot ; One of the Popular userbot",
+        "examples": "{tr}fakegs LionXub ; One of the Popular userbot",
     },
 )
 async def nekobot(lion):
@@ -40,7 +40,7 @@ async def nekobot(lion):
             text = reply_to_id.message
         else:
             return await edit_delete(lion, "`What should i search in google.`", 5)
-    lionz = await edit_or_reply(lion, "`Connecting to https://www.google.com/ ...`")
+    lionx = await edit_or_reply(lion, "`Connecting to https://www.google.com/ ...`")
     text = deEmojify(text)
     if ";" in text:
         search, result = text.split(";")
@@ -54,7 +54,7 @@ async def nekobot(lion):
     lionfile = await fakegs(search, result)
     await asyncio.sleep(2)
     await lion.client.send_file(lion.chat_id, lionfile, reply_to=reply_to_id)
-    await lionz.delete()
+    await lionx.delete()
     if os.path.exists(lionfile):
         os.remove(lionfile)
 
@@ -65,7 +65,7 @@ async def nekobot(lion):
     info={
         "header": "trump tweet sticker with given custom text",
         "usage": "{tr}trump <text>",
-        "examples": "{tr}trump Lionuserbot is One of the Popular userbot",
+        "examples": "{tr}trump LionXub is One of the Popular userbot",
     },
 )
 async def nekobot(lion):
@@ -80,12 +80,12 @@ async def nekobot(lion):
             text = reply.message
         else:
             return await edit_delete(lion, "**Trump : **`What should I tweet`", 5)
-    lionz = await edit_or_reply(lion, "`Requesting trump to tweet...`")
+    lionx = await edit_or_reply(lion, "`Requesting trump to tweet...`")
     text = deEmojify(text)
     await asyncio.sleep(2)
     lionfile = await trumptweet(text)
     await lion.client.send_file(lion.chat_id, lionfile, reply_to=reply_to_id)
-    await lionz.delete()
+    await lionx.delete()
     if os.path.exists(lionfile):
         os.remove(lionfile)
 
@@ -96,7 +96,7 @@ async def nekobot(lion):
     info={
         "header": "modi tweet sticker with given custom text",
         "usage": "{tr}modi <text>",
-        "examples": "{tr}modi Lionuserbot is One of the Popular userbot",
+        "examples": "{tr}modi LionXub is One of the Popular userbot",
     },
 )
 async def nekobot(lion):
@@ -111,12 +111,12 @@ async def nekobot(lion):
             text = reply.message
         else:
             return await edit_delete(lion, "**Modi : **`What should I tweet`", 5)
-    lionz = await edit_or_reply(lion, "Requesting modi to tweet...")
+    lionx = await edit_or_reply(lion, "Requesting modi to tweet...")
     text = deEmojify(text)
     await asyncio.sleep(2)
     lionfile = await moditweet(text)
     await lion.client.send_file(lion.chat_id, lionfile, reply_to=reply_to_id)
-    await lionz.delete()
+    await lionx.delete()
     if os.path.exists(lionfile):
         os.remove(lionfile)
 
@@ -127,7 +127,7 @@ async def nekobot(lion):
     info={
         "header": "Change my mind banner with given custom text",
         "usage": "{tr}cmm <text>",
-        "examples": "{tr}cmm Lionuserbot is One of the Popular userbot",
+        "examples": "{tr}cmm LionXub is One of the Popular userbot",
     },
 )
 async def nekobot(lion):
@@ -141,12 +141,12 @@ async def nekobot(lion):
             text = reply.message
         else:
             return await edit_delete(lion, "`Give text to write on banner, man`", 5)
-    lionz = await edit_or_reply(lion, "`Your banner is under creation wait a sec...`")
+    lionx = await edit_or_reply(lion, "`Your banner is under creation wait a sec...`")
     text = deEmojify(text)
     await asyncio.sleep(2)
     lionfile = await changemymind(text)
     await lion.client.send_file(lion.chat_id, lionfile, reply_to=reply_to_id)
-    await lionz.delete()
+    await lionx.delete()
     if os.path.exists(lionfile):
         os.remove(lionfile)
 
@@ -157,7 +157,7 @@ async def nekobot(lion):
     info={
         "header": "kanna chan sticker with given custom text",
         "usage": "{tr}kanna text",
-        "examples": "{tr}kanna Lionuserbot is One of the Popular userbot",
+        "examples": "{tr}kanna LionXub is One of the Popular userbot",
     },
 )
 async def nekobot(lion):
@@ -172,12 +172,12 @@ async def nekobot(lion):
             text = reply.message
         else:
             return await edit_delete(lion, "**Kanna : **`What should i show you`", 5)
-    lionz = await edit_or_reply(lion, "`Kanna is writing your text...`")
+    lionx = await edit_or_reply(lion, "`Kanna is writing your text...`")
     text = deEmojify(text)
     await asyncio.sleep(2)
     lionfile = await kannagen(text)
     await lion.client.send_file(lion.chat_id, lionfile, reply_to=reply_to_id)
-    await lionz.delete()
+    await lionx.delete()
     if os.path.exists(lionfile):
         os.remove(lionfile)
 
@@ -188,7 +188,7 @@ async def nekobot(lion):
     info={
         "header": "The desired person tweet sticker with given custom text",
         "usage": "{tr}tweet <username> ; <text>",
-        "examples": "{tr}tweet iamsrk ; Lionuserbot is One of the Popular userbot",
+        "examples": "{tr}tweet iamsrk ; LionXub is One of the Popular userbot",
     },
 )
 async def nekobot(lion):
@@ -216,11 +216,11 @@ async def nekobot(lion):
             5,
         )
         return
-    lionz = await edit_or_reply(lion, f"`Requesting {username} to tweet...`")
+    lionx = await edit_or_reply(lion, f"`Requesting {username} to tweet...`")
     text = deEmojify(text)
     await asyncio.sleep(2)
     lionfile = await tweets(text, username)
     await lion.client.send_file(lion.chat_id, lionfile, reply_to=reply_to_id)
-    await lionz.delete()
+    await lionx.delete()
     if os.path.exists(lionfile):
         os.remove(lionfile)

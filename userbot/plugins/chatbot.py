@@ -210,7 +210,7 @@ async def ai_reply(event):
             response = await rs_client.get_ai_response(
                 message=event.message.text,
                 server="primary",
-                master="LionUserbot",
+                master="LionX",
                 bot=master_name,
                 uid=event.client.uid,
                 language=AI_LANG,

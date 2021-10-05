@@ -21,7 +21,7 @@ from ..funcs.logger import logging
 from . import BOTLOG, BOTLOG_CHATID, DEFAULT_BIO
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 BIO_PREFIX = Config.BIO_PREFIX

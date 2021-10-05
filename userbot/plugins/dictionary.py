@@ -1,4 +1,4 @@
-# Urban Dictionary for LionZ by @Copyless786
+# Urban Dictionary for LionX by @Simpleboy786
 from PyDictionary import PyDictionary
 
 from userbot import lionub
@@ -9,7 +9,7 @@ from ..helpers import AioHttp
 from ..helpers.utils import _format
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(

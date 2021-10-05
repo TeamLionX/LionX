@@ -35,7 +35,7 @@ async def _(event):
     "To list all plugins in userbot"
     cmd = "ls userbot/plugins"
     o = (await _lionutils.runcmd(cmd))[0]
-    OUTPUT = f"**[Lion's](tg://need_update_for_some_feature/) PLUGINS:**\n{o}"
+    OUTPUT = f"**[Cat's](tg://need_update_for_some_feature/) PLUGINS:**\n{o}"
     await edit_or_reply(event, OUTPUT)
 
 
@@ -53,7 +53,7 @@ async def _(event):
     cmd = "env"
     o = (await _lionutils.runcmd(cmd))[0]
     OUTPUT = (
-        f"**[Lion's](tg://need_update_for_some_feature/) Environment Module:**\n\n\n{o}"
+        f"**[Cat's](tg://need_update_for_some_feature/) Environment Module:**\n\n\n{o}"
     )
     await edit_or_reply(event, OUTPUT)
 

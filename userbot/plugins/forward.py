@@ -8,7 +8,7 @@ from userbot.funcs.logger import logging
 from ..Config import Config
 from ..funcs.managers import edit_or_reply
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 LOGS = logging.getLogger(__name__)
 
@@ -89,7 +89,7 @@ async def _(event):
     info={
         "header": "Split the word and forwards each letter from previous messages in that group",
         "usage": "{tr}fpost <text>",
-        "examples": "{tr}fpost LionZ",
+        "examples": "{tr}fpost LionX",
     },
 )
 async def _(event):

@@ -9,15 +9,14 @@ import requests
 from bs4 import BeautifulSoup
 from PIL import Image
 from search_engine_parser import BingSearch, GoogleSearch, YahooSearch
-from search_engine_parser.core.exceptions import NoResultsOrTrafficError
+from search_engine_parser.funcs.exceptions import NoResultsOrTrafficError
 
-from userbot import lionub
+from userbot import BOTLOG, BOTLOG_CHATID, lionub
 
 from ..Config import Config
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.functions import deEmojify
 from ..helpers.utils import reply_id
-from . import BOTLOG, BOTLOG_CHATID
 
 opener = urllib.request.build_opener()
 useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36"
@@ -74,10 +73,10 @@ async def scam(results, lim):
             "{tr}gs <query>",
         ],
         "examples": [
-            "{tr}gs LionZ",
-            "{tr}gs -l6 LionZ",
-            "{tr}gs -p2 LionZ",
-            "{tr}gs -p2 -l7 LionZ",
+            "{tr}gs LionX",
+            "{tr}gs -l6 LionX",
+            "{tr}gs -p2 LionX",
+            "{tr}gs -p2 -l7 LionX",
         ],
     },
 )
@@ -264,9 +263,7 @@ async def _(img):
         guess = match["best_guess"]
         imgspage = match["similar_images"]
         if guess and imgspage:
-            await lionevent.edit(
-                f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`"
-            )
+            await lionevent.edit(f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`")
         else:
             return await lionevent.edit("`Can't find any kind similar images.`")
         lim = img.pattern_match.group(1) or 3

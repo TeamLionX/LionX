@@ -1,7 +1,7 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 # Licensed under the Raphielscape Public License, Version 1.b (the "License");
 # you may not use this file except in compliance with the License.
-# LionUserbot module for having some fun with people.
+# Lionxbot module for having some fun with people.
 import asyncio
 import random
 import re
@@ -111,9 +111,9 @@ async def get_user(event):
             "{tr}<type>say <text>",
         ],
         "examples": [
-            "{tr}squirrelsay Lionuserbot",
-            "{tr}milksay LionZ",
-            "{tr}ghostbustersghostbusterssay Lionuserbot",
+            "{tr}squirrelsay LionXub",
+            "{tr}milksay LionX",
+            "{tr}ghostbustersghostbusterssay LionXub",
         ],
     },
 )
@@ -219,10 +219,10 @@ async def decide(event):
     else:
         r = requests.get("https://yesno.wtf/api").json()
     await event.delete()
-    madboy = await event.client.send_message(
+    nadan = await event.client.send_message(
         event.chat_id, str(r["answer"]).upper(), reply_to=message_id, file=r["image"]
     )
-    await _lionutils.unsavegif(event, madboy)
+    await _lionutils.unsavegif(event, nadan)
 
 
 @lionub.lion_cmd(

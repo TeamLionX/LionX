@@ -8,7 +8,7 @@ from ..Config import Config
 from ..funcs.managers import edit_or_reply
 from ..helpers import media_type
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 async def ocr_space_file(

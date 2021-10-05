@@ -45,7 +45,7 @@ headers = {
 ppath = os.path.join(os.getcwd(), "temp", "anilistuser.jpg")
 anime_path = os.path.join(os.getcwd(), "temp", "animeresult.jpg")
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 @lionub.lion_cmd(

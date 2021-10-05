@@ -16,7 +16,7 @@ from . import reply_id
 
 LOGS = logging.getLogger(os.path.basename(__name__))
 ppath = os.path.join(os.getcwd(), "temp", "githubuser.jpg")
-plugin_category = "tools"
+plugin_category = "misc"
 
 GIT_TEMP_DIR = "./temp/"
 
@@ -35,8 +35,8 @@ async def source(e):
     "Source code link of userbot"
     await edit_or_reply(
         e,
-        "Click [here](https://github.com/TeamLionX/LionZ) to open this bot source code\
-        \nClick [here](https://github.com/TeamLionX//LionZ) to open supported link for heroku",
+        "Click [here](https://github.com/TeamLionX/LionX) to open this bot source code\
+        \nClick [here](https://github.com/MdNoor786/nekopack) to open supported link for heroku",
     )
 
 
@@ -47,7 +47,7 @@ async def source(e):
         "header": "Shows the information about an user on GitHub of given username",
         "flags": {"-l": "repo limit : default to 5"},
         "usage": ".github [flag] [username]",
-        "examples": [".github TeamLionX", ".github -l5 TeamLionX"],
+        "examples": [".github MdNoor786", ".github -l5 MdNoor786"],
     },
 )
 async def _(event):

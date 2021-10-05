@@ -1,4 +1,4 @@
-# LionUserbot module for getting the event of a event.
+# LionX module for getting the event of a event.
 
 import io
 import json
@@ -13,9 +13,9 @@ from pytz import timezone as tz
 from ..Config import Config
 from ..helpers.utils import _format
 from ..sql_helper.globals import addgvar, gvarstatus
-from . import edit_or_reply, lionub, logging, reply_id
+from . import lionub, edit_or_reply, logging, reply_id
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 LOGS = logging.getLogger(__name__)
 # Get time zone of the given country. Credits: @aragon12 and @zakaryan2004.

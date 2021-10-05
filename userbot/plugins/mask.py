@@ -1,4 +1,4 @@
-# credits to @Copyless786 and @TeamLionX
+# credits to @Simpleboy786 and @SimpleBoy786
 
 import os
 
@@ -12,7 +12,7 @@ from ..Config import Config
 from ..funcs.managers import edit_or_reply
 from . import awooify, baguette, convert_toimage, iphonex, lolice
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 @lionub.lion_cmd(

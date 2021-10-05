@@ -21,7 +21,7 @@ plugin_category = "tools"
     info={
         "header": "Find the md5, sha1, sha256, sha512 of the string when written into a txt file.",
         "usage": "{tr}hash <text>",
-        "examples": "{tr}hash LionZ",
+        "examples": "{tr}hash LionX",
     },
 )
 async def gethash(hash_q):
@@ -62,7 +62,7 @@ async def gethash(hash_q):
             "de": "use this to decode the given text.",
         },
         "usage": ["{tr}hbase en <text to encode>", "{tr}hbase de <encoded text>"],
-        "examples": ["{tr}hbase en Lionuserbot", "{tr}hbase de Q2F0dXNlcmJvdA=="],
+        "examples": ["{tr}hbase en LionXub", "{tr}hbase de Q2F0dXNlcmJvdA=="],
     },
 )
 async def endecrypt(event):

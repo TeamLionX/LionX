@@ -1,7 +1,7 @@
 """
-Created by @Simpleboy786
-modified by  @Copyless786
-Userbot plugin for LionUserbot
+Created by @SimpleBoy786
+modified by  @Simpleboy786
+Userbot plugin for LionX
 """
 
 from userbot import lionub
@@ -18,7 +18,7 @@ plugin_category = "fun"
     info={
         "header": "Converts your text to big emoji text, with some default emojis.",
         "usage": "{tr}emoji <text>",
-        "examples": ["{tr}emoji LionZ"],
+        "examples": ["{tr}emoji LionX"],
     },
 )
 async def itachi(event):
@@ -49,7 +49,7 @@ async def itachi(event):
     info={
         "header": "Converts your text to big emoji text, with your custom emoji.",
         "usage": "{tr}cmoji <emoji> <text>",
-        "examples": ["{tr}cmoji 😺 LionZ"],
+        "examples": ["{tr}cmoji 😺 LionX"],
     },
 )
 async def itachi(event):

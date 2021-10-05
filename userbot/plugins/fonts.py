@@ -5,7 +5,7 @@ from userbot import lionub
 from ..funcs.managers import edit_or_reply
 from . import fonts
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 @lionub.lion_cmd(
@@ -17,7 +17,7 @@ plugin_category = "tools"
             "{tr}fmusical <text>",
             "{tr}fmusical reply this command to text message",
         ],
-        "examples": "{tr}fmusical LionZ",
+        "examples": "{tr}fmusical LionX",
     },
 )
 async def stylish_generator(event):
@@ -48,7 +48,7 @@ async def stylish_generator(event):
             "{tr}ancient <text>",
             "{tr}ancient reply this command to text message",
         ],
-        "examples": "{tr}ancient LionZ",
+        "examples": "{tr}ancient LionX",
     },
 )
 async def stylish_generator(event):
@@ -76,7 +76,7 @@ async def stylish_generator(event):
     info={
         "header": "Font style command.(Changes font style of the given text)",
         "usage": ["{tr}vapor <text>", "{tr}vapor reply this command to text message"],
-        "examples": "{tr}vapor LionZ",
+        "examples": "{tr}vapor LionX",
     },
 )
 async def vapor(event):
@@ -112,7 +112,7 @@ async def vapor(event):
             "{tr}smallcaps <text>",
             "{tr}smallcaps reply this command to text message",
         ],
-        "examples": "{tr}smallcaps LionZ",
+        "examples": "{tr}smallcaps LionX",
     },
 )
 async def stylish_generator(event):
@@ -143,7 +143,7 @@ async def stylish_generator(event):
             "{tr}blackbf <text>",
             "{tr}blackbf reply this command to text message",
         ],
-        "examples": "{tr}blackbf LionZ",
+        "examples": "{tr}blackbf LionX",
     },
 )
 async def stylish_generator(event):
@@ -174,7 +174,7 @@ async def stylish_generator(event):
             "{tr}bubbles <text>",
             "{tr}bubbles reply this command to text message",
         ],
-        "examples": "{tr}bubbles LionZ",
+        "examples": "{tr}bubbles LionX",
     },
 )
 async def stylish_generator(event):
@@ -202,7 +202,7 @@ async def stylish_generator(event):
     info={
         "header": "Font style command.(Changes font style of the given text)",
         "usage": ["{tr}tanf <text>", "{tr}tanf reply this command to text message"],
-        "examples": "{tr}tanf LionZ",
+        "examples": "{tr}tanf LionX",
     },
 )
 async def stylish_generator(event):
@@ -230,7 +230,7 @@ async def stylish_generator(event):
     info={
         "header": "Font style command.(Changes font style of the given text)",
         "usage": ["{tr}boxf <text>", "{tr}boxf reply this command to text message"],
-        "examples": "{tr}boxf LionZ",
+        "examples": "{tr}boxf LionX",
     },
 )
 async def stylish_generator(event):
@@ -261,7 +261,7 @@ async def stylish_generator(event):
             "{tr}smothtext <text>",
             "{tr}smothtext reply this command to text message",
         ],
-        "examples": "{tr}smothtext LionZ",
+        "examples": "{tr}smothtext LionX",
     },
 )
 async def stylish_generator(event):
@@ -289,7 +289,7 @@ async def stylish_generator(event):
     info={
         "header": "Font style command.(Changes font style of the given text)",
         "usage": ["{tr}egyptf <text>", "{tr}egyptf reply this command to text message"],
-        "examples": "{tr}egyptf LionZ",
+        "examples": "{tr}egyptf LionX",
     },
 )
 async def stylish_generator(event):
@@ -317,7 +317,7 @@ async def stylish_generator(event):
     info={
         "header": "Font style command.(Changes font style of the given text)",
         "usage": ["{tr}maref <text>", "{tr}maref reply this command to text message"],
-        "examples": "{tr}maref LionZ",
+        "examples": "{tr}maref LionX",
     },
 )
 async def stylish_generator(event):
@@ -345,7 +345,7 @@ async def stylish_generator(event):
     info={
         "header": "Font style command.(Changes font style of the given text)",
         "usage": ["{tr}handcf <text>", "{tr}handcf reply this command to text message"],
-        "examples": "{tr}handcf LionZ",
+        "examples": "{tr}handcf LionX",
     },
 )
 async def stylish_generator(event):
@@ -376,7 +376,7 @@ async def stylish_generator(event):
             "{tr}doublef <text>",
             "{tr}doublef reply this command to text message",
         ],
-        "examples": "{tr}doublef LionZ",
+        "examples": "{tr}doublef LionX",
     },
 )
 async def stylish_generator(event):
@@ -404,7 +404,7 @@ async def stylish_generator(event):
     info={
         "header": "Font style command.(Changes font style of the given text)",
         "usage": ["{tr}mock <text>", "{tr}mock reply this command to text message"],
-        "examples": "{tr}mock LionZ",
+        "examples": "{tr}mock LionX",
     },
 )
 async def spongemocktext(mock):
@@ -436,7 +436,7 @@ async def spongemocktext(mock):
     info={
         "header": "Font style command.(Changes font style of the given text)",
         "usage": ["{tr}ghostf <text>", "{tr}ghostf reply this command to text message"],
-        "examples": "{tr}ghostf LionZ",
+        "examples": "{tr}ghostf LionX",
     },
 )
 async def stylish_generator(event):
@@ -464,7 +464,7 @@ async def stylish_generator(event):
     info={
         "header": "Font style command.(Changes font style of the given text)",
         "usage": ["{tr}handsf <text>", "{tr}handsf reply this command to text message"],
-        "examples": "{tr}handsf LionZ",
+        "examples": "{tr}handsf LionX",
     },
 )
 async def stylish_generator(event):

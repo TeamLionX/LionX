@@ -11,7 +11,7 @@ from userbot import lionub
 from ..funcs.managers import edit_or_reply
 from ..helpers import reply_id
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 async def deepfry(img: Image) -> Image:

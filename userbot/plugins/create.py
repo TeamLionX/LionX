@@ -20,7 +20,7 @@ plugin_category = "tools"
             "c": "to create a private channel",
         },
         "usage": "{tr}create (b|g|c) <name of group/channel>",
-        "examples": "{tr}create b LionZ",
+        "examples": "{tr}create b LionX",
     },
 )
 async def _(event):
@@ -28,9 +28,9 @@ async def _(event):
     type_of_group = event.pattern_match.group(1)
     group_name = event.pattern_match.group(2)
     if type_of_group == "c":
-        descript = "This is a Test Channel created using LionZ"
+        descript = "This is a Test Channel created using LionX"
     else:
-        descript = "This is a Test Group created using LionZ"
+        descript = "This is a Test Group created using LionX"
     if type_of_group == "g":
         try:
             result = await event.client(

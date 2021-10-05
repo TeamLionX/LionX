@@ -16,15 +16,15 @@ from ..funcs.managers import edit_or_reply
 from ..helpers.utils import get_user_from_event, reply_id
 from . import ALIVE_NAME
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 async def amongus_gen(text: str, clr: int) -> str:
-    url = "https://github.com/TeamLionX/LionZ-Resources/raw/master/Resources/Amongus/"
+    url = "https://github.com/TeamLionX/LionX-Resources/raw/master/Resources/Amongus/"
     font = ImageFont.truetype(
         BytesIO(
             get(
-                "https://github.com/TeamLionX/LionZ-Resources/raw/master/Resources/fonts/bold.ttf"
+                "https://github.com/TeamLionX/LionX-Resources/raw/master/Resources/fonts/bold.ttf"
             ).content
         ),
         60,
@@ -53,10 +53,10 @@ async def amongus_gen(text: str, clr: int) -> str:
 
 async def get_imposter_img(text: str) -> str:
     background = get(
-        f"https://github.com/TeamLionX/LionZ-Resources/raw/master/Resources/imposter/impostor{randint(1,22)}.png"
+        f"https://github.com/TeamLionX/LionX-Resources/raw/master/Resources/imposter/impostor{randint(1,22)}.png"
     ).content
     font = get(
-        "https://github.com/TeamLionX/LionZ-Resources/raw/master/Resources/fonts/roboto_regular.ttf"
+        "https://github.com/TeamLionX/LionX-Resources/raw/master/Resources/fonts/roboto_regular.ttf"
     ).content
     font = BytesIO(font)
     font = ImageFont.truetype(font, 30)

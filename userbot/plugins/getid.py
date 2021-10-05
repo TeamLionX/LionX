@@ -5,7 +5,7 @@ from userbot.funcs.logger import logging
 
 from ..funcs.managers import edit_delete, edit_or_reply
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 LOGS = logging.getLogger(__name__)
 

@@ -1,4 +1,4 @@
-# Created by @Simpleboy786
+# Created by @SimpleBoy786
 
 import random
 
@@ -8,7 +8,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.utils import _lionutils, reply_id
 from . import lionub
 
-plugin_category = "tools"
+plugin_category = "Extra"
 
 
 @lionub.lion_cmd(

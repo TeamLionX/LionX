@@ -2,9 +2,9 @@ import io
 import sys
 import traceback
 
-from . import edit_or_reply, lionub
+from . import lionub, edit_or_reply
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(
@@ -13,9 +13,7 @@ plugin_category = "tools"
     info={
         "header": "To solve basic mathematics equations.",
         "description": "Solves the given maths equation by BODMAS rule.",
-        "usage": [
-            "{tr}calc 2+9",
-        ],
+        "usage": "{tr}calc 2+9",
     },
 )
 async def calculator(event):
@@ -27,9 +25,9 @@ async def calculator(event):
     redirected_output = sys.stdout = io.StringIO()
     redirected_error = sys.stderr = io.StringIO()
     stdout, stderr, exc = None, None, None
-    san = f"print({cmd})"
+    mad = f"print({cmd})"
     try:
-        await aexec(san, event)
+        await aexec(mad, event)
     except Exception:
         exc = traceback.format_exc()
     stdout = redirected_output.getvalue()

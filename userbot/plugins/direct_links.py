@@ -14,7 +14,7 @@ from ..funcs.logger import logging
 from ..funcs.managers import edit_or_reply
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "tools"
+plugin_category = "misc"
 
 
 @lionub.lion_cmd(

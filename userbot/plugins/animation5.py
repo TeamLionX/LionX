@@ -1,6 +1,6 @@
 import asyncio
 
-from . import edit_or_reply, lionub
+from . import lionub, edit_or_reply
 
 plugin_category = "fun"
 
@@ -118,12 +118,12 @@ async def _(event):
         "😧",
         "😡",
         "😢",
-        "‎**Repo of LionZ**",
+        "‎**Repo of LionX**",
         "😁",
         "😧",
         "😡",
         "😢",
-        "__**[Good to see you guys....]**__(github.com/TeamLionX/LionZ)",
+        "__**[Good to see you guys....]**__(github.com/TeamLionX/LionX)",
     ]
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)

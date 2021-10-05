@@ -1,4 +1,4 @@
-# pm and tagged messages logger for LionZ by @Copyless786 (@TeamLionX)
+# pm and tagged messages logger for LionX by @Simpleboy786 (@SimpleBoy786)
 import asyncio
 
 from userbot import lionub
@@ -14,7 +14,7 @@ from . import BOTLOG, BOTLOG_CHATID
 
 LOGS = logging.getLogger(__name__)
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 class LOG_CHATS:

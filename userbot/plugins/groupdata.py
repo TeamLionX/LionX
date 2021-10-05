@@ -26,7 +26,7 @@ from ..helpers import reply_id
 from . import BOTLOG, BOTLOG_CHATID
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(
@@ -39,7 +39,7 @@ plugin_category = "tools"
             "{tr}admins <username/userid>",
             "{tr}admins <in group where you need>",
         ],
-        "examples": "{tr}admins @LionXSupport",
+        "examples": "{tr}admins @LionXsupport",
     },
 )
 async def _(event):
@@ -93,7 +93,7 @@ async def _(event):
             "{tr}bots <username/userid>",
             "{tr}bots <in group where you need>",
         ],
-        "examples": "{tr}bots @LionXSupport",
+        "examples": "{tr}bots @LionXsupport",
     },
 )
 async def _(event):
@@ -184,7 +184,7 @@ async def get_users(show):
             "{tr}chatinfo <username/userid>",
             "{tr}chatinfo <in group where you need>",
         ],
-        "examples": "{tr}chatinfo @LionXSupport",
+        "examples": "{tr}chatinfo @LionXsupport",
     },
 )
 async def info(event):

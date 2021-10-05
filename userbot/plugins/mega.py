@@ -41,7 +41,7 @@ from . import humanbytes, time_formatter
 
 LOGS = logging.getLogger(__name__)
 
-plugin_category = "tools"
+plugin_category = "misc"
 
 
 TMP_DOWNLOAD_DIRECTORY = Config.TMP_DOWNLOAD_DIRECTORY

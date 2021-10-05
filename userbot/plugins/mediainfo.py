@@ -1,5 +1,5 @@
 # plugin by @deleteduser420
-# ported to telethon by @Copyless786 (@TeamLionX)
+# ported to telethon by @Simpleboy786 (@SimpleBoy786)
 import os
 
 from userbot import lionub
@@ -8,9 +8,9 @@ from userbot.funcs.logger import logging
 from ..Config import Config
 from ..funcs.managers import edit_or_reply
 from ..helpers import humanbytes, post_to_telegraph
-from ..helpers.utils import _format, _lionutils
+from ..helpers.utils import _lionutils, _format
 
-plugin_category = "tools"
+plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 
 

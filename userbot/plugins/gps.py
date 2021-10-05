@@ -1,4 +1,4 @@
-#    Credts @Copyless786
+#    Credts @Simpleboy786
 from geopy.geocoders import Nominatim
 from telethon.tl import types
 
@@ -7,7 +7,7 @@ from userbot import lionub
 from ..funcs.managers import edit_or_reply
 from ..helpers import reply_id
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 @lionub.lion_cmd(
@@ -24,7 +24,7 @@ async def gps(event):
     reply_to_id = await reply_id(event)
     input_str = event.pattern_match.group(1)
     lionevent = await edit_or_reply(event, "`finding.....`")
-    geolocator = Nominatim(user_agent="LionZ")
+    geolocator = Nominatim(user_agent="LionX")
     geoloc = geolocator.geocode(input_str)
     if geoloc:
         lon = geoloc.longitude

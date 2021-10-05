@@ -1,4 +1,4 @@
-# collage plugin for LionZ by @TeamLionX
+# collage plugin for LionX by @SimpleBoy786
 
 # Copyright (C) 2020 Alfiananda P.A
 #
@@ -13,7 +13,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import _lionutils, reply_id
 from . import make_gif
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(

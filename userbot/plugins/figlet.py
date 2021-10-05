@@ -1,9 +1,9 @@
 import pyfiglet
 
 from ..helpers.utils import _format
-from . import _format, deEmojify, edit_delete, edit_or_reply, lionub
+from . import _format, lionub, deEmojify, edit_delete, edit_or_reply
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 CMD_FIG = {
     "slant": "slant",

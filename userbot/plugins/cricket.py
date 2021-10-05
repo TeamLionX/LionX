@@ -1,13 +1,13 @@
 """
-Created by @Simpleboy786
+Created by @SimpleBoy786
 plugin for Lion_Userbot
 """
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from . import edit_or_reply, lionub, reply_id
+from . import lionub, edit_or_reply, reply_id
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 @lionub.lion_cmd(

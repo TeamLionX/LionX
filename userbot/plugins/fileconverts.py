@@ -1,4 +1,4 @@
-# by @Copyless786 (@TeamLionX)
+# by @Simpleboy786 (@SimpleBoy786)
 import asyncio
 import base64
 import io
@@ -33,10 +33,10 @@ from ..helpers.functions import (
     ud_frames,
     vid_to_gif,
 )
-from ..helpers.utils import _format, _liontools, _lionutils, parse_pre, reply_id
+from ..helpers.utils import _liontools, _lionutils, _format, parse_pre, reply_id
 from . import make_gif
 
-plugin_category = "tools"
+plugin_category = "misc"
 
 
 if not os.path.isdir("./temp"):
@@ -70,9 +70,7 @@ async def pic_gifcmd(event):  # sourcery no-metrics
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
     media_type(reply)
-    lionevent = await edit_or_reply(
-        event, "__Making round spin video wait a sec.....__"
-    )
+    lionevent = await edit_or_reply(event, "__Making round spin video wait a sec.....__")
     output = await _liontools.media_to_pic(event, reply, noedits=True)
     if output[1] is None:
         return await edit_delete(
@@ -132,7 +130,7 @@ async def pic_gifcmd(event):  # sourcery no-metrics
         force_file=False,
         thumb=await event.client.upload_file(meme_file),
     )
-    madboy = await event.client.send_file(
+    nadan = await event.client.send_file(
         event.chat_id,
         media,
         reply_to=reply,
@@ -140,7 +138,7 @@ async def pic_gifcmd(event):  # sourcery no-metrics
         supports_streaming=True,
     )
     if not args:
-        await _lionutils.unsavegif(event, madboy)
+        await _lionutils.unsavegif(event, nadan)
     await lionevent.delete()
     for i in [final, "Output.gif", meme_file, PATH, final]:
         if os.path.exists(i):
@@ -265,7 +263,7 @@ async def video_lionfile(event):  # sourcery no-metrics
                 force_file=False,
                 thumb=await event.client.upload_file(lionthumb) if lionthumb else None,
             )
-            madboy = await event.client.send_file(
+            nadan = await event.client.send_file(
                 event.chat_id,
                 media,
                 reply_to=lionid,
@@ -274,7 +272,7 @@ async def video_lionfile(event):  # sourcery no-metrics
             )
 
             if not args:
-                await _lionutils.unsavegif(event, madboy)
+                await _lionutils.unsavegif(event, nadan)
             os.remove(PATH)
             if flag:
                 os.remove(lionthumb)
@@ -528,7 +526,7 @@ async def _(event):  # sourcery no-metrics
             else:
                 return await edit_delete(event, "Use quality of range 0 to 721")
     lionreply = await event.get_reply_message()
-    lion_event = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    cat_event = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     if not lionreply or not lionreply.media or not lionreply.media.document:
         return await edit_or_reply(event, "`Stupid!, This is not animated sticker.`")
     if lionreply.media.document.mime_type != "application/x-tgsticker":
@@ -539,21 +537,21 @@ async def _(event):  # sourcery no-metrics
         parse_mode=_format.parse_pre,
     )
     try:
-        lion_event = Get(lion_event)
-        await event.client(lion_event)
+        cat_event = Get(cat_event)
+        await event.client(cat_event)
     except BaseException:
         pass
     reply_to_id = await reply_id(event)
     lionfile = await event.client.download_media(lionreply)
     liongif = await make_gif(event, lionfile, quality, fps)
-    madboy = await event.client.send_file(
+    nadan = await event.client.send_file(
         event.chat_id,
         liongif,
         support_streaming=True,
         force_document=False,
         reply_to=reply_to_id,
     )
-    await _lionutils.unsavegif(event, madboy)
+    await _lionutils.unsavegif(event, nadan)
     await lionevent.delete()
     for files in (liongif, lionfile):
         if files and os.path.exists(files):
@@ -738,15 +736,14 @@ async def pic_gifcmd(event):  # sourcery no-metrics
     output = await vid_to_gif("Output.gif", final)
     if output is None:
         await edit_delete(
-            lionevent,
-            "__There was some error in the media. I can't format it to gif.__",
+            lionevent, "__There was some error in the media. I can't format it to gif.__"
         )
         for i in [final, "Output.gif", imag[1]]:
             if os.path.exists(i):
                 os.remove(i)
         return
-    madboy = await event.client.send_file(event.chat_id, output, reply_to=reply)
-    await _lionutils.unsavegif(event, madboy)
+    nadan = await event.client.send_file(event.chat_id, output, reply_to=reply)
+    await _lionutils.unsavegif(event, nadan)
     await lionevent.delete()
     for i in [final, "Output.gif", imag[1]]:
         if os.path.exists(i):
@@ -782,8 +779,8 @@ async def _(event):
     result = await vid_to_gif(inputfile, outputfile, speed=args)
     if result is None:
         return await edit_delete(event, "__I couldn't convert it to gif.__")
-    madboy = await event.client.send_file(event.chat_id, result, reply_to=reply)
-    await _lionutils.unsavegif(event, madboy)
+    nadan = await event.client.send_file(event.chat_id, result, reply_to=reply)
+    await _lionutils.unsavegif(event, nadan)
     await lionevent.delete()
     for i in [inputfile, outputfile]:
         if os.path.exists(i):

@@ -1,4 +1,4 @@
-# file summary plugin for LionZ  by @Copyless786
+# file summary plugin for LionX  by @Simpleboy786
 import time
 
 from prettytable import PrettyTable
@@ -10,7 +10,7 @@ from ..helpers.tools import media_type
 from ..helpers.utils import _format
 from . import humanbytes
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 TYPES = [
@@ -36,7 +36,7 @@ def weird_division(n, d):
         "header": "Shows you the complete media/file summary of the that group.",
         "description": "As of now limited to last 10000 in the group u used",
         "usage": "{tr}chatfs <Username/id>",
-        "examples": "{tr}chatfs @LionXSupport",
+        "examples": "{tr}chatfs @LionXsupport",
     },
 )
 async def _(event):  # sourcery no-metrics

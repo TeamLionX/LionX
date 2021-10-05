@@ -9,7 +9,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from . import BOTLOG_CHATID
 
-plugin_category = "tools"
+plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
 
@@ -51,7 +51,7 @@ oldvars = {
             "get": "To show the already existing var value.",
             "del": "To delete the existing value",
         },
-        "var name": "**[list of vars]**(https://LionZ.gitbook.io/LionZ/data-vars-setup)",
+        "var name": "**[list of vars]**(https://LionX.gitbook.io/LionX/data-vars-setup)",
         "usage": [
             "{tr}setdv <var name> <var value>",
             "{tr}getdv <var name>",
@@ -85,7 +85,7 @@ async def bad(event):  # sourcery no-metrics
             vname = oldvars[vname]
         if cmd == "set":
             if not vinfo and vname == "ALIVE_TEMPLATE":
-                return await edit_delete(event, f"Check @lion_alive")
+                return await edit_delete(event, f"Check @cat_alive")
             if not vinfo:
                 return await edit_delete(
                     event, f"Give some values which you want to save for **{vname}**"
@@ -133,7 +133,7 @@ async def bad(event):  # sourcery no-metrics
     pattern="custom (pmpermit|pmpic|pmblock|startmsg)$",
     command=("custom", plugin_category),
     info={
-        "header": "To customize your LionUserbot.",
+        "header": "To customize your LionX.",
         "options": {
             "pmpermit": "To customize pmpermit text. ",
             "pmblock": "To customize pmpermit block message.",
@@ -162,8 +162,8 @@ async def bad(event):  # sourcery no-metrics
         "NOTE": "You can set,fetch or delete these by `{tr}setdv` , `{tr}getdv` & `{tr}deldv` as well.",
     },
 )
-async def custom_LionZ(event):
-    "To customize your LionUserbot."
+async def custom_LionX(event):
+    "To customize your LionX."
     reply = await event.get_reply_message()
     text = None
     if reply:
@@ -197,7 +197,7 @@ async def custom_LionZ(event):
     pattern="delcustom (pmpermit|pmpic|pmblock|startmsg)$",
     command=("delcustom", plugin_category),
     info={
-        "header": "To delete costomization of your LionUserbot.",
+        "header": "To delete costomization of your LionX.",
         "options": {
             "pmpermit": "To delete custom pmpermit text",
             "pmblock": "To delete custom pmpermit block message",
@@ -210,8 +210,8 @@ async def custom_LionZ(event):
         "NOTE": "You can set,fetch or delete these by `{tr}setdv` , `{tr}getdv` & `{tr}deldv` as well.",
     },
 )
-async def custom_LionZ(event):
-    "To delete costomization of your LionUserbot."
+async def custom_LionX(event):
+    "To delete costomization of your LionX."
     input_str = event.pattern_match.group(1)
     if input_str == "pmpermit":
         if gvarstatus("pmpermit_txt") is None:

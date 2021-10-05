@@ -34,7 +34,7 @@ async def chat_blacklist(event):
         if gvarstatus("blacklist_chats") is not None:
             return await edit_delete(event, "__Already it was turned on.__")
         addgvar("blacklist_chats", "true")
-        text = "__From now on, your LionUserbot doesn't work in the chats stored in database.__"
+        text = "__From now on, your LionX doesn't work in the chats stored in database.__"
         if len(blkchats) != 0:
             text += (
                 "**Bot is reloading to apply the changes. Please wait for a minute**"
@@ -51,7 +51,7 @@ async def chat_blacklist(event):
         )
     if gvarstatus("blacklist_chats") is not None:
         delgvar("blacklist_chats")
-        text = "__Your LionUserbot is as free as a bird.It works in Every Chat .__"
+        text = "__Your LionX is as free as a bird.It works in Every Chat .__"
         if len(blkchats) != 0:
             text += (
                 "**Bot is reloading to apply the changes. Please wait for a minute**"

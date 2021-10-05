@@ -26,7 +26,7 @@ LOGS = logging.getLogger(__name__)
             "{tr}msgto <username/userid/chatid/chatusername> reply to message",
             "{tr}msgto <username/userid/chatid/chatusername> <text>",
         ],
-        "examples": "{tr}msgto @LionXSupport just a testmessage",
+        "examples": "{tr}msgto @LionXsupport just a testmessage",
     },
 )
 async def lionbroadcast_add(event):

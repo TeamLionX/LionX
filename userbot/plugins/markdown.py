@@ -24,7 +24,7 @@ from userbot.funcs.logger import logging
 
 LOGS = logging.getLogger(__name__)
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 usernexp = re.compile(r"@(\w{3,32})\[(.+?)\]")
 nameexp = re.compile(r"\[([\w\S]+)\]\(tg://user\?id=(\d+)\)\[(.+?)\]")

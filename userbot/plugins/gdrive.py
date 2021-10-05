@@ -40,9 +40,9 @@ from . import (
 )
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "tools"
+plugin_category = "misc"
 
-# Lionuserbot Google Drive managers  ported from Projectbish and added extra things by @Copyless786
+# LionXub Google Drive managers  ported from Projectbish and added extra things by @Simpleboy786
 
 
 # =========================================================== #
@@ -607,7 +607,7 @@ async def upload(gdrive, service, file_path, file_name, mimeType, dir_id=None):
         pass
     body = {
         "name": file_name,
-        "description": "Uploaded from Telegram using Lionuserbot.",
+        "description": "Uploaded from Telegram using LionXub.",
         "mimeType": mimeType,
         "parents": [dir_id] if dir_id is not None else [GDRIVE_.parent_Id],
     }
@@ -940,7 +940,7 @@ async def generate_credentials(gdrive):
         except json.JSONDecodeError:
             await edit_or_reply(
                 gdrive,
-                "**AUTHENTILIONLE - ERROR**\n\n"
+                "**AUTHENTICATE - ERROR**\n\n"
                 "**Status : **`BAD`\n"
                 "**Reason : **`G_DRIVE_DATA entity is not valid!`",
             )
@@ -950,7 +950,7 @@ async def generate_credentials(gdrive):
         if G_DRIVE_CLIENT_ID is None and G_DRIVE_CLIENT_SECRET is None:
             await edit_or_reply(
                 gdrive,
-                "**AUTHENTILIONLE - ERROR**\n\n"
+                "**AUTHENTICATE - ERROR**\n\n"
                 "**Status : **`BAD`\n"
                 "**Reason : **`please get your G_DRIVE_DATA`",
             )
@@ -1494,16 +1494,12 @@ async def g_download(event):
     lionevent = await edit_or_reply(
         event, "`Downloading Requested File from G-Drive...`"
     )
-    file_name, lionprocess = await gdrive_download(
-        event, lionevent, service, drive_link
-    )
+    file_name, lionprocess = await gdrive_download(event, lionevent, service, drive_link)
     if lionprocess is not None:
         return await edit_delete(lionevent, file_name)
     thumb = thumb_image_path if os.path.exists(thumb_image_path) else None
     if not cmd:
-        await lionevent.edit(
-            "**File Downloaded.\nLocation : **`" + str(file_name) + "`"
-        )
+        await lionevent.edit("**File Downloaded.\nLocation : **`" + str(file_name) + "`")
     else:
         c_time = time.time()
         await event.client.send_file(

@@ -10,7 +10,7 @@ import os
 import subprocess
 
 from ..Config import Config
-from . import edit_or_reply, lionub
+from . import lionub, edit_or_reply
 
 plugin_category = "tools"
 
@@ -22,10 +22,8 @@ plugin_category = "tools"
         "header": "To download channel media files",
         "description": "pass username and no of latest messages to check to command \
              so the bot will download media files from that latest no of messages to server ",
-        "usage": [
-            "{tr}getc count channel_username",
-        ],
-        "examples": "{tr}getc 10 @LionXupdates",
+        "usage": "{tr}getc count channel_username",
+        "examples": "{tr}getc 10 @LionXsupport",
     },
 )
 async def get_media(event):
@@ -67,7 +65,7 @@ async def get_media(event):
         "description": "pass username to command so the bot will download all media files from that latest no of messages to server ",
         "note": "there is limit of 3000 messages for this process to prevent API limits. that is will download all media files from latest 3000 messages",
         "usage": "{tr}geta channel_username",
-        "examples": "{tr}geta @LionXupdates",
+        "examples": "{tr}geta @LionXsupport",
     },
 )
 async def get_media(event):
