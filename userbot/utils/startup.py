@@ -22,7 +22,7 @@ from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from .pluginmanager import load_module
 from .tools import create_supergroup
 
-LOGS = logging.getLogger("LionZ")
+LOGS = logging.getLogger("LionX")
 cmdhr = Config.COMMAND_HAND_LER
 
 
@@ -63,9 +63,9 @@ async def startupmessage():
         if BOTLOG:
             Config.LIONUBLOGO = await lionub.tgbot.send_file(
                 BOTLOG_CHATID,
-                "https://telegra.ph/file/c7699bd09d7aacb203bba.jpg",
-                caption="**Your LionUserbot has been started successfully.**",
-                buttons=[(Button.url("Support", "https://t.me/Lionxsupport"),)],
+                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
+                caption="**Your LionX has been started successfully.**",
+                buttons=[(Button.url("Support", "https://t.me/LionX"),)],
             )
     except Exception as e:
         LOGS.error(e)
@@ -208,7 +208,7 @@ async def verifyLoggerGroup():
     else:
         descript = "Don't delete this group or change to group(If you change group all your previous snips, welcome will be lost.)"
         _, groupid = await create_supergroup(
-            "LionZ BotLog Group", lionub, Config.TG_BOT_USERNAME, descript
+            "LionX BotLog Group", lionub, Config.TG_BOT_USERNAME, descript
         )
         addgvar("PRIVATE_GROUP_BOT_API_ID", groupid)
         print(
