@@ -6,7 +6,7 @@ from . import BASE, SESSION
 
 
 class Lion_GlobalCollection(BASE):
-    __tablename__ = "cat_globalcollection"
+    __tablename__ = "LionX_globalcollection"
     keywoard = Column(UnicodeText, primary_key=True)
     contents = Column(PickleType, primary_key=True, nullable=False)
 
