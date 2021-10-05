@@ -112,7 +112,7 @@ async def bot_start(event):
                 Button.url("Repo", "https://github.com/TeamLionX/LionX"),
                 Button.url(
                     "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMdNoor786%2FLionX&template=https%3A%2F%2Fgithub.com%2FMdNoor786%2FLionX",
+                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX2FLionX&template=https%3A%2F%2Fgithub.com%2FMdNoor786%2FLionX",
                 ),
             )
         ]
