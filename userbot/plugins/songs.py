@@ -1,6 +1,6 @@
-# by  @TeamLionX ( https://t.me/Copyless786  )
+# by  @SimpleBoy786 ( https://t.me/Simpleboy786  )
 
-# songs finder for LionZ
+# songs finder for LionX
 import asyncio
 import base64
 import io
@@ -22,7 +22,7 @@ from ..helpers.functions import name_dl, song_dl, video_dl, yt_search
 from ..helpers.tools import media_type
 from ..helpers.utils import _lionutils, reply_id
 
-plugin_category = "tools"
+plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 
 # =========================================================== #

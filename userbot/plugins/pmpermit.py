@@ -10,7 +10,6 @@ from userbot import lionub
 from userbot.funcs.logger import logging
 
 from ..Config import Config
-from ..funcs.devs import DEVLIST
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.utils import _format, get_user_from_event, reply_id
 from ..sql_helper import global_collectionjson as sql
@@ -19,7 +18,7 @@ from ..sql_helper import pmpermit_sql
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from . import mention
 
-plugin_category = "tools"
+plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
 
@@ -122,13 +121,13 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
     elif gvarstatus("pmmenu") is None:
         USER_BOT_NO_WARN = f"""__Hi__ {mention}__, I haven't approved you yet to personal message me. 
 
-You have {warns}/{totalwarns} warns until you get blocked by the LionUserbot.
+You have {warns}/{totalwarns} warns until you get blocked by the LionX.
 
 Choose an option from below to specify the reason of your message and wait for me to check it. __⬇️"""
     else:
         USER_BOT_NO_WARN = f"""__Hi__ {mention}__, I haven't approved you yet to personal message me.
 
-You have {warns}/{totalwarns} warns until you get blocked by the LionUserbot.
+You have {warns}/{totalwarns} warns until you get blocked by the LionX.
 
 Don't spam my inbox. say reason and wait until my response.__"""
     addgvar("pmpermit_text", USER_BOT_NO_WARN)
@@ -772,11 +771,6 @@ async def disapprove_p_m(event):
         return await edit_delete(
             event, "__Ok! I have disapproved everyone successfully.__"
         )
-    if str(event.chat_id) in DEVLIST:
-        await edit_delete(
-            event, "**Unable to disapprove this user. Seems like God !!**"
-        )
-
     if not reason:
         reason = "Not Mentioned."
     if pmpermit_sql.is_approved(user.id):
@@ -810,9 +804,6 @@ async def block_p_m(event):
             event,
             f"__Turn on pmpermit by doing __`{cmdhd}pmguard on` __for working of this plugin__",
         )
-    if str(event.chat_id) in DEVLIST:
-        await edit_delete(event, "**I can't Block My Creator !!**")
-
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(1)

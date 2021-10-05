@@ -9,7 +9,7 @@ import urllib.request
 from os import remove
 
 import cloudscraper
-import emoji as catemoji
+import emoji as lionemoji
 from bs4 import BeautifulSoup as bs
 from PIL import Image
 from telethon import events
@@ -34,7 +34,7 @@ from ..sql_helper.globals import gvarstatus
 
 plugin_category = "fun"
 
-# modified and developed by @Copyless786
+# modified and developed by @Simpleboy786
 
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
@@ -68,12 +68,12 @@ def verify_cond(lionarray, text):
 
 def pack_name(userid, pack, is_anim):
     if is_anim:
-        return f"LionZ_{userid}_{pack}_anim"
-    return f"LionZ_{userid}_{pack}"
+        return f"LionX_{userid}_{pack}_anim"
+    return f"LionX_{userid}_{pack}"
 
 
 def char_is_emoji(character):
-    return character in catemoji.UNICODE_EMOJI["en"]
+    return character in lionemoji.UNICODE_EMOJI["en"]
 
 
 def pack_nick(username, pack, is_anim):
@@ -273,7 +273,7 @@ async def kang(args):  # sourcery no-metrics
             user.first_name.encode("utf-8").decode("ascii")
             username = user.first_name
         except UnicodeDecodeError:
-            username = f"lion_{user.id}"
+            username = f"cat_{user.id}"
     else:
         username = user.username
     userid = user.id
@@ -349,7 +349,7 @@ async def kang(args):  # sourcery no-metrics
             "  A <strong>Telegram</strong> user has created the <strong>Sticker&nbsp;Set</strong>."
             not in htmlstr
         ):
-            async with args.client.conversation("Stickers") as conv:
+            async with args.client.conversation("@Stickers") as conv:
                 packname, emoji = await add_to_pack(
                     lionevent,
                     conv,
@@ -374,7 +374,7 @@ async def kang(args):  # sourcery no-metrics
             )
         else:
             await lionevent.edit("`Brewing a new Pack...`")
-            async with args.client.conversation("Stickers") as conv:
+            async with args.client.conversation("@Stickers") as conv:
                 otherpack, packname, emoji = await newpacksticker(
                     lionevent,
                     conv,
@@ -426,7 +426,7 @@ async def pack_kang(event):  # sourcery no-metrics
             user.first_name.encode("utf-8").decode("ascii")
             username = user.first_name
         except UnicodeDecodeError:
-            username = f"lion_{user.id}"
+            username = f"cat_{user.id}"
     photo = None
     userid = user.id
     is_anim = False
@@ -535,8 +535,8 @@ async def pack_kang(event):  # sourcery no-metrics
                 "  A <strong>Telegram</strong> user has created the <strong>Sticker&nbsp;Set</strong>."
                 in htmlstr
             ):
-                async with event.client.conversation("Stickers") as conv:
-                    pack, lionpackname = await newpacksticker(
+                async with event.client.conversation("@Stickers") as conv:
+                    pack, LionXname = await newpacksticker(
                         lionevent,
                         conv,
                         cmd,
@@ -550,8 +550,8 @@ async def pack_kang(event):  # sourcery no-metrics
                         pkang=True,
                     )
             else:
-                async with event.client.conversation("Stickers") as conv:
-                    pack, lionpackname = await add_to_pack(
+                async with event.client.conversation("@Stickers") as conv:
+                    pack, LionXname = await add_to_pack(
                         lionevent,
                         conv,
                         event,
@@ -565,10 +565,10 @@ async def pack_kang(event):  # sourcery no-metrics
                         cmd,
                         pkang=True,
                     )
-            if lionpackname is None:
+            if LionXname is None:
                 return
-            if lionpackname not in blablapacks:
-                blablapacks.append(lionpackname)
+            if LionXname not in blablapacks:
+                blablapacks.append(LionXname)
                 blablapacknames.append(pack)
         kangst += 1
         await asyncio.sleep(2)
@@ -593,7 +593,7 @@ async def pack_kang(event):  # sourcery no-metrics
             "{tr}gridpack -e👌 <packname>",
         ],
         "examples": [
-            "{tr}gridpack -e👌 LionUserbot",
+            "{tr}gridpack -e👌 LionX",
         ],
     },
 )
@@ -621,7 +621,7 @@ async def pic2packcmd(event):
     except Exception:
         emoji = "▫️"
     chat = "@Stickers"
-    name = "LionUserbot_" + "".join(
+    name = "LionX_" + "".join(
         random.choice(list(string.ascii_lowercase + string.ascii_uppercase))
         for _ in range(16)
     )

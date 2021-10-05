@@ -8,7 +8,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import get_user_from_event, sanga_seperator
 from ..helpers.utils import _format
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(
@@ -60,11 +60,11 @@ async def _(event):  # sourcery no-metrics
         await edit_delete(lionevent, "`The user doesn't have any record`")
     names, usernames = await sanga_seperator(responses)
     cmd = event.pattern_match.group(1)
-    madboy = None
+    nadan = None
     check = usernames if cmd == "u" else names
     for i in check:
-        if madboy:
+        if nadan:
             await event.reply(i, parse_mode=_format.parse_pre)
         else:
-            madboy = True
+            nadan = True
             await lionevent.edit(i, parse_mode=_format.parse_pre)

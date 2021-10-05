@@ -38,13 +38,13 @@ def get_key(val):
     pattern="sudo (on|off)$",
     command=("sudo", plugin_category),
     info={
-        "header": "To enable or disable sudo of your Lionuserbot.",
+        "header": "To enable or disable sudo of your LionXub.",
         "description": "Initially all sudo commands are disabled, you need to enable them by addscmd\n Check `{tr}help -c addscmd`",
         "usage": "{tr}sudo <on/off>",
     },
 )
 async def chat_blacklist(event):
-    "To enable or disable sudo of your LionUserbot."
+    "To enable or disable sudo of your LionX."
     input_str = event.pattern_match.group(1)
     sudousers = _sudousers_list()
     if input_str == "on":
@@ -174,9 +174,9 @@ async def _(event):
         sudousers = {}
     if len(sudochats) == 0:
         return await edit_delete(
-            event, "__There are no sudo users for your Lionuserbot.__"
+            event, "__There are no sudo users for your LionXub.__"
         )
-    result = "**The list of sudo users for your Lionuserbot are :**\n\n"
+    result = "**The list of sudo users for your LionXub are :**\n\n"
     for chat in sudochats:
         result += f"☞ **Name:** {mentionuser(sudousers[str(chat)]['chat_name'],sudousers[str(chat)]['chat_id'])}\n"
         result += f"**Chat Id :** `{chat}`\n"
@@ -219,9 +219,7 @@ async def _(event):  # sourcery no-metrics
         )
     input_str = input_str.split()
     if input_str[0] == "-all":
-        lionevent = await edit_or_reply(
-            event, "__Enabling all safe cmds for sudo....__"
-        )
+        lionevent = await edit_or_reply(event, "__Enabling all safe cmds for sudo....__")
         totalcmds = CMD_INFO.keys()
         flagcmds = (
             PLG_INFO["botcontrols"]
@@ -257,7 +255,7 @@ async def _(event):  # sourcery no-metrics
         for plugin in input_str:
             if plugin not in PLG_INFO:
                 errors += (
-                    f"`{plugin}` __There is no such plugin in your LionUserbot__.\n"
+                    f"`{plugin}` __There is no such plugin in your LionX__.\n"
                 )
             else:
                 loadcmds += PLG_INFO[plugin]
@@ -266,14 +264,14 @@ async def _(event):  # sourcery no-metrics
         loadcmds = []
         for cmd in input_str:
             if cmd not in CMD_INFO:
-                errors += f"`{cmd}` __There is no such command in your LionUserbot__.\n"
+                errors += f"`{cmd}` __There is no such command in your LionX__.\n"
             elif cmd in sudocmds:
                 errors += f"`{cmd}` __Is already enabled for sudo users__.\n"
             else:
                 loadcmds.append(cmd)
     for cmd in loadcmds:
         sqllist.add_to_list("sudo_enabled_cmds", cmd)
-    result = f"__Successfully enabled __ `{len(loadcmds)}` __ for LionUserbot sudo.__\n"
+    result = f"__Successfully enabled __ `{len(loadcmds)}` __ for LionX sudo.__\n"
     output = (
         result + "**Bot is reloading to apply the changes. Please wait for a minute**\n"
     )
@@ -348,7 +346,7 @@ async def _(event):  # sourcery no-metrics
         for plugin in input_str:
             if plugin not in PLG_INFO:
                 errors += (
-                    f"`{plugin}` __There is no such plugin in your LionUserbot__.\n"
+                    f"`{plugin}` __There is no such plugin in your LionX__.\n"
                 )
             else:
                 flagcmds += PLG_INFO[plugin]
@@ -357,7 +355,7 @@ async def _(event):  # sourcery no-metrics
         flagcmds = []
         for cmd in input_str:
             if cmd not in CMD_INFO:
-                errors += f"`{cmd}` __There is no such command in your LionUserbot__.\n"
+                errors += f"`{cmd}` __There is no such command in your LionX__.\n"
             elif cmd not in sudocmds:
                 errors += f"`{cmd}` __Is already disabled for sudo users__.\n"
             else:
@@ -367,7 +365,7 @@ async def _(event):  # sourcery no-metrics
         if sqllist.is_in_list("sudo_enabled_cmds", cmd):
             count += 1
             sqllist.rm_from_list("sudo_enabled_cmds", cmd)
-    result = f"__Successfully disabled __ `{count}` __ for LionUserbot sudo.__\n"
+    result = f"__Successfully disabled __ `{count}` __ for LionX sudo.__\n"
     output = (
         result + "**Bot is reloading to apply the changes. Please wait for a minute**\n"
     )

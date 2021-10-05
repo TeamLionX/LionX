@@ -14,7 +14,7 @@ from ..funcs.logger import logging
 from ..funcs.managers import edit_delete, edit_or_reply
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 # ====================== CONSTANT ===============================
@@ -137,11 +137,11 @@ async def _(event):
         "usage": "{tr}pusername <new username>",
     },
 )
-async def update_username(username):
+async def update_username(event):
     """For .username command, set a new username in Telegram."""
-    newusername = username.pattern_match.group(1)
+    newusername = event.pattern_match.group(1)
     try:
-        await username.client(UpdateUsernameRequest(newusername))
+        await event.client(UpdateUsernameRequest(newusername))
         await edit_delete(event, USERNAME_SUCCESS)
     except UsernameOccupiedError:
         await edit_or_reply(event, USERNAME_TAKEN)

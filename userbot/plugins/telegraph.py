@@ -1,4 +1,4 @@
-# telegraph utils for LionZ
+# telegraph utils for LionX
 import os
 import random
 import string
@@ -16,7 +16,7 @@ from ..funcs.managers import edit_or_reply
 from . import BOTLOG, BOTLOG_CHATID
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 telegraph = Telegraph()

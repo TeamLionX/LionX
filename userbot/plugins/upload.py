@@ -19,11 +19,11 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import progress
 from ..helpers.utils import reply_id
 
-plugin_category = "tools"
+plugin_category = "misc"
 
 PATH = os.path.join("./temp", "temp_vid.mp4")
 thumb_image_path = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "thumb_image.jpg")
-plugin_category = "tools"
+plugin_category = "misc"
 downloads = pathlib.Path("./downloads/").absolute()
 NAME = "untitled"
 

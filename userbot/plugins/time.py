@@ -12,7 +12,7 @@ from ..Config import Config
 from ..funcs.managers import edit_or_reply
 from . import reply_id
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 # Userbot timezone
 

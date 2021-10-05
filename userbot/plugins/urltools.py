@@ -5,7 +5,7 @@ from userbot import lionub
 
 from ..funcs.managers import edit_delete, edit_or_reply
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(
@@ -49,7 +49,7 @@ async def _(event):
     info={
         "header": "To short the given url.",
         "usage": "{tr}short <url/reply to url>",
-        "examples": "{tr}short https://github.com/TeamLionX/LionZ",
+        "examples": "{tr}short https://github.com/TeamLionX/LionX",
     },
 )
 async def _(event):

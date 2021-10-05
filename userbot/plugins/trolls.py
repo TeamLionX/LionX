@@ -1,5 +1,5 @@
-# credits to @Copyless786 and @TeamLionX
-#    Copyright (C) 2020  Copyless786(π.$)
+# credits to @Simpleboy786 and @SimpleBoy786
+#    Copyright (C) 2020  @Copyless786(π.$)
 
 import os
 

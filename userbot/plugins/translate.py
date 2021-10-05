@@ -8,7 +8,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..sql_helper.globals import addgvar, gvarstatus
 from . import BOTLOG, BOTLOG_CHATID, deEmojify
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 # https://github.com/ssut/py-googletrans/issues/234#issuecomment-722379788
 async def getTranslate(text, **kwargs):
@@ -33,7 +33,7 @@ async def getTranslate(text, **kwargs):
             "{tr}tl <language code> ; <text>",
             "{tr}tl <language codes>",
         ],
-        "examples": "{tr}tl te ; Lionuserbot is one of the popular bot",
+        "examples": "{tr}tl te ; LionXub is one of the popular bot",
     },
 )
 async def _(event):

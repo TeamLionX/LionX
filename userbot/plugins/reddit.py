@@ -18,7 +18,7 @@ from . import BOTLOG, BOTLOG_CHATID
 LOGS = logging.getLogger(__name__)
 API = "https://meme-api.herokuapp.com/gimme"
 
-plugin_category = "tools"
+plugin_category = "misc"
 
 
 @lionub.lion_cmd(
@@ -73,8 +73,8 @@ async def reddit_fetch(event):
 
         await event.delete()
         captionx += f"Source: [r/{subreddit}]({postlink})"
-        madboy = await event.client.send_file(
+        nadan = await event.client.send_file(
             event.chat_id, media_url, caption=captionx, reply_to=reply_to
         )
         if media_url.endswith(".gif"):
-            await _lionutils.unsavegif(event, madboy)
+            await _lionutils.unsavegif(event, nadan)

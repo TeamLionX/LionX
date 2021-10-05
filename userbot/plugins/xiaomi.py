@@ -1,5 +1,5 @@
 # created by @eve_enryu
-# edited & fix by @Simpleboy786
+# edited & fix by @SimpleBoy786
 
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
@@ -8,7 +8,7 @@ from userbot import lionub
 
 from ..funcs.managers import edit_or_reply
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 @lionub.lion_cmd(

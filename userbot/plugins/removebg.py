@@ -10,7 +10,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.utils import reply_id
 from . import convert_toimage, convert_tosticker
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 # this method will call the API, and return in the appropriate format

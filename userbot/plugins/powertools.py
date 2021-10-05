@@ -31,7 +31,7 @@ async def _(event):
     "Restarts the bot !!"
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, "#RESTART \n" "Bot Restarted")
-    madboy = await edit_or_reply(
+    nadan = await edit_or_reply(
         event,
         "Restarted. `.ping` me or `.help` to check if I am online, actually it takes 1-2 min for restarting",
     )
@@ -43,7 +43,7 @@ async def _(event):
     except Exception as e:
         LOGS.error(e)
     try:
-        add_to_collectionlist("restart_update", [madboy.chat_id, madboy.id])
+        add_to_collectionlist("restart_update", [nadan.chat_id, nadan.id])
     except Exception as e:
         LOGS.error(e)
     try:

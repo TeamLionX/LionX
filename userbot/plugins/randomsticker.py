@@ -12,26 +12,26 @@ from userbot import lionub
 
 from ..helpers import reply_id
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 BASE_URL = "https://headp.at/pats/{}"
 PAT_IMAGE = "pat.webp"
 
 
 @lionub.lion_cmd(
-    pattern="cat$",
-    command=("cat", plugin_category),
+    pattern="lion$",
+    command=("lion", plugin_category),
     info={
-        "header": "To get random cat stickers.",
-        "usage": "{tr}cat",
+        "header": "To get random lion stickers.",
+        "usage": "{tr}lion",
     },
 )
 async def _(event):
-    "To get random cat stickers."
+    "To get random lion stickers."
     await event.delete()
     reply_to_id = await reply_id(event)
     with open("temp.png", "wb") as f:
-        f.write(requests.get(nekos.cat()).content)
+        f.write(requests.get(nekos.lion()).content)
     img = Image.open("temp.png")
     img.save("temp.webp", "webp")
     img.seek(0)

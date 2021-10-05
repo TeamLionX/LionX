@@ -1,7 +1,7 @@
 """
 `Credits` @amnd33p
 from ..helpers.utils import _format
-Modified by @Copyless786
+Modified by @Simpleboy786
 """
 
 import io
@@ -18,7 +18,7 @@ from ..Config import Config
 from ..funcs.managers import edit_or_reply
 from . import reply_id
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(
@@ -27,7 +27,7 @@ plugin_category = "tools"
     info={
         "header": "To Take a screenshot of a website.",
         "usage": "{tr}ss <link>",
-        "examples": "{tr}ss https://github.com/TeamLionX/LionZ",
+        "examples": "{tr}ss https://github.com/TeamLionX/LionX",
     },
 )
 async def _(event):
@@ -99,7 +99,7 @@ async def _(event):
         "header": "To Take a screenshot of a website.",
         "description": "For functioning of this command you need to set SCREEN_SHOT_LAYER_ACCESS_KEY var",
         "usage": "{tr}scapture <link>",
-        "examples": "{tr}scapture https://github.com/TeamLionX/LionZ",
+        "examples": "{tr}scapture https://github.com/TeamLionX/LionX",
     },
 )
 async def _(event):

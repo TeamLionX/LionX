@@ -106,10 +106,10 @@ async def update(event, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
-    madboy = await event.edit(
+    nadan = await event.edit(
         "`Successfully Updated!\n" "Bot is restarting... Wait for a minute!`"
     )
-    await event.client.reload(madboy)
+    await event.client.reload(nadan)
 
 
 async def deploy(event, repo, ups_rem, ac_br, txt):
@@ -134,7 +134,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             f"{txt}\n" "`Invalid Heroku credentials for deploying userbot dyno.`"
         )
         return repo.__del__()
-    madboy = await event.edit(
+    nadan = await event.edit(
         "`Userbot dyno build in progress, please wait until the process finishes it usually takes 4 to 5 minutes .`"
     )
     try:
@@ -145,7 +145,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
     except Exception as e:
         LOGS.error(e)
     try:
-        add_to_collectionlist("restart_update", [madboy.chat_id, madboy.id])
+        add_to_collectionlist("restart_update", [nadan.chat_id, nadan.id])
     except Exception as e:
         LOGS.error(e)
     ups_rem.fetch(ac_br)
@@ -255,13 +255,16 @@ async def upstream(event):
     # Special case for deploy
     if changelog == "" and not force_update:
         await event.edit(
-            "\n`LIONZ is`  **up-to-date**  `with`  " f"**{UPSTREAM_REPO_BRANCH}**\n"
+            "\n`LIONUSERBOT is`  **up-to-date**  `with`  "
+            f"**{UPSTREAM_REPO_BRANCH}**\n"
         )
         return repo.__del__()
     if conf == "" and not force_update:
         await print_changelogs(event, ac_br, changelog)
         await event.delete()
-        return await event.respond(f"do `{cmdhd}update deploy` to update the LionZ")
+        return await event.respond(
+            f"do `{cmdhd}update deploy` to update the LionX"
+        )
 
     if force_update:
         await event.edit(
@@ -277,8 +280,8 @@ async def upstream(event):
     pattern="update deploy$",
 )
 async def upstream(event):
-    event = await edit_or_reply(event, "`Pulling the /LionZ repo wait a sec ....`")
-    off_repo = "https://github.com/TeamLionX//LionZ"
+    event = await edit_or_reply(event, "`Pulling the nekopack repo wait a sec ....`")
+    off_repo = "https://github.com/MdNoor786/nekopack"
     os.chdir("/app")
     try:
         txt = "`Oops.. Updater cannot continue due to "
@@ -306,3 +309,30 @@ async def upstream(event):
     ups_rem.fetch(ac_br)
     await event.edit("`Deploying userbot, please wait....`")
     await deploy(event, repo, ups_rem, ac_br, txt)
+
+
+@lionub.lion_cmd(
+    pattern="badcat$",
+    command=("badcat", plugin_category),
+    info={
+        "header": "To update to badcat( for extra masala and gali).",
+        "usage": "{tr}badcat",
+    },
+)
+async def variable(var):
+    "To update to badcat( for extra masala and gali)."
+    if Config.HEROKU_API_KEY is None:
+        return await edit_delete(
+            var,
+            "Set the required var in heroku to function this normally `HEROKU_API_KEY`.",
+        )
+    if Config.HEROKU_APP_NAME is not None:
+        app = Heroku.app(Config.HEROKU_APP_NAME)
+    else:
+        return await edit_delete(
+            var,
+            "Set the required var in heroku to function this normally `HEROKU_APP_NAME`.",
+        )
+    heroku_var = app.config()
+    await edit_or_reply(var, "`Changing goodcat to badcat wait for 2-3 minutes.`")
+    heroku_var["UPSTREAM_REPO"] = "https://github.com/TeamLionX/LionX"

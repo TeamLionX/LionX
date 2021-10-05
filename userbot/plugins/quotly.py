@@ -1,6 +1,6 @@
 """
 imported from nicegrill
-modified by @Copyless786
+modified by @Simpleboy786
 QuotLy: Avaible commands: .qbot
 """
 
@@ -41,7 +41,7 @@ def get_warp_length(width):
             "-s": "To output file as sticker",
         },
         "usage": "{tr}qpic <flag> <input/reply to text msg>",
-        "examples": ["{tr}qpic LionUserbot.", "{tr}qpic -b LionUserbot."],
+        "examples": ["{tr}qpic LionX.", "{tr}qpic -b LionX."],
     },
 )
 async def q_pic(event):  # sourcery no-metrics
@@ -126,10 +126,10 @@ async def q_pic(event):  # sourcery no-metrics
         )
     output = io.BytesIO()
     if sticker:
-        output.name = "LionUserbot.Webp"
+        output.name = "LionX.Webp"
         img.save(output, "webp")
     else:
-        output.name = "LionUserbot.png"
+        output.name = "LionX.png"
         img.save(output, "PNG")
     output.seek(0)
     await event.client.send_file(event.chat_id, output, reply_to=reply_to)

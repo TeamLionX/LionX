@@ -1,7 +1,7 @@
 # Random RGB Sticklet by @PhycoNinja13b
 # modified by @UniBorg
 # imported from ppe-remix by @heyworld & @DeletedUser420
-# modified by @Copyless786
+# modified by @Simpleboy786
 
 
 # RegEx by https://t.me/c/1220993104/500653 ( @SnapDragon7410 )
@@ -124,7 +124,7 @@ async def sticklet(event):
         ((512 - width) / 2, (512 - height) / 2), sticktext, font=font, fill=(R, G, B)
     )
     image_stream = io.BytesIO()
-    image_stream.name = "LionZ.webp"
+    image_stream.name = "LionX.webp"
     image.save(image_stream, "WebP")
     image_stream.seek(0)
     # finally, reply the sticker
@@ -173,7 +173,7 @@ async def honk(event):
     info={
         "header": "Make a cool tweet of your account",
         "usage": "{tr}twt <text/reply to msg>",
-        "examples": "{tr}twt Lionuserbot",
+        "examples": "{tr}twt LionXub",
     },
 )
 async def twt(event):

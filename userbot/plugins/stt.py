@@ -1,4 +1,4 @@
-# speech to text module for LionZ by uniborg (@spechide)
+# speech to text module for LionX by uniborg (@spechide)
 import os
 from datetime import datetime
 
@@ -10,7 +10,7 @@ from ..Config import Config
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import media_type
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(

@@ -10,7 +10,7 @@ from ..helpers.functions import random_quote, search_quotes
 from ..helpers.utils import parse_pre
 
 LOGS = logging.getLogger(__name__)
-plugin_category = "tools"
+plugin_category = "extra"
 
 
 @lionub.lion_cmd(

@@ -14,10 +14,10 @@ from ..helpers.utils import _lionutils
 from ..sql_helper.globals import addgvar, gvarstatus
 from . import BOTLOG, BOTLOG_CHATID
 
-plugin_category = "tools"
+plugin_category = "extra"
 
 
-async def spam_function(event, madboy, lion, sleeptimem, sleeptimet, DelaySpam=False):
+async def spam_function(event, nadan, lion, sleeptimem, sleeptimet, DelaySpam=False):
     # sourcery no-metrics
     counter = int(lion[0])
     if len(lion) == 2:
@@ -26,18 +26,18 @@ async def spam_function(event, madboy, lion, sleeptimem, sleeptimet, DelaySpam=F
             if gvarstatus("spamwork") is None:
                 return
             if event.reply_to_msg_id:
-                await madboy.reply(spam_message)
+                await nadan.reply(spam_message)
             else:
                 await event.client.send_message(event.chat_id, spam_message)
             await asyncio.sleep(sleeptimet)
-    elif event.reply_to_msg_id and madboy.media:
+    elif event.reply_to_msg_id and nadan.media:
         for _ in range(counter):
             if gvarstatus("spamwork") is None:
                 return
-            madboy = await event.client.send_file(
-                event.chat_id, madboy, caption=madboy.text
+            nadan = await event.client.send_file(
+                event.chat_id, nadan, caption=nadan.text
             )
-            await _lionutils.unsavegif(event, madboy)
+            await _lionutils.unsavegif(event, nadan)
             await asyncio.sleep(sleeptimem)
         if BOTLOG:
             if DelaySpam is not True:
@@ -66,11 +66,11 @@ async def spam_function(event, madboy, lion, sleeptimem, sleeptimet, DelaySpam=F
                     + f"Delay spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) with {counter} times with below message with delay {sleeptimet} seconds",
                 )
 
-            madboy = await event.client.send_file(BOTLOG_CHATID, madboy)
-            await _lionutils.unsavegif(event, madboy)
+            nadan = await event.client.send_file(BOTLOG_CHATID, nadan)
+            await _lionutils.unsavegif(event, nadan)
         return
-    elif event.reply_to_msg_id and madboy.text:
-        spam_message = madboy.text
+    elif event.reply_to_msg_id and nadan.text:
+        spam_message = nadan.text
         for _ in range(counter):
             if gvarstatus("spamwork") is None:
                 return
@@ -123,7 +123,7 @@ async def spam_function(event, madboy, lion, sleeptimem, sleeptimet, DelaySpam=F
 )
 async def spammer(event):
     "Floods the text in the chat !!"
-    madboy = await event.get_reply_message()
+    nadan = await event.get_reply_message()
     lion = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
     try:
         counter = int(lion[0])
@@ -139,7 +139,7 @@ async def spammer(event):
         sleeptimem = 0.3
     await event.delete()
     addgvar("spamwork", True)
-    await spam_function(event, madboy, lion, sleeptimem, sleeptimet)
+    await spam_function(event, nadan, lion, sleeptimem, sleeptimet)
 
 
 @lionub.lion_cmd(
@@ -222,7 +222,7 @@ async def stickerpack_spam(event):
         "header": "Spam the text letter by letter",
         "description": "Spam the chat with every letter in given text as new message.",
         "usage": "{tr}cspam <text>",
-        "examples": "{tr}cspam Lionuserbot",
+        "examples": "{tr}cspam LionXub",
     },
 )
 async def tmeme(event):
@@ -257,7 +257,7 @@ async def tmeme(event):
         "header": "Spam the text word by word.",
         "description": "Spams the chat with every word in given text as new message.",
         "usage": "{tr}wspam <text>",
-        "examples": "{tr}wspam I am using LionZ",
+        "examples": "{tr}wspam I am using LionX",
     },
 )
 async def tmeme(event):

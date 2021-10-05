@@ -19,7 +19,7 @@ from ..Config import Config
 from ..funcs.logger import logging
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import AioHttp
-from ..helpers.utils import _format, _lionutils, reply_id
+from ..helpers.utils import _lionutils, _format, reply_id
 
 plugin_category = "tools"
 
@@ -61,7 +61,7 @@ async def currency(event):
             f"https://free.currconv.com/api/v7/convert?q={fromcurrency}_{tocurrency}&compact=ultra&apiKey={Config.CURRENCY_API}"
         )
         symbols = await AioHttp().get_raw(
-            "https://raw.githubusercontent.com/TeamLionX/LionZ-Resources/master/Resources/Data/currency.py"
+            "https://raw.githubusercontent.com/TeamLionX/LionX-Resources/master/Resources/Data/currency.py"
         )
 
         symbols = json.loads(re.sub(", *\n *}", "}", symbols.decode("utf-8")))
@@ -112,9 +112,7 @@ async def _(event):
             response1 = await conv.get_response()
             if response1.text:
                 await event.client.send_read_acknowledge(conv.chat_id)
-                return await lionevent.edit(
-                    response1.text, parse_mode=_format.parse_pre
-                )
+                return await lionevent.edit(response1.text, parse_mode=_format.parse_pre)
             await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
             response3 = await conv.get_response()

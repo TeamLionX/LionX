@@ -35,7 +35,7 @@ from . import hmention
 
 BASE_YT_URL = "https://www.youtube.com/watch?v="
 LOGS = logging.getLogger(__name__)
-plugin_category = "tools"
+plugin_category = "misc"
 
 
 video_opts = {
@@ -163,7 +163,7 @@ async def download_audio(event):
     try:
         vid_data = YoutubeDL({"no-playlist": True}).extract_info(url, download=False)
     except ExtractorError:
-        vid_data = {"title": url, "uploader": "Lionuserbot", "formats": []}
+        vid_data = {"title": url, "uploader": "LionXub", "formats": []}
     startTime = time()
     retcode = await _mp3Dl(url=url, starttime=startTime, uid="320")
     if retcode != 0:

@@ -14,7 +14,7 @@ from userbot import lionub
 from ..funcs.managers import edit_delete, edit_or_reply
 from . import deEmojify, reply_id
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(

@@ -9,12 +9,12 @@ from userbot import lionub
 
 from ..funcs.managers import edit_delete, edit_or_reply
 
-plugin_category = "tools"
+plugin_category = "utils"
 
 # =========================================================== #
 #                           STRINGS                           #
 # =========================================================== #
-STAT_INDICATLION = "`Collecting stats, Wait man`"
+STAT_INDICATION = "`Collecting stats, Wait man`"
 CHANNELS_STR = "**The list of channels in which you are their are here **\n\n"
 CHANNELS_ADMINSTR = "**The list of channels in which you are admin are here **\n\n"
 CHANNELS_OWNERSTR = "**The list of channels in which you are owner are here **\n\n"
@@ -57,7 +57,7 @@ def user_full_name(user):
 )
 async def stats(event):  # sourcery no-metrics
     "To get statistics of your telegram account."
-    lion = await edit_or_reply(event, STAT_INDICATLION)
+    lion = await edit_or_reply(event, STAT_INDICATION)
     start_time = time.time()
     private_chats = 0
     bots = 0
@@ -123,7 +123,7 @@ async def stats(event):  # sourcery no-metrics
 )
 async def stats(event):  # sourcery no-metrics
     lioncmd = event.pattern_match.group(1)
-    lionevent = await edit_or_reply(event, STAT_INDICATLION)
+    lionevent = await edit_or_reply(event, STAT_INDICATION)
     start_time = time.time()
     lion = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     hi = []
@@ -174,7 +174,7 @@ async def stats(event):  # sourcery no-metrics
 )
 async def stats(event):  # sourcery no-metrics
     lioncmd = event.pattern_match.group(1)
-    lionevent = await edit_or_reply(event, STAT_INDICATLION)
+    lionevent = await edit_or_reply(event, STAT_INDICATION)
     start_time = time.time()
     lion = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     hi = []
