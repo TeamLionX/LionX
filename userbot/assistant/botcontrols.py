@@ -23,9 +23,9 @@ from .botmanagers import (
 
 LOGS = logging.getLogger(__name__)
 
-plugin_category = "admin"
+plugin_category = "bot"
 botusername = Config.TG_BOT_USERNAME
-cmhd = Config.COMMAND_HAND_LER
+cmd = Config.COMMAND_HAND_LER
 
 
 @lionub.bot_cmd(pattern="^/help$", from_users=Config.OWNER_ID)
@@ -44,10 +44,10 @@ async def bot_help(event):
 
 • **Cmd : **/unban <reason(optional)> or /unban <username/userid>
 • **Info : **__Reply to user message or provide username/userid to unban from the bot.__
-• **Note : **__To check banned users list use__ `{cmhd}bblist`.
+• **Note : **__To check banned users list use__ `{cmd}bblist`.
 
 • **Cmd : **/broadcast
-• **Info : **__Reply to a message to get broadcasted to every user who started your bot. To get list of users use__ `{cmhd}bot_users`.
+• **Info : **__Reply to a message to get broadcasted to every user who started your bot. To get list of users use__ `{cmd}bot_users`.
 • **Note : **__if user stoped/blocked the bot then he will be removed from your database that is he will erased from the bot_starters list.__
 """
     )
