@@ -32,7 +32,7 @@ except Exception as e:
 
 
 lionub.tgbot = tgbot = LionXClient(
-    session="CatTgbot",
+    session="LionTgbot",
     api_id=Config.APP_ID,
     api_hash=Config.API_HASH,
     loop=loop,
