@@ -50,6 +50,7 @@ async def selfdestruct(destroy):
     await sleep(ttl)
     await smsg.delete()
 
+
 @lionub.lion_cmd(
     pattern="slfchk$",
     command=("slfchk", plugin_category),
