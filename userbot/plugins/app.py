@@ -7,7 +7,7 @@ Fetch App Details from Playstore.
 import bs4
 import requests
 
-from . import ALIVE_NAME, lionub, edit_or_reply
+from . import ALIVE_NAME, edit_or_reply, lionub
 
 plugin_category = "utils"
 

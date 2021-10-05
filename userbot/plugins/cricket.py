@@ -5,7 +5,7 @@ plugin for Lion_Userbot
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from . import lionub, edit_or_reply, reply_id
+from . import edit_or_reply, lionub, reply_id
 
 plugin_category = "extra"
 

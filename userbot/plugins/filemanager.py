@@ -9,7 +9,7 @@ from userbot import lionub
 
 from ..Config import Config
 from ..funcs.managers import edit_delete, edit_or_reply
-from ..helpers.utils import _lionutils, _format
+from ..helpers.utils import _format, _lionutils
 from . import humanbytes
 
 plugin_category = "utils"

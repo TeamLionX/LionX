@@ -8,7 +8,7 @@ import re
 from telethon import Button
 
 from ..Config import Config
-from . import lionub, edit_delete, reply_id
+from . import edit_delete, lionub, reply_id
 
 plugin_category = "tools"
 # regex obtained from:
