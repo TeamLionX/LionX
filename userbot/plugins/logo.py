@@ -76,7 +76,7 @@ async def very(event):
     LOGO_FONT_STROKE_COLOR = gvarstatus("LOGO_FONT_STROKE_COLOR") or None
     LOGO_BACKGROUND = (
         gvarstatus("LOGO_BACKGROUND")
-        or f"https://raw.githubusercontent.com/TeamLionX/Files/main/backgroud/black.jpg"
+        or f"https://raw.githubusercontent.com/TeamLionX/Files/main/background/black.jpg"
     )
     LOGO_FONT = (
         gvarstatus("LOGO_FONT")
