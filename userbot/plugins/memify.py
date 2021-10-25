@@ -13,7 +13,7 @@ from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from userbot import lionub
 
 from ..funcs.managers import edit_delete, edit_or_reply
-from ..helpers import asciiart, cat_meeme, cat_meme, media_type
+from ..helpers import asciiart, lion_meeme, lion_meme, media_type
 from ..helpers.functions import (
     add_frame,
     convert_toimage,
