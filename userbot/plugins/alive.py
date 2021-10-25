@@ -47,8 +47,8 @@ async def amireallyalive(event):
     EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
     ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**✮ MY BOT IS RUNNING SUCCESSFULLY ✮**"
     LION_IMG = gvarstatus("ALIVE_PIC")
-    cat_caption = gvarstatus("ALIVE_TEMPLATE") or temp
-    caption = cat_caption.format(
+    Lion_caption = gvarstatus("ALIVE_TEMPLATE") or temp
+    caption = Lion_caption.format(
         ALIVE_TEXT=ALIVE_TEXT,
         EMOJI=EMOJI,
         mention=mention,
@@ -102,7 +102,7 @@ temp = """{ALIVE_TEXT}
 async def amireallyalive(event):
     "A kind of showing bot details by your inline bot"
     reply_to_id = await reply_id(event)
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
+    EMOJI = gvarstatus("ALIVE_EMOJI") or " ✨ "
     ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**LionXub is Up and Running**"
     cat_caption = f"{ALIVE_TEXT}\n"
     cat_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
