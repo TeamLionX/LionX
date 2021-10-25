@@ -185,9 +185,9 @@ async def memes(event):
     else:
         CNG_FONTS = gvarstatus("CNG_FONTS")
     if max(len(top), len(bottom)) < 21:
-        await cat_meme(CNG_FONTS, top, bottom, meme_file, meme)
+        await lion_meme(CNG_FONTS, top, bottom, meme_file, meme)
     else:
-        await cat_meeme(top, bottom, CNG_FONTS, meme_file, meme)
+        await lion_meeme(top, bottom, CNG_FONTS, meme_file, meme)
     if cmd != "mmf":
         meme = convert_tosticker(meme)
     await event.client.send_file(
