@@ -15,7 +15,7 @@ class Lion_GlobalCollection(BASE):
         self.contents = tuple(contents)
 
     def __repr__(self):
-        return "<Cat Global Collection lists '%s' for %s>" % (
+        return "<LionX Global Collection lists '%s' for %s>" % (
             self.contents,
             self.keywoard,
         )
