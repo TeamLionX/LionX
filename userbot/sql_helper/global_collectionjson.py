@@ -5,7 +5,7 @@ from . import BASE, SESSION
 
 
 class Lion_GlobalCollection_Json(BASE):
-    __tablename__ = "cat_globalcollectionjson"
+    __tablename__ = "lionx_globalcollectionjson"
     keywoard = Column(UnicodeText, primary_key=True)
     json = Column(MutableJson)
     njson = Column(NestedMutableJson)
