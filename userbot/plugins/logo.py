@@ -52,8 +52,8 @@ plugin_category = "extra"
             "{tr}slogo <text>",
         ],
         "examples": [
-            "{tr}logo Cat",
-            "{tr}slogo Cat",
+            "{tr}logo lion",
+            "{tr}slogo lion",
         ],
     },
 )
