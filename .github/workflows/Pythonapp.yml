@@ -1,4 +1,4 @@
-name: catChecker
+name: LionChecker
 
 on: [push, pull_request]
 
