@@ -30,6 +30,7 @@ lyricsgenius
 markdown
 motor
 moviepy
+multiutility
 nekos.py
 opencv-python-headless
 Pillow
