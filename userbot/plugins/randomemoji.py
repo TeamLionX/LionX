@@ -14,12 +14,13 @@ Emoji = EmojiCreator()
 
 @lionub.lion_cmd(
     pattern="randomoji",
-    command=("randommoji", plugin_category,
+    command=("randommoji", plugin_category),
     info={
         "header": "get random emoji in image format",
         "usage": ["{tr}randomoji"],
-        "examples": ["{tr}randomoji"],
-    },
+        "examples": ["{tr}randomoji"]
+    }
+)
 async def _(event):
     mmmm = await edit_or_reply(event, "**Generating Your Random Emoji ⏰✍️**")
     emoji = Emoji.get_random()
