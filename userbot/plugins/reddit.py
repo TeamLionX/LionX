@@ -18,7 +18,7 @@ from . import BOTLOG, BOTLOG_CHATID
 LOGS = logging.getLogger(__name__)
 API = "https://meme-api.herokuapp.com/gimme"
 
-plugin_category = "misc"
+plugin_category = "utils"
 
 
 @lionub.lion_cmd(

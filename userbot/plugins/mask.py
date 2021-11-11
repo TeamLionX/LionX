@@ -12,7 +12,7 @@ from ..Config import Config
 from ..funcs.managers import edit_or_reply
 from . import awooify, baguette, convert_toimage, iphonex, lolice
 
-plugin_category = "extra"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

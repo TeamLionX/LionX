@@ -94,7 +94,7 @@ async def cpu(event):
     cmd = "lion /proc/cpuinfo | grep 'model name'"
     o = (await _lionutils.runcmd(cmd))[0]
     await edit_or_reply(
-        event, f"**[Cat's](tg://need_update_for_some_feature/) CPU Model:**\n{o}"
+        event, f"**[Lion's](tg://need_update_for_some_feature/) CPU Model:**\n{o}"
     )
 
 

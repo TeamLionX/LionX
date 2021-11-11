@@ -35,7 +35,7 @@ from . import hmention
 
 BASE_YT_URL = "https://www.youtube.com/watch?v="
 LOGS = logging.getLogger(__name__)
-plugin_category = "misc"
+plugin_category = "utils"
 
 
 video_opts = {

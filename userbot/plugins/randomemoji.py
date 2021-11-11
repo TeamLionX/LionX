@@ -4,7 +4,7 @@ from ..funcs.logger import logging
 from ..funcs.managers import edit_or_reply
 
 LOGS = logging.getLogger(os.path.basename(__name__))
-plugin_category = "extra"
+plugin_category = "tools"
 
 import os
 

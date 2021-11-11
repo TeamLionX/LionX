@@ -11,7 +11,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.utils import reply_id
 
 LOGS = logging.getLogger(os.path.basename(__name__))
-plugin_category = "extra"
+plugin_category = "tools"
 
 
 async def wall_download(piclink, query):

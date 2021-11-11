@@ -273,7 +273,7 @@ async def kang(args):  # sourcery no-metrics
             user.first_name.encode("utf-8").decode("ascii")
             username = user.first_name
         except UnicodeDecodeError:
-            username = f"cat_{user.id}"
+            username = f"lion_{user.id}"
     else:
         username = user.username
     userid = user.id
@@ -426,7 +426,7 @@ async def pack_kang(event):  # sourcery no-metrics
             user.first_name.encode("utf-8").decode("ascii")
             username = user.first_name
         except UnicodeDecodeError:
-            username = f"cat_{user.id}"
+            username = f"lion_{user.id}"
     photo = None
     userid = user.id
     is_anim = False
