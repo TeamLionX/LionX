@@ -64,11 +64,6 @@ async def startup_process():
     Lioncheck.sucess = True
     return
     # Join Lion X Channel after deploying 🤐😅
-    try:
-        await lionub(JoinChannelRequest("@LionXSupport"))
-    except BaseException:
-        pass
-
     # Why not come here and chat??
     try:
         await lionub(JoinChannelRequest("@LionXUpdates"))
