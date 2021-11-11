@@ -65,13 +65,13 @@ async def startup_process():
     return
     # Join Lion X Channel after deploying 🤐😅
     try:
-        await bot(JoinChannelRequest("@LionXSupport"))
+        await lionub(JoinChannelRequest("@LionXSupport"))
     except BaseException:
         pass
 
     # Why not come here and chat??
     try:
-        await bot(JoinChannelRequest("@LionXUpdates"))
+        await lionub(JoinChannelRequest("@LionXUpdates"))
     except BaseException:
         pass
 
