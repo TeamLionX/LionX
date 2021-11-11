@@ -3,7 +3,7 @@ from covid import Covid
 
 from . import covidindia, edit_delete, edit_or_reply, lionub
 
-plugin_category = "extra"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

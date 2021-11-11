@@ -16,7 +16,7 @@ from . import reply_id
 
 LOGS = logging.getLogger(os.path.basename(__name__))
 ppath = os.path.join(os.getcwd(), "temp", "githubuser.jpg")
-plugin_category = "misc"
+plugin_category = "utils"
 
 GIT_TEMP_DIR = "./temp/"
 

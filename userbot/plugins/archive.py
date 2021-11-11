@@ -15,7 +15,7 @@ from ..Config import Config
 from . import edit_delete, edit_or_reply, lionub, progress
 
 thumb_image_path = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "thumb_image.jpg")
-plugin_category = "misc"
+plugin_category = "utils"
 
 
 def zipdir(dirName):

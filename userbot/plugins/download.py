@@ -17,7 +17,7 @@ from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import humanbytes, progress
 from ..helpers.utils import _format
 
-plugin_category = "misc"
+plugin_category = "utils"
 
 NAME = "untitled"
 

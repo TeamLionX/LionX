@@ -7,7 +7,7 @@ import requests
 from ..sql_helper.globals import gvarstatus
 from . import edit_delete, edit_or_reply, lionub
 
-plugin_category = "extra"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

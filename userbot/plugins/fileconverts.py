@@ -36,7 +36,7 @@ from ..helpers.functions import (
 from ..helpers.utils import _format, _liontools, _lionutils, parse_pre, reply_id
 from . import make_gif
 
-plugin_category = "misc"
+plugin_category = "utils"
 
 
 if not os.path.isdir("./temp"):
@@ -528,7 +528,7 @@ async def _(event):  # sourcery no-metrics
             else:
                 return await edit_delete(event, "Use quality of range 0 to 721")
     lionreply = await event.get_reply_message()
-    cat_event = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    lion_event = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     if not lionreply or not lionreply.media or not lionreply.media.document:
         return await edit_or_reply(event, "`Stupid!, This is not animated sticker.`")
     if lionreply.media.document.mime_type != "application/x-tgsticker":
@@ -539,8 +539,8 @@ async def _(event):  # sourcery no-metrics
         parse_mode=_format.parse_pre,
     )
     try:
-        cat_event = Get(cat_event)
-        await event.client(cat_event)
+        lion_event = Get(lion_event)
+        await event.client(lion_event)
     except BaseException:
         pass
     reply_to_id = await reply_id(event)

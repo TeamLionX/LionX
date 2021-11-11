@@ -6,7 +6,7 @@ from userbot import lionub
 from ..funcs.managers import edit_or_reply
 from . import lionmemes
 
-plugin_category = "extra"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(

@@ -7,7 +7,7 @@ from userbot import lionub
 from ..funcs.managers import edit_or_reply
 from ..helpers import reply_id
 
-plugin_category = "extra"
+plugin_category = "tools"
 
 
 @lionub.lion_cmd(
