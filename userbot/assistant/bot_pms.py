@@ -29,7 +29,7 @@ from .botmanagers import ban_user_from_bot
 
 LOGS = logging.getLogger(__name__)
 
-plugin_category = "bot"
+plugin_category = "admin"
 botusername = Config.TG_BOT_USERNAME
 
 
