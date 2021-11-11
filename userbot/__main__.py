@@ -1,4 +1,6 @@
 import sys
+from telethon import TelegramClient
+from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
 
 import userbot
 from userbot import BOTLOG_CHATID, HEROKU_APP, PM_LOGGER_GROUP_ID
@@ -61,6 +63,17 @@ async def startup_process():
     await startupmessage()
     Lioncheck.sucess = True
     return
+# Join Lion X Channel after deploying 🤐😅
+    try:
+        await bot(JoinChannelRequest("@LionXSupport"))
+    except BaseException:
+        pass
+
+# Why not come here and chat??
+    try:
+        await bot(JoinChannelRequest("@LionXUpdates"))
+    except BaseException:
+        pass
 
 
 lionub.loop.run_until_complete(startup_process())
