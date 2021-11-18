@@ -2,7 +2,7 @@ import io
 import sys
 import traceback
 
-from . import edit_or_reply, lionub
+from . import lionub, edit_or_reply
 
 plugin_category = "utils"
 
@@ -25,9 +25,9 @@ async def calculator(event):
     redirected_output = sys.stdout = io.StringIO()
     redirected_error = sys.stderr = io.StringIO()
     stdout, stderr, exc = None, None, None
-    mad = f"print({cmd})"
+    hmm = f"print({cmd})"
     try:
-        await aexec(mad, event)
+        await aexec(hmm, event)
     except Exception:
         exc = traceback.format_exc()
     stdout = redirected_output.getvalue()

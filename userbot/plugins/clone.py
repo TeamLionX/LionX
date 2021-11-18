@@ -1,4 +1,4 @@
-# Credits of Plugin @ViperAdnan and @Simpleboy786(revert)[will add sql soon]
+# Credits of Plugin @ViperAdnan and @TeamLionX(revert)[will add sql soon]
 import html
 
 from telethon.tl import functions
@@ -11,9 +11,9 @@ from . import (
     BOTLOG,
     BOTLOG_CHATID,
     DEFAULT_BIO,
+    lionub,
     edit_delete,
     get_user_from_event,
-    lionub,
 )
 
 plugin_category = "utils"

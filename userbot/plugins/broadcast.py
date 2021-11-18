@@ -2,7 +2,6 @@ import base64
 from asyncio import sleep
 
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
-from telethon.utils import get_display_name
 
 from .. import lionub
 from ..funcs.logger import logging
@@ -26,7 +25,7 @@ LOGS = logging.getLogger(__name__)
             "{tr}msgto <username/userid/chatid/chatusername> reply to message",
             "{tr}msgto <username/userid/chatid/chatusername> <text>",
         ],
-        "examples": "{tr}msgto @LionXsupport just a testmessage",
+        "examples": "{tr}msgto @LionXot just a testmessage",
     },
 )
 async def lionbroadcast_add(event):
@@ -96,7 +95,7 @@ async def lionbroadcast_add(event):
         try:
             await event.client.send_message(
                 BOTLOG_CHATID,
-                f"The Chat {get_display_name(await event.get_chat())} is added to category {keyword}",
+                f"The Chat {chat.title} is added to category {keyword}",
                 parse_mode=_format.parse_pre,
             )
         except Exception:
@@ -346,7 +345,7 @@ async def lionbroadcast_remove(event):
         try:
             await event.client.send_message(
                 BOTLOG_CHATID,
-                f"The Chat {get_display_name(await event.get_chat())} is removed from category {keyword}",
+                f"The Chat {chat.title} is removed from category {keyword}",
                 parse_mode=_format.parse_pre,
             )
         except Exception:
@@ -415,7 +414,7 @@ async def lionbroadcast_remove(event):
         try:
             await event.client.send_message(
                 BOTLOG_CHATID,
-                f"The Chat {get_display_name(await event.get_chat())} is removed from category {keyword}",
+                f"The Chat {chat.title} is removed from category {keyword}",
                 parse_mode=_format.parse_pre,
             )
         except Exception:

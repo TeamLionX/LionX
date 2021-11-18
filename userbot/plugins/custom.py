@@ -1,4 +1,3 @@
-from urlextract import URLExtract
 from validators.url import url
 
 from userbot import lionub
@@ -13,12 +12,12 @@ plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
 
-extractor = URLExtract()
+
 vlist = [
     "ALIVE_PIC",
     "ALIVE_EMOJI",
-    "ALIVE_TEMPLATE",
     "ALIVE_TEXT",
+    "ALIVE_TEMPLATE",
     "ALLOW_NSFW",
     "HELP_EMOJI",
     "HELP_TEXT",
@@ -34,7 +33,6 @@ vlist = [
 ]
 
 oldvars = {
-    "PM_PIC": "pmpermit_pic",
     "PM_TEXT": "pmpermit_txt",
     "PM_BLOCK": "pmblock",
 }
@@ -51,7 +49,7 @@ oldvars = {
             "get": "To show the already existing var value.",
             "del": "To delete the existing value",
         },
-        "var name": "**[list of vars]**(https://LionX.gitbook.io/LionX/data-vars-setup)",
+        "var name": "**[List of Database Vars]**(https://LionX.gitbook.io/LionX/data-vars-setup)",
         "usage": [
             "{tr}setdv <var name> <var value>",
             "{tr}getdv <var name>",
@@ -85,14 +83,16 @@ async def bad(event):  # sourcery no-metrics
             vname = oldvars[vname]
         if cmd == "set":
             if not vinfo and vname == "ALIVE_TEMPLATE":
-                return await edit_delete(event, f"Check @Lionalive")
+                return await edit_delete(
+                    event, "**💠 Check @lion_alive for alive teplate types.**", 60
+                )
             if not vinfo:
                 return await edit_delete(
                     event, f"Give some values which you want to save for **{vname}**"
                 )
             check = vinfo.split(" ")
             for i in check:
-                if (("PIC" in vname) or ("pic" in vname)) and not url(i):
+                if "PIC" in vname and not url(i):
                     return await edit_delete(event, "**Give me a correct link...**")
             addgvar(vname, vinfo)
             if BOTLOG_CHATID:
@@ -130,7 +130,7 @@ async def bad(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="custom (pmpermit|pmpic|pmblock|startmsg)$",
+    pattern="custom (pmpermit|pmblock|startmsg)$",
     command=("custom", plugin_category),
     info={
         "header": "To customize your LionX.",
@@ -138,7 +138,6 @@ async def bad(event):  # sourcery no-metrics
             "pmpermit": "To customize pmpermit text. ",
             "pmblock": "To customize pmpermit block message.",
             "startmsg": "To customize startmsg of bot when some one started it.",
-            "pmpic": "To customize pmpermit pic. Reply to media url or text containing media.",
         },
         "custom": {
             "{mention}": "mention user",
@@ -156,9 +155,7 @@ async def bad(event):  # sourcery no-metrics
             "{warns}": "warns",
             "{remwarns}": "remaining warns",
         },
-        "usage": [
-            "{tr}custom <option> reply",
-        ],
+        "usage": "{tr}custom <option> reply",
         "NOTE": "You can set,fetch or delete these by `{tr}setdv` , `{tr}getdv` & `{tr}deldv` as well.",
     },
 )
@@ -177,12 +174,6 @@ async def custom_LionX(event):
         addgvar("pmblock", text)
     if input_str == "startmsg":
         addgvar("START_TEXT", text)
-    if input_str == "pmpic":
-        urls = extractor.find_urls(reply.text)
-        if not urls:
-            return await edit_delete(event, "`the given link is not supported`", 5)
-        text = " ".join(urls)
-        addgvar("pmpermit_pic", text)
     await edit_or_reply(event, f"__Your custom {input_str} has been updated__")
     if BOTLOG_CHATID:
         await event.client.send_message(
@@ -191,52 +182,3 @@ async def custom_LionX(event):
                     \n**{input_str}** is updated newly in database as below",
         )
         await event.client.send_message(BOTLOG_CHATID, text, silent=True)
-
-
-@lionub.lion_cmd(
-    pattern="delcustom (pmpermit|pmpic|pmblock|startmsg)$",
-    command=("delcustom", plugin_category),
-    info={
-        "header": "To delete costomization of your LionX.",
-        "options": {
-            "pmpermit": "To delete custom pmpermit text",
-            "pmblock": "To delete custom pmpermit block message",
-            "pmpic": "To delete custom pmpermit pic.",
-            "startmsg": "To delete custom start message of bot when some one started it.",
-        },
-        "usage": [
-            "{tr}delcustom <option>",
-        ],
-        "NOTE": "You can set,fetch or delete these by `{tr}setdv` , `{tr}getdv` & `{tr}deldv` as well.",
-    },
-)
-async def custom_LionX(event):
-    "To delete costomization of your LionX."
-    input_str = event.pattern_match.group(1)
-    if input_str == "pmpermit":
-        if gvarstatus("pmpermit_txt") is None:
-            return await edit_delete(event, "__You haven't customzied your pmpermit.__")
-        delgvar("pmpermit_txt")
-    if input_str == "pmblock":
-        if gvarstatus("pmblock") is None:
-            return await edit_delete(event, "__You haven't customzied your pmblock.__")
-        delgvar("pmblock")
-    if input_str == "pmpic":
-        if gvarstatus("pmpermit_pic") is None:
-            return await edit_delete(event, "__You haven't customzied your pmpic.__")
-        delgvar("pmpermit_pic")
-    if input_str == "startmsg":
-        if gvarstatus("START_TEXT") is None:
-            return await edit_delete(
-                event, "__You haven't customzied your start msg in bot.__"
-            )
-        delgvar("START_TEXT")
-    await edit_or_reply(
-        event, f"__successfully deleted your customization of {input_str}.__"
-    )
-    if BOTLOG_CHATID:
-        await event.client.send_message(
-            BOTLOG_CHATID,
-            f"#DEL_DATAVAR\
-                    \n**{input_str}** is deleted from database",
-        )

@@ -1,5 +1,5 @@
-#    Copyright (C) 2020  @Copyless786(π.$)
-# baning spmmers plugin for LionX by @SimpleBoy786
+#    Copyright (C) 2020  Copyless786(π.$)
+# baning spmmers plugin for LionX by @TeamLionX
 # included both cas(combot antispam service) and spamwatch (need to add more feaututres)
 
 from requests import get
@@ -11,7 +11,7 @@ from telethon.utils import get_display_name
 from ..Config import Config
 from ..sql_helper.gban_sql_helper import get_gbanuser, is_gbanned
 from ..utils import is_admin
-from . import BOTLOG, BOTLOG_CHATID, edit_or_reply, lionub, logging, spamwatch
+from . import BOTLOG, BOTLOG_CHATID, lionub, edit_or_reply, logging, spamwatch
 
 LOGS = logging.getLogger(__name__)
 plugin_category = "admin"
@@ -141,10 +141,10 @@ async def caschecker(event):
         text += banned_users
         if not cas_count:
             text = "No CAS Banned users found!"
-    except ChatAdminRequiredError as carerr:
+    except ChatAdminRequiredError:
         await lionevent.edit("`CAS check failed: Admin privileges are required`")
         return
-    except BaseException as be:
+    except BaseException:
         await lionevent.edit("`CAS check failed`")
         return
     await lionevent.edit(text)
@@ -190,10 +190,10 @@ async def caschecker(event):
         text += banned_users
         if not cas_count:
             text = "No spamwatch Banned users found!"
-    except ChatAdminRequiredError as carerr:
+    except ChatAdminRequiredError:
         await lionevent.edit("`spamwatch check failed: Admin privileges are required`")
         return
-    except BaseException as be:
+    except BaseException:
         await lionevent.edit("`spamwatch check failed`")
         return
     await lionevent.edit(text)

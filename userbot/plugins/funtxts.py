@@ -8,17 +8,17 @@ plugin_category = "fun"
 
 
 @lionub.lion_cmd(
-    pattern="tcat$",
-    command=("tcat", plugin_category),
+    pattern="tlion$",
+    command=("tlion", plugin_category),
     info={
         "header": "Some random lion facial text art",
-        "usage": "{tr}tcat",
+        "usage": "{tr}tlion",
     },
 )
 async def hmm(lion):
     "Some random lion facial text art"
-    reactcat = nekos.textcat()
-    await edit_or_reply(lion, reactcat)
+    reactlion = nekos.textlion()
+    await edit_or_reply(lion, reactlion)
 
 
 @lionub.lion_cmd(
@@ -31,7 +31,7 @@ async def hmm(lion):
 )
 async def hmm(lion):
     "Some random Funny questions"
-    whycat = nekos.why()
+    whylion= nekos.why()
     await edit_or_reply(lion, whycat)
 
 
@@ -45,5 +45,5 @@ async def hmm(lion):
 )
 async def hmm(lion):
     "Some random facts"
-    factcat = nekos.fact()
-    await edit_or_reply(lion, factcat)
+    factlion = nekos.fact()
+    await edit_or_reply(lion, factlion)

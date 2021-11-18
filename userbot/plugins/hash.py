@@ -62,7 +62,7 @@ async def gethash(hash_q):
             "de": "use this to decode the given text.",
         },
         "usage": ["{tr}hbase en <text to encode>", "{tr}hbase de <encoded text>"],
-        "examples": ["{tr}hbase en LionXub", "{tr}hbase de Q2F0dXNlcmJvdA=="],
+        "examples": ["{tr}hbase en LionX", "{tr}hbase de Q2F0dXNlcmJvdA=="],
     },
 )
 async def endecrypt(event):

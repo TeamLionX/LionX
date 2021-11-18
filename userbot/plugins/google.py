@@ -9,14 +9,15 @@ import requests
 from bs4 import BeautifulSoup
 from PIL import Image
 from search_engine_parser import BingSearch, GoogleSearch, YahooSearch
-from search_engine_parser.funcs.exceptions import NoResultsOrTrafficError
+from search_engine_parser.core.exceptions import NoResultsOrTrafficError
 
-from userbot import BOTLOG, BOTLOG_CHATID, lionub
+from userbot import lionub
 
 from ..Config import Config
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.functions import deEmojify
 from ..helpers.utils import reply_id
+from . import BOTLOG, BOTLOG_CHATID
 
 opener = urllib.request.build_opener()
 useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36"
@@ -143,6 +144,19 @@ async def gsearch(q_event):
 
 
 @lionub.lion_cmd(
+    pattern="gis ([\s\S]*)",
+    command=("gis", plugin_category),
+    info={
+        "header": "Google search in image format",
+        "usage": "{tr}gis <query>",
+        "examples": "{tr}gis lion",
+    },
+)
+async def _(event):
+    "To search in google and send result in picture."
+
+
+@lionub.lion_cmd(
     pattern="grs$",
     command=("grs", plugin_category),
     info={
@@ -263,9 +277,7 @@ async def _(img):
         guess = match["best_guess"]
         imgspage = match["similar_images"]
         if guess and imgspage:
-            await lionevent.edit(
-                f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`"
-            )
+            await lionevent.edit(f"[{guess}]({fetchUrl})\n\n`Looking for this Image...`")
         else:
             return await lionevent.edit("`Can't find any kind similar images.`")
         lim = img.pattern_match.group(1) or 3

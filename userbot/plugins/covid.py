@@ -1,7 +1,7 @@
 # corona virus stats for LionX
 from covid import Covid
 
-from . import covidindia, edit_delete, edit_or_reply, lionub
+from . import lionub, covidindia, edit_delete, edit_or_reply
 
 plugin_category = "tools"
 

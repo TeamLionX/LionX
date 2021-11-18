@@ -13,9 +13,13 @@ plugin_category = "tools"
 
 hemojis = {
     "admin": "👮‍♂️",
+    "bot": "🤖",
     "fun": "🎨",
+    "misc": "🧩",
     "tools": "🧰",
     "utils": "🗂",
+    "extra": "➕",
+    "useless": "⚰️",
 }
 
 
@@ -61,7 +65,7 @@ async def cmdinfo(input_str, event, plugin=False):
         category = getkey(plugin)
         if category is not None:
             outstr += f"**Category :** `{category}`\n\n"
-    outstr += f"**✘  Intro :**\n{about[0]}"
+    outstr += f"**✘ Intro :**\n{about[0]}"
     return outstr
 
 
@@ -83,20 +87,20 @@ async def plugininfo(input_str, event, flag):
     if category is not None:
         outstr += f"**Category :** `{category}`\n\n"
     for cmd in sorted(cmds):
-        outstr += f"•  **cmd :** `{cmdprefix}{cmd}`\n"
+        outstr += f"**✘ Cmd :** `{cmdprefix}{cmd}`\n"
         try:
-            outstr += f"•  **info :** `{CMD_INFO[cmd][1]}`\n\n"
+            outstr += f"**➥ Info :** __{CMD_INFO[cmd][1]}__\n\n"
         except IndexError:
-            outstr += "•  **info :** `None`\n\n"
+            outstr += "**➥ Info :** `None`\n\n"
     outstr += f"**👩‍💻 Usage : ** `{cmdprefix}help <command name>`\
         \n**Note : **If command name is same as plugin name then use this `{cmdprefix}help -c <command name>`."
     return outstr
 
 
 async def grpinfo():
-    outstr = "**Plugins in LionXub are:**\n\n"
+    outstr = "**Plugins in LionX are:**\n\n"
     outstr += f"**👩‍💻 Usage : ** `{cmdprefix}help <plugin name>`\n\n"
-    category = ["admin", "bot", "fun", "misc", "tools", "utils", "extra"]
+    category = ["admin", "bot", "fun", "misc", "tools", "utils", "extra", "useless"]
     for lion in category:
         plugins = GRP_INFO[lion]
         outstr += f"**{hemojis[lion]} {lion.title()} **({len(plugins)})\n"
@@ -107,7 +111,7 @@ async def grpinfo():
 
 
 async def cmdlist():
-    outstr = "**Total list of Commands in your LionXub are :**\n\n"
+    outstr = "**Total list of Commands in your LionX are :**\n\n"
     category = ["admin", "bot", "fun", "misc", "tools", "utils", "extra"]
     for lion in category:
         plugins = GRP_INFO[lion]
@@ -188,12 +192,12 @@ async def _(event):
             return await edit_delete(event, "__Invalid plugin name recheck it.__")
         except Exception as e:
             return await edit_delete(event, f"**Error**\n`{e}`")
-        outstr = f"• **{input_str.title()} has {len(cmds)} commands**\n"
+        outstr = f"**✘ {input_str.title()} has {len(cmds)} commands**\n"
         for cmd in cmds:
             outstr += f"  - `{cmdprefix}{cmd}`\n"
         outstr += f"**👩‍💻 Usage : ** `{cmdprefix}help -c <command name>`"
     await edit_or_reply(
-        event, outstr, aslink=True, linktext="Total Commands of LionXub are :"
+        event, outstr, aslink=True, linktext="Total Commands of LionX are :"
     )
 
 

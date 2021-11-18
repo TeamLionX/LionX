@@ -1,4 +1,4 @@
-# by @Simpleboy786 (@SimpleBoy786)
+# by @TeamLionX (@TeamLionX)
 import io
 import os
 from io import BytesIO

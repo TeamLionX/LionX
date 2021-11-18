@@ -30,8 +30,8 @@ async def _(event):
     )
     stdout, stderr = await process.communicate()
     result = str(stdout.decode().strip()) + str(stderr.decode().strip())
-    lionuser = await event.client.get_me()
-    curruser = lionuser.username or "LionX"
+    Lionuser = await event.client.get_me()
+    curruser = Lionuser.username or "LionX"
     uid = os.geteuid()
     if uid == 0:
         cresult = f"```{curruser}:~#``` ```{cmd}```\n```{result}```"

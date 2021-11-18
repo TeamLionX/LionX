@@ -5,7 +5,7 @@ import json
 import requests
 
 from ..sql_helper.globals import gvarstatus
-from . import edit_delete, edit_or_reply, lionub
+from . import lionub, edit_delete, edit_or_reply
 
 plugin_category = "tools"
 

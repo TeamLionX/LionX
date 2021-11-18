@@ -79,6 +79,34 @@ async def insult(e):
 
 
 @lionub.lion_cmd(
+    pattern="love$",
+    command=("love", plugin_category),
+    info={
+        "header": "Chutiyappa suru",
+        "usage": "{tr}love",
+    },
+)
+async def suru(chutiyappa):
+    "Chutiyappa suru"
+    txt = random.choice(lionmemes.LOVESTR)
+    await edit_or_reply(chutiyappa, txt)
+
+
+@lionub.lion_cmd(
+    pattern="dhoka$",
+    command=("dhoka", plugin_category),
+    info={
+        "header": "Dhokha kha gya",
+        "usage": "{tr}dhoka",
+    },
+)
+async def katgya(chutiya):
+    "Dhokha kha gya"
+    txt = random.choice(lionmemes.DHOKA)
+    await edit_or_reply(chutiya, txt)
+
+
+@lionub.lion_cmd(
     pattern="hey$",
     command=("hey", plugin_category),
     info={

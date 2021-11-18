@@ -1,4 +1,4 @@
-#    Credts @Simpleboy786
+#    Credts @TeamLionX
 from geopy.geocoders import Nominatim
 from telethon.tl import types
 

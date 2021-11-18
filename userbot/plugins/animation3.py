@@ -1,7 +1,7 @@
 import asyncio
 from collections import deque
 
-from . import edit_delete, edit_or_reply, lionub, mention
+from . import lionub, edit_delete, edit_or_reply, mention
 
 plugin_category = "fun"
 

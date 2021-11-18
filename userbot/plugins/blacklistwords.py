@@ -35,7 +35,7 @@ async def on_new_message(event):
 
 
 @lionub.lion_cmd(
-    pattern="addblacklist(?:\s|$)([\s\S]*)",
+    pattern="addblacklist ((.|\n)*)",
     command=("addblacklist", plugin_category),
     info={
         "header": "To add blacklist words to database",
@@ -66,7 +66,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="rmblacklist(?:\s|$)([\s\S]*)",
+    pattern="rmblacklist ((.|\n)*)",
     command=("rmblacklist", plugin_category),
     info={
         "header": "To remove blacklist words from database",

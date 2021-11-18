@@ -1,4 +1,4 @@
-# Urban Dictionary for LionX by @Simpleboy786
+# Urban Dictionary for LionX by @TeamLionX
 from PyDictionary import PyDictionary
 
 from userbot import lionub

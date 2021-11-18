@@ -1,4 +1,4 @@
-# collage plugin for LionX by @SimpleBoy786
+# collage plugin for LionX by @TeamLionX
 
 # Copyright (C) 2020 Alfiananda P.A
 #

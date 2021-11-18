@@ -1,11 +1,11 @@
 """
 Created by @SimpleBoy786
-plugin for Lion_Userbot
+plugin for LionXUserbot
 """
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from . import edit_or_reply, lionub, reply_id
+from . import lionub, edit_or_reply, reply_id
 
 plugin_category = "tools"
 

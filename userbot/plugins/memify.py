@@ -1,4 +1,4 @@
-# Made by @Simpleboy786 and @SimpleBoy786
+# Made by @TeamLionX and @TeamLionX
 # memify plugin for LionX
 import asyncio
 import base64
@@ -156,7 +156,7 @@ async def memes(event):
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
     lionid = await reply_id(event)
-    mad = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     if not lioninput:
         return await edit_delete(
             event, "`what should i write on that u idiot give text to memify`"
@@ -174,8 +174,8 @@ async def memes(event):
             output[0], "__Unable to extract image from the replied message.__"
         )
     try:
-        mad = Get(mad)
-        await event.client(mad)
+        hmm = Get(hmm)
+        await event.client(hmm)
     except BaseException:
         pass
     meme_file = convert_toimage(output[1])
@@ -242,11 +242,11 @@ async def memes(event):
     reply = await event.get_reply_message()
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
-    mad = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     lionid = await reply_id(event)
     if not os.path.isdir("./temp"):
         os.mkdir("./temp")
-    maddyidea = None
+    aigeridea = None
     output = await _liontools.media_to_pic(event, reply)
     if output[1] is None:
         return await edit_delete(
@@ -254,15 +254,15 @@ async def memes(event):
         )
     meme_file = convert_toimage(output[1])
     if output[2] in ["Round Video", "Gif", "Sticker", "Video"]:
-        maddyidea = True
+        aigeridea = True
     try:
-        mad = Get(mad)
-        await event.client(mad)
+        hmm = Get(hmm)
+        await event.client(hmm)
     except BaseException:
         pass
     outputfile = (
         os.path.join("./temp", "ascii_file.webp")
-        if maddyidea
+        if aigeridea
         else os.path.join("./temp", "ascii_file.jpg")
     )
     c_list = random_color()
@@ -292,11 +292,11 @@ async def memes(event):
     if not (reply and (reply.media)):
         await edit_or_reply(event, "`Reply to supported Media...`")
         return
-    mad = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     lionid = await reply_id(event)
     if not os.path.isdir("./temp/"):
         os.mkdir("./temp/")
-    maddyidea = None
+    aigeridea = None
     output = await _liontools.media_to_pic(event, reply)
     if output[1] is None:
         return await edit_delete(
@@ -304,15 +304,15 @@ async def memes(event):
         )
     meme_file = convert_toimage(output[1])
     if output[2] in ["Round Video", "Gif", "Sticker", "Video"]:
-        maddyidea = True
+        aigeridea = True
     try:
-        mad = Get(mad)
-        await event.client(mad)
+        hmm = Get(hmm)
+        await event.client(hmm)
     except BaseException:
         pass
     outputfile = (
         os.path.join("./temp", "invert.webp")
-        if maddyidea
+        if aigeridea
         else os.path.join("./temp", "invert.jpg")
     )
     await invert_colors(meme_file, outputfile)
@@ -338,11 +338,11 @@ async def memes(event):
     reply = await event.get_reply_message()
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
-    mad = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     lionid = await reply_id(event)
     if not os.path.isdir("./temp"):
         os.mkdir("./temp")
-    maddyidea = None
+    aigeridea = None
     output = await _liontools.media_to_pic(event, reply)
     if output[1] is None:
         return await edit_delete(
@@ -350,15 +350,15 @@ async def memes(event):
         )
     meme_file = convert_toimage(output[1])
     if output[2] in ["Round Video", "Gif", "Sticker", "Video"]:
-        maddyidea = True
+        aigeridea = True
     try:
-        mad = Get(mad)
-        await event.client(mad)
+        hmm = Get(hmm)
+        await event.client(hmm)
     except BaseException:
         pass
     outputfile = (
         os.path.join("./temp", "solarize.webp")
-        if maddyidea
+        if aigeridea
         else os.path.join("./temp", "solarize.jpg")
     )
     await solarize(meme_file, outputfile)
@@ -384,11 +384,11 @@ async def memes(event):
     reply = await event.get_reply_message()
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
-    mad = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     lionid = await reply_id(event)
     if not os.path.isdir("./temp"):
         os.mkdir("./temp")
-    maddyidea = None
+    aigeridea = None
     output = await _liontools.media_to_pic(event, reply)
     if output[1] is None:
         return await edit_delete(
@@ -396,15 +396,15 @@ async def memes(event):
         )
     meme_file = convert_toimage(output[1])
     if output[2] in ["Round Video", "Gif", "Sticker", "Video"]:
-        maddyidea = True
+        aigeridea = True
     try:
-        mad = Get(mad)
-        await event.client(mad)
+        hmm = Get(hmm)
+        await event.client(hmm)
     except BaseException:
         pass
     outputfile = (
         os.path.join("./temp", "mirror_file.webp")
-        if maddyidea
+        if aigeridea
         else os.path.join("./temp", "mirror_file.jpg")
     )
     await mirror_file(meme_file, outputfile)
@@ -430,11 +430,11 @@ async def memes(event):
     reply = await event.get_reply_message()
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
-    mad = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     lionid = await reply_id(event)
     if not os.path.isdir("./temp"):
         os.mkdir("./temp")
-    maddyidea = None
+    aigeridea = None
     output = await _liontools.media_to_pic(event, reply)
     if output[1] is None:
         return await edit_delete(
@@ -442,15 +442,15 @@ async def memes(event):
         )
     meme_file = convert_toimage(output[1])
     if output[2] in ["Round Video", "Gif", "Sticker", "Video"]:
-        maddyidea = True
+        aigeridea = True
     try:
-        mad = Get(mad)
-        await event.client(mad)
+        hmm = Get(hmm)
+        await event.client(hmm)
     except BaseException:
         pass
     outputfile = (
         os.path.join("./temp", "flip_image.webp")
-        if maddyidea
+        if aigeridea
         else os.path.join("./temp", "flip_image.jpg")
     )
     await flip_image(meme_file, outputfile)
@@ -476,11 +476,11 @@ async def memes(event):
     reply = await event.get_reply_message()
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
-    mad = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     lionid = await reply_id(event)
     if not os.path.isdir("./temp"):
         os.mkdir("./temp")
-    maddyidea = None
+    aigeridea = None
     output = await _liontools.media_to_pic(event, reply)
     if output[1] is None:
         return await edit_delete(
@@ -488,15 +488,15 @@ async def memes(event):
         )
     meme_file = convert_toimage(output[1])
     if output[2] in ["Round Video", "Gif", "Sticker", "Video"]:
-        maddyidea = True
+        aigeridea = True
     try:
-        mad = Get(mad)
-        await event.client(mad)
+        hmm = Get(hmm)
+        await event.client(hmm)
     except BaseException:
         pass
     outputfile = (
         os.path.join("./temp", "grayscale.webp")
-        if maddyidea
+        if aigeridea
         else os.path.join("./temp", "grayscale.jpg")
     )
     await grayscale(meme_file, outputfile)
@@ -524,11 +524,11 @@ async def memes(event):
     reply = await event.get_reply_message()
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
-    mad = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     lionid = await reply_id(event)
     if not os.path.isdir("./temp"):
         os.mkdir("./temp")
-    maddyidea = None
+    aigeridea = None
     output = await _liontools.media_to_pic(event, reply)
     if output[1] is None:
         return await edit_delete(
@@ -536,15 +536,15 @@ async def memes(event):
         )
     meme_file = convert_toimage(output[1])
     if output[2] in ["Round Video", "Gif", "Sticker", "Video"]:
-        maddyidea = True
+        aigeridea = True
     try:
-        mad = Get(mad)
-        await event.client(mad)
+        hmm = Get(hmm)
+        await event.client(hmm)
     except BaseException:
         pass
     outputfile = (
         os.path.join("./temp", "zoomimage.webp")
-        if maddyidea
+        if aigeridea
         else os.path.join("./temp", "zoomimage.jpg")
     )
     try:
@@ -589,11 +589,11 @@ async def memes(event):
     reply = await event.get_reply_message()
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
-    mad = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     lionid = await reply_id(event)
     if not os.path.isdir("./temp"):
         os.mkdir("./temp")
-    maddyidea = None
+    aigeridea = None
     output = await _liontools.media_to_pic(event, reply)
     if output[1] is None:
         return await edit_delete(
@@ -601,15 +601,15 @@ async def memes(event):
         )
     meme_file = convert_toimage(output[1])
     if output[2] in ["Round Video", "Gif", "Sticker", "Video"]:
-        maddyidea = True
+        aigeridea = True
     try:
-        mad = Get(mad)
-        await event.client(mad)
+        hmm = Get(hmm)
+        await event.client(hmm)
     except BaseException:
         pass
     outputfile = (
         os.path.join("./temp", "framed.webp")
-        if maddyidea
+        if aigeridea
         else os.path.join("./temp", "framed.jpg")
     )
     try:

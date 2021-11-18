@@ -32,8 +32,8 @@ from . import (
     BOTLOG_CHATID,
     DEFAULT_BIO,
     _lionutils,
-    edit_delete,
     lionub,
+    edit_delete,
     logging,
 )
 
@@ -147,9 +147,9 @@ async def digitalpicloop():
         current_time = datetime.now().strftime("%H:%M")
         img = Image.open(autophoto_path)
         drawn_text = ImageDraw.Draw(img)
-        lion = str(
-            base64.b64decode("dXNlcmJvdC9oZWxwZXJzL3N0eWxlcy9kaWdpdGFsLnR0Zg==")
-        )[2:36]
+        lion = str(base64.b64decode("dXNlcmJvdC9oZWxwZXJzL3N0eWxlcy9kaWdpdGFsLnR0Zg=="))[
+            2:36
+        ]
         fnt = ImageFont.truetype(lion, 200)
         drawn_text.text((350, 100), current_time, font=fnt, fill=(124, 252, 0))
         img.save(autophoto_path)
@@ -443,8 +443,15 @@ async def _(event):
             "s": "To stop custom pfp",
         },
         "usage": [
-            "{tr}cpfp - to start",
+            "{tr}cpfp or {tr}custompfp <to start>",
             "{tr}cpfp <flags> <links(optional)>",
+        ],
+        "examples": [
+            "{tr}cpfp",
+            "{tr}cpfp -l",
+            "{tr}cpfp -s",
+            "{tr}cpfp -a link1 link2...",
+            "{tr}cpfp -r link1 link2...",
         ],
     },
 )

@@ -1,4 +1,4 @@
-# pm and tagged messages logger for LionX by @Simpleboy786 (@SimpleBoy786)
+# pm and tagged messages logger for LionX by @TeamLionX (@TeamLionX)
 import asyncio
 
 from userbot import lionub

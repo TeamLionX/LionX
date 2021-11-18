@@ -1,4 +1,4 @@
-# credits to @Simpleboy786 and @SimpleBoy786
+# credits to @TeamLionX and @TeamLionX
 
 import os
 

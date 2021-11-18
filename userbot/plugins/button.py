@@ -1,14 +1,14 @@
-#    Copyright (C) 2020  @Copyless786(π.$)
+#    Copyright (C) 2020  Copyless786(π.$)
 # button post makker for LionX thanks to uniborg for the base
 
-# by @SimpleBoy786 (@Simpleboy786)
+# by @TeamLionX (@TeamLionX)
 import os
 import re
 
 from telethon import Button
 
 from ..Config import Config
-from . import edit_delete, lionub, reply_id
+from . import lionub, edit_delete, reply_id
 
 plugin_category = "tools"
 # regex obtained from:
@@ -27,7 +27,7 @@ BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>
         "usage": [
             "{tr}cbutton <text> [Name on button]<buttonurl:link you want to open>",
         ],
-        "examples": "{tr}cbutton test [google]<buttonurl:https://www.google.com> [LionX]<buttonurl:https://t.me/LionXsupport:same> [support]<buttonurl:https://t.me/LionXsupport>",
+        "examples": "{tr}cbutton test [google]<buttonurl:https://www.google.com> [LionX]<buttonurl:https://t.me/LionXUpdates:same> [support]<buttonurl:https://t.me/LionXSupport>",
     },
 )
 async def _(event):
@@ -93,7 +93,7 @@ async def _(event):
         "usage": [
             "{tr}ibutton <text> [Name on button]<buttonurl:link you want to open>",
         ],
-        "examples": "{tr}ibutton test [google]<buttonurl:https://www.google.com> [LionX]<buttonurl:https://t.me/LionXsupport:same> [support]<buttonurl:https://t.me/LionXsupport>",
+        "examples": "{tr}ibutton test [google]<buttonurl:https://www.google.com> [LionX]<buttonurl:https://t.me/LionXUpdates:same> [support]<buttonurl:https://t.me/LionXSupport>",
     },
 )
 async def _(event):

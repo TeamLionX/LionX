@@ -1,4 +1,4 @@
-# credits to @Simpleboy786 (@SimpleBoy786)
+# credits to @TeamLionX (@TeamLionX)
 
 import re
 
@@ -83,7 +83,7 @@ async def lyrics(event):  # sourcery no-metrics
         msg = f"**The songs found for the given query:** `{query}`\n\n"
         if len(response["hits"]) == 0:
             return await edit_or_reply(
-                lionevent, f"**I can't find lyrics for the given query: **`{query}`"
+                event, f"**I can't find lyrics for the given query: **`{query}`"
             )
         for i, an in enumerate(response["hits"], start=1):
             msg += f"{i}. `{an['result']['title']}`\n"
@@ -93,7 +93,7 @@ async def lyrics(event):  # sourcery no-metrics
             result = f"**The song found for the given query:** `{query}`\n\n"
             if songno > len(response["hits"]):
                 return await edit_or_reply(
-                    lionevent,
+                    event,
                     f"**Invalid song selection for the query select proper number**\n{msg}",
                 )
             songtitle = response["hits"][songno - 1]["result"]["title"]
