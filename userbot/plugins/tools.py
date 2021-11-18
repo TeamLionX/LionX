@@ -19,7 +19,7 @@ from ..Config import Config
 from ..funcs.logger import logging
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import AioHttp
-from ..helpers.utils import _format, _lionutils, reply_id
+from ..helpers.utils import _lionutils, _format, reply_id
 
 plugin_category = "tools"
 
@@ -112,9 +112,7 @@ async def _(event):
             response1 = await conv.get_response()
             if response1.text:
                 await event.client.send_read_acknowledge(conv.chat_id)
-                return await lionevent.edit(
-                    response1.text, parse_mode=_format.parse_pre
-                )
+                return await lionevent.edit(response1.text, parse_mode=_format.parse_pre)
             await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
             response3 = await conv.get_response()

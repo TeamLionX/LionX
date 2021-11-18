@@ -1,7 +1,7 @@
 """
 `Credits` @amnd33p
 from ..helpers.utils import _format
-Modified by @Simpleboy786
+Modified by @TeamLionX
 """
 
 import io
@@ -22,7 +22,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="ss ([\s\S]*)",
+    pattern="(ss|gis) ([\s\S]*)",
     command=("ss", plugin_category),
     info={
         "header": "To Take a screenshot of a website.",
@@ -49,14 +49,18 @@ async def _(event):
         chrome_options.binary_location = Config.CHROME_BIN
         await event.edit("`Starting Google Chrome BIN`")
         driver = webdriver.Chrome(chrome_options=chrome_options)
-        input_str = event.pattern_match.group(1)
+        cmd = event.pattern_match.group(1)
+        input_str = event.pattern_match.group(2)
         inputstr = input_str
-        lionurl = url(inputstr)
-        if not lionurl:
-            inputstr = "http://" + input_str
+        if cmd == "ss":
             lionurl = url(inputstr)
-        if not lionurl:
-            return await lionevent.edit("`The given input is not supported url`")
+            if not lionurl:
+                inputstr = "http://" + input_str
+                lionurl = url(inputstr)
+            if not lionurl:
+                return await lionevent.edit("`The given input is not supported url`")
+        if cmd == "gis":
+            inputstr = "https://www.google.com/search?q=" + input_str
         driver.get(inputstr)
         await lionevent.edit("`Calculating Page Dimensions`")
         height = driver.execute_script(

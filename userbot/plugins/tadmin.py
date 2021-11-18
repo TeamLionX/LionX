@@ -1,6 +1,6 @@
 """
 idea from lynda and rose bot
-made by @Simpleboy786
+made by @TeamLionX
 """
 from telethon.errors import BadRequestError
 from telethon.errors.rpcerrorlist import UserAdminInvalidError, UserIdInvalidError

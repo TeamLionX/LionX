@@ -13,7 +13,7 @@ from userbot import lionub
 from ..Config import Config
 from ..funcs.logger import logging
 from ..funcs.managers import edit_or_reply
-from . import BOTLOG, BOTLOG_CHATID
+from . import BOTLOG, BOTLOG_CHATID, mention
 
 LOGS = logging.getLogger(__name__)
 plugin_category = "utils"
@@ -82,8 +82,9 @@ async def _(event):
             ms = (end - start).seconds
             os.remove(downloaded_file_name)
             await lionevent.edit(
-                f"**link : **[telegraph](https://telegra.ph{media_urls[0]})\
-                    \n**Time Taken : **`{ms} seconds.`",
+                f"**➥ Uploaded to :-**[telegraph](https://telegra.ph{media_urls[0]})\
+                 \n**➥ Uploaded in {ms} seconds.**\
+                 \n**➥ Uploaded by :-** {mention}",
                 link_preview=True,
             )
     elif input_str in ["text", "t"]:
@@ -119,7 +120,8 @@ async def _(event):
         ms = (end - start).seconds
         lion = f"https://telegra.ph/{response['path']}"
         await lionevent.edit(
-            f"**link : ** [telegraph]({lion})\
-                 \n**Time Taken : **`{ms} seconds.`",
+            f"**➥ Uploaded to :-** [telegraph]({lion})\
+                 \n**➥ Uploaded in {ms} seconds.**\
+                 \n**➥ Uploaded by :-** {mention}",
             link_preview=True,
         )

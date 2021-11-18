@@ -75,7 +75,6 @@ async def _(event):
         if as_text:
             await lionevent.edit(
                 """`SpeedTest completed in {} seconds`
-
 `Download: {} (or) {} MB/s`
 `Upload: {} (or) {} MB/s`
 `Ping: {} ms`
@@ -107,7 +106,6 @@ async def _(event):
 Download: {} (or) {} MB/s
 Upload: {} (or) {} MB/s
 Ping: {} ms
-
 __With the Following ERRORs__
 {}""".format(
                 ms,

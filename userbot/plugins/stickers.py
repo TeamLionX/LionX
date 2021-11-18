@@ -9,7 +9,7 @@ import urllib.request
 from os import remove
 
 import cloudscraper
-import emoji as lionemoji
+import emoji as catemoji
 from bs4 import BeautifulSoup as bs
 from PIL import Image
 from telethon import events
@@ -34,7 +34,7 @@ from ..sql_helper.globals import gvarstatus
 
 plugin_category = "fun"
 
-# modified and developed by @Simpleboy786
+# modified and developed by @TeamLionX
 
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
@@ -73,7 +73,7 @@ def pack_name(userid, pack, is_anim):
 
 
 def char_is_emoji(character):
-    return character in lionemoji.UNICODE_EMOJI["en"]
+    return character in catemoji.UNICODE_EMOJI["en"]
 
 
 def pack_nick(username, pack, is_anim):

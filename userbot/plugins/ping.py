@@ -1,9 +1,8 @@
 import asyncio
 from datetime import datetime
 
-from userbot import lionub
-
 from ..funcs.managers import edit_or_reply
+from . import lionub, hmention
 
 plugin_category = "tools"
 
@@ -30,12 +29,15 @@ async def _(event):
         end = datetime.now()
         tms = (end - start).microseconds / 1000
         ms = round((tms - 0.6) / 3, 3)
-        await lionevent.edit(f"Average Pong!\n`{ms} ms`")
+        await lionevent.edit(f"**☞ Average Pong!**\n➥ {ms} ms")
     else:
-        lionevent = await edit_or_reply(event, "Pong!")
+        lionevent = await edit_or_reply(event, "<b><i>☞ Pong!</b></i>", "html")
         end = datetime.now()
         ms = (end - start).microseconds / 1000
-        await lionevent.edit(f"Pong!\n`{ms} ms`")
+        await lionevent.edit(
+            f"<b><i>☞ Pong</b></i>\n➥ {ms} <b><i>ms\n➥ Bot of {hmention}</b></i>",
+            parse_mode="html",
+        )
 
 
 @lionub.lion_cmd(

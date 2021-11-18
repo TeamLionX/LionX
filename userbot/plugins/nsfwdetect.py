@@ -1,5 +1,5 @@
 # Copyright (C) 2020 BY - GitHub.com/code-rgb [TG - @deleteduser420]
-# ported to lion by @Simpleboy786 (@SimpleBoy786)
+# ported to lion by @TeamLionX (@TeamLionX)
 
 import os
 
