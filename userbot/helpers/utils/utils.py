@@ -34,14 +34,14 @@ def run_async(loop, coro):
     return asyncio.run_coroutine_threadsafe(coro, loop).result()
 
 
-async def unsavegif(event, madboy):
+async def unsavegif(event, nadan):
     try:
         await event.client(
             functions.messages.SaveGifRequest(
                 id=types.InputDocument(
-                    id=madboy.media.document.id,
-                    access_hash=madboy.media.document.access_hash,
-                    file_reference=madboy.media.document.file_reference,
+                    id=nadan.media.document.id,
+                    access_hash=nadan.media.document.access_hash,
+                    file_reference=nadan.media.document.file_reference,
                 ),
                 unsave=True,
             )
