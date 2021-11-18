@@ -10,7 +10,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.functions import clippy
-from . import _liontools, lionub, convert_toimage, mention, reply_id
+from . import _liontools, convert_toimage, lionub, mention, reply_id
 
 plugin_category = "tools"
 

@@ -31,7 +31,7 @@ async def hmm(lion):
 )
 async def hmm(lion):
     "Some random Funny questions"
-    whylion= nekos.why()
+    nekos.why()
     await edit_or_reply(lion, whycat)
 
 

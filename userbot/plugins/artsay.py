@@ -3,7 +3,7 @@ Created by  Md aiger.  tg @SimpleBoy786
 Plugin for LionX
 """
 
-from . import lionub, edit_or_reply, mention
+from . import edit_or_reply, lionub, mention
 
 plugin_category = "fun"
 

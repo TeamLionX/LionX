@@ -8,7 +8,7 @@ from userbot.funcs.logger import logging
 from ..Config import Config
 from ..funcs.managers import edit_or_reply
 from ..helpers import humanbytes, post_to_telegraph
-from ..helpers.utils import _lionutils, _format
+from ..helpers.utils import _format, _lionutils
 
 plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
