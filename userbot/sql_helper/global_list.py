@@ -15,7 +15,7 @@ class LionGloballist(BASE):
         self.group_id = str(group_id)
 
     def __repr__(self):
-        return "<LionX global values '%s' for %s>" % (self.group_id, self.keywoard)
+        return "<Lion global values '%s' for %s>" % (self.group_id, self.keywoard)
 
     def __eq__(self, other):
         return bool(

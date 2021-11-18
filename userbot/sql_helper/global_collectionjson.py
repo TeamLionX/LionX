@@ -4,7 +4,7 @@ from sqlalchemy_json import MutableJson, NestedMutableJson
 from . import BASE, SESSION
 
 
-class Lion_GlobalCollection_Json(BASE):
+class LionXGlobalCollection_Json(BASE):
     __tablename__ = "lion_globalcollectionjson"
     keywoard = Column(UnicodeText, primary_key=True)
     json = Column(MutableJson)
@@ -16,12 +16,12 @@ class Lion_GlobalCollection_Json(BASE):
         self.njson = njson
 
 
-Lion_GlobalCollection_Json.__table__.create(checkfirst=True)
+LionXGlobalCollection_Json.__table__.create(checkfirst=True)
 
 
 def get_collection(keywoard):
     try:
-        return SESSION.query(Lion_GlobalCollection_Json).get(keywoard)
+        return SESSION.query(LionXGlobalCollection_Json).get(keywoard)
     finally:
         SESSION.close()
 
@@ -29,9 +29,9 @@ def get_collection(keywoard):
 def add_collection(keywoard, json, njson={}):
     to_check = get_collection(keywoard)
     if to_check:
-        keyword_items = SESSION.query(Lion_GlobalCollection_Json).get(keywoard)
+        keyword_items = SESSION.query(LionXGlobalCollection_Json).get(keywoard)
         SESSION.delete(keyword_items)
-    keyword_items = Lion_GlobalCollection_Json(keywoard, json, njson)
+    keyword_items = LionXGlobalCollection_Json(keywoard, json, njson)
     SESSION.add(keyword_items)
     SESSION.commit()
     return True
@@ -41,7 +41,7 @@ def del_collection(keywoard):
     to_check = get_collection(keywoard)
     if not to_check:
         return False
-    keyword_items = SESSION.query(Lion_GlobalCollection_Json).get(keywoard)
+    keyword_items = SESSION.query(LionXGlobalCollection_Json).get(keywoard)
     SESSION.delete(keyword_items)
     SESSION.commit()
     return True
@@ -49,6 +49,6 @@ def del_collection(keywoard):
 
 def get_collections():
     try:
-        return SESSION.query(Lion_GlobalCollection_Json).all()
+        return SESSION.query(LionXGlobalCollection_Json).all()
     finally:
         SESSION.close()
