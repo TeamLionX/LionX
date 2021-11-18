@@ -28,7 +28,7 @@ async def post_to_telegraph(page_title, html_format_content):
     post_page = post_client.post(
         title=page_title,
         author=auth_name,
-        author_url="https://t.me/LionXsupport",
+        author_url="https://t.me/LionXUpdates",
         text=html_format_content,
     )
     return post_page["url"]

@@ -7,13 +7,14 @@ flag = True
 check = 0
 while flag:
     try:
+        from . import nsfw as useless
         from .chatbot import *
         from .functions import *
         from .memeifyhelpers import *
         from .progress import *
         from .qhelper import process
         from .tools import *
-        from .utils import _format, _liontools, _lionutils
+        from .utils import _liontools, _lionutils, _format
 
         break
     except ModuleNotFoundError as e:
