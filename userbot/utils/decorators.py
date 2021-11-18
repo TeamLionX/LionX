@@ -158,7 +158,7 @@ def errors_handler(func):
             ftext += result
             pastelink = await paste_message(ftext)
             text = "**LionX Error report**\n\n"
-            link = "[here](https://t.me/LionXsupport)"
+            link = "[here](https://t.me/LionXSupport)"
             text += "If you wanna you can report it"
             text += f"- just forward this message {link}.\n"
             text += "Nothing is logged except the fact of error and date\n\n"
