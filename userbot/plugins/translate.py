@@ -3,7 +3,7 @@ from googletrans import LANGUAGES
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.functions import getTranslate
 from ..sql_helper.globals import addgvar, gvarstatus
-from . import BOTLOG, BOTLOG_CHATID, lionub, deEmojify
+from . import BOTLOG, BOTLOG_CHATID, deEmojify, lionub
 
 plugin_category = "utils"
 

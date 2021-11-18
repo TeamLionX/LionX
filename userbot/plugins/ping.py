@@ -2,7 +2,7 @@ import asyncio
 from datetime import datetime
 
 from ..funcs.managers import edit_or_reply
-from . import lionub, hmention
+from . import hmention, lionub
 
 plugin_category = "tools"
 

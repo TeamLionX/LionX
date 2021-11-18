@@ -5,7 +5,7 @@ import os
 import urllib
 
 from ..helpers.functions import clippy, convert_tosticker, higlighted_text
-from . import lionub, deEmojify, edit_delete, reply_id
+from . import deEmojify, edit_delete, lionub, reply_id
 
 plugin_category = "fun"
 
