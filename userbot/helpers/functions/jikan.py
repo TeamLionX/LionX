@@ -265,13 +265,11 @@ async def anilist_user(input_str):
         f"""
 **User name :** [{user_data['name']}]({user_data['siteUrl']})
 **Anilist ID :** `{user_data['id']}` 
-
 **✙  Anime Stats**
 • **Total Anime Watched :** `{user_data["statistics"]["anime"]['count']}`
 • **Total Episode Watched : **`{user_data["statistics"]["anime"]['episodesWatched']}`
 • **Total Time Spent : **`{readable_time(user_data["statistics"]["anime"]['minutesWatched']*60)}`
 • **Average Score :** `{user_data["statistics"]["anime"]['meanScore']}`
-
 **✙  Manga Stats**
 • **Total Manga Read :** `{user_data["statistics"]["manga"]['count']}`
 • **Total Chapters Read :** `{user_data["statistics"]["manga"]['chaptersRead']}`
@@ -481,7 +479,7 @@ def get_poster(query):
     # Poster Link
     image = soup.find("link", attrs={"rel": "image_src"}).get("href", None)
     if image is not None:
-        # img_path = wget.download(image, os.path.join(Config.DOWNLOAD_LOLIONLION, 'imdb_poster.jpg'))
+        # img_path = wget.download(image, os.path.join(Config.DOWNLOAD_LOCATION, 'imdb_poster.jpg'))
         return image
 
 

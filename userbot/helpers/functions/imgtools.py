@@ -92,7 +92,7 @@ async def crop_and_divide(img):
             )
             mimg = mimg.resize((512, 512))
             image = io.BytesIO()
-            image.name = "LionUserbot.png"
+            image.name = "LionX.png"
             mimg.save(image, "PNG")
             media.append(image.getvalue())
             new_width += scale_width
