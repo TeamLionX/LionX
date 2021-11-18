@@ -180,7 +180,7 @@ class LionXClient(TelegramClient):
                             ftext, pastetype="s", markdown=False
                         )
                         text = "**LionX Error report**\n\n"
-                        link = "[here](https://t.me/LionXsupport)"
+                        link = "[here](https://t.me/LionXSupport)"
                         text += "If you wanna you can report it"
                         text += f"- just forward this message {link}.\n"
                         text += (
@@ -297,7 +297,7 @@ class LionXClient(TelegramClient):
                             ftext, pastetype="s", markdown=False
                         )
                         text = "**LionX Error report**\n\n"
-                        link = "[here](https://t.me/LionXsupport)"
+                        link = "[here](https://t.me/LionXSupport)"
                         text += "If you wanna you can report it"
                         text += f"- just forward this message {link}.\n"
                         text += (

@@ -30,7 +30,7 @@ from .logger import logging
 LOGS = logging.getLogger(__name__)
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-LIONLOGO = "https://telegra.ph/file/9c1bcdcb9185cbe7d01ab.jpg"
+LIONLOGO = "https://telegra.ph/file/698a0a9060789f095897c.jpg"
 tr = Config.COMMAND_HAND_LER
 
 
@@ -53,17 +53,21 @@ def ibuild_keyboard(buttons):
 
 
 def main_menu():
-    text = f"𝐋𝐢𝐨𝐧𝐙 𝗛𝗲𝗹𝗽𝗲𝗿\
-        \n𝗣𝗿𝗼𝘃𝗶𝗱𝗲𝗱 𝗯𝘆 {mention}"
+    text = f"𝐋𝐢𝐨𝐧𝐗 𝐇𝐞𝐥𝐩 𝐌𝐞𝐧𝐮\
+        \n𝐏𝐫𝐨𝐯𝐢𝐝𝐞𝐝 𝐁𝐲 {mention}"
     buttons = [
         (Button.inline("ℹ️ Info", data="check"),),
-        (Button.inline(f"Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),),
-        (Button.inline(f"Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),),
         (
-            Button.inline(f"Tools ({len(GRP_INFO['tools'])})", data="tools_menu"),
-            Button.inline(f"Utils ({len(GRP_INFO['utils'])})", data="utils_menu"),
+            Button.inline(f"👮‍♂️ Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),
         ),
-        (Button.inline("Close Menu", data="close"),),
+        (
+            Button.inline(f"🎨 Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),
+        ),
+        (
+            Button.inline(f"🧰 Tools ({len(GRP_INFO['tools'])})", data="tools_menu"),
+            Button.inline(f"🗂 Utils ({len(GRP_INFO['utils'])})", data="utils_menu"),
+        ),
+        (Button.inline("Close", data="close"),),
     ]
 
     return text, buttons
@@ -92,7 +96,7 @@ def paginate_help(
     try:
         number_of_cols = int(gvarstatus("NO_OF_COLUMNS_IN_HELP") or 2)
     except (ValueError, TypeError):
-        number_of_cols = 3
+        number_of_cols = 2
     HELP_EMOJI = gvarstatus("HELP_EMOJI") or " "
     helpable_plugins = [p for p in loaded_plugins if not p.startswith("_")]
     helpable_plugins = sorted(helpable_plugins)
@@ -154,13 +158,13 @@ def paginate_help(
                 modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
             ] + [
                 (
-                    Button.inline("◀️", data=f"{prefix}_prev({modulo_page})_plugin"),
-                    Button.inline("🔙Main Menu", data="mainmenu"),
-                    Button.inline("▶️", data=f"{prefix}_next({modulo_page})_plugin"),
+                    Button.inline("🔻", data=f"{prefix}_prev({modulo_page})_plugin"),
+                    Button.inline("🔹 Menu", data="mainmenu"),
+                    Button.inline("🔺", data=f"{prefix}_next({modulo_page})_plugin"),
                 )
             ]
         else:
-            pairs = pairs + [(Button.inline("Main Menu", data="mainmenu"),)]
+            pairs = pairs + [(Button.inline("🔹 Menu", data="mainmenu"),)]
     elif len(pairs) > number_of_rows:
         if category_pgno < 0:
             category_pgno = len(pairs) + category_pgno
@@ -169,15 +173,15 @@ def paginate_help(
         ] + [
             (
                 Button.inline(
-                    "◀️",
+                    "🔻",
                     data=f"{prefix}_prev({modulo_page})_command_{category_plugins}_{category_pgno}",
                 ),
                 Button.inline(
-                    "🔙 ",
+                    "🔙",
                     data=f"back_plugin_{category_plugins}_{category_pgno}",
                 ),
                 Button.inline(
-                    "▶️",
+                    "🔺",
                     data=f"{prefix}_next({modulo_page})_command_{category_plugins}_{category_pgno}",
                 ),
             )
@@ -213,7 +217,7 @@ async def inline_handler(event):  # sourcery no-metrics
         match2 = re.findall(inf, query)
         hid = re.compile("hide (.*)")
         match3 = re.findall(hid, query)
-        if query.startswith("**LionXub"):
+        if query.startswith("**LionX"):
             buttons = [
                 (
                     Button.inline("Stats", data="stats"),
@@ -516,24 +520,24 @@ async def inline_handler(event):  # sourcery no-metrics
             buttons = [
                 Button.inline(text="Show Options.", data="show_pmpermit_options"),
             ]
-            PM_PIC = gvarstatus("pmpermit_pic")
+            PM_PIC = gvarstatus("PM_PIC")
             if PM_PIC:
                 LION = [x for x in PM_PIC.split()]
                 PIC = list(LION)
-                LION_IMG = random.choice(PIC)
+                LIONIMG = random.choice(PIC)
             else:
-                LION_IMG = None
+                LIONIMG = None
             query = gvarstatus("pmpermit_text")
-            if LION_IMG and LION_IMG.endswith((".jpg", ".jpeg", ".png")):
+            if LIONIMG and LIONIMG.endswith((".jpg", ".jpeg", ".png")):
                 result = builder.photo(
-                    LION_IMG,
+                    LIONIMG,
                     # title="Alive lion",
                     text=query,
                     buttons=buttons,
                 )
-            elif LION_IMG:
+            elif LIONIMG:
                 result = builder.document(
-                    LION_IMG,
+                    LIONIMG,
                     title="Alive lion",
                     text=query,
                     buttons=buttons,
@@ -551,7 +555,7 @@ async def inline_handler(event):  # sourcery no-metrics
                 Button.url("Source code", "https://github.com/TeamLionX/LionX"),
                 Button.url(
                     "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMdNoor786%2FLionX&template=https%3A%2F%2Fgithub.com%2FMdNoor786%2FLionX",
+                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX&template=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX",
                 ),
             )
         ]
@@ -560,12 +564,12 @@ async def inline_handler(event):  # sourcery no-metrics
             url=LIONLOGO, size=0, mime_type="image/jpeg", attributes=[]
         )
         text, msg_entities = await event.client._parse_message_text(
-            "𝗗𝗲𝗽𝗹𝗼𝘆 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝐋𝐢𝐨𝐧𝐗𝐔𝐬𝐞𝐫𝐛𝐨𝐭.", "md"
+            "𝐃𝐞𝐩𝐥𝐨𝐲 𝐘𝐨𝐮𝐫 𝐎𝐰𝐧 𝐋𝐢𝐨𝐧𝐗 .", "md"
         )
         result = types.InputBotInlineResult(
             id=str(uuid4()),
             type="photo",
-            title="𝐋𝐢𝐨𝐧𝐗𝙐𝙨𝙚𝙧𝙗𝙤𝙩",
+            title="𝑳𝒊𝒐𝒏𝑿",
             description="Deploy yourself",
             url="https://github.com/TeamLionX/LionX",
             thumb=photo,
@@ -581,9 +585,9 @@ async def inline_handler(event):  # sourcery no-metrics
 @check_owner
 async def on_plug_in_callback_query_handler(event):
     buttons = [
-        (Button.inline("Open Menu", data="mainmenu"),),
+        (Button.inline("Menu", data="mainmenu"),),
     ]
-    await event.edit("Menu Closed", buttons=buttons)
+    await event.edit("Closed", buttons=buttons)
 
 
 @lionub.tgbot.on(CallbackQuery(data=re.compile(b"check")))
@@ -721,10 +725,10 @@ async def on_plug_in_callback_query_handler(event):
     buttons = [
         (
             Button.inline(
-                "🔙 ",
+                "🔙",
                 data=f"back_command_{category}_{pgno}_{category_plugins}_{category_pgno}",
             ),
-            Button.inline("⚙Main Menu", data="mainmenu"),
+            Button.inline("Menu", data="mainmenu"),
         )
     ]
     text = f"**Command :** `{tr}{cmd}`\
