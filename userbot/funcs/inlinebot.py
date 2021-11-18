@@ -57,12 +57,8 @@ def main_menu():
         \n𝐏𝐫𝐨𝐯𝐢𝐝𝐞𝐝 𝐁𝐲 {mention}"
     buttons = [
         (Button.inline("ℹ️ Info", data="check"),),
-        (
-            Button.inline(f"👮‍♂️ Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),
-        ),
-        (
-            Button.inline(f"🎨 Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),
-        ),
+        (Button.inline(f"👮‍♂️ Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),),
+        (Button.inline(f"🎨 Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),),
         (
             Button.inline(f"🧰 Tools ({len(GRP_INFO['tools'])})", data="tools_menu"),
             Button.inline(f"🗂 Utils ({len(GRP_INFO['utils'])})", data="utils_menu"),
