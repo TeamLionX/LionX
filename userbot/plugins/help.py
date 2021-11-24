@@ -96,7 +96,7 @@ async def plugininfo(input_str, event, flag):
 async def grpinfo():
     outstr = "**Plugins in LionX are:**\n\n"
     outstr += f"**👩‍💻 Usage : ** `{cmdprefix}help <plugin name>`\n\n"
-    category = ["admin", "bot", "fun", "misc", "tools", "utils", "extra", "useless"]
+    category = ["admin", "fun", "tools", "utils"]
     for lion in category:
         plugins = GRP_INFO[lion]
         outstr += f"**{hemojis[lion]} {lion.title()} **({len(plugins)})\n"
@@ -108,7 +108,7 @@ async def grpinfo():
 
 async def cmdlist():
     outstr = "**Total list of Commands in your LionX are :**\n\n"
-    category = ["admin", "bot", "fun", "misc", "tools", "utils", "extra"]
+    category = ["admin", "fun", "tools", "utils"]
     for lion in category:
         plugins = GRP_INFO[lion]
         outstr += f"**{hemojis[lion]} {lion.title()} ** - {len(plugins)}\n\n"
