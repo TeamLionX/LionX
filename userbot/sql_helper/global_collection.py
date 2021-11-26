@@ -28,7 +28,7 @@ class Lion_GlobalCollection(BASE):
         )
 
 
-LionXGlobalCollection.__table__.create(checkfirst=True)
+Lion_GlobalCollection.__table__.create(checkfirst=True)
 
 LIONGLOBALCOLLECTION = threading.RLock()
 
