@@ -21,7 +21,7 @@ Lion_GlobalCollection_Json.__table__.create(checkfirst=True)
 
 def get_collection(keywoard):
     try:
-        return SESSION.query(LionXGlobalCollection_Json).get(keywoard)
+        return SESSION.query(Lion_GlobalCollection_Json).get(keywoard)
     finally:
         SESSION.close()
 
@@ -29,9 +29,9 @@ def get_collection(keywoard):
 def add_collection(keywoard, json, njson={}):
     to_check = get_collection(keywoard)
     if to_check:
-        keyword_items = SESSION.query(LionXGlobalCollection_Json).get(keywoard)
+        keyword_items = SESSION.query(Lion_GlobalCollection_Json).get(keywoard)
         SESSION.delete(keyword_items)
-    keyword_items = LionXGlobalCollection_Json(keywoard, json, njson)
+    keyword_items = Lion_GlobalCollection_Json(keywoard, json, njson)
     SESSION.add(keyword_items)
     SESSION.commit()
     return True
@@ -41,7 +41,7 @@ def del_collection(keywoard):
     to_check = get_collection(keywoard)
     if not to_check:
         return False
-    keyword_items = SESSION.query(LionXGlobalCollection_Json).get(keywoard)
+    keyword_items = SESSION.query(Lion_GlobalCollection_Json).get(keywoard)
     SESSION.delete(keyword_items)
     SESSION.commit()
     return True
