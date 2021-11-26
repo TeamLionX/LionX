@@ -4,7 +4,7 @@ from sqlalchemy_json import MutableJson, NestedMutableJson
 from . import BASE, SESSION
 
 
-class LionXGlobalCollection_Json(BASE):
+class Lion_GlobalCollection_Json(BASE):
     __tablename__ = "lion_globalcollectionjson"
     keywoard = Column(UnicodeText, primary_key=True)
     json = Column(MutableJson)
@@ -16,7 +16,7 @@ class LionXGlobalCollection_Json(BASE):
         self.njson = njson
 
 
-LionXGlobalCollection_Json.__table__.create(checkfirst=True)
+Lion_GlobalCollection_Json.__table__.create(checkfirst=True)
 
 
 def get_collection(keywoard):
@@ -49,6 +49,6 @@ def del_collection(keywoard):
 
 def get_collections():
     try:
-        return SESSION.query(LionXGlobalCollection_Json).all()
+        return SESSION.query(Lion_GlobalCollection_Json).all()
     finally:
         SESSION.close()
