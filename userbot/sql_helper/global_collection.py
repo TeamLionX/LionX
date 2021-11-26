@@ -5,7 +5,7 @@ from sqlalchemy import Column, PickleType, UnicodeText, distinct, func
 from . import BASE, SESSION
 
 
-class LionXGlobalCollection(BASE):
+class Lion_GlobalCollection(BASE):
     __tablename__ = "lion_globalcollection"
     keywoard = Column(UnicodeText, primary_key=True)
     contents = Column(PickleType, primary_key=True, nullable=False)
@@ -22,7 +22,7 @@ class LionXGlobalCollection(BASE):
 
     def __eq__(self, other):
         return bool(
-            isinstance(other, LionXGlobalCollection)
+            isinstance(other, Lion_GlobalCollection)
             and self.keywoard == other.keywoard
             and self.contents == other.contents
         )
@@ -43,7 +43,7 @@ COLLECTION_SQL_ = COLLECTION_SQL()
 
 def add_to_collectionlist(keywoard, contents):
     with LIONGLOBALCOLLECTION:
-        keyword_items = LionXGlobalCollection(keywoard, tuple(contents))
+        keyword_items = Lion_GlobalCollection(keywoard, tuple(contents))
 
         SESSION.merge(keyword_items)
         SESSION.commit()
@@ -52,7 +52,7 @@ def add_to_collectionlist(keywoard, contents):
 
 def rm_from_collectionlist(keywoard, contents):
     with LIONGLOBALCOLLECTION:
-        keyword_items = SESSION.query(LionXGlobalCollection).get(
+        keyword_items = SESSION.query(Lion_GlobalCollection).get(
             (keywoard, tuple(contents))
         )
         if keyword_items:
@@ -77,8 +77,8 @@ def is_in_collectionlist(keywoard, contents):
 def del_keyword_collectionlist(keywoard):
     with LIONGLOBALCOLLECTION:
         keyword_items = (
-            SESSION.query(LionXGlobalCollection.keywoard)
-            .filter(LionXGlobalCollection.keywoard == keywoard)
+            SESSION.query(Lion_GlobalCollection.keywoard)
+            .filter(Lion_GlobalCollection.keywoard == keywoard)
             .delete()
         )
         COLLECTION_SQL_.CONTENTS_LIST.pop(keywoard)
@@ -91,7 +91,7 @@ def get_item_collectionlist(keywoard):
 
 def get_collectionlist_items():
     try:
-        chats = SESSION.query(LionXGlobalCollection.keywoard).distinct().all()
+        chats = SESSION.query(Lion_GlobalCollection.keywoard).distinct().all()
         return [i[0] for i in chats]
     finally:
         SESSION.close()
@@ -99,7 +99,7 @@ def get_collectionlist_items():
 
 def num_collectionlist():
     try:
-        return SESSION.query(LionXGlobalCollection).count()
+        return SESSION.query(Lion_GlobalCollection).count()
     finally:
         SESSION.close()
 
@@ -107,8 +107,8 @@ def num_collectionlist():
 def num_collectionlist_item(keywoard):
     try:
         return (
-            SESSION.query(LionXGlobalCollection.keywoard)
-            .filter(LionXGlobalCollection.keywoard == keywoard)
+            SESSION.query(Lion_GlobalCollection.keywoard)
+            .filter(Lion_GlobalCollection.keywoard == keywoard)
             .count()
         )
     finally:
@@ -118,7 +118,7 @@ def num_collectionlist_item(keywoard):
 def num_collectionlist_items():
     try:
         return SESSION.query(
-            func.count(distinct(LionXGlobalCollection.keywoard))
+            func.count(distinct(Lion_GlobalCollection.keywoard))
         ).scalar()
     finally:
         SESSION.close()
@@ -126,11 +126,11 @@ def num_collectionlist_items():
 
 def __load_item_collectionlists():
     try:
-        chats = SESSION.query(LionXGlobalCollection.keywoard).distinct().all()
+        chats = SESSION.query(Lion_GlobalCollection.keywoard).distinct().all()
         for (keywoard,) in chats:
             COLLECTION_SQL_.CONTENTS_LIST[keywoard] = []
 
-        all_groups = SESSION.query(LionXGlobalCollection).all()
+        all_groups = SESSION.query(Lion_GlobalCollection).all()
         for x in all_groups:
             COLLECTION_SQL_.CONTENTS_LIST[x.keywoard] += [x.contents]
 
