@@ -624,12 +624,12 @@ async def gben(userbot):
 
 
 @lionub.lion_cmd(
-    pattern="gpromote ?(.*)",
-    command=("gpromote", plugin_category),
+    pattern="fgpromote ?(.*)",
+    command=("fgpromote", plugin_category),
     info={
-        "header": "To promote an user in every group where you are admin.",
+        "header": "To promote an user in every group with full right where you are admin.",
         "description": "Will promote the person in every group where you are admin only.",
-        "usage": "{tr}gpromote <username/reply/userid> <reason (optional)>",
+        "usage": "{tr}fgpromote <username/reply/userid> <reason (optional)>",
     },
 )
 async def gben(userbot):
