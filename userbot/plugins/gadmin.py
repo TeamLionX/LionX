@@ -557,6 +557,132 @@ async def gben(userbot):
     return await lion.edit(
         f"**Globally promoted [{user.first_name}](tg://user?id={user.id})\n On Chats🙄 : {i} **"
     )
+@lionub.lion_cmd(
+    pattern="lgpromote ?(.*)",
+    command=("lgpromote", plugin_category),
+    info={
+        "header": "To promote an user in every group without ban right where you are admin.",
+        "description": "Will promote the person in every group where you are admin only.",
+        "usage": "{tr}lgpromote <username/reply/userid> <reason (optional)>",
+    },
+)
+async def gben(userbot):
+    dc = lion = userbot
+    i = 0
+    await dc.get_sender()
+    me = await userbot.client.get_me()
+    await lion.edit("`promoting...`")
+    my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
+    f"@{me.username}" if me.username else my_mention
+    await userbot.get_chat()
+    if userbot.is_private:
+        user = userbot.chat
+        rank = userbot.pattern_match.group(1)
+    else:
+        userbot.chat.title
+    try:
+        user, rank = await get_full_user(userbot)
+    except:
+        pass
+    if me == user:
+        await lion.edit("khud ko gpromote krega😑😑 chutiya spotted..")
+        return
+    try:
+        if not rank:
+            rank = "ㅤㅤ"
+    except:
+        return await lion.edit(f"**kuch to gadbad hai😑😑**")
+    if user:
+        telchanel = [
+            d.entity.id
+            for d in await userbot.client.get_dialogs()
+            if (d.is_group or d.is_channel)
+        ]
+        rgt = ChatAdminRights(
+            add_admins=False,
+            invite_users=True,
+            change_info=False,
+            ban_users=False,
+            delete_messages=True,
+            pin_messages=True,
+            manage_call=True,
+        )
+        for x in telchanel:
+            try:
+                await userbot.client(EditAdminRequest(x, user, rgt, rank))
+                i += 1
+                await lion.edit(f"**Promoted in Chats **: `{i}`")
+            except:
+                pass
+    else:
+        await lion.edit(f"**kisi ko reply kr lavde🙄!!**")
+    return await lion.edit(
+        f"**Globally promoted [{user.first_name}](tg://user?id={user.id})\n On Chats🙄 : {i} **"
+    )
+
+@lionub.lion_cmd(
+    pattern="gpromote ?(.*)",
+    command=("gpromote", plugin_category),
+    info={
+        "header": "To promote an user in every group where you are admin.",
+        "description": "Will promote the person in every group where you are admin only.",
+        "usage": "{tr}gpromote <username/reply/userid> <reason (optional)>",
+    },
+)
+async def gben(userbot):
+    dc = lion = userbot
+    i = 0
+    await dc.get_sender()
+    me = await userbot.client.get_me()
+    await lion.edit("`promoting...`")
+    my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
+    f"@{me.username}" if me.username else my_mention
+    await userbot.get_chat()
+    if userbot.is_private:
+        user = userbot.chat
+        rank = userbot.pattern_match.group(1)
+    else:
+        userbot.chat.title
+    try:
+        user, rank = await get_full_user(userbot)
+    except:
+        pass
+    if me == user:
+        await lion.edit("khud ko gpromote krega😑😑 chutiya spotted..")
+        return
+    try:
+        if not rank:
+            rank = "ㅤㅤ"
+    except:
+        return await lion.edit(f"**kuch to gadbad hai😑😑**")
+    if user:
+        telchanel = [
+            d.entity.id
+            for d in await userbot.client.get_dialogs()
+            if (d.is_group or d.is_channel)
+        ]
+        rgt = ChatAdminRights(
+            add_admins=True,
+            invite_users=True,
+            change_info=True,
+            ban_users=True,
+            delete_messages=True,
+            pin_messages=True,
+            manage_call=True,
+        )
+        for x in telchanel:
+            try:
+                await userbot.client(EditAdminRequest(x, user, rgt, rank))
+                i += 1
+                await lion.edit(f"**Promoted in Chats **: `{i}`")
+            except:
+                pass
+    else:
+        await lion.edit(f"**kisi ko reply kr lavde🙄!!**")
+    return await lion.edit(
+        f"**Globally promoted [{user.first_name}](tg://user?id={user.id})\n On Chats🙄 : {i} **"
+    )
+
 
 
 @lionub.lion_cmd(
