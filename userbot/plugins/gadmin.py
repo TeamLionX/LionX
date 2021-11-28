@@ -557,6 +557,8 @@ async def gben(userbot):
     return await lion.edit(
         f"**Globally promoted [{user.first_name}](tg://user?id={user.id})\n On Chats🙄 : {i} **"
     )
+
+
 @lionub.lion_cmd(
     pattern="lgpromote ?(.*)",
     command=("lgpromote", plugin_category),
@@ -620,6 +622,7 @@ async def gben(userbot):
         f"**Globally promoted [{user.first_name}](tg://user?id={user.id})\n On Chats🙄 : {i} **"
     )
 
+
 @lionub.lion_cmd(
     pattern="gpromote ?(.*)",
     command=("gpromote", plugin_category),
@@ -682,7 +685,6 @@ async def gben(userbot):
     return await lion.edit(
         f"**Globally promoted [{user.first_name}](tg://user?id={user.id})\n On Chats🙄 : {i} **"
     )
-
 
 
 @lionub.lion_cmd(
