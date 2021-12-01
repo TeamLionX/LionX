@@ -14,7 +14,6 @@ from telethon.tl.types import ChannelParticipantsAdmins
 api_hash = os.environ.get("API_HASH")
 token = os.environ.get("BOT_TOKEN")
 client = TelegramClient("LionX", api_id, api_hash).start(bot_token=token)
-import telethon
 from telethon import TelegramClient as tg
 from telethon import functions
 from telethon.sessions import StringSession as ses

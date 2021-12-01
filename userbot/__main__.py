@@ -1,5 +1,5 @@
 import sys
-import os
+
 from telethon.tl.functions.channels import JoinChannelRequest
 
 import userbot
@@ -40,13 +40,12 @@ class LionCheck:
 
 Lioncheck = LionCheck()
 # Join Lion X Channel after deploying 🤐😅
-    # Why not come here and chat??
+# Why not come here and chat??
 async def hehn():
     try:
         await lionub(JoinChannelRequest("@LionXUpdates"))
     except BaseException:
         pass
-
 
 
 async def startup_process():
@@ -71,7 +70,7 @@ async def startup_process():
     await startupmessage()
     Lioncheck.sucess = True
     return
-    
+
 
 lionub.loop.run_until_complete(startup_process())
 
