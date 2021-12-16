@@ -181,7 +181,7 @@ async def memes(event):
     meme_file = convert_toimage(output[1])
     meme = os.path.join("./temp", "lionmeme.jpg")
     if gvarstatus("CNG_FONTS") is None:
-        CNG_FONTS = "userbot/helpers/styles/impact.ttf"
+        CNG_FONTS = "userbot/helpers/styles/Vampires.ttf"
     else:
         CNG_FONTS = gvarstatus("CNG_FONTS")
     if max(len(top), len(bottom)) < 21:
