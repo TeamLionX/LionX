@@ -102,13 +102,17 @@ temp = """{ALIVE_TEXT}
 async def amireallyalive(event):
     "A kind of showing bot details by your inline bot"
     reply_to_id = await reply_id(event)
-    EMOJI = gvarstatus("ALIVE_EMOJI") or " ✨ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**LionXub is Up and Running**"
-    Lion_caption = f"{ALIVE_TEXT}\n"
-    Lion_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
-    Lion_caption += f"**{EMOJI} LionXub Version :** `{lionversion}`\n"
-    Lion_caption += f"**{EMOJI} Python Version :** `{python_version()}\n`"
-    Lion_caption += f"**{EMOJI} Master:** {mention}\n"
+    "▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n" 
+    f"⚔️ 𝗠𝗬 𝗕𝗢𝗧 𝗜𝗦 𝗪𝗢𝗥𝗞𝗜𝗡𝗚 ⚔️\n"
+    "▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
+    f"🐍 𝗣𝗬𝗧𝗛𝗢𝗡 ➪ v{python_version()}\n" 
+    f"⚙️ 𝗧𝗘𝗟𝗘𝗧𝗛𝗢𝗡 ➪ v{version.version}\n" 
+    f"👤 𝗨𝗦𝗘𝗥 ➪ {DEFAULTUSER}\n" 
+    "▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n" 
+    f"⚡️𝗠𝗬 𝗢𝗪𝗡𝗘𝗥⚡️➪{DEFAULTUSER}** \n" 
+    f"⚡️ 𝗥𝗘𝗣𝗢⚡️➪ [LEGACY](https://github.com/LEGACY-LEAVERS-TEAM/LEGACY-LEAVER-USERBOT) \n"
+    f"⚡️𝗖𝗛𝗔𝗡𝗡𝗘𝗟⚡️➪ [𝗝𝗢𝗜𝗡](https://t.me/LEGACY_USERBOT_SUPPORT) \n"
+    f"⚡️𝗦𝗨𝗣𝗣𝗢𝗥𝗧⚡️➪ [𝗝𝗢𝗜𝗡](https://t.me/LEGACY_LEAVERS_UB_SUPPORT)")
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, Lion_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
