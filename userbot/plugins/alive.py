@@ -40,12 +40,12 @@ async def amireallyalive(event):
     reply_to_id = await reply_id(event)
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    lionevent = await edit_or_reply(event, "`Checking...`")
+    lionevent = await edit_or_reply(event, "Checking...")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     _, check_sgnirts = check_data_base_heal_th()
     EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**✮ MY BOT IS RUNNING SUCCESSFULLY ✮**"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "✮ MY BOT IS RUNNING SUCCESSFULLY ✮"
     LION_IMG = gvarstatus("ALIVE_PIC")
     Lion_caption = gvarstatus("ALIVE_TEMPLATE") or temp
     caption = Lion_caption.format(
@@ -53,7 +53,7 @@ async def amireallyalive(event):
         EMOJI=EMOJI,
         mention=mention,
         uptime=uptime,
-        telever=version.__version__,
+        telever=version.version,
         lionver=lionversion,
         pyver=python_version(),
         dbhealth=check_sgnirts,
@@ -70,7 +70,7 @@ async def amireallyalive(event):
         except (WebpageMediaEmptyError, MediaEmptyError, WebpageCurlFailedError):
             return await edit_or_reply(
                 lionevent,
-                f"**Media Value Error!!**\n__Change the link by __`.setdv`\n\n**__Can't get media from this link :-**__ `{PIC}`",
+                f"Media Value Error!!\nChange the link by .setdv\n\nCan't get media from this link :- {PIC}",
             )
     else:
         await edit_or_reply(
@@ -80,12 +80,12 @@ async def amireallyalive(event):
 
 
 temp = """{ALIVE_TEXT}
-**{EMOJI} Database :** `{dbhealth}`
-**{EMOJI} Telethon Version :** `{telever}`
-**{EMOJI} LionXub Version :** `{lionver}`
-**{EMOJI} Python Version :** `{pyver}`
-**{EMOJI} Uptime :** `{uptime}`
-**{EMOJI} Master:** {mention}"""
+{EMOJI} Database : {dbhealth}
+{EMOJI} Telethon Version : {telever}
+{EMOJI} LionXub Version : {lionver}
+{EMOJI} Python Version : {pyver}
+{EMOJI} Uptime : {uptime}
+{EMOJI} Master: {mention}"""
 
 
 @lionub.lion_cmd(
@@ -102,22 +102,16 @@ temp = """{ALIVE_TEXT}
 async def amireallyalive(event):
     "A kind of showing bot details by your inline bot"
     reply_to_id = await reply_id(event)
-    "▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n" 
-    f"⚔️ 𝗠𝗬 𝗕𝗢𝗧 𝗜𝗦 𝗪𝗢𝗥𝗞𝗜𝗡𝗚 ⚔️\n"
-    "▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
-    f"🐍 𝗣𝗬𝗧𝗛𝗢𝗡 ➪ v{python_version()}\n" 
-    f"⚙️ 𝗧𝗘𝗟𝗘𝗧𝗛𝗢𝗡 ➪ v{version.version}\n" 
-    f"👤 𝗨𝗦𝗘𝗥 ➪ {DEFAULTUSER}\n" 
-    "▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n" 
-    f"⚡️𝗠𝗬 𝗢𝗪𝗡𝗘𝗥⚡️➪{DEFAULTUSER}** \n" 
-    f"⚡️ 𝗥𝗘𝗣𝗢⚡️➪ [LEGACY](https://github.com/LEGACY-LEAVERS-TEAM/LEGACY-LEAVER-USERBOT) \n"
-    f"⚡️𝗖𝗛𝗔𝗡𝗡𝗘𝗟⚡️➪ [𝗝𝗢𝗜𝗡](https://t.me/LEGACY_USERBOT_SUPPORT) \n"
-    f"⚡️𝗦𝗨𝗣𝗣𝗢𝗥𝗧⚡️➪ [𝗝𝗢𝗜𝗡](https://t.me/LEGACY_LEAVERS_UB_SUPPORT)")
+    EMOJI = gvarstatus("ALIVE_EMOJI") or " ✨ "
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "LionXub is Up and Running"
+    Lion_caption = f"{ALIVE_TEXT}\n"
+    Lion_caption += f"{EMOJI} Telethon version : {version.version}\n"
+    Lion_caption += f"{EMOJI} LionXub Version : {lionversion}\n"
+    Lion_caption += f"{EMOJI} Python Version : {python_version()}\n"
+    Lion_caption += f"{EMOJI} Master: {mention}\n"
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, Lion_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
-
-
 @lionub.tgbot.on(CallbackQuery(data=re.compile(b"stats")))
 async def on_plug_in_callback_query_handler(event):
     statstext = await lionalive(StartTime)
