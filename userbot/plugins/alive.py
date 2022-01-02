@@ -40,12 +40,12 @@ async def amireallyalive(event):
     reply_to_id = await reply_id(event)
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    lionevent = await edit_or_reply(event, "Checking...")
+    lionevent = await edit_or_reply(event, "`Aliving✨...`")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     _, check_sgnirts = check_data_base_heal_th()
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "  ✥ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "✮ MY BOT IS RUNNING SUCCESSFULLY ✮"
+    EMOJI = gvarstatus("ALIVE_EMOJI") or " 💫 "
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**🌟 LɪᴏɴX Is Aʟɪᴠᴇ Aɴᴅ Wᴏʀᴋɪɴɢ Sᴍᴏᴏᴛʜʟʏ 🌟**"
     LION_IMG = gvarstatus("ALIVE_PIC")
     Lion_caption = gvarstatus("ALIVE_TEMPLATE") or temp
     caption = Lion_caption.format(
