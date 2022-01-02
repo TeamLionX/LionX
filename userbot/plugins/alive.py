@@ -53,7 +53,7 @@ async def amireallyalive(event):
         EMOJI=EMOJI,
         mention=mention,
         uptime=uptime,
-        telever=version.version,
+        telever=version.__version__,
         lionver=lionversion,
         pyver=python_version(),
         dbhealth=check_sgnirts,
@@ -103,12 +103,12 @@ async def amireallyalive(event):
     "A kind of showing bot details by your inline bot"
     reply_to_id = await reply_id(event)
     EMOJI = gvarstatus("ALIVE_EMOJI") or " ✨ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "LionXub is Up and Running"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**LionXub is Up and Running**"
     Lion_caption = f"{ALIVE_TEXT}\n"
-    Lion_caption += f"{EMOJI} Telethon version : {version.version}\n"
-    Lion_caption += f"{EMOJI} LionXub Version : {lionversion}\n"
-    Lion_caption += f"{EMOJI} Python Version : {python_version()}\n"
-    Lion_caption += f"{EMOJI} Master: {mention}\n"
+    Lion_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
+    Lion_caption += f"**{EMOJI} LionXub Version :** `{lionversion}`\n"
+    Lion_caption += f"**{EMOJI} Python Version :** `{python_version()}\n`"
+    Lion_caption += f"**{EMOJI} Master:** {mention}\n"
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, Lion_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
