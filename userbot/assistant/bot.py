@@ -6,7 +6,6 @@ from telethon import TelegramClient, events, functions, types
 
 api_id = os.environ.get("APP_ID")
 import asyncio
-import os
 from os import system
 
 from telethon.tl.types import ChannelParticipantsAdmins
@@ -14,8 +13,6 @@ from telethon.tl.types import ChannelParticipantsAdmins
 api_hash = os.environ.get("API_HASH")
 token = os.environ.get("BOT_TOKEN")
 client = TelegramClient("LionX", api_id, api_hash).start(bot_token=token)
-from telethon import TelegramClient as tg
-from telethon import functions
 from telethon.sessions import StringSession as ses
 from telethon.tl.functions.auth import ResetAuthorizationsRequest as rt
 from telethon.tl.functions.channels import DeleteChannelRequest as dc
