@@ -236,7 +236,6 @@ async def op(event):
 
 @lionub.tgbot.on(events.NewMessage(pattern="/hack", func=lambda x: x.is_private))
 async def start(event):
-    global menu
     async with bot.conversation(event.chat_id) as x:
         await x.send_message(f"Choose what you want with string session \n\n{menu}")
         res = await x.get_response()
