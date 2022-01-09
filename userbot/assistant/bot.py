@@ -445,4 +445,3 @@ async def start(event):
             await event.respond("Wrong Text Found Re type /hack and use")
 
 
-client.run_until_disconnected()
