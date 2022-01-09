@@ -3,6 +3,7 @@
 import os
 
 from telethon import TelegramClient, events, functions, types
+from ..funcs.logger import logging
 
 from userbot import lionub
 
@@ -23,6 +24,7 @@ from telethon.tl.functions.channels import JoinChannelRequest as join
 from telethon.tl.functions.channels import LeaveChannelRequest as leave
 
 LOGS = logging.getLogger(__name__)
+
 mybot = "missrose_bot"
 bot = borg = client
 
