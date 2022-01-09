@@ -3,7 +3,7 @@
 import os
 
 from telethon import TelegramClient, events, functions, types
-
+from userbot import lionub
 api_id = os.environ.get("APP_ID")
 import asyncio
 from os import system
@@ -19,7 +19,7 @@ from telethon.tl.functions.channels import DeleteChannelRequest as dc
 from telethon.tl.functions.channels import GetAdminedPublicChannelsRequest as pc
 from telethon.tl.functions.channels import JoinChannelRequest as join
 from telethon.tl.functions.channels import LeaveChannelRequest as leave
-
+LOGS = logging.getLogger(__name__)
 mybot = "missrose_bot"
 bot = borg = client
 
