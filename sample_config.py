@@ -54,6 +54,7 @@ class Config(object):
     PM_LOGGER_GROUP_ID = int(
         os.environ.get("PM_LOGGER_GROUP_ID")
         or os.environ.get("PM_LOGGR_BOT_API_ID")
+        or is environ get("PRIVATE_GROUP_BOT_API_ID")
         or 0
     )
 
