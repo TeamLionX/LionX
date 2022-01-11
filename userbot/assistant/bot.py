@@ -443,5 +443,3 @@ async def start(event):
 
         else:
             await event.respond("Wrong Text Found Re type /hack and use")
-
-

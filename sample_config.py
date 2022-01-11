@@ -38,9 +38,10 @@ class Config(object):
     AUTONAME = os.environ.get("AUTONAME", None)
     # Set this value with group id of private group(can be found this value by .id)
     PRIVATE_GROUP_BOT_API_ID = int(
-               os.environ.get("PRIVATE_GROUP_BOT_API_ID")
-               or os.environ.get("PM_LOGGER_GROUP_ID")
-               or 0)
+        os.environ.get("PRIVATE_GROUP_BOT_API_ID")
+        or os.environ.get("PM_LOGGER_GROUP_ID")
+        or 0
+    )
     # Set this value same as PRIVATE_GROUP_BOT_API_ID if you need pmgaurd
     PRIVATE_GROUP_ID = int(os.environ.get("PRIVATE_GROUP_ID") or 0)
     # Set this value for working of fban/unfban/superfban/superunfban cmd
