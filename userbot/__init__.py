@@ -14,7 +14,7 @@ __copyright__ = "Lion-Z Copyright (©️) 2020 - 2021  " + __author__
 
 lionub.version = __version__
 lionub.tgbot.version = __version__
-LOGS = logging.getLogger("LionZ")
+LOGS = logging.getLogger("LionX")
 bot = lionub
 
 StartTime = time.time()
