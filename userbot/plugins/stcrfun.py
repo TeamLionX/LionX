@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers.functions import convert_tosticker, higlighted_text
-from . import lionub, deEmojify, edit_delete, edit_or_reply, reply_id
+from . import deEmojify, edit_delete, edit_or_reply, lionub, reply_id
 
 plugin_category = "fun"
 logger = logging.getLogger(__name__)
