@@ -30,6 +30,9 @@ A simple Telegram userbot based on Telethon .
 ## How to deploy LionZ
 ### Heroku Deploy
   - [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TeamLionX/LionX)
+
+
+[![Deploy Fork](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
   
 ## Support
 
