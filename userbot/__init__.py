@@ -18,7 +18,7 @@ LOGS = logging.getLogger("LionZ")
 bot = lionub
 
 StartTime = time.time()
-lionversion = "2.0.1"
+lionversion = "0.2"
 
 if Config.UPSTREAM_REPO == "lion":
     UPSTREAM_REPO_URL = "https://github.com/MdNoor786/Lion-Z"
