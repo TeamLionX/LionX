@@ -22,7 +22,7 @@ from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from .pluginmanager import load_module
 from .tools import create_supergroup
 
-LOGS = logging.getLogger("LionZ")
+LOGS = logging.getLogger("LionX")
 cmdhr = Config.COMMAND_HAND_LER
 
 
