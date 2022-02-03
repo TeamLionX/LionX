@@ -24,7 +24,7 @@ A simple Telegram userbot based on Telethon .
 - [![Deploy Fork](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 
-- [![Railway](https://telegra.ph/file/35716b59cc180e4f282a4.jpg)](#Deploy-on-Railway)
+- [![Railway](https://railway.app/button.svg)](#Deploy-on-Railway)
 
 
 -----
