@@ -33,6 +33,45 @@ A simple Telegram userbot based on Telethon .
 
 
 [![Deploy Fork](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+-----
+## Variables
+
+- `APP_ID`  =  Get this value from my.telegram.org
+- `API_HASH`  =  Get this value from my.telegram.org
+- `STRING_SESSION`  =  Get this by using [Repl.it](#Repl) or from [terminal](#Terminal)
+- `LOGGER_ID`  =  Make A Channel And Get it's ID.
+- `TG_BOT_TOKEN`  =  Make A Bot From [@BotFather](https://t.me/botfather) and paste it's token.
+- `TG_BOT_USERNAME`  =  Get the username of that Bot made from [@Botfather](https://t.me/botfather)
+- `COMMAND_HAND_LER`  =  Your command handler.
+- `HEROKU_API_KEY` = Get From Heroku Setting.
+- `DATABASE_URL`  =  A Postgresql database url.
+
+------
+## LionX Session
+
+### Repl
+- Open Repl Link.
+- Click on Start.
+- Choose Telethon.
+- Fill API ID, API HASH, Phone number (with country code).
+- Paste the OTP received on Telegram.
+- If You have Enabled 2-Step Verification then fill your password.
+- Your Lion X Session Will be saved in your Telegram Saved Message.
+- There's a bug in repl which prints your input twice or more.So You Can Use String Bot Now
+- [![Replit](https://telegra.ph/file/077958ee013e378b36818.jpg)](https://t.me/LionXStringbot)
+
+-----
+## Disclaimer
+- We won't be responsible for any kind of ban due to this bot.
+- HellBot was made for fun purpose and to make group management easier.
+- It's your concern if you spam and gets your account banned.
+- Also, Forks won't be entertained.
+- If you fork this repo and edit plugins, it's your concern for further updates.
+- Forking Repo is fine. But if you edit something we will not provide any help.
+- In short, Fork At Your Own Risk.
+
+------
   
 ## Support
 
