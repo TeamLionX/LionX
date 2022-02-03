@@ -228,17 +228,13 @@ async def video_lionfile(event):  # sourcery no-metrics
             return await edit_delete(
                 lionevent, "`No thumb found to make it video note`", 5
             )
-    if (
-        mediatype
-        in [
-            "Voice",
-            "Audio",
-            "Gif",
-            "Video",
-            "Sticker",
-        ]
-        and not lionfile.endswith((".webp"))
-    ):
+    if mediatype in [
+        "Voice",
+        "Audio",
+        "Gif",
+        "Video",
+        "Sticker",
+    ] and not lionfile.endswith((".webp")):
         if os.path.exists(PATH):
             c_time = time.time()
             attributes, mime_type = get_attributes(PATH)
