@@ -88,3 +88,6 @@ A simple Telegram userbot based on Telethon .
 
    <a href="https://t.me/LionXupdates"><img src="https://img.shields.io/badge/Channel%20Support%3F-yes-green?&style=flat-square?&logo=telegram" width=220px></a></p>
    <a href="https://t.me/LionXSupport"><img src="https://img.shields.io/badge/Group%20Support%3F-yes-green?&style=flat-square?&logo=telegram" width=220px></a></p>
+
+
+______
