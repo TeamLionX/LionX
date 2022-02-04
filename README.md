@@ -20,11 +20,15 @@ A simple Telegram userbot based on Telethon .
 ### Heroku Deploy
   - [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TeamLionX/LionX)
 
+-----
 
-##Fork Deploy
+## Fork Deploy
 
 - [![Deploy Fork](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+
+-----
+## Railway Deploy
 
 - [![Railway](https://railway.app/button.svg)](#Deploy-on-Railway)
 
@@ -52,7 +56,7 @@ A simple Telegram userbot based on Telethon .
 - Every mandatory variables are listed [Here](#Variables).
 - Please note that YoutubeDL won't work on railway deploys.
 - You won't be able to update your bot. To update you'll have to deploy again. I'll find a method to update through railway soon.
-- Due to railway's privacy policy I removed railway button from repo. But you can get deploy link in our [@LionXSuppkort](https://t.me/LionXsupport). Type `#railway` to get deploy link.
+- Due to railway's privacy policy I removed railway button from repo. But you can get deploy link in our [@LionXSupport](https://t.me/LionXsupport). Type `#railway` to get deploy link.
 
 
 ### Repl
