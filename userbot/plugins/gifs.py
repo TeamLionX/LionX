@@ -1,21 +1,87 @@
 # Created by @SimpleBoy786
 
-import base64
+import os
 import random
+import base64
+import asyncio
+import logging
 
 import requests
 from telethon import functions, types
 from telethon.errors.rpcerrorlist import UserNotParticipantError
 from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
+from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from ..funcs.managers import edit_delete, edit_or_reply
+from ..helpers import media_type
+
 from ..helpers.utils import _lionutils, reply_id
 from . import lionub
 
 plugin_category = "fun"
 
+LOGS = logging.getLogger(__name__)
 
+
+@lionub.lion_cmd(
+    pattern="dis$",
+    command=("dis", plugin_category),
+    info={
+        "header": "Distorting media",
+        "usage": "{tr}dis <reply to media>",
+    },
+)
+async def lion(event):
+    "Reply this command to a video to convert it to distorted media"
+    reply = await event.get_reply_message()
+    mediatype = media_type(reply)
+    if mediatype and mediatype not in ["Gif", "Video","Sticker","Photo","Voice"]:
+        return await edit_delete(event, "__Reply to a media file__")
+    lion = await edit_or_reply(event, "__🎞Converting into distorted media..__")
+    async with event.client.conversation("@distortionerbot") as conv:
+        try:
+            msg = await conv.send_message(reply)
+            media = await conv.get_response()
+            await event.client.send_read_acknowledge(conv.chat_id)
+            if "Downloading" in media.raw_text:
+                media = await conv.get_response()
+        except YouBlockedUserError:
+            await lion.edit("Please unblock @distortionerbot and try again")
+            return
+        await lion.delete()
+        lionx = await event.client.send_file(event.chat_id, media, reply_to=reply)
+        out = media_type(media)
+        if out in ["Gif", "Video","Sticker"]:
+            await _lionutils.unsavegif(event,lionx)
+ 
+    await event.client.delete_messages(conv.chat_id, [msg.id, media.id])
+
+"""
+@lionub.lion_cmd(
+    pattern="va$",
+    command=("va", plugin_category),
+    info={
+        "header": "Reply this command to a video to convert it to Animated sticker.",
+        "usage": "{tr}va",
+    },
+)
+async def _(event):
+    "Reply this command to a video to convert it to animated sticker'."
+    reply = await event.get_reply_message()
+    mediatype = media_type(reply)
+    if mediatype and mediatype not in ["Gif", "Video"]:
+        return await edit_delete(event, "__Reply to video or gif__")
+    catevent = await edit_or_reply(event, "__🎞Converting into Animated sticker..__")
+    if not os.path.isdir("./temp"):
+        os.makedirs("./temp")
+    filename = os.path.join("./temp", "sticker.webm")
+    download = await reply.download_media(filename)
+    sticker = await event.client.send_file(event.chat_id, filename, reply_to=reply)
+    await catevent.delete()
+    os.remove(filename)
+
+"""
 @lionub.lion_cmd(
     pattern="gifs(?:\s|$)([\s\S]*)",
     command=("gifs", plugin_category),
