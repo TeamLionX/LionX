@@ -40,4 +40,4 @@ def is_harem(chat_id: str):
         if waifu:
             return str(waifu.chat_id)
     finally:
-        SESSION.close(
+        SESSION.close()
