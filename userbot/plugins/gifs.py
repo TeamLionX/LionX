@@ -1,21 +1,17 @@
 # Created by @SimpleBoy786
 
-import os
-import random
 import base64
-import asyncio
 import logging
+import random
 
 import requests
 from telethon import functions, types
-from telethon.errors.rpcerrorlist import UserNotParticipantError
+from telethon.errors.rpcerrorlist import UserNotParticipantError, YouBlockedUserError
 from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
-from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import media_type
-
 from ..helpers.utils import _lionutils, reply_id
 from . import lionub
 
@@ -36,7 +32,7 @@ async def lion(event):
     "Reply this command to a video to convert it to distorted media"
     reply = await event.get_reply_message()
     mediatype = media_type(reply)
-    if mediatype and mediatype not in ["Gif", "Video","Sticker","Photo","Voice"]:
+    if mediatype and mediatype not in ["Gif", "Video", "Sticker", "Photo", "Voice"]:
         return await edit_delete(event, "__Reply to a media file__")
     lion = await edit_or_reply(event, "__🎞Converting into distorted media..__")
     async with event.client.conversation("@distortionerbot") as conv:
@@ -52,10 +48,11 @@ async def lion(event):
         await lion.delete()
         lionx = await event.client.send_file(event.chat_id, media, reply_to=reply)
         out = media_type(media)
-        if out in ["Gif", "Video","Sticker"]:
-            await _lionutils.unsavegif(event,lionx)
- 
+        if out in ["Gif", "Video", "Sticker"]:
+            await _lionutils.unsavegif(event, lionx)
+
     await event.client.delete_messages(conv.chat_id, [msg.id, media.id])
+
 
 """
 @lionub.lion_cmd(
@@ -82,6 +79,8 @@ async def _(event):
     os.remove(filename)
 
 """
+
+
 @lionub.lion_cmd(
     pattern="gifs(?:\s|$)([\s\S]*)",
     command=("gifs", plugin_category),
