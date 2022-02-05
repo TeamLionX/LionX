@@ -1,5 +1,7 @@
 from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
+
 from . import BASE, SESSION
+
 
 
 class Harem(BASE):
