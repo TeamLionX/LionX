@@ -20,7 +20,7 @@ async def mememaker(borg, msg, lion, chat_id, reply_to_id):
             pic = await conv.get_response()
             await borg.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await kakashi.edit("Please unblock @clippy and try again")
+            await lion.edit("Please unblock @themememakerbot and try again")
             return
         await lion.delete()
         await borg.send_file(
@@ -72,12 +72,12 @@ async def lion(event):
 
 
 @lionub.lion_cmd(
-    pattern="sleep ?([\s\S]*)",
-    command=("sleep", plugin_category),
+    pattern="slip ?([\s\S]*)",
+    command=("slip", plugin_category),
     info={
         "header": "brain say meme",
         "description": "Send you a sleeping brain meme.",
-        "usage": "{tr}sleep <text>",
+        "usage": "{tr}slip <text>",
     },
 )
 async def lion(event):
