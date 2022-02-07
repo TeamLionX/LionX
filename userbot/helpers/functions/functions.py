@@ -10,7 +10,6 @@ from googletrans import Translator
 from ..utils.extdl import install_pip
 from ..utils.utils import runcmd
 
-
 try:
     from imdb import IMDb
 except ModuleNotFoundError:
@@ -51,6 +50,7 @@ async def get_cast(casttype, movie):
     else:
         mov_casttype += "Not Data"
     return mov_casttype
+
 
 async def animator(media, mainevent, textevent):
     h = media.file.height
