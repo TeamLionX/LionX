@@ -1,13 +1,11 @@
-import asyncio
 import os
-import datetime
-import lottie
-import urllib
-import requests
 from asyncio import sleep
+
+import requests
 from bs4 import BeautifulSoup
 
-from userbot.sql_helper.waifu_sql import is_harem, add_grp, rm_grp, get_all_grp
+from userbot.sql_helper.waifu_sql import add_grp, get_all_grp, is_harem, rm_grp
+
 from . import *
 
 plugin_category = "utils"
@@ -15,12 +13,14 @@ plugin_category = "utils"
 qt = "waifu appeared!"
 qt_bots = ["792028928", "1964681186", "1733263647"]
 
+
 def progress(current, total):
     logger.info(
         "Downloaded {} of {}\nCompleted {}".format(
             current, total, (current / total) * 100
         )
     )
+
 
 @lionub.lion_cmd(
     pattern="pp$",
@@ -73,8 +73,7 @@ async def _(event):
         prs_text = prs_anchor_element.text
         img_size_div = soup.find(id="jHnbRc")
         img_size = img_size_div.find_all("div")
-        OUTPUT_STR = """/protecc {prs_text}""".format(
-            **locals())
+        OUTPUT_STR = """/protecc {prs_text}""".format(**locals())
     await lionevent.edit(OUTPUT_STR, parse_mode="HTML", link_preview=False)
 
 
@@ -95,7 +94,9 @@ async def _(event):
                 dl = await event.client.download_media(event.media, "resources/")
                 file = {"encoded_image": (dl, open(dl, "rb"))}
                 grs = requests.post(
-                    "https://www.google.com/searchbyimage/upload", files=file, allow_redirects=False
+                    "https://www.google.com/searchbyimage/upload",
+                    files=file,
+                    allow_redirects=False,
                 )
                 loc = grs.headers.get("Location")
                 response = requests.get(
@@ -115,7 +116,9 @@ async def _(event):
                         return
                 except:
                     pass
-                lionevent = await event.client.send_message(event.chat_id, f"/protecc {text}")
+                lionevent = await event.client.send_message(
+                    event.chat_id, f"/protecc {text}"
+                )
                 await sleep(2)
                 await lionevent.delete()
                 os.remove(dl)
@@ -144,7 +147,10 @@ async def _(event):
         await edit_delete(event, "This Chat is Already In AutoWaifu Database !!")
         return
     add_grp(str(event.chat_id))
-    await edit_delete(event, f"**Added Chat** {event.chat.title} **With Id** `{event.chat_id}` **To Autowaifu Database.**")
+    await edit_delete(
+        event,
+        f"**Added Chat** {event.chat.title} **With Id** `{event.chat_id}` **To Autowaifu Database.**",
+    )
 
 
 @lionub.lion_cmd(
@@ -166,7 +172,10 @@ async def _(event):
         await edit_delete(event, "Autowaifu was already disabled here.")
         return
     rm_grp(str(event.chat_id))
-    await edit_delete(event, f"**Removed Chat** {event.chat.title} **With Id** `{event.chat_id}` **From AutoWaifu Database.**")
+    await edit_delete(
+        event,
+        f"**Removed Chat** {event.chat.title} **With Id** `{event.chat_id}` **From AutoWaifu Database.**",
+    )
 
 
 @lionub.lion_cmd(
