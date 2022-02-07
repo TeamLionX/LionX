@@ -10,7 +10,7 @@ from . import *
 
 plugin_category = "utils"
 
-qt = "waifu appeared!"
+qt = "Pokemon appeared!"
 qt_bots = ["5020806573"]
 
 
