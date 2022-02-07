@@ -8,6 +8,8 @@ import requests
 from googletrans import Translator
 
 from ..utils.extdl import install_pip
+from ..utils.utils import runcmd
+
 
 try:
     from imdb import IMDb
@@ -49,6 +51,21 @@ async def get_cast(casttype, movie):
     else:
         mov_casttype += "Not Data"
     return mov_casttype
+
+async def animator(media, mainevent, textevent):
+    h = media.file.height
+    w = media.file.width
+    w, h = (-1, 512) if h > w else (512, -1)
+    if not os.path.isdir(Config.TEMP_DIR):
+        os.makedirs(Config.TEMP_DIR)
+    LionX = await mainevent.client.download_media(media, Config.TEMP_DIR)
+    await textevent.edit("__🎞Converting into Animated sticker..__")
+    await runcmd(
+        f"ffmpeg -ss 00:00:00 -to 00:00:02.900 -i {LionX} -vf scale={w}:{h} -c:v libvpx-vp9 -crf 30 -b:v 560k -maxrate 560k -bufsize 256k -an animate.webm"
+    )  # pain
+    os.remove(LionX)
+    sticker = "animate.webm"
+    return sticker
 
 
 async def get_moviecollections(movie):
