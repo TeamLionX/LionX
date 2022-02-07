@@ -54,8 +54,6 @@ async def lion(event):
     await event.client.delete_messages(conv.chat_id, [msg.id, media.id])
 
 
-
-
 @lionub.lion_cmd(
     pattern="gifs(?:\s|$)([\s\S]*)",
     command=("gifs", plugin_category),
