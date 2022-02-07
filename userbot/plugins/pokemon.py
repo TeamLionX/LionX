@@ -23,13 +23,13 @@ def progress(current, total):
 
 
 @lionub.lion_cmd(
-    pattern="cp$",
-    command=("cp", plugin_category),
+    pattern="ct$",
+    command=("ct", plugin_category),
     info={
         "header": "To catch Pokemon",
         "options": "This will help you to catch Pokemon",
         "usage": [
-            "{tr}cp",
+            "{tr}ct",
         ],
     },
 )
