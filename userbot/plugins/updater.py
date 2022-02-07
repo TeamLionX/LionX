@@ -279,7 +279,7 @@ async def upstream(event):
 )
 async def upstream(event):
     event = await edit_or_reply(event, "`Pulling the nekopack repo wait a sec ....`")
-    off_repo = "https://github.com/MdNoor786/nekopack"
+    off_repo = "https://github.com/TeamLionX/LionX"
     os.chdir("/app")
     try:
         txt = "`Oops.. Updater cannot continue due to "
