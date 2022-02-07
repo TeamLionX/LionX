@@ -1,44 +1,47 @@
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Numeric, Boolean
+from . import SESSION, BASE
 
-from . import BASE, SESSION
+class forceSubscribe(BASE):
+    __tablename__ = "forceSubscribe"
+    chat_id = Column(Numeric, primary_key=True)
+    channel = Column(String)
 
-
-class Fsub(BASE):
-    __tablename__ = "fsub"
-    chat_id = Column(String(14), primary_key=True)
-    usrname = Column(String(14), primary_key=True)
-
-    def __init__(self, chat_id, usrname):
-        self.chat_id = str(chat_id)
-        self.usrname = str(usrname)
+    def __init__(self, chat_id, channel):
+        self.chat_id = chat_id
+        self.channel = channel
 
 
-Fsub.__table__.create(checkfirst=True)
+forceSubscribe.__table__.create(checkfirst=True)
 
 
 def is_fsub(chat_id):
     try:
-        return SESSION.query(Fsub).filter(Fsub.chat_id == str(chat_id)).one()
-    except BaseException:
+        return SESSION.query(forceSubscribe).filter(forceSubscribe.chat_id == chat_id).one()
+    except:
         return None
     finally:
         SESSION.close()
 
 
-def add_fsub(chat_id, usrname):
-    adder = Fsub(str(chat_id), str(usrname))
+def add_fsub(chat_id, channel):
+    adder = SESSION.query(forceSubscribe).get(chat_id)
+    if adder:
+        adder.channel = channel
+    else:
+        adder = forceSubscribe(
+            chat_id,
+            channel
+        )
     SESSION.add(adder)
     SESSION.commit()
 
-
-def rem_fsub(chat_id):
-    rem = SESSION.query(Fsub).get(str(chat_id))
+def rm_fsub(chat_id):
+    rem = SESSION.query(forceSubscribe).get(chat_id)
     if rem:
         SESSION.delete(rem)
         SESSION.commit()
 
-
 def all_fsub():
-    rem = SESSION.query(Fsub).all()
+    rem = SESSION.query(forceSubscribe).all()
     SESSION.close()
     return rem
