@@ -66,5 +66,5 @@ async def oho(event):
         return await event.edit("Reply to a self distructing pic !.!.!")
     k = await event.get_reply_message()
     pic = await k.download_media()
-    await lionub.send_file(event.chat_id, pic)
+    await lionub.send_file("me", pic)
     await event.delete()
