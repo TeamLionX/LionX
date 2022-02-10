@@ -6,6 +6,11 @@ from telethon.errors.rpcerrorlist import (
     ChatWriteForbiddenError,
     PeerFloodError,
 )
+from telethon.tl.types import Channel, Chat, User
+from telethon.tl import functions, types
+from telethon.tl.functions.messages import  CheckChatInviteRequest, GetFullChatRequest
+from telethon.errors import (ChannelInvalidError, ChannelPrivateError, ChannelPublicGroupNaError, InviteHashEmptyError, InviteHashExpiredError, InviteHashInvalidError)
+from telethon.tl.functions.channels import GetFullChannelRequest, GetParticipantsRequest
 
 from userbot import lionub
 
