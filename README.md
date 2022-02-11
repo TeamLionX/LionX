@@ -18,9 +18,8 @@ A simple Telegram userbot based on Telethon .
 
 ## How to deploy LionX
 
-## Fork Deploy
-
-- [![Deploy Fork](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+### Heroku Deploy
+  - [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TeamLionX/Heroku)
 
 
 -----
