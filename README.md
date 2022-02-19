@@ -1,5 +1,5 @@
 A simple Telegram userbot based on Telethon .
-[![LionX logo](https://telegra.ph/file/c7699bd09d7aacb203bba.jpg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX%2Ftree%2Fmaster&template=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX)
+[![LionX logo](https://telegra.ph/file/98723186aa539cae2c0fe.jpg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX%2Ftree%2Fmaster&template=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX)
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/TeamLionX/LionX)
 [![CodeFactor](https://www.codefactor.io/repository/github/TeamLionX/LionX/badge?&style=flat-square)](https://www.codefactor.io/repository/github/TeamLionX/LionX)
