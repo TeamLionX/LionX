@@ -265,6 +265,7 @@ async def writer(e):
     await e.reply(file=file)
     os.remove(file)
 
+
 @lionub.lion_cmd(
     pattern="twrite(?:\s|$)([\s\S]*)",
     command=("twrite", plugin_category),
@@ -295,7 +296,8 @@ async def writer(e):
     if os.path.exists("downloads/Homemade_Apple.zip"):
         os.remove(fonts)
     urllib.request.urlretrieve(
-        "https://github.com/TeamLionX/Files/blob/main/fonts/Homemade_Apple.zip?raw=true", fonts
+        "https://github.com/TeamLionX/Files/blob/main/fonts/Homemade_Apple.zip?raw=true",
+        fonts,
     )
     Image.open(template)
     img = Image.open(template)
