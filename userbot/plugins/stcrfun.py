@@ -264,3 +264,49 @@ async def writer(e):
     img.save(file)
     await e.reply(file=file)
     os.remove(file)
+
+@lionub.lion_cmd(
+    pattern="twrite(?:\s|$)([\s\S]*)",
+    command=("twrite", plugin_category),
+    info={
+        "header": "To write given text or replied message on paper.",
+        "usage": "{tr}twrite <message/reply>",
+        "examples": "{tr}twrite Hello World",
+    },
+)
+async def writer(e):
+    if e.reply_to:
+        reply = await e.get_reply_message()
+        text = reply.message
+    elif e.pattern_match.group(1):
+        text = e.text.split(maxsplit=1)[1]
+    else:
+        return await edit_delete(e, "`Give Some Text`")
+    template = "downloads/template.png"
+    if os.path.exists("downloads/template.png"):
+        os.remove(template)
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/TeamLionX/Files/main/template/template.jpg",
+        template,
+    )
+    Image.open(template)
+    await edit_delete(e, "`Writing...`")
+    fonts = "downloads/Homemade_Apple.zip"
+    if os.path.exists("downloads/Homemade_Apple.zip"):
+        os.remove(fonts)
+    urllib.request.urlretrieve(
+        "https://github.com/TeamLionX/Files/blob/main/fonts/Homemade_Apple.zip?raw=true", fonts
+    )
+    Image.open(template)
+    img = Image.open(template)
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype(fonts, 30)
+    x, y = 150, 140
+    (text)
+    line_height = font.getsize("hg")[1]
+    draw.text((x, y), text, fill=(1, 22, 55), font=font)
+    y = y + line_height - 5
+    file = "pic.jpg"
+    img.save(file)
+    await e.reply(file=file)
+    os.remove(file)
