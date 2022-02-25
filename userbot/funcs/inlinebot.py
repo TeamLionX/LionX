@@ -30,7 +30,7 @@ from .logger import logging
 LOGS = logging.getLogger(__name__)
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-LIONLOGO = "https://telegra.ph/file/698a0a9060789f095897c.jpg"
+LIONLOGO = "https://telegra.ph/file/ddc5fa84192641f0915e3.jpg"
 tr = Config.COMMAND_HAND_LER
 
 
@@ -56,12 +56,12 @@ def main_menu():
     text = f"𝐋𝐢𝐨𝐧𝐗 𝐇𝐞𝐥𝐩 𝐌𝐞𝐧𝐮\
         \n𝐏𝐫𝐨𝐯𝐢𝐝𝐞𝐝 𝐁𝐲 {mention}"
     buttons = [
-        (Button.inline("ℹ️ Info", data="check"),),
-        (Button.inline(f"👮‍♂️ Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),),
-        (Button.inline(f"🎨 Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),),
+        (Button.inline("🪄 Info", data="check"),),
+        (Button.inline(f"🎀 Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),),
+        (Button.inline(f"💥 Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),),
         (
-            Button.inline(f"🧰 Tools ({len(GRP_INFO['tools'])})", data="tools_menu"),
-            Button.inline(f"🗂 Utils ({len(GRP_INFO['utils'])})", data="utils_menu"),
+            Button.inline(f"💼 Tools ({len(GRP_INFO['tools'])})", data="tools_menu"),
+            Button.inline(f"✨ Utils ({len(GRP_INFO['utils'])})", data="utils_menu"),
         ),
         (Button.inline("Close", data="close"),),
     ]
@@ -551,8 +551,10 @@ async def inline_handler(event):  # sourcery no-metrics
                 Button.url("Source code", "https://github.com/TeamLionX/LionX"),
                 Button.url(
                     "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX&template=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX",
-                ),
+                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX%2FHeroku&template=https%3A%2F%2Fgithub.com%2FTeamLionX%2FHeroku",
+            ),
+            )
+            (   Button.url("Support", "https://t.me/LionXSupport"),
             )
         ]
         markup = event.client.build_reply_markup(buttons)
@@ -565,7 +567,7 @@ async def inline_handler(event):  # sourcery no-metrics
         result = types.InputBotInlineResult(
             id=str(uuid4()),
             type="photo",
-            title="𝑳𝒊𝒐𝒏𝑿",
+            title="𝙇𝙞𝙤𝙣𝙓",
             description="Deploy yourself",
             url="https://github.com/TeamLionX/LionX",
             thumb=photo,
