@@ -416,8 +416,7 @@ async def on_new_private_message(event):
         return await do_pm_enquire_action(event, chat)
     if str(chat.id) in sqllist.get_collection_list("pmoptions"):
         return await do_pm_options_action(event, chat)
-    await do_pm_permit_action(event, chat)
-
+    await do_pm_permit_action(event, chat)           
 
 @lionub.lion_cmd(outgoing=True, func=lambda e: e.is_private, edited=False, forword=None)
 async def you_dm_other(event):
@@ -760,6 +759,9 @@ async def disapprove_p_m(event):
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(2)
+    if str(user.id) in DEVLIST:
+            await edit_delete(event, "**I can't Block My Creator !!**")
+         
 
     else:
         reason = event.pattern_match.group(2)
@@ -771,7 +773,7 @@ async def disapprove_p_m(event):
         pmpermit_sql.disapprove_all()
         return await edit_delete(
             event, "__Ok! I have disapproved everyone successfully.__"
-        )
+        ) 
     if str(user.id) in DEVLIST:
         await edit_delete(
             event, "**Unable to disapprove this user. Seems like God !!**"
@@ -813,6 +815,9 @@ async def block_p_m(event):
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(1)
+     if str(user.id) in DEVLIST:
+            await edit_delete(event, "**I can't Block My Creator !!**")
+         
     else:
         user, reason = await get_user_from_event(event)
         if not user:
