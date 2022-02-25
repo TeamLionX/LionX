@@ -815,7 +815,7 @@ async def block_p_m(event):
     if event.is_private:
         user = await event.get_chat()
         reason = event.pattern_match.group(1)
-     if str(user.id) in DEVLIST:
+    if str(user.id) in DEVLIST:
             await edit_delete(event, "**I can't Block My Creator !!**")
          
     else:
