@@ -18,6 +18,8 @@ from ..sql_helper import pmpermit_sql
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from . import mention
 
+from ..funcs.devs import DEVLIST
+
 plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
@@ -771,6 +773,9 @@ async def disapprove_p_m(event):
         return await edit_delete(
             event, "__Ok! I have disapproved everyone successfully.__"
         )
+    if str(user.id) in DEVLIST:
+                await edit_delete(event, "**Unable to disapprove this user. Seems like God !!**")
+             
     if not reason:
         reason = "Not Mentioned."
     if pmpermit_sql.is_approved(user.id):
@@ -829,6 +834,8 @@ async def block_p_m(event):
         except Exception as e:
             LOGS.info(str(e))
         del PMMESSAGE_CACHE[str(user.id)]
+    if str(user.id) in DEVLIST:
+            await edit_delete(event, "**I can't Block My Creator !!**")
     if pmpermit_sql.is_approved(user.id):
         pmpermit_sql.disapprove(user.id)
     sql.del_collection("pmwarns")
