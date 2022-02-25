@@ -552,9 +552,9 @@ async def inline_handler(event):  # sourcery no-metrics
                 Button.url(
                     "Deploy",
                     "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX%2FHeroku&template=https%3A%2F%2Fgithub.com%2FTeamLionX%2FHeroku",
-            ),
-            )
-            (   Button.url("Support", "https://t.me/LionXSupport"),
+                ),
+            )(
+                Button.url("Support", "https://t.me/LionXSupport"),
             )
         ]
         markup = event.client.build_reply_markup(buttons)
