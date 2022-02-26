@@ -11,9 +11,9 @@ A simple Telegram userbot based on Telethon .
 [![PR Closed](https://img.shields.io/github/issues-pr-closed/TeamLionX/LionX?&style=flat-square&logo=github)](https://github.com/TeamLionX/LionX/pulls?q=is:closed)
 [![GitHub contributors](https://img.shields.io/github/contributors/TeamLionX/LionX?&style=flat-square&logo=github)](https://GitHub.com/TeamLionX/LionX/graphs/contributors/)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/TeamLionX/LionX?&style=flat-square&logo=github)](https://github.com/TeamLionX/LionX/graphs/commit-activity)
+[![GitHub latest commit](https://badgen.net//github/last-commit/TeamLionX/LionX)](https://GitHub.com/TeamLionX/LionX/commit/)
 [![GitHub forks](https://img.shields.io/github/forks/TeamLionX/LionX?&style=flat-square&logo=github)](https://github.com/TeamLionX/LionX/fork)
 [![GitHub stars](https://img.shields.io/github/stars/TeamLionX/LionX?&style=flat-square&logo=github)](https://github.com/TeamLionX/LionX/stargazers)
-
 
 
 ## How to deploy LionX
@@ -94,3 +94,7 @@ A simple Telegram userbot based on Telethon .
 
 
 ______
+
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
+
