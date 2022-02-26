@@ -36,8 +36,8 @@ A simple Telegram userbot based on Telethon .
 - `API_HASH`  =  Get this value from my.telegram.org
 - `STRING_SESSION`  =  Get this by using [Repl.it](#Repl) or from [terminal](#Terminal)
 - `LOGGER_ID`  =  Make A Channel And Get it's ID.
-- `TG_BOT_TOKEN`  =  Make A Bot From [@BotFather](https://t.me/botfather) and paste it's token.
-- `TG_BOT_USERNAME`  =  Get the username of that Bot made from [@Botfather](https://t.me/botfather)
+- `TG_BOT_TOKEN`  =  Make A Bot From [BotFather](https://t.me/botfather) and paste it's token.
+- `TG_BOT_USERNAME`  =  Get the username of that Bot made from [Botfather](https://t.me/botfather)
 - `COMMAND_HAND_LER`  =  Your command handler.
 - `DATABASE_URL`  =  A Postgresql database url.
 
@@ -51,7 +51,7 @@ A simple Telegram userbot based on Telethon .
 - Every mandatory variables are listed [Here](#Variables).
 - Please note that YoutubeDL won't work on railway deploys.
 - You won't be able to update your bot. To update you'll have to deploy again. I'll find a method to update through railway soon.
-- Due to railway's privacy policy I removed railway button from repo. But you can get deploy link in our [@LionXSupport](https://t.me/LionXsupport). Type `#railway` to get deploy link.
+- Due to railway's privacy policy I removed railway button from repo. But you can get deploy link in our [LionXSupport](https://t.me/LionXsupport). Type `#railway` to get deploy link.
 
 
 ### Repl
