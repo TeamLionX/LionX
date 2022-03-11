@@ -111,7 +111,7 @@ async def some(event):
     """Its useless for single like you. Get a lover first"""
     inpt = event.pattern_match.group(1)
     reply_to_id = await reply_id(event)
-    count = 1 if not inpt else int(inpt)
+    count = int(inpt) if inpt else 1
     if count < 0 and count > 20:
         await edit_delete(event, "`Give value in range 1-20`")
     res = base64.b64decode(

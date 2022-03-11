@@ -43,7 +43,7 @@ async def filter_incoming_handler(event):  # sourcery no-metrics
     my_fullname = f"{my_first} {my_last}" if my_last else my_first
     my_username = f"@{me.username}" if me.username else my_mention
     for trigger in filters:
-        pattern = r"( |^|[^\w])" + re.escape(trigger.keyword) + r"( |$|[^\w])"
+        pattern = f"( |^|[^\\w]){re.escape(trigger.keyword)}( |$|[^\\w])"
         if re.search(pattern, name, flags=re.IGNORECASE):
             file_media = None
             filter_msg = None
@@ -180,9 +180,9 @@ async def remove_a_filter(event):
     "Stops the specified keyword."
     filt = event.pattern_match.group(1)
     if not remove_filter(event.chat_id, filt):
-        await event.edit("Filter` {} `doesn't exist.".format(filt))
+        await event.edit(f"Filter` {filt} `doesn't exist.")
     else:
-        await event.edit("Filter `{} `was deleted successfully".format(filt))
+        await event.edit(f"Filter `{filt} `was deleted successfully")
 
 
 @lionub.lion_cmd(

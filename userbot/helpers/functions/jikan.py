@@ -220,7 +220,7 @@ async def formatJSON(outData):
     msg += f"\n\n**Type** : {jsonData['format']}"
     msg += "\n**Genres** : "
     for g in jsonData["genres"]:
-        msg += g + " "
+        msg += f"{g} "
     msg += f"\n**Status** : {jsonData['status']}"
     msg += f"\n**Episode** : {jsonData['episodes']}"
     msg += f"\n**Year** : {jsonData['startDate']['year']}"
@@ -237,7 +237,7 @@ async def formatJSON(outData):
 def shorten(description, info="anilist.co"):
     msg = ""
     if len(description) > 700:
-        description = description[0:200] + "....."
+        description = description[:200] + "....."
         msg += f"\n**Description**:\n{description} [Read More]({info})"
     else:
         msg += f"\n**Description**: \n   {description}"
@@ -256,8 +256,7 @@ async def anilist_user(input_str):
     result = requests.post(
         anilisturl, json={"query": user_query, "variables": username}
     ).json()
-    error = result.get("errors")
-    if error:
+    if error := result.get("errors"):
         error_sts = error[0].get("message")
         return [f"{error_sts}"]
     user_data = result["data"]["User"]
@@ -324,10 +323,9 @@ def getBannerLink(mal, kitsu_search=True, anilistid=0):
     }
     """
     data = {"query": query, "variables": {"idMal": int(mal)}}
-    image = requests.post("https://graphql.anilist.co", json=data).json()["data"][
+    if image := requests.post("https://graphql.anilist.co", json=data).json()["data"][
         "Media"
-    ]["bannerImage"]
-    if image:
+    ]["bannerImage"]:
         return image
     return getPosterLink(mal)
 
@@ -336,8 +334,7 @@ async def get_anime_manga(mal_id, search_type, _user_id):  # sourcery no-metrics
     jikan = jikanpy.jikan.Jikan()
     if search_type == "anime_anime":
         result = jikan.anime(mal_id)
-        trailer = result["trailer_url"]
-        if trailer:
+        if trailer := result["trailer_url"]:
             TRAILER = f"<a href='{trailer}'>🎬 Trailer</a>"
         else:
             TRAILER = "🎬 <i>No Trailer Available</i>"
@@ -383,8 +380,7 @@ async def get_anime_manga(mal_id, search_type, _user_id):  # sourcery no-metrics
         anime_data = anime_result["data"]["Media"]
         html_char = ""
         for character in anime_data["characters"]["nodes"]:
-            html_ = ""
-            html_ += "<br>"
+            html_ = "" + "<br>"
             html_ += f"""<a href="{character['siteUrl']}">"""
             html_ += f"""<img src="{character['image']['large']}"/></a>"""
             html_ += "<br>"
@@ -394,9 +390,10 @@ async def get_anime_manga(mal_id, search_type, _user_id):  # sourcery no-metrics
             html_ += f"<h4>About Character and Role:</h4>{character.get('description', 'N/A')}"
             html_char += f"{html_}<br><br>"
         studios = "".join(
-            "<a href='{}'>• {}</a> ".format(studio["siteUrl"], studio["name"])
+            f"""<a href='{studio["siteUrl"]}'>• {studio["name"]}</a> """
             for studio in anime_data["studios"]["nodes"]
         )
+
         coverImg = anime_data.get("coverImage")["extraLarge"]
         bannerImg = anime_data.get("bannerImage")
         anilist_animelink = anime_data.get("siteUrl")
@@ -534,9 +531,11 @@ def memory_file(name=None, contents=None, *, temp_bytes=True):
 def is_gif(file):
     # ngl this should be fixed, telethon.utils.is_gif but working
     # lazy to go to github and make an issue kek
-    if not is_video(file):
-        return False
-    return DocumentAttributeAnimated() in getattr(file, "document", file).attributes
+    return (
+        DocumentAttributeAnimated() in getattr(file, "document", file).attributes
+        if is_video(file)
+        else False
+    )
 
 
 async def search_in_animefiller(query):

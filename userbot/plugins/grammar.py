@@ -54,7 +54,7 @@ async def grammer(event):
                 start = wrong["startIndex"]
                 end = wrong["endIndex"] + 1
                 correction = wrong["correctionText"]
-                result = result[:start] + "**" + correction + "**" + result[end:]
+                result = f"{result[:start]}**{correction}**{result[end:]}"
         except KeyError:
             response = requests.get(url, headers=headers, params=data)
             wrongs = response.json()["corrections"]
@@ -64,7 +64,7 @@ async def grammer(event):
                     start = wrong["startIndex"]
                     end = wrong["endIndex"] + 1
                     correction = wrong["correctionText"]
-                    result = result[:start] + "**" + correction + "**" + result[end:]
+                    result = f"{result[:start]}**{correction}**{result[end:]}"
         except:
             await edit_or_reply(event, "An Error Occurred")
     if result != re_message.raw_text:

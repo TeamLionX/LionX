@@ -36,7 +36,7 @@ async def get_media(event):
     except BaseException:
         pass
     event = await edit_or_reply(event, "`Downloading Media From this Channel.`")
-    msgs = await event.client.get_messages(channel_username, limit=int(limit))
+    msgs = await event.client.get_messages(channel_username, limit=limit)
     i = 0
     for msg in msgs:
         mediatype = media_type(msg)
