@@ -25,9 +25,11 @@ async def media_to_pic(event, reply, noedits=False):  # sourcery no-metrics
         "Document",
     ]:
         return event, None
-    lionevent = event if noedits else await edit_or_reply(
-            event, "`Transfiguration Time! Converting to ....`"
-        )
+    lionevent = (
+        event
+        if noedits
+        else await edit_or_reply(event, "`Transfiguration Time! Converting to ....`")
+    )
     lionmedia = None
     lionfile = os.path.join("./temp/", "meme.png")
     if os.path.exists(lionfile):
