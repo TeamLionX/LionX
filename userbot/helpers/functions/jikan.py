@@ -237,7 +237,7 @@ async def formatJSON(outData):
 def shorten(description, info="anilist.co"):
     msg = ""
     if len(description) > 700:
-        description = f'{description[:200]}.....'
+        description = f"{description[:200]}....."
         msg += f"\n**Description**:\n{description} [Read More]({info})"
     else:
         msg += f"\n**Description**: \n   {description}"
