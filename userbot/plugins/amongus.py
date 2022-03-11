@@ -115,7 +115,7 @@ async def sayliecmd(event):
     try:
         clr = clr[0]
         clr = clr.replace("-c", "")
-        text = text.replace("-c" + clr, "")
+        text = text.replace(f"-c{clr}", "")
         clr = int(clr)
         if clr > 12 or clr < 1:
             clr = randint(1, 12)

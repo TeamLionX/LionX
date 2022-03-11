@@ -62,7 +62,7 @@ async def amireallyalive(event):
         ping=ms,
     )
     if LION_IMG:
-        LION = [x for x in LION_IMG.split()]
+        LION = list(LION_IMG.split())
         PIC = random.choice(LION)
         try:
             await event.client.send_file(

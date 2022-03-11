@@ -525,7 +525,7 @@ async def endmute(event):
     try:
         await event.client.kick_participant(event.chat_id, user.id)
     except Exception as e:
-        return await lionevent.edit(NO_PERM + f"\n{e}")
+        return await lionevent.edit(f"{NO_PERM}\n{e}")
     if reason:
         await lionevent.edit(
             f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`\nReason: {reason}"
@@ -647,18 +647,17 @@ async def pin(event):
     groups_only=True,
     require_admin=True,
 )
-async def _iundlt(event):  # sourcery no-metrics
+async def _iundlt(event):    # sourcery no-metrics
     "To check recent deleted messages in group"
     lionevent = await edit_or_reply(event, "`Searching recent actions .....`")
     flag = event.pattern_match.group(1)
     if event.pattern_match.group(2) != "":
         lim = int(event.pattern_match.group(2))
-        if lim > 15:
-            lim = int(15)
+        lim = min(lim, 15)
         if lim <= 0:
-            lim = int(1)
+            lim = 1
     else:
-        lim = int(5)
+        lim = 5
     adminlog = await event.client.get_admin_log(
         event.chat_id, limit=lim, edit=False, delete=True
     )

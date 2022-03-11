@@ -60,8 +60,6 @@ async def corona(event):
         else:
             await edit_delete(
                 lionevent,
-                "`Corona Virus Info of {} is not avaiable or unable to fetch`".format(
-                    country
-                ),
+                f"`Corona Virus Info of {country} is not avaiable or unable to fetch`",
                 5,
             )

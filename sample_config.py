@@ -8,6 +8,8 @@ from typing import Set
 from telethon.tl.types import ChatBannedRights
 
 
+
+
 class Config(object):
     LOGGER = True
 
@@ -72,7 +74,7 @@ class Config(object):
         "THUMB_IMAGE", "https://telegra.ph/file/4843f54f43db47292f184.jpg"
     )
     # specify NO_LOAD with plugin names for not loading in userbot
-    NO_LOAD = [x for x in os.environ.get("NO_LOAD", "").split()]
+    NO_LOAD = list(os.environ.get("NO_LOAD", "").split())
     # for custom pic for .digitalpfp
     DIGITAL_PIC = os.environ.get("DIGITAL_PIC", None)
     # your default pic telegraph link
@@ -171,6 +173,7 @@ class Config(object):
     LIONUBLOGO = None
     BOTLOG = False
     BOTLOG_CHATID = 0
+
 
 
 class Production(Config):
