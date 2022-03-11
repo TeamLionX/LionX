@@ -65,7 +65,14 @@ async def imirror(event):  # sourcery no-metrics
     if w % 2 != 0 and flag in ["r", "l"] or h % 2 != 0 and flag in ["u", "b"]:
         image = image.resize((w + 1, h + 1))
         h, w = image.size
-    if flag == "l":
+    if flag == "b":
+        upper = h // 2
+        right = w
+        lower = h
+        left = 0
+        nw = left
+        nh = left
+    elif flag == "l":
         left = 0
         upper = 0
         right = w // 2
@@ -73,26 +80,19 @@ async def imirror(event):  # sourcery no-metrics
         nw = right
         nh = left
     elif flag == "r":
-        left = w // 2
         upper = 0
+        left = w // 2
         right = w
         lower = h
         nw = upper
         nh = upper
     elif flag == "u":
-        left = 0
         upper = 0
         right = w
         lower = h // 2
+        left = 0
         nw = left
         nh = lower
-    elif flag == "b":
-        left = 0
-        upper = h // 2
-        right = w
-        lower = h
-        nw = left
-        nh = left
     temp = image.crop((left, upper, right, lower))
     temp = ImageOps.mirror(temp) if flag in ["l", "r"] else ImageOps.flip(temp)
     image.paste(temp, (nw, nh))
@@ -271,8 +271,7 @@ async def pic_gifcmd(event):
             event,
             "__Reply to photo or sticker to make it doted image. Animated sticker is not supported__",
         )
-    args = event.pattern_match.group(1)
-    if args:
+    if args := event.pattern_match.group(1):
         if args.isdigit():
             pix = int(args) if int(args) > 0 else 100
     else:
