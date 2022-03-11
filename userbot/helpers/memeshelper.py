@@ -606,7 +606,7 @@ async def slap(replied_user, event, DEFAULTUSER):
     user_id = replied_user.user.id
     first_name = replied_user.user.first_name
     if username := replied_user.user.username:
-        slapped = "@{}".format(username)
+        slapped = f"@{username}"
     else:
         slapped = f"[{first_name}](tg://user?id={user_id})"
     temp = random.choice(SLAP_TEMPLATES)
