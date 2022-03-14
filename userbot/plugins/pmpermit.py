@@ -142,7 +142,7 @@ Don't spam my inbox. say reason and wait until my response.__"""
         else:
             PM_PIC = gvarstatus("pmpermit_pic")
             if PM_PIC:
-                LION = [x for x in PM_PIC.split()]
+                LION = list(PM_PIC.split())
                 PIC = list(LION)
                 LION_IMG = random.choice(PIC)
             else:
