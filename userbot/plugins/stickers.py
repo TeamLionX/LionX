@@ -69,7 +69,7 @@ def verify_cond(lionarray, text):
 def pack_name(userid, pack, is_anim, is_video):
     if is_anim:
         return f"LionX_{userid}_{pack}_anim"
-    elif is_video:
+    if is_video:
         return f"LionX_{userid}_{pack}_vid"
     return f"LionX_{userid}_{pack}"
 
@@ -82,16 +82,15 @@ def pack_nick(username, pack, is_anim, is_video):
     if gvarstatus("CUSTOM_STICKER_PACKNAME"):
         if is_anim:
             return f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} Vol.{pack} (Animated)"
-        elif is_video:
+        if is_video:
             return f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} Vol. {pack} (Video)"
         return f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} Vol.{pack}"
 
     if is_anim:
         return f"@{username} Vol.{pack} (Animated)"
-    elif is_video:
+    if is_video:
         return f"@{username} Vol. {pack} (Video)"
-    else:
-        return f"@{username} Vol.{pack}"
+    return f"@{username} Vol.{pack}"
 
 
 async def delpack(lionevent, conv, cmd, args, packname):
