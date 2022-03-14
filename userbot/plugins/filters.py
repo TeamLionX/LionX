@@ -169,7 +169,7 @@ async def on_snip_list(event):
 
 
 @lionub.lion_cmd(
-    pattern="stop ([\s\S]*)",
+    pattern=r"stop ([\s\S]*)",
     command=("stop", plugin_category),
     info={
         "header": "To delete that filter . so if user send that keyword bot will not reply",

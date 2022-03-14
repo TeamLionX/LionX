@@ -44,7 +44,7 @@ lst.append([Button.inline("=", data="calc=")])
 
 
 @lionub.lion_cmd(
-    pattern="icalc(?:\s|$)([\s\S]*)",
+    pattern=r"icalc(?:\s|$)([\s\S]*)",
     command=("icalc", plugin_category),
     info={
         "header": "Inline Calculator.",

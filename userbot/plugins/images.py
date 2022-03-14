@@ -14,7 +14,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="img(?: |$)(\d*)? ?([\s\S]*)",
+    pattern=r"img(?: |$)(\d*)? ?([\s\S]*)",
     command=("img", plugin_category),
     info={
         "header": "Google image search.",

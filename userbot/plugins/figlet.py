@@ -25,7 +25,7 @@ CMD_FIG = {
 
 
 @lionub.lion_cmd(
-    pattern="figlet(?:\s|$)([\s\S]*)",
+    pattern=r"figlet(?:\s|$)([\s\S]*)",
     command=("figlet", plugin_category),
     info={
         "header": "Changes the given text into the given style",

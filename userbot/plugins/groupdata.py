@@ -30,7 +30,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="admins(?:\s|$)([\s\S]*)",
+    pattern=r"admins(?:\s|$)([\s\S]*)",
     command=("admins", plugin_category),
     info={
         "header": "To get list of admins.",
@@ -84,7 +84,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="bots(?:\s|$)([\s\S]*)",
+    pattern=r"bots(?:\s|$)([\s\S]*)",
     command=("bots", plugin_category),
     info={
         "header": "To get list of bots.",
@@ -125,7 +125,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="users(?:\s|$)([\s\S]*)",
+    pattern=r"users(?:\s|$)([\s\S]*)",
     command=("users", plugin_category),
     info={
         "header": "To get list of users.",
@@ -173,7 +173,7 @@ async def get_users(show):
 
 
 @lionub.lion_cmd(
-    pattern="chatinfo(?:\s|$)([\s\S]*)",
+    pattern=r"chatinfo(?:\s|$)([\s\S]*)",
     command=("chatinfo", plugin_category),
     info={
         "header": "To get Group details.",

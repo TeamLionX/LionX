@@ -32,7 +32,7 @@ def get_warp_length(width):
 
 
 @lionub.lion_cmd(
-    pattern="qpic(?:\s|$)([\s\S]*)",
+    pattern=r"qpic(?:\s|$)([\s\S]*)",
     command=("qpic", plugin_category),
     info={
         "header": "Makes quote pic.",
@@ -140,7 +140,7 @@ async def q_pic(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="q(?:\s|$)([\s\S]*)",
+    pattern=r"q(?:\s|$)([\s\S]*)",
     command=("q", plugin_category),
     info={
         "header": "Makes your message as sticker quote.",
@@ -177,7 +177,7 @@ async def stickerchat(lionquotes):
 
 
 @lionub.lion_cmd(
-    pattern="rq(?:\s|$)([\s\S]*)",
+    pattern=r"rq(?:\s|$)([\s\S]*)",
     command=("rq", plugin_category),
     info={
         "header": "Makes your message along with the previous replied message as sticker quote",
@@ -214,7 +214,7 @@ async def stickerchat(lionquotes):
 
 
 @lionub.lion_cmd(
-    pattern="qbot(?:\s|$)([\s\S]*)",
+    pattern=r"qbot(?:\s|$)([\s\S]*)",
     command=("qbot", plugin_category),
     info={
         "header": "Makes your message as sticker quote by @quotlybot",

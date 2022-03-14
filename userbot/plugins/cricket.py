@@ -46,7 +46,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="cric ([\s\S]*)",
+    pattern=r"cric ([\s\S]*)",
     command=("cric", plugin_category),
     info={
         "header": "To see the scoreboard or commentary of a match",
