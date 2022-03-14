@@ -4,7 +4,6 @@ from telethon.errors import (
     ChannelPrivateError,
     ChannelPublicGroupNaError,
 )
-from telethon.tl import functions
 from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.functions.messages import GetFullChatRequest
 
