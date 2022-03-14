@@ -55,7 +55,7 @@ async def get_user(event):
 
 
 @lionub.lion_cmd(
-    pattern="(\w+)say ([\s\S]*)",
+    pattern=r"(\w+)say ([\s\S]*)",
     command=("cowsay", plugin_category),
     info={
         "header": "A fun art plugin.",
@@ -131,7 +131,7 @@ async def univsaye(cowmsg):
 
 
 @lionub.lion_cmd(
-    pattern="coin ?([\s\S]*)",
+    pattern=r"coin ?([\s\S]*)",
     command=("coin", plugin_category),
     info={
         "header": "Coin flipper.",
@@ -176,7 +176,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="slap(?:\s|$)([\s\S]*)",
+    pattern=r"slap(?:\s|$)([\s\S]*)",
     command=("slap", plugin_category),
     info={
         "header": "To slap a person with random objects !!",
@@ -226,7 +226,7 @@ async def decide(event):
 
 
 @lionub.lion_cmd(
-    pattern="shout(?:\s|$)([\s\S]*)",
+    pattern=r"shout(?:\s|$)([\s\S]*)",
     command=("shout", plugin_category),
     info={
         "header": "shouts the text in a fun way",
@@ -257,7 +257,7 @@ async def shout(args):
 
 
 @lionub.lion_cmd(
-    pattern="owo ?([\s\S]*)",
+    pattern=r"owo ?([\s\S]*)",
     command=("owo", plugin_category),
     info={
         "header": "check yourself.",
@@ -287,7 +287,7 @@ async def faces(owo):
 
 
 @lionub.lion_cmd(
-    pattern="clap(?:\s|$)([\s\S]*)",
+    pattern=r"clap(?:\s|$)([\s\S]*)",
     command=("clap", plugin_category),
     info={
         "header": "Praise people!",
@@ -312,7 +312,7 @@ async def claptext(event):
 
 
 @lionub.lion_cmd(
-    pattern="smk(?:\s|$)([\s\S]*)",
+    pattern=r"smk(?:\s|$)([\s\S]*)",
     command=("smk", plugin_category),
     info={
         "header": "A shit module for ツ , who cares.",
@@ -340,7 +340,7 @@ async def smrk(smk):
 
 
 @lionub.lion_cmd(
-    pattern="f ([\s\S]*)",
+    pattern=r"f ([\s\S]*)",
     command=("f", plugin_category),
     info={
         "header": "Pay Respects.",
@@ -370,7 +370,7 @@ async def payf(event):
 
 
 @lionub.lion_cmd(
-    pattern="wish(?:\s|$)([\s\S]*)",
+    pattern=r"wish(?:\s|$)([\s\S]*)",
     command=("wish", plugin_category),
     info={
         "header": "Shows the chance of your success.",
@@ -396,7 +396,7 @@ async def wish_check(event):
 
 
 @lionub.lion_cmd(
-    pattern="lfy(?:\s|$)([\s\S]*)",
+    pattern=r"lfy(?:\s|$)([\s\S]*)",
     command=("lfy", plugin_category),
     info={
         "header": "Let me Google that for you real quick !!",
@@ -433,7 +433,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="gbun(?:\s|$)([\s\S]*)",
+    pattern=r"gbun(?:\s|$)([\s\S]*)",
     command=("gbun", plugin_category),
     info={
         "header": "Fake gban action !!",

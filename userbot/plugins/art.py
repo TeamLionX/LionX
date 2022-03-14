@@ -4,7 +4,7 @@ plugin_category = "fun"
 
 
 @lionub.lion_cmd(
-    pattern="ded ([\s\S]*)",
+    pattern=r"ded ([\s\S]*)",
     command=("ded", plugin_category),
     info={
         "header": "Just a art command try out yourself to see",
@@ -34,7 +34,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="killer ([\s\S]*)",
+    pattern=r"killer ([\s\S]*)",
     command=("killer", plugin_category),
     info={
         "header": "Just a art command try out yourself to see",
@@ -47,10 +47,10 @@ async def _(event):
     await edit_or_reply(
         event,
         f"__**Commando **__{ALIVE_NAME}          \n\n"
-        "_/﹋\_\n"
+        r"_/﹋\_\n"
         "(҂`_´)\n"
         f"<,︻╦╤─ ҉ - - - {name}\n"
-        "_/﹋\_\n",
+        r"_/﹋\_\n",
     )
 
 

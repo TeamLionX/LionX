@@ -20,12 +20,12 @@ LOGS = logging.getLogger(__name__)
 
 
 link_regex = re.compile(
-    "((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)", re.DOTALL
+    r"((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)", re.DOTALL
 )
 
 
 @lionub.lion_cmd(
-    pattern="labstack(?:\s|$)([\s\S]*)",
+    pattern=r"labstack(?:\s|$)([\s\S]*)",
     command=("labstack", plugin_category),
     info={
         "header": "To upload media to labstack.",

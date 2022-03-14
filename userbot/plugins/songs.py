@@ -38,7 +38,7 @@ SONGBOT_BLOCKED_STRING = "<code>Please unblock @songdl_bot and try again</code>"
 
 
 @lionub.lion_cmd(
-    pattern="song(320)?(?:\s|$)([\s\S]*)",
+    pattern=r"song(320)?(?:\s|$)([\s\S]*)",
     command=("song", plugin_category),
     info={
         "header": "To get songs from youtube.",
@@ -124,7 +124,7 @@ async def delete_messages(event, chat, from_message):
 
 
 @lionub.lion_cmd(
-    pattern="vsong(?:\s|$)([\s\S]*)",
+    pattern=r"vsong(?:\s|$)([\s\S]*)",
     command=("vsong", plugin_category),
     info={
         "header": "To get video songs from youtube.",
@@ -244,7 +244,7 @@ async def shazamcmd(event):
 
 
 @lionub.lion_cmd(
-    pattern="song2(?:\s|$)([\s\S]*)",
+    pattern=r"song2(?:\s|$)([\s\S]*)",
     command=("song2", plugin_category),
     info={
         "header": "To search songs and upload to telegram",

@@ -13,7 +13,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="poll(?:\s|$)([\s\S]*)",
+    pattern=r"poll(?:\s|$)([\s\S]*)",
     command=("poll", plugin_category),
     info={
         "header": "To create a poll.",

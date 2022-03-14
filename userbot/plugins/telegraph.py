@@ -30,7 +30,7 @@ def resize_image(image):
 
 
 @lionub.lion_cmd(
-    pattern="(t(ele)?g(raph)?) ?(m|t|media|text)(?:\s|$)([\s\S]*)",
+    pattern=r"(t(ele)?g(raph)?) ?(m|t|media|text)(?:\s|$)([\s\S]*)",
     command=("telegraph", plugin_category),
     info={
         "header": "To get telegraph link.",

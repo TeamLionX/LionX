@@ -112,7 +112,7 @@ async def spam_function(event, nadan, lion, sleeptimem, sleeptimet, DelaySpam=Fa
 
 
 @lionub.lion_cmd(
-    pattern="spam ([\s\S]*)",
+    pattern=r"spam ([\s\S]*)",
     command=("spam", plugin_category),
     info={
         "header": "Floods the text in the chat !! with given number of times,",
@@ -216,7 +216,7 @@ async def stickerpack_spam(event):
 
 
 @lionub.lion_cmd(
-    pattern="cspam ([\s\S]*)",
+    pattern=r"cspam ([\s\S]*)",
     command=("cspam", plugin_category),
     info={
         "header": "Spam the text letter by letter",
@@ -251,7 +251,7 @@ async def tmeme(event):
 
 
 @lionub.lion_cmd(
-    pattern="wspam ([\s\S]*)",
+    pattern=r"wspam ([\s\S]*)",
     command=("wspam", plugin_category),
     info={
         "header": "Spam the text word by word.",
@@ -286,7 +286,7 @@ async def tmeme(event):
 
 
 @lionub.lion_cmd(
-    pattern="(delayspam|dspam) ([\s\S]*)",
+    pattern=r"(delayspam|dspam) ([\s\S]*)",
     command=("delayspam", plugin_category),
     info={
         "header": "To spam the chat with count number of times with given text and given delay sleep time.",

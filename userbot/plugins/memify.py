@@ -128,7 +128,7 @@ async def maccmd(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="(mmf|mms)(?:\s|$)([\s\S]*)",
+    pattern=r"(mmf|mms)(?:\s|$)([\s\S]*)",
     command=("mmf", plugin_category),
     info={
         "header": "To write text on stickers or images.",
@@ -200,7 +200,7 @@ async def memes(event):
 
 
 @lionub.lion_cmd(
-    pattern="cfont(?:\s|$)([\s\S]*)",
+    pattern=r"cfont(?:\s|$)([\s\S]*)",
     command=("cfont", plugin_category),
     info={
         "header": "Change the font style use for memify.To get font list use cfont command as it is without input.",
@@ -225,7 +225,7 @@ async def lang(event):
 
 
 @lionub.lion_cmd(
-    pattern="ascii(?:\s|$)([\s\S]*)",
+    pattern=r"ascii(?:\s|$)([\s\S]*)",
     command=("ascii", plugin_category),
     info={
         "header": "To get ascii image of replied image.",
@@ -510,7 +510,7 @@ async def memes(event):
 
 
 @lionub.lion_cmd(
-    pattern="zoom ?([\s\S]*)",
+    pattern=r"zoom ?([\s\S]*)",
     command=("zoom", plugin_category),
     info={
         "header": "zooms your media file,",
@@ -564,7 +564,7 @@ async def memes(event):
 
 
 @lionub.lion_cmd(
-    pattern="frame ?([\s\S]*)",
+    pattern=r"frame ?([\s\S]*)",
     command=("frame", plugin_category),
     info={
         "header": "make a frame for your media file.",

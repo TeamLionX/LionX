@@ -87,7 +87,7 @@ async def _(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="savewelcome(?:\s|$)([\s\S]*)",
+    pattern=r"savewelcome(?:\s|$)([\s\S]*)",
     command=("savewelcome", plugin_category),
     info={
         "header": "To welcome new users in chat.",

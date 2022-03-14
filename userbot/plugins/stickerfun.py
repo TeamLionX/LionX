@@ -40,7 +40,7 @@ async def get_font_file(client, channel_id, search_kw=""):
 
 
 @lionub.lion_cmd(
-    pattern="sttxt(?:\s|$)([\s\S]*)",
+    pattern=r"sttxt(?:\s|$)([\s\S]*)",
     command=("sttxt", plugin_category),
     info={
         "header": "Anime that makes your writing fun.",
@@ -66,7 +66,7 @@ async def waifu(animu):
 
 # 12 21 28 30
 @lionub.lion_cmd(
-    pattern="stcr ?(?:(.*?) ?; )?([\s\S]*)",
+    pattern=r"stcr ?(?:(.*?) ?; )?([\s\S]*)",
     command=("stcr", plugin_category),
     info={
         "header": "your text as sticker.",
@@ -134,7 +134,7 @@ async def sticklet(event):
 
 
 @lionub.lion_cmd(
-    pattern="honk(?:\s|$)([\s\S]*)",
+    pattern=r"honk(?:\s|$)([\s\S]*)",
     command=("honk", plugin_category),
     info={
         "header": "Make honk say anything.",
@@ -160,7 +160,7 @@ async def honk(event):
 
 
 @lionub.lion_cmd(
-    pattern="twt(?:\s|$)([\s\S]*)",
+    pattern=r"twt(?:\s|$)([\s\S]*)",
     command=("twt", plugin_category),
     info={
         "header": "Make a cool tweet of your account",
@@ -186,7 +186,7 @@ async def twt(event):
 
 
 @lionub.lion_cmd(
-    pattern="glax(|r)(?:\s|$)([\s\S]*)",
+    pattern=r"glax(|r)(?:\s|$)([\s\S]*)",
     command=("glax", plugin_category),
     info={
         "header": "Make glax the dragon scream your text.",
@@ -225,7 +225,7 @@ async def glax(event):
 
 
 @lionub.lion_cmd(
-    pattern="googl(?:\s|$)([\s\S]*)",
+    pattern=r"googl(?:\s|$)([\s\S]*)",
     command=("googl", plugin_category),
     info={
         "header": "Search in google animation",

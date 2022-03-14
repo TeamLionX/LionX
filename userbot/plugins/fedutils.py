@@ -25,7 +25,7 @@ unfbanresults = ["I'll give", "Un-FedBan", "un-FedBan"]
 
 
 @lionub.lion_cmd(
-    pattern="fban(?:\s|$)([\s\S]*)",
+    pattern=r"fban(?:\s|$)([\s\S]*)",
     command=("fban", plugin_category),
     info={
         "header": "Ban the person in your database federations",
@@ -111,7 +111,7 @@ async def group_fban(event):
 
 
 @lionub.lion_cmd(
-    pattern="unfban(?:\s|$)([\s\S]*)",
+    pattern=r"unfban(?:\s|$)([\s\S]*)",
     command=("unfban", plugin_category),
     info={
         "header": "UnBan the person in your database federations",
@@ -197,7 +197,7 @@ async def group_unfban(event):
 
 
 @lionub.lion_cmd(
-    pattern="addfedto (\w+|-all) ([-\w]+)",
+    pattern=r"addfedto (\w+|-all) ([-\w]+)",
     command=("addfedto", plugin_category),
     info={
         "header": "Add the federation to given category in database.",
@@ -317,7 +317,7 @@ async def quote_search(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="rmfedfrom (\w+|-all) ([-\w]+)",
+    pattern=r"rmfedfrom (\w+|-all) ([-\w]+)",
     command=("rmfedfrom", plugin_category),
     info={
         "header": "Remove the federation from given category in database.",
@@ -383,7 +383,7 @@ async def quote_search(event):
 
 
 @lionub.lion_cmd(
-    pattern="listfed(s)?(?:\s|$)([\s\S]*)",
+    pattern=r"listfed(s)?(?:\s|$)([\s\S]*)",
     command=("listfed", plugin_category),
     info={
         "header": "To list all feds in your database.",
@@ -430,7 +430,7 @@ async def quote_search(event):
 
 
 @lionub.lion_cmd(
-    pattern="f(ed)?info(?:\s|$)([\s\S]*)",
+    pattern=r"f(ed)?info(?:\s|$)([\s\S]*)",
     command=("fedinfo", plugin_category),
     info={
         "header": "To get fedinfo from rose.",
@@ -466,7 +466,7 @@ async def fetch_fedinfo(event):
 
 
 @lionub.lion_cmd(
-    pattern="f(ed)?admins(?:\s|$)([\s\S]*)",
+    pattern=r"f(ed)?admins(?:\s|$)([\s\S]*)",
     command=("fadmins", plugin_category),
     info={
         "header": "To get fed admins from rose.",
@@ -553,7 +553,7 @@ async def myfeds_fedinfo(event):
 
 
 @lionub.lion_cmd(
-    pattern="f(ed)?stat(?:\s|$)([\s\S]*)",
+    pattern=r"f(ed)?stat(?:\s|$)([\s\S]*)",
     command=("fstat", plugin_category),
     info={
         "header": "To get fedstat data from rose.",

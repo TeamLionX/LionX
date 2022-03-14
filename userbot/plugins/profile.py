@@ -30,7 +30,7 @@ USERNAME_TAKEN = "```This username is already taken.```"
 
 
 @lionub.lion_cmd(
-    pattern="pbio ([\s\S]*)",
+    pattern=r"pbio ([\s\S]*)",
     command=("pbio", plugin_category),
     info={
         "header": "To set bio for this account.",
@@ -48,7 +48,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="pname ([\s\S]*)",
+    pattern=r"pname ([\s\S]*)",
     command=("pname", plugin_category),
     info={
         "header": "To set/change name for this account.",
@@ -130,7 +130,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="pusername ([\s\S]*)",
+    pattern=r"pusername ([\s\S]*)",
     command=("pusername", plugin_category),
     info={
         "header": "To set/update username for this account.",
@@ -194,7 +194,7 @@ async def count(event):
 
 
 @lionub.lion_cmd(
-    pattern="delpfp ?([\s\S]*)",
+    pattern=r"delpfp ?([\s\S]*)",
     command=("delpfp", plugin_category),
     info={
         "header": "To delete profile pic for this account.",

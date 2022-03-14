@@ -16,7 +16,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="ls(?:\s|$)([\s\S]*)",
+    pattern=r"ls(?:\s|$)([\s\S]*)",
     command=("ls", plugin_category),
     info={
         "header": "To list all files and folders.",
@@ -106,7 +106,7 @@ async def lst(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="rem ([\s\S]*)",
+    pattern=r"rem ([\s\S]*)",
     command=("rem", plugin_category),
     info={
         "header": "To delete a file or folder from the server",
@@ -138,7 +138,7 @@ async def lst(event):
 
 
 @lionub.lion_cmd(
-    pattern="mkdir(?:\s|$)([\s\S]*)",
+    pattern=r"mkdir(?:\s|$)([\s\S]*)",
     command=("mkdir", plugin_category),
     info={
         "header": "To create a new directory.",
@@ -175,7 +175,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="cpto(?:\s|$)([\s\S]*)",
+    pattern=r"cpto(?:\s|$)([\s\S]*)",
     command=("cpto", plugin_category),
     info={
         "header": "To copy a file from one directory to other directory",
@@ -221,7 +221,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="mvto(?:\s|$)([\s\S]*)",
+    pattern=r"mvto(?:\s|$)([\s\S]*)",
     command=("mvto", plugin_category),
     info={
         "header": "To move a file from one directory to other directory.",

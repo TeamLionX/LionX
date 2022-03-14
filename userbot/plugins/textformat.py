@@ -6,7 +6,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="upper(?: |$)([\s\S]*)",
+    pattern=r"upper(?: |$)([\s\S]*)",
     command=("upper", plugin_category),
     info={
         "header": "Text operation change to upper text",
@@ -29,7 +29,7 @@ async def some(event):
 
 
 @lionub.lion_cmd(
-    pattern="lower(?: |$)([\s\S]*)",
+    pattern=r"lower(?: |$)([\s\S]*)",
     command=("lower", plugin_category),
     info={
         "header": "Text operation change to lower text",
@@ -52,7 +52,7 @@ async def good(event):
 
 
 @lionub.lion_cmd(
-    pattern="title(?: |$)([\s\S]*)",
+    pattern=r"title(?: |$)([\s\S]*)",
     command=("title", plugin_category),
     info={
         "header": "Text operation change to title text",
@@ -75,7 +75,7 @@ async def stuff(event):
 
 
 @lionub.lion_cmd(
-    pattern="(|r)camel(?: |$)([\s\S]*)",
+    pattern=r"(|r)camel(?: |$)([\s\S]*)",
     command=("camel", plugin_category),
     info={
         "header": "Text operation change to camel text",
