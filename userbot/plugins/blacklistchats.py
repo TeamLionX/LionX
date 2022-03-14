@@ -72,7 +72,7 @@ async def chat_blacklist(event):
 
 
 @lionub.lion_cmd(
-    pattern="addblkchat(s)?(?:\s|$)([\s\S]*)",
+    pattern=r"addblkchat(s)?(?:\s|$)([\s\S]*)",
     command=("addblkchat", plugin_category),
     info={
         "header": "To add chats to blacklist.",
@@ -151,7 +151,7 @@ async def add_blacklist_chat(event):
 
 
 @lionub.lion_cmd(
-    pattern="rmblkchat(s)?(?:\s|$)([\s\S]*)",
+    pattern=r"rmblkchat(s)?(?:\s|$)([\s\S]*)",
     command=("rmblkchat", plugin_category),
     info={
         "header": "To remove chats to blacklist.",

@@ -107,7 +107,7 @@ async def log_tagged_messages(event):
 
 
 @lionub.lion_cmd(
-    pattern="save(?:\s|$)([\s\S]*)",
+    pattern=r"save(?:\s|$)([\s\S]*)",
     command=("save", plugin_category),
     info={
         "header": "To log the replied message to bot log group so you can check later.",

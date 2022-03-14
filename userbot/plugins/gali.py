@@ -124,7 +124,7 @@ async def kakashi(event):
 
 
 @lionub.lion_cmd(
-    pattern="fk ([\s\S]*)",
+    pattern=r"fk ([\s\S]*)",
     command=("fk", plugin_category),
     info={
         "header": "bad animation, try yourself ",

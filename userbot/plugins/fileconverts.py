@@ -359,7 +359,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="ttf ([\s\S]*)",
+    pattern=r"ttf ([\s\S]*)",
     command=("ttf", plugin_category),
     info={
         "header": "Text to file.",
@@ -474,7 +474,7 @@ async def on_file_to_photo(event):
 
 
 @lionub.lion_cmd(
-    pattern="gif(?:\s|$)([\s\S]*)",
+    pattern=r"gif(?:\s|$)([\s\S]*)",
     command=("gif", plugin_category),
     info={
         "header": "Converts Given animated sticker to gif.",

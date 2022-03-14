@@ -9,7 +9,7 @@ plugin_category = "fun"
 
 
 @lionub.lion_cmd(
-    pattern="carry ([\s\S]*)",
+    pattern=r"carry ([\s\S]*)",
     command=("carry", plugin_category),
     info={
         "header": "Fun art try yourself to know more",
@@ -26,7 +26,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="ded(?:\s|$)([\s\S]*)",
+    pattern=r"ded(?:\s|$)([\s\S]*)",
     command=("ded", plugin_category),
     info={
         "header": "Fun art try yourself to know more",
@@ -58,7 +58,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="killer(?:\s|$)([\s\S]*)",
+    pattern=r"killer(?:\s|$)([\s\S]*)",
     command=("killer", plugin_category),
     info={
         "header": "Fun art try yourself to know more",
@@ -73,10 +73,10 @@ async def _(event):
     await edit_or_reply(
         event,
         f"__**Commando **__{mention}          \n\n"
-        "_/﹋\_\n"
+        r"_/﹋\_\n"
         "(҂`_´)\n"
         f"<,︻╦╤─ ҉ - - - {name}\n"
-        "_/﹋\_\n",
+        r"_/﹋\_\n",
     )
 
 
@@ -97,7 +97,7 @@ G = (
 
 
 @lionub.lion_cmd(
-    pattern="sthink ([\s\S]*)",
+    pattern=r"sthink ([\s\S]*)",
     command=("sthink", plugin_category),
     info={
         "header": "Fun art try yourself to know more",
@@ -129,7 +129,7 @@ async def kakashi(think):
 
 
 @lionub.lion_cmd(
-    pattern="sfrog ([\s\S]*)",
+    pattern=r"sfrog ([\s\S]*)",
     command=("sfrog", plugin_category),
     info={
         "header": "Fun art try yourself to know more",
@@ -161,7 +161,7 @@ async def kakashi(frogsay):
 
 
 @lionub.lion_cmd(
-    pattern="sputin ([\s\S]*)",
+    pattern=r"sputin ([\s\S]*)",
     command=("sputin", plugin_category),
     info={
         "header": "Fun art try yourself to know more",
@@ -194,7 +194,7 @@ async def kakashi(putinsay):
 
 
 @lionub.lion_cmd(
-    pattern="sdead ([\s\S]*)",
+    pattern=r"sdead ([\s\S]*)",
     command=("sdead", plugin_category),
     info={
         "header": "Fun art try yourself to know more",
@@ -226,7 +226,7 @@ async def kakashi(deadfrog):
 
 
 @lionub.lion_cmd(
-    pattern="strump ([\s\S]*)",
+    pattern=r"strump ([\s\S]*)",
     command=("strump", plugin_category),
     info={
         "header": "Fun art try yourself to know more",
@@ -258,7 +258,7 @@ async def kakashi(trumpsay):
 
 
 @lionub.lion_cmd(
-    pattern="schina ([\s\S]*)",
+    pattern=r"schina ([\s\S]*)",
     command=("schina", plugin_category),
     info={
         "header": "Fun art try yourself to know more",

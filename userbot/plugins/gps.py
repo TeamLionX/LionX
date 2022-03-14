@@ -11,7 +11,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="gps ([\s\S]*)",
+    pattern=r"gps ([\s\S]*)",
     command=("gps", plugin_category),
     info={
         "header": "To send the map of the given location.",

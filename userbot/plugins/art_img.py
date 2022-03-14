@@ -16,7 +16,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="iascii ?([\s\S]*)",
+    pattern=r"iascii ?([\s\S]*)",
     command=("iascii", plugin_category),
     info={
         "header": "Convert media to ascii art.",
@@ -66,7 +66,7 @@ async def bad(event):
 
 
 @lionub.lion_cmd(
-    pattern="line ?([\s\S]*)",
+    pattern=r"line ?([\s\S]*)",
     command=("line", plugin_category),
     info={
         "header": "Convert media to line image.",
@@ -108,7 +108,7 @@ async def pussy(event):
 
 
 @lionub.lion_cmd(
-    pattern="clip ?([\s\S]*)",
+    pattern=r"clip ?([\s\S]*)",
     command=("clip", plugin_category),
     info={
         "header": "Convert media to sticker by clippy",

@@ -10,7 +10,7 @@ plugin_category = "fun"
 
 
 @lionub.lion_cmd(
-    pattern="str(?:\s|$)([\s\S]*)",
+    pattern=r"str(?:\s|$)([\s\S]*)",
     command=("str", plugin_category),
     info={
         "header": "stretches the given text",
@@ -37,7 +37,7 @@ async def stretch(stret):
 
 
 @lionub.lion_cmd(
-    pattern="zal(?:\s|$)([\s\S]*)",
+    pattern=r"zal(?:\s|$)([\s\S]*)",
     command=("zal", plugin_category),
     info={
         "header": "chages given text into some funny way",
@@ -81,7 +81,7 @@ async def zal(zgfy):
 
 
 @lionub.lion_cmd(
-    pattern="cp(?:\s|$)([\s\S]*)",
+    pattern=r"cp(?:\s|$)([\s\S]*)",
     command=("cp", plugin_category),
     info={
         "header": "chages given text into some funny way",
@@ -120,7 +120,7 @@ async def copypasta(cp_e):
 
 
 @lionub.lion_cmd(
-    pattern="weeb(?:\s|$)([\s\S]*)",
+    pattern=r"weeb(?:\s|$)([\s\S]*)",
     command=("weeb", plugin_category),
     info={
         "header": "chages given text into some funny way",
@@ -146,7 +146,7 @@ async def weebify(event):
 
 
 @lionub.lion_cmd(
-    pattern="downside(?:\s|$)([\s\S]*)",
+    pattern=r"downside(?:\s|$)([\s\S]*)",
     command=("downside", plugin_category),
     info={
         "header": "chages given text into upside down",
@@ -177,7 +177,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="subscript(?:\s|$)([\s\S]*)",
+    pattern=r"subscript(?:\s|$)([\s\S]*)",
     command=("subscript", plugin_category),
     info={
         "header": "chages given text into subscript",
@@ -208,7 +208,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="superscript(?:\s|$)([\s\S]*)",
+    pattern=r"superscript(?:\s|$)([\s\S]*)",
     command=("superscript", plugin_category),
     info={
         "header": "chages given text into superscript",

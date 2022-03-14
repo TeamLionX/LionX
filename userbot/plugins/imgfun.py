@@ -105,7 +105,7 @@ async def imirror(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="irotate(?: |$)(\d+)$",
+    pattern=r"irotate(?: |$)(\d+)$",
     command=("irotate", plugin_category),
     info={
         "header": "To rotate the replied image or sticker",
@@ -149,7 +149,7 @@ async def irotate(event):
 
 
 @lionub.lion_cmd(
-    pattern="iresize(?:\s|$)([\s\S]*)$",
+    pattern=r"iresize(?:\s|$)([\s\S]*)$",
     command=("iresize", plugin_category),
     info={
         "header": "To resize the replied image/sticker",
@@ -249,7 +249,7 @@ async def square_cmd(event):
 
 
 @lionub.lion_cmd(
-    pattern="dotify(?: |$)(\d+)?$",
+    pattern=r"dotify(?: |$)(\d+)?$",
     command=("dotify", plugin_category),
     info={
         "header": "To convert image into doted image",

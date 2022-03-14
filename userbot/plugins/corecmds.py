@@ -58,7 +58,7 @@ async def install(event):
 
 
 @lionub.lion_cmd(
-    pattern="load ([\s\S]*)",
+    pattern=r"load ([\s\S]*)",
     command=("load", plugin_category),
     info={
         "header": "To load a plugin again. if you have unloaded it",
@@ -85,7 +85,7 @@ async def load(event):
 
 
 @lionub.lion_cmd(
-    pattern="send ([\s\S]*)",
+    pattern=r"send ([\s\S]*)",
     command=("send", plugin_category),
     info={
         "header": "To upload a plugin file to telegram chat",
@@ -121,7 +121,7 @@ async def send(event):
 
 
 @lionub.lion_cmd(
-    pattern="unload ([\s\S]*)",
+    pattern=r"unload ([\s\S]*)",
     command=("unload", plugin_category),
     info={
         "header": "To unload a plugin temporarily.",
@@ -141,7 +141,7 @@ async def unload(event):
 
 
 @lionub.lion_cmd(
-    pattern="uninstall ([\s\S]*)",
+    pattern=r"uninstall ([\s\S]*)",
     command=("uninstall", plugin_category),
     info={
         "header": "To uninstall a plugin temporarily.",

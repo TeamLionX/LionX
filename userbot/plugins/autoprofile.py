@@ -326,7 +326,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="autopic ?([\s\S]*)",
+    pattern=r"autopic ?([\s\S]*)",
     command=("autopic", plugin_category),
     info={
         "header": "Changes profile pic every 1 minute with the custom pic with time",
@@ -427,7 +427,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="c(ustom)?pfp(?: |$)([\s\S]*)",
+    pattern=r"c(ustom)?pfp(?: |$)([\s\S]*)",
     command=("custompfp", plugin_category),
     info={
         "header": "Set Your Custom pfps",
@@ -558,7 +558,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="end ([\s\S]*)",
+    pattern=r"end ([\s\S]*)",
     command=("end", plugin_category),
     info={
         "header": "To stop the functions of autoprofile",

@@ -84,7 +84,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="fpost ([\s\S]*)",
+    pattern=r"fpost ([\s\S]*)",
     command=("fpost", plugin_category),
     info={
         "header": "Split the word and forwards each letter from previous messages in that group",
