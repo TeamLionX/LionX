@@ -33,7 +33,7 @@ async def wall_download(piclink, query):
 
 
 @lionub.lion_cmd(
-    pattern="wall(?:\s|$)([\s\S]*)",
+    pattern=r"wall(?:\s|$)([\s\S]*)",
     command=("wall", plugin_category),
     info={
         "header": "Searches and uploads wallpaper",

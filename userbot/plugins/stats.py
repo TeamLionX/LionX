@@ -229,7 +229,7 @@ async def stats(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="ustat(?:\s|$)([\s\S]*)",
+    pattern=r"ustat(?:\s|$)([\s\S]*)",
     command=("ustat", plugin_category),
     info={
         "header": "To get list of public groups of repled person or mentioned person.",

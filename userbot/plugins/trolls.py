@@ -94,7 +94,7 @@ async def lionbot(event):
 
 
 @lionub.lion_cmd(
-    pattern="trap(?:\s|$)([\s\S]*)",
+    pattern=r"trap(?:\s|$)([\s\S]*)",
     command=("trap", plugin_category),
     info={
         "header": "Reply to image/sticker to get meme on that image.",
@@ -143,7 +143,7 @@ async def lionbot(event):
 
 
 @lionub.lion_cmd(
-    pattern="phub(?:\s|$)([\s\S]*)",
+    pattern=r"phub(?:\s|$)([\s\S]*)",
     command=("phub", plugin_category),
     info={
         "header": "Reply to image/sticker to get meme on that image.",

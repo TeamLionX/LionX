@@ -18,7 +18,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="tts(?:\s|$)([\s\S]*)",
+    pattern=r"tts(?:\s|$)([\s\S]*)",
     command=("tts", plugin_category),
     info={
         "header": "Text to speech command.",

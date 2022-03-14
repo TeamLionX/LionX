@@ -25,7 +25,7 @@ def convert_from_bytes(size):
 
 
 @lionub.lion_cmd(
-    pattern="speedtest(?:\s|$)([\s\S]*)",
+    pattern=r"speedtest(?:\s|$)([\s\S]*)",
     command=("speedtest", plugin_category),
     info={
         "header": "Botserver's speedtest by ookla.",

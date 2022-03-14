@@ -9,7 +9,7 @@ plugin_category = "admin"
 
 
 @lionub.lion_cmd(
-    pattern="warn(?:\s|$)([\s\S]*)",
+    pattern=r"warn(?:\s|$)([\s\S]*)",
     command=("warn", plugin_category),
     info={
         "header": "To warn a user.",

@@ -135,7 +135,7 @@ async def proo(e):
 
 
 @lionub.lion_cmd(
-    pattern="react ?([\s\S]*)",
+    pattern=r"react ?([\s\S]*)",
     command=("react", plugin_category),
     info={
         "header": "Make your userbot react",

@@ -41,7 +41,7 @@ async def source(e):
 
 
 @lionub.lion_cmd(
-    pattern="github( -l(\d+))? ([\s\S]*)",
+    pattern=r"github( -l(\d+))? ([\s\S]*)",
     command=("github", plugin_category),
     info={
         "header": "Shows the information about an user on GitHub of given username",

@@ -63,7 +63,7 @@ async def subprocess_run(megadl, cmd):
 
 
 @lionub.lion_cmd(
-    pattern="mega(?:\s|$)([\s\S]*)",
+    pattern=r"mega(?:\s|$)([\s\S]*)",
     command=("mega", plugin_category),
     info={
         "header": "Downloads mega files from it links.",

@@ -19,7 +19,7 @@ FBOT = "@FsInChatBot"
 
 
 @lionub.lion_cmd(
-    pattern="timer(?:\s|$)([\s\S]*)",
+    pattern=r"timer(?:\s|$)([\s\S]*)",
     command=("timer", plugin_category),
     info={
         "header": "timer, try yourself",
@@ -56,7 +56,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="gey(?:\s|$)([\s\S]*)",
+    pattern=r"gey(?:\s|$)([\s\S]*)",
     command=("gey", plugin_category),
     info={
         "header": "try yourself.",
@@ -80,7 +80,7 @@ async def app_search(event):
 
 
 @lionub.lion_cmd(
-    pattern="fr(?:\s|$)([\s\S]*)",
+    pattern=r"fr(?:\s|$)([\s\S]*)",
     command=("fr", plugin_category),
     info={
         "header": "Pay Respect.",
@@ -104,7 +104,7 @@ async def app_search(event):
 
 
 @lionub.lion_cmd(
-    pattern="iapp(?:\s|$)([\s\S]*)",
+    pattern=r"iapp(?:\s|$)([\s\S]*)",
     command=("iapp", plugin_category),
     info={
         "header": "To search any app in playstore via inline.",
@@ -131,7 +131,7 @@ async def app_search(event):
 
 
 @lionub.lion_cmd(
-    pattern="cid(?:\s|$)([\s\S]*)",
+    pattern=r"cid(?:\s|$)([\s\S]*)",
     command=("cid", plugin_category),
     info={
         "header": "To search a phone number in Truecaller",

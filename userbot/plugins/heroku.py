@@ -30,7 +30,7 @@ HEROKU_API_KEY = Config.HEROKU_API_KEY
 
 
 @lionub.lion_cmd(
-    pattern="(set|get|del) var ([\s\S]*)",
+    pattern=r"(set|get|del) var ([\s\S]*)",
     command=("var", plugin_category),
     info={
         "header": "To manage heroku vars.",

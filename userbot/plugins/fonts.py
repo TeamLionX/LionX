@@ -9,7 +9,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="fmusical(?:\s|$)([\s\S]*)",
+    pattern=r"fmusical(?:\s|$)([\s\S]*)",
     command=("fmusical", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -40,7 +40,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="ancient(?:\s|$)([\s\S]*)",
+    pattern=r"ancient(?:\s|$)([\s\S]*)",
     command=("ancient", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -71,7 +71,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="vapor(?:\s|$)([\s\S]*)",
+    pattern=r"vapor(?:\s|$)([\s\S]*)",
     command=("vapor", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -104,7 +104,7 @@ async def vapor(event):
 
 
 @lionub.lion_cmd(
-    pattern="smallcaps(?:\s|$)([\s\S]*)",
+    pattern=r"smallcaps(?:\s|$)([\s\S]*)",
     command=("smallcaps", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -135,7 +135,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="blackbf(?:\s|$)([\s\S]*)",
+    pattern=r"blackbf(?:\s|$)([\s\S]*)",
     command=("blackbf", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -166,7 +166,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="bubbles(?:\s|$)([\s\S]*)",
+    pattern=r"bubbles(?:\s|$)([\s\S]*)",
     command=("bubbles", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -197,7 +197,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="tanf(?:\s|$)([\s\S]*)",
+    pattern=r"tanf(?:\s|$)([\s\S]*)",
     command=("tanf", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -225,7 +225,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="boxf(?:\s|$)([\s\S]*)",
+    pattern=r"boxf(?:\s|$)([\s\S]*)",
     command=("boxf", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -253,7 +253,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="smothtext(?:\s|$)([\s\S]*)",
+    pattern=r"smothtext(?:\s|$)([\s\S]*)",
     command=("smothtext", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -284,7 +284,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="egyptf(?:\s|$)([\s\S]*)",
+    pattern=r"egyptf(?:\s|$)([\s\S]*)",
     command=("egyptf", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -312,7 +312,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="maref(?:\s|$)([\s\S]*)",
+    pattern=r"maref(?:\s|$)([\s\S]*)",
     command=("maref", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -340,7 +340,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="handcf(?:\s|$)([\s\S]*)",
+    pattern=r"handcf(?:\s|$)([\s\S]*)",
     command=("handcf", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -368,7 +368,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="doublef(?:\s|$)([\s\S]*)",
+    pattern=r"doublef(?:\s|$)([\s\S]*)",
     command=("doublef", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -399,7 +399,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="mock(?:\s|$)([\s\S]*)",
+    pattern=r"mock(?:\s|$)([\s\S]*)",
     command=("mock", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -431,7 +431,7 @@ async def spongemocktext(mock):
 
 
 @lionub.lion_cmd(
-    pattern="ghostf(?:\s|$)([\s\S]*)",
+    pattern=r"ghostf(?:\s|$)([\s\S]*)",
     command=("ghostf", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
@@ -459,7 +459,7 @@ async def stylish_generator(event):
 
 
 @lionub.lion_cmd(
-    pattern="handsf(?:\s|$)([\s\S]*)",
+    pattern=r"handsf(?:\s|$)([\s\S]*)",
     command=("handsf", plugin_category),
     info={
         "header": "Font style command.(Changes font style of the given text)",
