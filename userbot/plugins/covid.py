@@ -7,7 +7,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="covid(?:\s|$)([\s\S]*)",
+    pattern=r"covid(?:\s|$)([\s\S]*)",
     command=("covid", plugin_category),
     info={
         "header": "To get latest information about covid-19.",

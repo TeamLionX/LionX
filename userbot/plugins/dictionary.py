@@ -13,7 +13,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="ud ([\s\S]*)",
+    pattern=r"ud ([\s\S]*)",
     command=("ud", plugin_category),
     info={
         "header": "To fetch meaning of the given word from urban dictionary.",
@@ -45,7 +45,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="meaning ([\s\S]*)",
+    pattern=r"meaning ([\s\S]*)",
     command=("meaning", plugin_category),
     info={
         "header": "To fetch meaning of the given word from dictionary.",

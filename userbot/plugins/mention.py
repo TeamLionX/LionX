@@ -8,7 +8,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="(tagall|all)(?:\s|$)([\s\S]*)",
+    pattern=r"(tagall|all)(?:\s|$)([\s\S]*)",
     command=("tagall", plugin_category),
     info={
         "header": "tags recent 100 persons in the group may not work for all",
@@ -53,7 +53,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="men ([\s\S]*)",
+    pattern=r"men ([\s\S]*)",
     command=("mention", plugin_category),
     info={
         "header": "Tags that person with the given custom text.",

@@ -8,11 +8,11 @@ plugin_category = "fun"
 
 
 @lionub.lion_cmd(
-    pattern="^\:/$",
-    command=("\:", plugin_category),
+    pattern=r"^\:/$",
+    command=(r"\:", plugin_category),
     info={
         "header": "Animation command",
-        "usage": "\:",
+        "usage": r"\:",
     },
 )
 async def kek(keks):
@@ -26,7 +26,7 @@ async def kek(keks):
 
 
 @lionub.lion_cmd(
-    pattern="^\-_-$",
+    pattern=r"^\-_-$",
     command=("-_-", plugin_category),
     info={
         "header": "Animation command",
@@ -44,7 +44,7 @@ async def lol(lel):
 
 
 @lionub.lion_cmd(
-    pattern="^\;_;$",
+    pattern=r"^\;_;$",
     command=(";_;", plugin_category),
     info={
         "header": "Animation command",
@@ -80,7 +80,7 @@ async def Oof(e):
 
 
 @lionub.lion_cmd(
-    pattern="type ([\s\S]*)",
+    pattern=r"type ([\s\S]*)",
     command=("type", plugin_category),
     info={
         "header": "Type writter animation.",
@@ -105,7 +105,7 @@ async def typewriter(typew):
 
 
 @lionub.lion_cmd(
-    pattern="repeat (\d*) ([\s\S]*)",
+    pattern=r"repeat (\d*) ([\s\S]*)",
     command=("repeat", plugin_category),
     info={
         "header": "repeats the given text with given no of times.",

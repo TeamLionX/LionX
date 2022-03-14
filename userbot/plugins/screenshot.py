@@ -22,7 +22,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="(ss|gis) ([\s\S]*)",
+    pattern=r"(ss|gis) ([\s\S]*)",
     command=("ss", plugin_category),
     info={
         "header": "To Take a screenshot of a website.",
@@ -97,7 +97,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="scapture ([\s\S]*)",
+    pattern=r"scapture ([\s\S]*)",
     command=("scapture", plugin_category),
     info={
         "header": "To Take a screenshot of a website.",

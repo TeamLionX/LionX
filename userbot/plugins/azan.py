@@ -11,7 +11,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="azan(?:\s|$)([\s\S]*)",
+    pattern=r"azan(?:\s|$)([\s\S]*)",
     command=("azan", plugin_category),
     info={
         "header": "Shows you the Islamic prayer times of the given city name.",

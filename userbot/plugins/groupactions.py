@@ -215,7 +215,7 @@ async def _(event):
 
 # Ported by ©[NIKITA](t.me/kirito6969) and ©[EYEPATCH](t.me/NeoMatrix90)
 @lionub.lion_cmd(
-    pattern="zombies( -r| )? ?([\s\S]*)",
+    pattern=r"zombies( -r| )? ?([\s\S]*)",
     command=("zombies", plugin_category),
     info={
         "header": "To check deleted accounts and clean",
@@ -379,7 +379,7 @@ async def rm_deletedacc(show):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="ikuck ?([\s\S]*)",
+    pattern=r"ikuck ?([\s\S]*)",
     command=("ikuck", plugin_category),
     info={
         "header": "To get breif summary of members in the group",

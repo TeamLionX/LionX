@@ -14,7 +14,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="quote(?:\s|$)([\s\S]*)",
+    pattern=r"quote(?:\s|$)([\s\S]*)",
     command=("quote", plugin_category),
     info={
         "header": "To get random quotes on given topic.",

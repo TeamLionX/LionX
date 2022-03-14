@@ -22,7 +22,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="reddit(?:\s|$)([\s\S]*)",
+    pattern=r"reddit(?:\s|$)([\s\S]*)",
     command=("reddit", plugin_category),
     info={
         "header": "get a random reddit post.",

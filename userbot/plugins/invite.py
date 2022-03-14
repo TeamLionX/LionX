@@ -15,7 +15,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="invite ([\s\S]*)",
+    pattern=r"invite ([\s\S]*)",
     command=("invite", plugin_category),
     info={
         "header": "Add the given user/users to the group where u used the command.",

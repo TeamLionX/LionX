@@ -661,7 +661,7 @@ async def pmpermit_on(event):
 
 
 @lionub.lion_cmd(
-    pattern="(a|approve)(?:\s|$)([\s\S]*)",
+    pattern=r"(a|approve)(?:\s|$)([\s\S]*)",
     command=("approve", plugin_category),
     info={
         "header": "To approve user to direct message you.",
@@ -737,7 +737,7 @@ async def approve_p_m(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="(da|disapprove)(?:\s|$)([\s\S]*)",
+    pattern=r"(da|disapprove)(?:\s|$)([\s\S]*)",
     command=("disapprove", plugin_category),
     info={
         "header": "To disapprove user to direct message you.",
@@ -795,7 +795,7 @@ async def disapprove_p_m(event):
 
 
 @lionub.lion_cmd(
-    pattern="block(?:\s|$)([\s\S]*)",
+    pattern=r"block(?:\s|$)([\s\S]*)",
     command=("block", plugin_category),
     info={
         "header": "To block user to direct message you.",
@@ -856,7 +856,7 @@ async def block_p_m(event):
 
 
 @lionub.lion_cmd(
-    pattern="unblock(?:\s|$)([\s\S]*)",
+    pattern=r"unblock(?:\s|$)([\s\S]*)",
     command=("unblock", plugin_category),
     info={
         "header": "To unblock a user.",

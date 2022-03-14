@@ -23,7 +23,7 @@ game_list = "1.`ttt` :- Tic-Tac-Toe\n2.`ttf` :- Tic-Tac-Four\n3.`cf` :- Connect 
 
 
 @lionub.lion_cmd(
-    pattern="game(?:\s|$)([\s\S]*)",
+    pattern=r"game(?:\s|$)([\s\S]*)",
     command=("game", plugin_category),
     info={
         "header": "Play inline games",

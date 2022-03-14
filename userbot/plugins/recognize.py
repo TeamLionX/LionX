@@ -10,7 +10,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="recognize ?([\s\S]*)",
+    pattern=r"recognize ?([\s\S]*)",
     command=("recognize", plugin_category),
     info={
         "header": "To recognize a image",

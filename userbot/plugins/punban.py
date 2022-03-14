@@ -22,7 +22,7 @@ plugin_category = "fun"
 
 
 @lionub.lion_cmd(
-    pattern="porn(?:\s|$)([\s\S]*)",
+    pattern=r"porn(?:\s|$)([\s\S]*)",
     command=("porn", plugin_category),
     info={
         "header": "Get a porn video or gif or pic.",
@@ -106,7 +106,7 @@ async def very(event):
 
 
 @lionub.lion_cmd(
-    pattern="bulkporn(?:\s|$)([\s\S]*)",
+    pattern=r"bulkporn(?:\s|$)([\s\S]*)",
     command=("bulkporn", plugin_category),
     info={
         "header": "download porn videos or gifs or pics in bulk.",
@@ -200,7 +200,7 @@ async def bad(event):
 
 
 @lionub.lion_cmd(
-    pattern="rsearch(?:\s|$)([\s\S]*)",
+    pattern=r"rsearch(?:\s|$)([\s\S]*)",
     command=("rsearch", plugin_category),
     info={
         "header": "Get a list porn video or gif or pic from reddit /redgif /imgur.",
@@ -271,7 +271,7 @@ async def pussy(event):
 
 
 @lionub.lion_cmd(
-    pattern="xsearch(?:\s|$)([\s\S]*)",
+    pattern=r"xsearch(?:\s|$)([\s\S]*)",
     command=("xsearch", plugin_category),
     info={
         "header": "Get a list of porn videos from xvideo",
@@ -343,7 +343,7 @@ async def lion(event):
 
 
 @lionub.lion_cmd(
-    pattern="linkdl(?: |$)([\s\S]*)",
+    pattern=r"linkdl(?: |$)([\s\S]*)",
     command=("linkdl", plugin_category),
     info={
         "header": "download porn video or gif in bulk or single from xvideos, imgur or redgif or direct link.\n\nFor multiple link give one space between links or reply to to any link contain text, like listporn or xsearch post",

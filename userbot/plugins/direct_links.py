@@ -18,7 +18,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="direct(?: |$)([\s\S]*)",
+    pattern=r"direct(?: |$)([\s\S]*)",
     command=("direct", plugin_category),
     info={
         "header": "To generate a direct download link from a URL.",

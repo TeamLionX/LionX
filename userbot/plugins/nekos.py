@@ -24,7 +24,7 @@ def user_agent():
 
 
 @lionub.lion_cmd(
-    pattern="nn ?([\s\S]*)",
+    pattern=r"nn ?([\s\S]*)",
     command=("nn", plugin_category),
     info={
         "header": "Contains NSFW \nSearch images from nekos",

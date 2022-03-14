@@ -83,7 +83,7 @@ async def _(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="savepwel(?:\s|$)([\s\S]*)",
+    pattern=r"savepwel(?:\s|$)([\s\S]*)",
     command=("savepwel", plugin_category),
     info={
         "header": "To welcome user(sends welcome message to here private messages).",
