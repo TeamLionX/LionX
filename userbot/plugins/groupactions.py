@@ -455,8 +455,7 @@ async def _(event):  # sourcery no-metrics
                     await et.edit("I need admin priveleges to perform this action!")
                     e.append(str(e))
                     break
-                else:
-                    c += 1
+                c += 1
         if isinstance(i.status, UserStatusOnline):
             q += 1
             if "q" in input_str:
@@ -465,8 +464,7 @@ async def _(event):  # sourcery no-metrics
                     await et.edit("I need admin priveleges to perform this action!")
                     e.append(str(e))
                     break
-                else:
-                    c += 1
+                c += 1
         if isinstance(i.status, UserStatusRecently):
             r += 1
             if "r" in input_str:
@@ -485,8 +483,7 @@ async def _(event):  # sourcery no-metrics
                     await et.edit("I need admin priveleges to perform this action!")
                     e.append(str(e))
                     break
-                else:
-                    c += 1
+                c += 1
         elif i.deleted:
             d += 1
             if "d" in input_str:
