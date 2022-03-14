@@ -563,8 +563,7 @@ async def upcoming(event):
 async def aschedule_fetch(event):
     "To get list of animes scheduled on that day"
     input_str = event.pattern_match.group(1) or datetime.now().weekday()
-    if input_str in weekdays:
-        input_str = weekdays[input_str]
+    input_str = weekdays.get(input_str)
     try:
         input_str = int(input_str)
     except ValueError:
