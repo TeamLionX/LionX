@@ -477,6 +477,8 @@ async def get_full_user(event):
         except Exception as err:
             return await event.edit("Error... Please report at @LionxSupport", str(err))
     return user_obj, extra
+
+
 hehe = "admin"
 lala = "owner"
 
