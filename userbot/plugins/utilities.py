@@ -17,7 +17,6 @@ chr = Config.COMMAND_HAND_LER
 GBOT = "@HowGayBot"
 FBOT = "@FsInChatBot"
 
-# t.me/realnub and t.me/lal_bakthan
 @lionub.lion_cmd(
     pattern="timer(?:\s|$)([\s\S]*)",
     command=("timer", plugin_category),
@@ -190,4 +189,3 @@ async def Gay(event):
     await event.edit(f"**Input:** `{osho}`\n**Random:** `{random.choice(options)}`")
 
 
-# t.me/realnub

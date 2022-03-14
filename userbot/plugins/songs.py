@@ -70,7 +70,6 @@ async def _(event):
     cmd = event.pattern_match.group(1)
     q = "320k" if cmd == "320" else "128k"
     song_cmd = song_dl.format(QUALITY=q, video_link=video_link)
-    # thumb_cmd = thumb_dl.format(video_link=video_link)
     name_cmd = name_dl.format(video_link=video_link)
     try:
         lion = Get(lion)
@@ -151,7 +150,6 @@ async def _(event):
         return await lionevent.edit(
             f"Sorry!. I can't find any related video/audio for `{query}`"
         )
-    # thumb_cmd = thumb_dl.format(video_link=video_link)
     name_cmd = name_dl.format(video_link=video_link)
     video_cmd = video_dl.format(video_link=video_link)
     stderr = (await _lionutils.runcmd(video_cmd))[1]

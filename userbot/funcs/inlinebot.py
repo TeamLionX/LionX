@@ -527,7 +527,6 @@ async def inline_handler(event):  # sourcery no-metrics
             if LIONIMG and LIONIMG.endswith((".jpg", ".jpeg", ".png")):
                 result = builder.photo(
                     LIONIMG,
-                    # title="Alive lion",
                     text=query,
                     buttons=buttons,
                 )

@@ -102,7 +102,6 @@ async def gsearch(q_event):
             lim = 5
     except IndexError:
         lim = 5
-    #     smatch = urllib.parse.quote_plus(match)
     smatch = match.replace(" ", "+")
     search_args = str(smatch), page
     gsearch = GoogleSearch()
@@ -210,7 +209,6 @@ async def _(event):
             prs_anchor_element = prs_div.find("a")
             prs_url = BASE_URL + prs_anchor_element.get("href")
             prs_text = prs_anchor_element.text
-            # document.getElementById("jHnbRc")
             img_size_div = soup.find(id="jHnbRc")
             img_size = img_size_div.find_all("div")
         except Exception:
