@@ -184,7 +184,7 @@ async def stats(event):  # sourcery no-metrics
         entity = dialog.entity
         if isinstance(entity, Channel) and entity.broadcast:
             continue
-        elif (
+        if (
             isinstance(entity, Channel)
             and entity.megagroup
             or not isinstance(entity, Channel)
