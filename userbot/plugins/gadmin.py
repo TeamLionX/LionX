@@ -479,7 +479,6 @@ async def get_full_user(event):
     return user_obj, extra
 
 
-global hehe, lala
 hehe = "admin"
 lala = "owner"
 
