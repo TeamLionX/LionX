@@ -5,7 +5,7 @@ import heroku3
 from .Config import Config
 from .funcs.logger import logging
 from .funcs.session import lionub
-from .sql_helper.globals import addgvar, delgvar, gvarstatus
+from .sql_helper.globals import gvarstatus
 
 __version__ = "1.0.1"
 __license__ = "GNU Affero General Public License v3.0"
