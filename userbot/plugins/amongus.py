@@ -77,7 +77,7 @@ async def get_imposter_img(text: str) -> str:
 
 
 @lionub.lion_cmd(
-    pattern="amongus(?:\s|$)([\s\S]*)",
+    pattern=r"amongus(?:\s|$)([\s\S]*)",
     command=("amongus", plugin_category),
     info={
         "header": "Create a Sticker based on the popular game Among Us",
@@ -135,7 +135,7 @@ async def sayliecmd(event):
 
 
 @lionub.lion_cmd(
-    pattern="imposter(?:\s|$)([\s\S]*)",
+    pattern=r"imposter(?:\s|$)([\s\S]*)",
     command=("imposter", plugin_category),
     info={
         "header": "Fun images for imposter ",
@@ -170,7 +170,7 @@ async def procces_img(event):
 
 
 @lionub.lion_cmd(
-    pattern="imp(|n) ([\s\S]*)",
+    pattern=r"imp(|n) ([\s\S]*)",
     command=("imp", plugin_category),
     info={
         "header": "Find imposter with stickers animation.",
@@ -263,7 +263,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="timp(|n) ([\s\S]*)",
+    pattern=r"timp(|n) ([\s\S]*)",
     command=("timp", plugin_category),
     info={
         "header": "Find imposter with text animation.",

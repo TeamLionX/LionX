@@ -131,7 +131,7 @@ async def set_group_photo(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="promote(?:\s|$)([\s\S]*)",
+    pattern=r"promote(?:\s|$)([\s\S]*)",
     command=("promote", plugin_category),
     info={
         "header": "To give admin rights for a person",
@@ -176,7 +176,7 @@ async def promote(event):
 
 
 @lionub.lion_cmd(
-    pattern="demote(?:\s|$)([\s\S]*)",
+    pattern=r"demote(?:\s|$)([\s\S]*)",
     command=("demote", plugin_category),
     info={
         "header": "To remove a person from admin list",
@@ -220,7 +220,7 @@ async def demote(event):
 
 
 @lionub.lion_cmd(
-    pattern="ban(?:\s|$)([\s\S]*)",
+    pattern=r"ban(?:\s|$)([\s\S]*)",
     command=("ban", plugin_category),
     info={
         "header": "Will ban the guy in the group where you used this command.",
@@ -281,7 +281,7 @@ async def _ban_person(event):
 
 
 @lionub.lion_cmd(
-    pattern="unban(?:\s|$)([\s\S]*)",
+    pattern=r"unban(?:\s|$)([\s\S]*)",
     command=("unban", plugin_category),
     info={
         "header": "Will unban the guy in the group where you used this command.",
@@ -329,7 +329,7 @@ async def watcher(event):
 
 
 @lionub.lion_cmd(
-    pattern="mute(?:\s|$)([\s\S]*)",
+    pattern=r"mute(?:\s|$)([\s\S]*)",
     command=("mute", plugin_category),
     info={
         "header": "To stop sending messages from that user",
@@ -432,7 +432,7 @@ async def startmute(event):
 
 
 @lionub.lion_cmd(
-    pattern="unmute(?:\s|$)([\s\S]*)",
+    pattern=r"unmute(?:\s|$)([\s\S]*)",
     command=("unmute", plugin_category),
     info={
         "header": "To allow user to send messages again",
@@ -502,7 +502,7 @@ async def endmute(event):
 
 
 @lionub.lion_cmd(
-    pattern="kick(?:\s|$)([\s\S]*)",
+    pattern=r"kick(?:\s|$)([\s\S]*)",
     command=("kick", plugin_category),
     info={
         "header": "To kick a person from the group",
@@ -627,7 +627,7 @@ async def pin(event):
 
 
 @lionub.lion_cmd(
-    pattern="undlt( -u)?(?: |$)(\d*)?",
+    pattern=r"undlt( -u)?(?: |$)(\d*)?",
     command=("undlt", plugin_category),
     info={
         "header": "To get recent deleted messages in group",
