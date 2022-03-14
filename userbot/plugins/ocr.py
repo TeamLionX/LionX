@@ -43,7 +43,7 @@ async def ocr_space_file(
 
 
 @lionub.lion_cmd(
-    pattern="(|t)ocr(?:\s|$)([\s\S]*)",
+    pattern=r"(|t)ocr(?:\s|$)([\s\S]*)",
     command=("ocr", plugin_category),
     info={
         "header": "To read text in image/gif/sticker/video and print it.",

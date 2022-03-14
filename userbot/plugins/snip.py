@@ -11,7 +11,7 @@ plugin_category = "utils"
 
 
 @lionub.lion_cmd(
-    pattern="\#(\S+)",
+    pattern=r"\#(\S+)",
 )
 async def incom_note(event):
     if not BOTLOG:
@@ -47,7 +47,7 @@ async def incom_note(event):
 
 
 @lionub.lion_cmd(
-    pattern="snips (\w*)",
+    pattern=r"snips (\w*)",
     command=("snips", plugin_category),
     info={
         "header": "To save notes to the bot.",
@@ -135,7 +135,7 @@ async def on_snip_list(event):
 
 
 @lionub.lion_cmd(
-    pattern="snipd (\S+)",
+    pattern=r"snipd (\S+)",
     command=("snipd", plugin_category),
     info={
         "header": "To delete paticular note in bot.",

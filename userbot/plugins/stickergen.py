@@ -11,7 +11,7 @@ plugin_category = "fun"
 
 
 @lionub.lion_cmd(
-    pattern="(|b)quby(?:\s|$)([\s\S]*)",
+    pattern=r"(|b)quby(?:\s|$)([\s\S]*)",
     command=("quby", plugin_category),
     info={
         "header": "Make doge say anything.",
@@ -79,7 +79,7 @@ async def quby(event):
 
 
 @lionub.lion_cmd(
-    pattern="(|b)blob(?:\s|$)([\s\S]*)",
+    pattern=r"(|b)blob(?:\s|$)([\s\S]*)",
     command=("blob", plugin_category),
     info={
         "header": "Give the sticker on background.",
@@ -148,7 +148,7 @@ async def knife(event):
 
 
 @lionub.lion_cmd(
-    pattern="(|h)doge(?:\s|$)([\s\S]*)",
+    pattern=r"(|h)doge(?:\s|$)([\s\S]*)",
     command=("doge", plugin_category),
     info={
         "header": "Make doge say anything.",
@@ -214,7 +214,7 @@ async def doge(event):
 
 # by Yato
 @lionub.lion_cmd(
-    pattern="(|h)penguin(?:\s|$)([\s\S]*)",
+    pattern=r"(|h)penguin(?:\s|$)([\s\S]*)",
     command=("penguin", plugin_category),
     info={
         "header": "To make penguin meme sticker. ",
@@ -280,7 +280,7 @@ async def penguin(event):
 
 # by Yato
 @lionub.lion_cmd(
-    pattern="(|h)gandhi(?:\s|$)([\s\S]*)",
+    pattern=r"(|h)gandhi(?:\s|$)([\s\S]*)",
     command=("gandhi", plugin_category),
     info={
         "header": "Make gandhi text sticker.",

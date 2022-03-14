@@ -12,7 +12,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="firmware ([\s\S]*)",
+    pattern=r"firmware ([\s\S]*)",
     command=("firmware", plugin_category),
     info={
         "header": "To get lastest Firmware.",
@@ -42,7 +42,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="vendor ([\s\S]*)",
+    pattern=r"vendor ([\s\S]*)",
     command=("vendor", plugin_category),
     info={
         "header": "To get lastest Vendor.",
@@ -72,7 +72,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="xspecs ([\s\S]*)",
+    pattern=r"xspecs ([\s\S]*)",
     command=("xspecs", plugin_category),
     info={
         "header": "To get quick spec information about device",
@@ -102,7 +102,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="fastboot ([\s\S]*)",
+    pattern=r"fastboot ([\s\S]*)",
     command=("fastboot", plugin_category),
     info={
         "header": "To get latest fastboot MIUI.",
@@ -132,7 +132,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="recovery ([\s\S]*)",
+    pattern=r"recovery ([\s\S]*)",
     command=("recovery", plugin_category),
     info={
         "header": "To get latest recovery MIUI.",
@@ -162,7 +162,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="pb ([\s\S]*)",
+    pattern=r"pb ([\s\S]*)",
     command=("pb", plugin_category),
     info={
         "header": "To get latest PBRP.",
@@ -192,7 +192,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="of ([\s\S]*)",
+    pattern=r"of ([\s\S]*)",
     command=("of", plugin_category),
     info={
         "header": "To get latest ORangeFox Recover.",

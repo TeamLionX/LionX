@@ -280,7 +280,7 @@ async def add_to_pack(
 
 
 @lionub.lion_cmd(
-    pattern="kang(?:\s|$)([\s\S]*)",
+    pattern=r"kang(?:\s|$)([\s\S]*)",
     command=("kang", plugin_category),
     info={
         "header": "To kang a sticker.",
@@ -456,7 +456,7 @@ async def kang(args):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="pkang(?:\s|$)([\s\S]*)",
+    pattern=r"pkang(?:\s|$)([\s\S]*)",
     command=("pkang", plugin_category),
     info={
         "header": "To kang entire sticker sticker.",
@@ -712,7 +712,7 @@ async def LionRoar(args):
 
 
 @lionub.lion_cmd(
-    pattern="gridpack(?:\s|$)([\s\S]*)",
+    pattern=r"gridpack(?:\s|$)([\s\S]*)",
     command=("gridpack", plugin_category),
     info={
         "header": "To split the replied image and make sticker pack.",
@@ -874,7 +874,7 @@ async def get_pack_info(event):
 
 
 @lionub.lion_cmd(
-    pattern="stickers ?([\s\S]*)",
+    pattern=r"stickers ?([\s\S]*)",
     command=("stickers", plugin_category),
     info={
         "header": "To get list of sticker packs with given name.",

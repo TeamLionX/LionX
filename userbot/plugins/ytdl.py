@@ -141,7 +141,7 @@ async def fix_attributes(
 
 
 @lionub.lion_cmd(
-    pattern="yta(?:\s|$)([\s\S]*)",
+    pattern=r"yta(?:\s|$)([\s\S]*)",
     command=("yta", plugin_category),
     info={
         "header": "To download audio from many sites like Youtube",
@@ -155,7 +155,7 @@ async def download_audio(event):
     rmsg = await event.get_reply_message()
     if not url and rmsg:
         myString = rmsg.text
-        url = re.search("(?P<url>https?://[^\s]+)", myString).group("url")
+        url = re.search(r"(?P<url>https?://[^\s]+)", myString).group("url")
     if not url:
         return await edit_or_reply(event, "`What I am Supposed to do? Give link`")
     lionevent = await edit_or_reply(event, "`Preparing to download...`")
@@ -222,7 +222,7 @@ async def download_audio(event):
 
 
 @lionub.lion_cmd(
-    pattern="ytv(?:\s|$)([\s\S]*)",
+    pattern=r"ytv(?:\s|$)([\s\S]*)",
     command=("ytv", plugin_category),
     info={
         "header": "To download video from many sites like Youtube",
@@ -239,7 +239,7 @@ async def download_video(event):
     rmsg = await event.get_reply_message()
     if not url and rmsg:
         myString = rmsg.text
-        url = re.search("(?P<url>https?://[^\s]+)", myString).group("url")
+        url = re.search(r"(?P<url>https?://[^\s]+)", myString).group("url")
     if not url:
         return await edit_or_reply(event, "What I am Supposed to find? Give link")
     lionevent = await edit_or_reply(event, "`Preparing to download...`")
@@ -287,7 +287,7 @@ async def download_video(event):
 
 
 @lionub.lion_cmd(
-    pattern="yts(?: |$)(\d*)? ?([\s\S]*)",
+    pattern=r"yts(?: |$)(\d*)? ?([\s\S]*)",
     command=("yts", plugin_category),
     info={
         "header": "To search youtube videos",
@@ -325,7 +325,7 @@ async def yt_search(event):
 
 
 @lionub.lion_cmd(
-    pattern="insta ([\s\S]*)",
+    pattern=r"insta ([\s\S]*)",
     command=("insta", plugin_category),
     info={
         "header": "To download instagram video/photo",

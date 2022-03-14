@@ -45,7 +45,7 @@ async def get_tz(con):
 
 
 @lionub.lion_cmd(
-    pattern="ctime(?:\s|$)([\s\S]*)(?<![0-9])(?: |$)([0-9]+)?",
+    pattern=r"ctime(?:\s|$)([\s\S]*)(?<![0-9])(?: |$)([0-9]+)?",
     command=("ctime", plugin_category),
     info={
         "header": "To get current time of a paticular country",
@@ -112,7 +112,7 @@ async def time_func(tdata):
 
 
 @lionub.lion_cmd(
-    pattern="time(?:\s|$)([\s\S]*)",
+    pattern=r"time(?:\s|$)([\s\S]*)",
     command=("time", plugin_category),
     info={
         "header": "To show current time.",
