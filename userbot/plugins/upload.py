@@ -54,7 +54,6 @@ def get_video_thumb(file, output=None, width=320):
         file,
         "-ss",
         str(int((0, metadata.get("duration").seconds)[metadata.has("duration")] / 2)),
-        # '-filter:v', 'scale={}:-1'.format(width),
         "-vframes",
         "1",
         output,
