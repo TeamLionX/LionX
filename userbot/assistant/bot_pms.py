@@ -65,7 +65,7 @@ async def check_bot_started_users(user, event):
 
 
 @lionub.bot_cmd(
-    pattern=f"^/start({botusername})?([\s]+)?$",
+    pattern=rf"^/start({botusername})?([\s]+)?$",
     incoming=True,
     func=lambda e: e.is_private,
 )

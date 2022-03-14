@@ -70,7 +70,7 @@ async def anime_quote(event):
 
 
 @lionub.lion_cmd(
-    pattern="aluser(?:\s|$)([\s\S]*)",
+    pattern=r"aluser(?:\s|$)([\s\S]*)",
     command=("aluser", plugin_category),
     info={
         "header": "Search User profiles in anilist.",
@@ -109,7 +109,7 @@ async def anilist_usersearch(event):
 
 
 @lionub.lion_cmd(
-    pattern="mal(?:\s|$)([\s\S]*)",
+    pattern=r"mal(?:\s|$)([\s\S]*)",
     command=("mal", plugin_category),
     info={
         "header": "Search profiles of MAL.",
@@ -176,7 +176,7 @@ async def user(event):
 
 
 @lionub.lion_cmd(
-    pattern="airing(?:\s|$)([\s\S]*)",
+    pattern=r"airing(?:\s|$)([\s\S]*)",
     command=("airing", plugin_category),
     info={
         "header": "Shows you the time left for the new episode of current running anime show.",
@@ -207,7 +207,7 @@ async def anilist(event):
 
 
 @lionub.lion_cmd(
-    pattern="anime(?:\s|$)([\s\S]*)",
+    pattern=r"anime(?:\s|$)([\s\S]*)",
     command=("anime", plugin_category),
     info={
         "header": "Shows you the details of the anime.",
@@ -230,7 +230,7 @@ async def anilist(event):
 
 
 @lionub.lion_cmd(
-    pattern="manga(?:\s|$)([\s\S]*)",
+    pattern=r"manga(?:\s|$)([\s\S]*)",
     command=("manga", plugin_category),
     info={
         "header": "Searches for manga.",
@@ -262,7 +262,7 @@ async def get_manga(event):
 
 
 @lionub.lion_cmd(
-    pattern="fillers(?:\s|$)([\s\S]*)",
+    pattern=r"fillers(?:\s|$)([\s\S]*)",
     command=("fillers", plugin_category),
     info={
         "header": "To get list of filler episodes.",
@@ -344,7 +344,7 @@ async def get_anime(event):
 
 
 @lionub.lion_cmd(
-    pattern="sanime(?:\s|$)([\s\S]*)",
+    pattern=r"sanime(?:\s|$)([\s\S]*)",
     command=("sanime", plugin_category),
     info={
         "header": "Searches for anime.",
@@ -395,7 +395,7 @@ async def get_anime(event):
 
 
 @lionub.lion_cmd(
-    pattern="char(?:\s|$)([\s\S]*)",
+    pattern=r"char(?:\s|$)([\s\S]*)",
     command=("char", plugin_category),
     info={
         "header": "Shows you character infomation.",
@@ -452,7 +452,7 @@ async def character(event):
 
 
 @lionub.lion_cmd(
-    pattern="a(kaizoku|kayo|indi)(?: |$)([\S\s]*)",
+    pattern=r"a(kaizoku|kayo|indi)(?: |$)([\S\s]*)",
     command=("akaizoku", plugin_category),
     info={
         "header": "Shows you anime download link.",
@@ -551,7 +551,7 @@ async def upcoming(event):
 
 
 @lionub.lion_cmd(
-    pattern="aschedule(?: |$)([\S\s]*)",
+    pattern=r"aschedule(?: |$)([\S\s]*)",
     command=("aschedule", plugin_category),
     info={
         "header": "Shows you animes to be aired on that day.",

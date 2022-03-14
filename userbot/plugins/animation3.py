@@ -93,7 +93,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="dump(?:\s|$)([\s\S]*)",
+    pattern=r"dump(?:\s|$)([\s\S]*)",
     command=("dump", plugin_category),
     info={
         "header": "Fun animation try yourself to know more",

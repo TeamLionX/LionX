@@ -6,7 +6,7 @@ plugin_category = "fun"
 
 
 @lionub.lion_cmd(
-    pattern="kilr(?:\s|$)([\s\S]*)",
+    pattern=r"kilr(?:\s|$)([\s\S]*)",
     command=("kilr", plugin_category),
     info={
         "header": "Fun animation try yourself to know more",
@@ -23,13 +23,13 @@ async def _(event):
     event = await edit_or_reply(event, f"**Ready Commando **__{mention}....")
     animation_chars = [
         "Ｆｉｉｉｉｉｒｅ",
-        f"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n <,︻╦╤─ ҉ - \n _/﹋\_\n",
-        f"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n  <,︻╦╤─ ҉ - -\n _/﹋\_\n",
-        f"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n <,︻╦╤─ ҉ - - -\n _/﹋\_\n",
-        f"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n<,︻╦╤─ ҉ - -\n _/﹋\_\n",
-        f"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n <,︻╦╤─ ҉ - \n _/﹋\_\n",
-        f"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n  <,︻╦╤─ ҉ - -\n _/﹋\_\n",
-        f"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n <,︻╦╤─ ҉ - - - {name}\n _/﹋\_\n",
+        rf"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n <,︻╦╤─ ҉ - \n _/﹋\_\n",
+        rf"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n  <,︻╦╤─ ҉ - -\n _/﹋\_\n",
+        rf"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n <,︻╦╤─ ҉ - - -\n _/﹋\_\n",
+        rf"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n<,︻╦╤─ ҉ - -\n _/﹋\_\n",
+        rf"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n <,︻╦╤─ ҉ - \n _/﹋\_\n",
+        rf"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n  <,︻╦╤─ ҉ - -\n _/﹋\_\n",
+        rf"__**Commando **__{mention}          \n\n_/﹋\_\n (҂`_´)\n <,︻╦╤─ ҉ - - - {name}\n _/﹋\_\n",
     ]
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
