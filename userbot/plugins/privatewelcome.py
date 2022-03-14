@@ -5,7 +5,7 @@ from telethon import events
 from userbot import lionub
 
 from ..funcs.managers import edit_or_reply
-from ..sql_helper import pmpermit_sql as pmpermit_sql
+from ..sql_helper import pmpermit_sql
 from ..sql_helper.welcomesql import (
     addwelcome_setting,
     getcurrent_welcome_settings,
