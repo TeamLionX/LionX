@@ -32,7 +32,7 @@ async def mememaker(borg, msg, lion, chat_id, reply_to_id):
 
 
 @lionub.lion_cmd(
-    pattern="fox ?([\s\S]*)",
+    pattern=r"fox ?([\s\S]*)",
     command=("fox", plugin_category),
     info={
         "header": "fox meme",
@@ -52,7 +52,7 @@ async def lion(event):
 
 
 @lionub.lion_cmd(
-    pattern="talkme ?([\s\S]*)",
+    pattern=r"talkme ?([\s\S]*)",
     command=("talkme", plugin_category),
     info={
         "header": "talk to me meme",
@@ -72,7 +72,7 @@ async def lion(event):
 
 
 @lionub.lion_cmd(
-    pattern="slip ?([\s\S]*)",
+    pattern=r"slip ?([\s\S]*)",
     command=("slip", plugin_category),
     info={
         "header": "brain say meme",
@@ -92,7 +92,7 @@ async def lion(event):
 
 
 @lionub.lion_cmd(
-    pattern="sbob ?([\s\S]*)",
+    pattern=r"sbob ?([\s\S]*)",
     command=("sbob", plugin_category),
     info={
         "header": "spongebob meme",
@@ -112,7 +112,7 @@ async def lion(event):
 
 
 @lionub.lion_cmd(
-    pattern="child ?([\s\S]*)",
+    pattern=r"child ?([\s\S]*)",
     command=("child", plugin_category),
     info={
         "header": "child meme",

@@ -47,7 +47,7 @@ UNBAN_RIGHTS = ChatBannedRights(
 
 
 @lionub.lion_cmd(
-    pattern="gban(?:\s|$)([\s\S]*)",
+    pattern=r"gban(?:\s|$)([\s\S]*)",
     command=("gban", plugin_category),
     info={
         "header": "To ban user in every group where you are admin.",
@@ -134,7 +134,7 @@ async def liongban(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="ungban(?:\s|$)([\s\S]*)",
+    pattern=r"ungban(?:\s|$)([\s\S]*)",
     command=("ungban", plugin_category),
     info={
         "header": "To unban the person from every group where you are admin.",
@@ -237,7 +237,7 @@ async def gablist(event):
 
 
 @lionub.lion_cmd(
-    pattern="gmute(?:\s|$)([\s\S]*)",
+    pattern=r"gmute(?:\s|$)([\s\S]*)",
     command=("gmute", plugin_category),
     info={
         "header": "To mute a person in all groups where you are admin.",
@@ -306,7 +306,7 @@ async def startgmute(event):
 
 
 @lionub.lion_cmd(
-    pattern="ungmute(?:\s|$)([\s\S]*)",
+    pattern=r"ungmute(?:\s|$)([\s\S]*)",
     command=("ungmute", plugin_category),
     info={
         "header": "To unmute the person in all groups where you were admin.",
@@ -374,7 +374,7 @@ async def watcher(event):
 
 
 @lionub.lion_cmd(
-    pattern="gkick(?:\s|$)([\s\S]*)",
+    pattern=r"gkick(?:\s|$)([\s\S]*)",
     command=("gkick", plugin_category),
     info={
         "header": "kicks the person in all groups where you are admin.",

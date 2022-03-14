@@ -148,7 +148,7 @@ async def dotify(message, reply, pix, mode):
 
 
 @lionub.lion_cmd(
-    pattern="(|h)pay(?:\s|$)([\s\S]*)",
+    pattern=r"(|h)pay(?:\s|$)([\s\S]*)",
     command=("pay", plugin_category),
     info={
         "header": "Send money to anyone through paytm.",
@@ -220,7 +220,7 @@ async def pay(event):
 
 
 @lionub.lion_cmd(
-    pattern="write(?:\s|$)([\s\S]*)",
+    pattern=r"write(?:\s|$)([\s\S]*)",
     command=("write", plugin_category),
     info={
         "header": "To write given text or replied message on paper.",
@@ -267,7 +267,7 @@ async def writer(e):
 
 
 @lionub.lion_cmd(
-    pattern="twrite(?:\s|$)([\s\S]*)",
+    pattern=r"twrite(?:\s|$)([\s\S]*)",
     command=("twrite", plugin_category),
     info={
         "header": "To write given text or replied message on paper.",

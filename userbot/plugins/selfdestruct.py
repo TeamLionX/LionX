@@ -8,7 +8,7 @@ LOGS = logging.getLogger(__name__)
 
 
 @lionub.lion_cmd(
-    pattern="sdm (\d*) ([\s\S]*)",
+    pattern=r"sdm (\d*) ([\s\S]*)",
     command=("sdm", plugin_category),
     info={
         "header": "To self destruct the message after paticualr time.",
@@ -29,7 +29,7 @@ async def selfdestruct(destroy):
 
 
 @lionub.lion_cmd(
-    pattern="selfdm (\d*) ([\s\S]*)",
+    pattern=r"selfdm (\d*) ([\s\S]*)",
     command=("selfdm", plugin_category),
     info={
         "header": "To self destruct the message after paticualr time. and in message will show the time.",

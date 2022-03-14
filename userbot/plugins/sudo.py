@@ -87,7 +87,7 @@ async def chat_blacklist(event):
 
 
 @lionub.lion_cmd(
-    pattern="addsudo(?:\s|$)([\s\S]*)",
+    pattern=r"addsudo(?:\s|$)([\s\S]*)",
     command=("addsudo", plugin_category),
     info={
         "header": "To add user as your sudo.",
@@ -127,7 +127,7 @@ async def add_sudo_user(event):
 
 
 @lionub.lion_cmd(
-    pattern="delsudo(?:\s|$)([\s\S]*)",
+    pattern=r"delsudo(?:\s|$)([\s\S]*)",
     command=("delsudo", plugin_category),
     info={
         "header": "To remove user from your sudo.",
@@ -185,7 +185,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="addscmd(s)?(?:\s|$)([\s\S]*)",
+    pattern=r"addscmd(s)?(?:\s|$)([\s\S]*)",
     command=("addscmd", plugin_category),
     info={
         "header": "To enable cmds for sudo users.",
@@ -280,7 +280,7 @@ async def _(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="rmscmd(s)?(?:\s|$)([\s\S]*)?",
+    pattern=r"rmscmd(s)?(?:\s|$)([\s\S]*)?",
     command=("rmscmd", plugin_category),
     info={
         "header": "To disable given cmds for sudo.",

@@ -43,7 +43,7 @@ purgetype = {
 
 
 @lionub.lion_cmd(
-    pattern="del(\s*| \d+)$",
+    pattern=r"del(\s*| \d+)$",
     command=("del", plugin_category),
     info={
         "header": "To delete replied message.",
@@ -201,7 +201,7 @@ async def purgeme(event):
 
 # TODO: only sticker messages.
 @lionub.lion_cmd(
-    pattern="purge(?:\s|$)([\s\S]*)",
+    pattern=r"purge(?:\s|$)([\s\S]*)",
     command=("purge", plugin_category),
     info={
         "header": "To purge messages from the replied message.",
@@ -455,7 +455,7 @@ async def fastpurger(event):  # sourcery no-metrics
 
 
 @lionub.lion_cmd(
-    pattern="upurge( -a)?(?:\s|$)([\s\S]*)",
+    pattern=r"upurge( -a)?(?:\s|$)([\s\S]*)",
     command=("upurge", plugin_category),
     info={
         "header": "To purge messages from the replied message of replied user.",
