@@ -154,10 +154,9 @@ async def get_file_id(input_str):
     found = GDRIVE_ID.search(link)
     if found and "folder" in link:
         return found.group(1), "folder"
-    elif found:
+    if found:
         return found.group(1), "file"
-    else:
-        return link, "unknown"
+    return link, "unknown"
 
 
 async def download(event, gdrive, service, uri=None):  # sourcery no-metrics
@@ -554,8 +553,7 @@ async def change_permission(service, Id):
             in str(e)
         ):
             return
-        else:
-            raise e
+        raise e
     return
 
 
@@ -801,7 +799,7 @@ async def check_progress_for_dl(event, gid, previous):  # sourcery no-metrics
                 await event.edit("Download Canceled :\n`{}`".format(file.name))
                 await asyncio.sleep(2.5)
                 return await event.delete()
-            elif " depth exceeded" in str(e):
+            if " depth exceeded" in str(e):
                 file.remove(force=True)
                 await event.edit(
                     "Download Auto Canceled :\n`{}`\nYour Torrent/Link is Dead.".format(
@@ -1240,7 +1238,7 @@ async def google_drive(gdrive):  # sourcery no-metrics
     uri = None
     if not value and not gdrive.reply_to_msg_id:
         return await edit_or_reply(gdrive, "`What should i Do You idiot`")
-    elif value and gdrive.reply_to_msg_id:
+    if value and gdrive.reply_to_msg_id:
         await edit_or_reply(
             gdrive,
             "**[UNKNOWN - ERROR]**\n\n"
@@ -1317,7 +1315,7 @@ async def google_drive(gdrive):  # sourcery no-metrics
                 return None
             await gdrive.edit(reply, link_preview=False)
             return True
-        elif re.findall(r"\bhttps?://.*\.\S+", value) or "magnet:?" in value:
+        if re.findall(r"\bhttps?://.*\.\S+", value) or "magnet:?" in value:
             uri = value.split()
         else:
             for fileId in value.split():

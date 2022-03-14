@@ -16,8 +16,7 @@ def gib_link(link):
     slash = "%2F"
     if link.startswith("https"):
         return _base + link.replace(":", colon).replace("/", slash)
-    else:
-        return _base + f"https{colon}{slash}{slash}pin.it{slash}{link}"
+    return _base + f"https{colon}{slash}{slash}pin.it{slash}{link}"
 
 
 @lionub.lion_cmd(
@@ -36,7 +35,7 @@ async def pinterest(e):
     hulu = hehe.find_all("a", {"class": "download_button"})
     if len(hulu) < 1:
         return await edit_delete(e, "`Wrong link or private pin.`")
-    elif len(hulu) > 1:
+    if len(hulu) > 1:
         donl(hulu[0]["href"], "pinterest.mp4")
         donl(hulu[1]["href"], "pinterest.jpg")
         await e.delete()
