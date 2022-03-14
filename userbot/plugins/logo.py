@@ -381,7 +381,7 @@ async def lion(event):
     "Manage all values of logo"
     cmd = event.pattern_match.group(1).lower()
     input_str = event.pattern_match.group(2)
-    if input_str in vars_list.keys():
+    if input_str in vars_list:
         var = vars_list[input_str]
         if cmd == "g":
             var_data = gvarstatus(var)
