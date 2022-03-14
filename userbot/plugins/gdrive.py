@@ -1362,11 +1362,10 @@ async def google_drive(gdrive):  # sourcery no-metrics
                     )
                     await asyncio.sleep(2.5)
                     break
-                else:
-                    """if something bad happened, continue to next uri"""
-                    reply += f"**[UNKNOWN - ERROR]**\n\n**Status : **`BAD`\n**Reason : **`{dl}` | `{e}`\n\n"
+                """if something bad happened, continue to next uri"""
+                reply += f"**[UNKNOWN - ERROR]**\n\n**Status : **`BAD`\n**Reason : **`{dl}` | `{e}`\n\n"
 
-                    continue
+                continue
         await gdrive.edit(reply, link_preview=False)
         return None
     mimeType = await get_mimeType(file_path)
