@@ -1,6 +1,6 @@
 import typing
 
-from telethon import events, hints, types
+from telethon import events, types
 from telethon.tl.types import (
     InputPeerChannel,
     InputPeerChat,
