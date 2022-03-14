@@ -1160,7 +1160,7 @@ class googleimagesdownload:
                 image_name = str(image_url[slash:qmark]).lower()
 
                 type = info.get_content_type()
-                if type == "image/jpeg" or type == "image/jpg":
+                if type in ("image/jpeg", "image/jpg"):
                     if not image_name.endswith(".jpg") and not image_name.endswith(
                         ".jpeg"
                     ):
@@ -1174,10 +1174,10 @@ class googleimagesdownload:
                 elif type == "image/gif":
                     if not image_name.endswith(".gif"):
                         image_name += ".gif"
-                elif type == "image/bmp" or type == "image/x-windows-bmp":
+                elif type in ("image/bmp", "image/x-windows-bmp"):
                     if not image_name.endswith(".bmp"):
                         image_name += ".bmp"
-                elif type == "image/x-icon" or type == "image/vnd.microsoft.icon":
+                elif type in ("image/x-icon", "image/vnd.microsoft.icon"):
                     if not image_name.endswith(".ico"):
                         image_name += ".ico"
                 elif type == "image/svg+xml":
