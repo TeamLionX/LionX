@@ -1332,7 +1332,7 @@ class googleimagesdownload:
             if len(image_objects) == 0:
                 print("no_links")
                 break
-            elif arguments["offset"] and count <= int(arguments["offset"]):
+            if arguments["offset"] and count <= int(arguments["offset"]):
                 count += 1
             else:
                 # format the item for readability
