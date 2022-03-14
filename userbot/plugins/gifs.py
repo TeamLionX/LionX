@@ -55,7 +55,7 @@ async def lion(event):
 
 
 @lionub.lion_cmd(
-    pattern="gifs(?:\s|$)([\s\S]*)",
+    pattern=r"gifs(?:\s|$)([\s\S]*)",
     command=("gifs", plugin_category),
     info={
         "header": "Sends random gifs",
@@ -97,7 +97,7 @@ async def some(event):
 
 
 @lionub.lion_cmd(
-    pattern="kiss(?:\s|$)([\s\S]*)",
+    pattern=r"kiss(?:\s|$)([\s\S]*)",
     command=("kiss", plugin_category),
     info={
         "header": "Sends random kiss",

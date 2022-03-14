@@ -104,7 +104,7 @@ async def ff_mpeg_trim_cmd(event):
 
 
 @lionub.lion_cmd(
-    pattern="vtrim(?:\s|$)([\s\S]*)",
+    pattern=r"vtrim(?:\s|$)([\s\S]*)",
     command=("vtrim", plugin_category),
     info={
         "header": "Trims the saved media with specific given time internval and outputs as video if it is video",
@@ -190,7 +190,7 @@ async def ff_mpeg_trim_cmd(event):
 
 
 @lionub.lion_cmd(
-    pattern="atrim(?:\s|$)([\s\S]*)",
+    pattern=r"atrim(?:\s|$)([\s\S]*)",
     command=("atrim", plugin_category),
     info={
         "header": "Trims the saved media with specific given time internval and outputs as audio",

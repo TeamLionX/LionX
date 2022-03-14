@@ -117,7 +117,7 @@ async def dare_task(event):
 
 
 @lionub.lion_cmd(
-    pattern="game(?:\s|$)([\s\S]*)",
+    pattern=r"game(?:\s|$)([\s\S]*)",
     command=("game", plugin_category),
     info={
         "header": "Play inline games",

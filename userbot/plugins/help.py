@@ -123,7 +123,7 @@ async def cmdlist():
 
 
 @lionub.lion_cmd(
-    pattern="help ?(-c|-p|-t)? ?([\s\S]*)?",
+    pattern=r"help ?(-c|-p|-t)? ?([\s\S]*)?",
     command=("help", plugin_category),
     info={
         "header": "To get guide for LionX.",
@@ -165,7 +165,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="cmds(?:\s|$)([\s\S]*)",
+    pattern=r"cmds(?:\s|$)([\s\S]*)",
     command=("cmds", plugin_category),
     info={
         "header": "To show list of cmds.",
@@ -197,7 +197,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="s ([\s\S]*)",
+    pattern=r"s ([\s\S]*)",
     command=("s", plugin_category),
     info={
         "header": "To search commands.",

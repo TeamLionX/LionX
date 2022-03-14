@@ -17,7 +17,7 @@ BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>
 
 
 @lionub.lion_cmd(
-    pattern="cbutton(?:\s|$)([\s\S]*)",
+    pattern=r"cbutton(?:\s|$)([\s\S]*)",
     command=("cbutton", plugin_category),
     info={
         "header": "To create button posts",
@@ -84,7 +84,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="ibutton(?:\s|$)([\s\S]*)",
+    pattern=r"ibutton(?:\s|$)([\s\S]*)",
     command=("ibutton", plugin_category),
     info={
         "header": "To create button posts via inline",

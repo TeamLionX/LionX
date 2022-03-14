@@ -9,7 +9,7 @@ plugin_category = "tools"
 
 
 @lionub.lion_cmd(
-    pattern="create (b|g|c) ([\s\S]*)",
+    pattern=r"create (b|g|c) ([\s\S]*)",
     command=("create", plugin_category),
     info={
         "header": "To create a private group/channel with userbot.",

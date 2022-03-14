@@ -15,7 +15,7 @@ plugin_category = "fun"
 
 
 @lionub.lion_cmd(
-    pattern="scam(?:\s|$)([\s\S]*)",
+    pattern=r"scam(?:\s|$)([\s\S]*)",
     command=("scam", plugin_category),
     info={
         "header": "To show fake actions for a paticular period of time",
@@ -81,7 +81,7 @@ async def _(event):
 
 
 @lionub.lion_cmd(
-    pattern="prankpromote(?:\s|$)([\s\S]*)",
+    pattern=r"prankpromote(?:\s|$)([\s\S]*)",
     command=("prankpromote", plugin_category),
     info={
         "header": "To promote a person without admin rights",
