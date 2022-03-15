@@ -65,7 +65,7 @@ async def check_bot_started_users(user, event):
 
 
 @lionub.bot_cmd(
-    pattern=rf"^/start({botusername})?([\s]+)?$",
+    pattern=f"^/start({botusername})?([\s]+)?$",
     incoming=True,
     func=lambda e: e.is_private,
 )
@@ -205,10 +205,12 @@ async def bot_pms_edit(event):  # sourcery no-metrics
         users = get_user_reply(event.id)
         if users is None:
             return
-        if reply_msg := next(
-            (user.message_id for user in users if user.chat_id == str(chat.id)),
-            None,
-        ):
+        reply_msg = None
+        for user in users:
+            if user.chat_id == str(chat.id):
+                reply_msg = user.message_id
+                break
+        if reply_msg:
             await event.client.send_message(
                 Config.OWNER_ID,
                 f"⬆️ **This message was edited by the user** {_format.mentionuser(get_display_name(chat) , chat.id)} as :",
@@ -265,15 +267,11 @@ async def handler(event):
                 except Exception as e:
                     LOGS.error(str(e))
         if users_1 is not None:
-            reply_msg = next(
-                (
-                    user.message_id
-                    for user in users_1
-                    if user.chat_id != Config.OWNER_ID
-                ),
-                None,
-            )
-
+            reply_msg = None
+            for user in users_1:
+                if user.chat_id != Config.OWNER_ID:
+                    reply_msg = user.message_id
+                    break
             try:
                 if reply_msg:
                     users = get_user_id(reply_msg)

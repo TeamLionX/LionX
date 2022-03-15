@@ -45,7 +45,7 @@ plugin_category = "admin"
 
 
 @lionub.lion_cmd(
-    pattern=r"iytdl(?:\s|$)([\s\S]*)",
+    pattern="iytdl(?:\s|$)([\s\S]*)",
     command=("iytdl", plugin_category),
     info={
         "header": "ytdl with inline buttons.",
@@ -89,7 +89,7 @@ async def iytdl_inline(event):
 
 @lionub.tgbot.on(
     CallbackQuery(
-        data=re.compile(rb"^ytdl_download_(.*)_([\d]+|mkv|mp4|mp3)(?:_(a|v))?")
+        data=re.compile(b"^ytdl_download_(.*)_([\d]+|mkv|mp4|mp3)(?:_(a|v))?")
     )
 )
 @check_owner
