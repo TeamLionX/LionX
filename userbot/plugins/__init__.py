@@ -1,4 +1,7 @@
+import math
 import os
+import re
+import time
 
 import heroku3
 import lottie
@@ -9,9 +12,10 @@ from validators.url import url
 from .. import *
 from ..Config import Config
 from ..funcs.logger import logging
+from ..funcs.managers import edit_delete, edit_or_reply
 from ..funcs.session import lionub
 from ..helpers import *
-from ..helpers.utils import _lionutils
+from ..helpers.utils import _format, _liontools, _lionutils, install_pip, reply_id
 
 # =================== CONSTANT ===================
 bot = lionub
