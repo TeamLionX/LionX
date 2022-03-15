@@ -223,11 +223,11 @@ async def inline_handler(event):  # sourcery no-metrics
             ALIVE_PIC = gvarstatus("ALIVE_PIC")
             IALIVE_PIC = gvarstatus("IALIVE_PIC")
             if IALIVE_PIC:
-                LION = list(IALIVE_PIC.split())
+                LION = [x for x in IALIVE_PIC.split()]
                 PIC = list(LION)
                 I_IMG = random.choice(PIC)
             if not IALIVE_PIC and ALIVE_PIC:
-                LION = list(ALIVE_PIC.split())
+                LION = [x for x in ALIVE_PIC.split()]
                 PIC = list(LION)
                 I_IMG = random.choice(PIC)
             elif not IALIVE_PIC:
@@ -518,7 +518,7 @@ async def inline_handler(event):  # sourcery no-metrics
             ]
             PM_PIC = gvarstatus("PM_PIC")
             if PM_PIC:
-                LION = list(PM_PIC.split())
+                LION = [x for x in PM_PIC.split()]
                 PIC = list(LION)
                 LIONIMG = random.choice(PIC)
             else:
@@ -527,6 +527,7 @@ async def inline_handler(event):  # sourcery no-metrics
             if LIONIMG and LIONIMG.endswith((".jpg", ".jpeg", ".png")):
                 result = builder.photo(
                     LIONIMG,
+                    # title="Alive lion",
                     text=query,
                     buttons=buttons,
                 )
