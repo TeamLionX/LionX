@@ -39,7 +39,7 @@ oldvars = {
 
 
 @lionub.lion_cmd(
-    pattern=r"(set|get|del)dv(?: |$)([\s\S]*)",
+    pattern="(set|get|del)dv(?: |$)([\s\S]*)",
     command=("dv", plugin_category),
     info={
         "header": "Set vars in database or Check or Delete",
@@ -79,7 +79,8 @@ async def bad(event):  # sourcery no-metrics
     if not vinfo and reply:
         vinfo = reply.text
     if vname in vlist:
-        vname = oldvars.get(vname)
+        if vname in oldvars:
+            vname = oldvars[vname]
         if cmd == "set":
             if not vinfo and vname == "ALIVE_TEMPLATE":
                 return await edit_delete(
@@ -161,7 +162,9 @@ async def bad(event):  # sourcery no-metrics
 async def custom_LionX(event):
     "To customize your LionX."
     reply = await event.get_reply_message()
-    text = reply.text if reply else None
+    text = None
+    if reply:
+        text = reply.text
     if text is None:
         return await edit_delete(event, "__Reply to custom text or url__")
     input_str = event.pattern_match.group(1)
