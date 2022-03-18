@@ -404,7 +404,9 @@ async def send_flood_alert(user_) -> None:
             )
         except UserIsBlockedError:
             if BOTLOG:
-                await lionxub.tgbot.send_message(BOTLOG_CHATID, "**Unblock your bot !**")
+                await lionxub.tgbot.send_message(
+                    BOTLOG_CHATID, "**Unblock your bot !**"
+                )
     if FloodConfig.ALERT[user_.id].get("fa_id") is None and fa_msg:
         FloodConfig.ALERT[user_.id]["fa_id"] = fa_msg.id
 
