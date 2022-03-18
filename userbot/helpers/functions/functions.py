@@ -1,3 +1,4 @@
+import json
 import os
 import zipfile
 from random import choice
@@ -16,7 +17,7 @@ except ModuleNotFoundError:
     install_pip("IMDbPY")
     from imdb import IMDb
 
-from PIL import Image, ImageColor, ImageDraw, ImageFont
+from PIL import Image, ImageColor, ImageDraw, ImageFont, ImageOps
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from ...Config import Config
@@ -33,6 +34,8 @@ mov_titles = [
     "canonical title",
     "localized title",
 ]
+
+# ----------------------------------------------## Scrap ##------------------------------------------------------------#
 
 
 async def get_cast(casttype, movie):
@@ -52,21 +55,6 @@ async def get_cast(casttype, movie):
     return mov_casttype
 
 
-async def animator(media, mainevent, textevent):
-    h = media.file.height
-    w = media.file.width
-    w, h = (-1, 512) if h > w else (512, -1)
-    if not os.path.isdir(Config.TEMP_DIR):
-        os.makedirs(Config.TEMP_DIR)
-    LionX = await mainevent.client.download_media(media, Config.TEMP_DIR)
-    await textevent.edit("__🎞Converting into Animated sticker..__")
-    await runcmd(
-        f"ffmpeg -ss 00:00:00 -to 00:00:02.900 -i {LionX} -vf scale={w}:{h} -c:v libvpx-vp9 -crf 30 -b:v 560k -maxrate 560k -bufsize 256k -an animate.webm"
-    )  # pain
-    os.remove(LionX)
-    return "animate.webm"
-
-
 async def get_moviecollections(movie):
     result = ""
     if "box office" in movie.keys():
@@ -81,6 +69,31 @@ def rand_key():
     return str(uuid4())[:8]
 
 
+async def sanga_seperator(sanga_list):
+    for i in sanga_list:
+        if i.startswith("🔗"):
+            sanga_list.remove(i)
+    s = 0
+    for i in sanga_list:
+        if i.startswith("Username History"):
+            break
+        s += 1
+    usernames = sanga_list[s:]
+    names = sanga_list[:s]
+    return names, usernames
+
+
+# covid india data
+async def covidindia(state):
+    url = "https://www.mohfw.gov.in/data/datanew.json"
+    req = requests.get(url).json()
+    return next((req[states.index(i)] for i in states if i == state), None)
+
+
+# --------------------------------------------------------------------------------------------------------------------#
+
+
+# ----------------------------------------------## Media ##-----------------------------------------------------------#
 async def age_verification(event, reply_to_id):
     ALLOW_NSFW = gvarstatus("ALLOW_NSFW") or "False"
     if ALLOW_NSFW.lower() == "true":
@@ -91,6 +104,102 @@ async def age_verification(event, reply_to_id):
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     await event.delete()
     return True
+
+
+async def fileinfo(file):
+    x, y, z, s = await runcmd(f"mediainfo '{file}' --Output=JSON")
+    lionx_json = json.loads(x)["media"]["track"]
+    dic = {
+        "path": file,
+        "size": lionx_json[0]["FileSize"],
+        "extension": lionx_json[0]["FileExtension"],
+    }
+    try:
+        if "VideoCount" or "AudioCount" or "ImageCount" in lionx_json[0]:
+            dic["format"] = lionx_json[0]["Format"]
+            dic["type"] = lionx_json[1]["@type"]
+            if "ImageCount" not in lionx_json[0]:
+                dic["duration"] = lionx_json[0]["Duration"]
+            if "VideoCount" or "ImageCount" in lionx_json[0]:
+                dic["height"] = int(lionx_json[1]["Height"])
+                dic["width"] = int(lionx_json[1]["Width"])
+    except (IndexError, KeyError):
+        pass
+    return dic
+
+
+async def animator(media, mainevent, textevent=None):
+    # //Hope u dunt kang :/ @TeamLionX
+    if not os.path.isdir(Config.TEMP_DIR):
+        os.makedirs(Config.TEMP_DIR)
+    LionX = await mainevent.client.download_media(media, Config.TEMP_DIR)
+    file = await fileinfo(LionX)
+    h = file["height"]
+    w = file["width"]
+    w, h = (-1, 512) if h > w else (512, -1)
+    if textevent:
+        await textevent.edit("__🎞Converting into Animated sticker..__")
+    await runcmd(
+        f"ffmpeg -to 00:00:02.900 -i '{LionX}' -vf scale={w}:{h} -c:v libvpx-vp9 -crf 30 -b:v 560k -maxrate 560k -bufsize 256k -an animate.webm"
+    )  # pain
+    os.remove(LionX)
+    return "animate.webm"
+
+
+# --------------------------------------------------------------------------------------------------------------------#
+
+
+# ----------------------------------------------## Bots ##------------------------------------------------------------#
+
+
+async def clippy(borg, msg, chat_id, reply_to_id):
+    chat = "@clippy"
+    async with borg.conversation(chat) as conv:
+        try:
+            msg = await conv.send_file(msg)
+            pic = await conv.get_response()
+            await borg.send_read_acknowledge(conv.chat_id)
+        except YouBlockedUserError:
+            await kakashi.edit("Please unblock @clippy and try again")
+            return
+        await borg.send_file(
+            chat_id,
+            pic,
+            reply_to=reply_to_id,
+        )
+    await borg.delete_messages(conv.chat_id, [msg.id, pic.id])
+
+
+async def hide_inlinebot(borg, bot_name, text, chat_id, reply_to_id, c_lick=0):
+    sticcers = await borg.inline_query(bot_name, f"{text}.")
+    lionx = await sticcers[c_lick].click("me", hide_via=True)
+    if lionx:
+        await borg.send_file(int(chat_id), lionx, reply_to=reply_to_id)
+        await lionx.delete()
+
+
+async def make_inline(text, borg, chat_id, reply_to_id):
+    lionxinput = f"Inline buttons {text}"
+    results = await borg.inline_query(Config.TG_BOT_USERNAME, lionxinput)
+    await results[0].click(chat_id, reply_to=reply_to_id)
+
+
+# --------------------------------------------------------------------------------------------------------------------#
+
+
+# ----------------------------------------------## Tools ##------------------------------------------------------------#
+
+# https://www.tutorialspoint.com/How-do-you-split-a-list-into-evenly-sized-chunks-in-Python
+def sublists(input_list: list, width: int = 3):
+    return [input_list[x : x + width] for x in range(0, len(input_list), width)]
+
+
+# unziping file
+async def unzip(downloaded_file_name):
+    with zipfile.ZipFile(downloaded_file_name, "r") as zip_ref:
+        zip_ref.extractall("./temp")
+    downloaded_file_name = os.path.splitext(downloaded_file_name)[0]
+    return f"{downloaded_file_name}.gif"
 
 
 # https://github.com/ssut/py-googletrans/issues/234#issuecomment-722379788
@@ -114,6 +223,38 @@ def reddit_thumb_link(preview, thumb=None):
     if not thumb:
         thumb = preview.pop()
     return thumb.replace("\u0026", "&")
+
+
+# --------------------------------------------------------------------------------------------------------------------#
+
+
+# ----------------------------------------------## Image ##------------------------------------------------------------#
+
+
+def ellipse_create(filename, size, border):
+    img = Image.open(filename)
+    img = img.resize((int(1024 / size), int(1024 / size)))
+    drawsize = (img.size[0] * 3, img.size[1] * 3)
+    mask = Image.new("L", drawsize, 0)
+    draw = ImageDraw.Draw(mask)
+    draw.ellipse((0, 0) + drawsize, fill=255, outline="green", width=int(border))
+    mask = mask.resize(img.size, Image.ANTIALIAS)
+    img.putalpha(mask)
+    return img, mask
+
+
+def ellipse_layout_create(filename, size, border):
+    x, mask = ellipse_create(filename, size, border)
+    img = ImageOps.expand(mask)
+    return img
+
+
+def text_draw(font_name, font_size, img, text, hight):
+    font = ImageFont.truetype(font_name, font_size)
+    draw = ImageDraw.Draw(img)
+    w, h = draw.textsize(text, font=font)
+    h += int(h * 0.21)
+    draw.text(((1024 - w) / 2, int(hight)), text=text, fill="white", font=font)
 
 
 def higlighted_text(
@@ -178,7 +319,7 @@ def higlighted_text(
             # put text on mask
             mask_draw = ImageDraw.Draw(mask_img)
             mask_draw.text((25, 8), list_text[i], foreground, font=font)
-            # remove corner (source- https://stackoverflow.com/questions/11287402/how-to-round-corner-a-logo-without-white-backgroundtransparent-on-it-using-pi)
+            # https://stackoverflow.com/questions/11287402/how-to-round-corner-a-logo-without-white-backgroundtransparent-on-it-using-pi
             circle = Image.new("L", (rad * 2, rad * 2), 0)
             draw = ImageDraw.Draw(circle)
             draw.ellipse((0, 0, rad * 2, rad * 2), transparency)
@@ -202,67 +343,10 @@ def higlighted_text(
     source_img.save(output_img, "png")
 
 
-async def clippy(borg, msg, chat_id, reply_to_id):
-    chat = "@clippy"
-    async with borg.conversation(chat) as conv:
-        try:
-            msg = await conv.send_file(msg)
-            pic = await conv.get_response()
-            await borg.send_read_acknowledge(conv.chat_id)
-        except YouBlockedUserError:
-            await kakashi.edit("Please unblock @clippy and try again")
-            return
-        await borg.send_file(
-            chat_id,
-            pic,
-            reply_to=reply_to_id,
-        )
-    await borg.delete_messages(conv.chat_id, [msg.id, pic.id])
+# ----------------------------------------------------------------------------------------------------------------------#
 
 
-# https://www.tutorialspoint.com/How-do-you-split-a-list-into-evenly-sized-chunks-in-Python
-def sublists(input_list: list, width: int = 3):
-    return [input_list[x : x + width] for x in range(0, len(input_list), width)]
-
-
-async def sanga_seperator(sanga_list):
-    for i in sanga_list:
-        if i.startswith("🔗"):
-            sanga_list.remove(i)
-    s = 0
-    for i in sanga_list:
-        if i.startswith("Username History"):
-            break
-        s += 1
-    usernames = sanga_list[s:]
-    names = sanga_list[:s]
-    return names, usernames
-
-
-# unziping file
-async def unzip(downloaded_file_name):
-    with zipfile.ZipFile(downloaded_file_name, "r") as zip_ref:
-        zip_ref.extractall("./temp")
-    downloaded_file_name = os.path.splitext(downloaded_file_name)[0]
-    return f"{downloaded_file_name}.gif"
-
-
-# covid india data
-
-
-async def covidindia(state):
-    url = "https://www.mohfw.gov.in/data/datanew.json"
-    req = requests.get(url).json()
-    return next((req[states.index(i)] for i in states if i == state), None)
-
-
-async def hide_inlinebot(borg, bot_name, text, chat_id, reply_to_id, c_lick=0):
-    sticcers = await borg.inline_query(bot_name, f"{text}.")
-    lion = await sticcers[c_lick].click("me", hide_via=True)
-    if lion:
-        await borg.send_file(int(chat_id), lion, reply_to=reply_to_id)
-        await lion.delete()
-
+# ----------------------------------------------## Sticker ##-----------------------------------------------------------#
 
 # for stickertxt
 async def waifutxt(text, chat_id, reply_to_id, bot):
@@ -301,7 +385,7 @@ async def waifutxt(text, chat_id, reply_to_id, bot):
         63,
     ]
     sticcers = await bot.inline_query("stickerizerbot", f"#{choice(animus)}{text}")
-    lion = await sticcers[0].click("me", hide_via=True)
-    if lion:
-        await bot.send_file(int(chat_id), lion, reply_to=reply_to_id)
-        await lion.delete()
+    lionx = await sticcers[0].click("me", hide_via=True)
+    if lionx:
+        await bot.send_file(int(chat_id), lionx, reply_to=reply_to_id)
+        await lionx.delete()

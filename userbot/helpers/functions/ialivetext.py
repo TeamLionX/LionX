@@ -41,7 +41,7 @@ def check_data_base_heal_th():
     return is_database_working, output
 
 
-async def lionalive(StartTime):
+async def lionxalive(StartTime):
     _, check_sgnirts = check_data_base_heal_th()
     sudo = "Enabled" if Config.SUDO_USERS else "Disabled"
     uptime = await get_readable_time((time.time() - StartTime))
@@ -83,9 +83,9 @@ async def lionalive(StartTime):
         dyno = f"{AppHours}h {AppMinutes}m/{hours}h {minutes}m"
     except Exception as e:
         dyno = e
-    return f"🖤༄ LionX Stats ༄🖤\
-                 \n\nღ Database : {check_sgnirts}\
-                  \nღ Sudo : {sudo}\
-                  \nღ Uptime : {uptime}\
-                  \nღ Dyno : {dyno}\
+    return f"LionX Stats\
+                 \n\nDatabase : {check_sgnirts}\
+                  \nSudo : {sudo}\
+                  \nUptime : {uptime}\
+                  \nDyno : {dyno}\
                   "

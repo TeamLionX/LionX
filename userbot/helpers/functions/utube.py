@@ -31,11 +31,11 @@ name_dl = (
 )
 
 
-async def yt_search(lion):
+async def yt_search(lionx):
     try:
-        lion = urllib.parse.quote(lion)
+        lionx = urllib.parse.quote(lionx)
         html = urllib.request.urlopen(
-            f"https://www.youtube.com/results?search_query={lion}"
+            f"https://www.youtube.com/results?search_query={lionx}"
         )
 
         user_data = re.findall(r"watch\?v=(\S{11})", html.read().decode())
@@ -88,8 +88,8 @@ class YT_Search_X:
 ytsearch_data = YT_Search_X()
 
 
-async def yt_data(lion):
-    params = {"format": "json", "url": lion}
+async def yt_data(lionx):
+    params = {"format": "json", "url": lionx}
     url = "https://www.youtube.com/oembed"  # https://stackoverflow.com/questions/29069444/returning-the-urls-as-a-list-from-a-youtube-search-query
     query_string = urllib.parse.urlencode(params)
     url = f"{url}?{query_string}"
@@ -137,12 +137,11 @@ def get_choice_by_id(choice_id, media_type: str):
         disp_str = "best(video+audio)[webm/mp4]"
     else:
         disp_str = str(choice_id)
-        choice_str = (
-            f"{disp_str}+(258/256/140/bestaudio[ext=m4a])/best"
-            if media_type == "v"
-            else disp_str
-        )
-
+        if media_type == "v":
+            # mp4 video quality + best compatible audio
+            choice_str = f"{disp_str}+(258/256/140/bestaudio[ext=m4a])/best"
+        else:  # Audio
+            choice_str = disp_str
     return choice_str, disp_str
 
 

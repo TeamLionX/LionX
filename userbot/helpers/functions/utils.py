@@ -46,28 +46,28 @@ async def get_readable_time(seconds: int) -> str:
 # gban
 
 
-async def admin_groups(lionub):
-    liongroups = []
-    async for dialog in lionub.iter_dialogs():
+async def admin_groups(lionxub):
+    lionxgroups = []
+    async for dialog in lionxub.iter_dialogs():
         entity = dialog.entity
         if (
             isinstance(entity, Channel)
             and entity.megagroup
             and (entity.creator or entity.admin_rights)
         ):
-            liongroups.append(entity.id)
-    return liongroups
+            lionxgroups.append(entity.id)
+    return lionxgroups
 
 
 # https://github.com/pokurt/LyndaRobot/blob/7556ca0efafd357008131fa88401a8bb8057006f/lynda/modules/helper_funcs/string_handling.py#L238
 
 
-async def extract_time(lion, time_val):
+async def extract_time(lionx, time_val):
     if any(time_val.endswith(unit) for unit in ("s", "m", "h", "d", "w")):
         unit = time_val[-1]
         time_num = time_val[:-1]  # type: str
         if not time_num.isdigit():
-            await lion.edit("Invalid time amount specified.")
+            await lionx.edit("Invalid time amount specified.")
             return None
         if unit == "s":
             bantime = int(time.time() + int(time_num) * 1)
@@ -81,12 +81,12 @@ async def extract_time(lion, time_val):
             bantime = int(time.time() + int(time_num) * 7 * 24 * 60 * 60)
         else:
             # how even...?
-            await lion.edit(
+            await lionx.edit(
                 f"__Invalid time type specified. Expected s,  m , h , d or w but got:__ {time_val[-1]}"
             )
             return None
         return bantime
-    await lion.edit(
+    await lionx.edit(
         f"__Invalid time type specified. Expected s,  m , h , d or w but got: __{time_val[-1]}"
     )
     return None

@@ -226,9 +226,9 @@ async def formatJSON(outData):
     msg += f"\n**Year** : {jsonData['startDate']['year']}"
     msg += f"\n**Score** : {jsonData['averageScore']}"
     msg += f"\n**Duration** : {jsonData['duration']} min\n\n"
-    # https://t.me/LionXSupport/19496
-    lion = f"{jsonData['description']}"
-    msg += " __" + re.sub("<br>", "\n", lion) + "__"
+    # https://t.me/LionXsupport/19496
+    lionx = f"{jsonData['description']}"
+    msg += " __" + re.sub("<br>", "\n", lionx) + "__"
     msg = re.sub("<b>", "__**", msg)
     msg = re.sub("</b>", "**__", msg)
     return msg
@@ -264,11 +264,13 @@ async def anilist_user(input_str):
         f"""
 **User name :** [{user_data['name']}]({user_data['siteUrl']})
 **Anilist ID :** `{user_data['id']}` 
+
 **✙  Anime Stats**
 • **Total Anime Watched :** `{user_data["statistics"]["anime"]['count']}`
 • **Total Episode Watched : **`{user_data["statistics"]["anime"]['episodesWatched']}`
 • **Total Time Spent : **`{readable_time(user_data["statistics"]["anime"]['minutesWatched']*60)}`
 • **Average Score :** `{user_data["statistics"]["anime"]['meanScore']}`
+
 **✙  Manga Stats**
 • **Total Manga Read :** `{user_data["statistics"]["manga"]['count']}`
 • **Total Chapters Read :** `{user_data["statistics"]["manga"]['chaptersRead']}`
@@ -390,10 +392,9 @@ async def get_anime_manga(mal_id, search_type, _user_id):  # sourcery no-metrics
             html_ += f"<h4>About Character and Role:</h4>{character.get('description', 'N/A')}"
             html_char += f"{html_}<br><br>"
         studios = "".join(
-            f"""<a href='{studio["siteUrl"]}'>• {studio["name"]}</a> """
+            "<a href='{}'>• {}</a> ".format(studio["siteUrl"], studio["name"])
             for studio in anime_data["studios"]["nodes"]
         )
-
         coverImg = anime_data.get("coverImage")["extraLarge"]
         bannerImg = anime_data.get("bannerImage")
         anilist_animelink = anime_data.get("siteUrl")
@@ -476,6 +477,7 @@ def get_poster(query):
     # Poster Link
     image = soup.find("link", attrs={"rel": "image_src"}).get("href", None)
     if image is not None:
+        # img_path = wget.download(image, os.path.join(Config.DOWNLOAD_LOCATION, 'imdb_poster.jpg'))
         return image
 
 
@@ -530,11 +532,9 @@ def memory_file(name=None, contents=None, *, temp_bytes=True):
 def is_gif(file):
     # ngl this should be fixed, telethon.utils.is_gif but working
     # lazy to go to github and make an issue kek
-    return (
-        DocumentAttributeAnimated() in getattr(file, "document", file).attributes
-        if is_video(file)
-        else False
-    )
+    if not is_video(file):
+        return False
+    return DocumentAttributeAnimated() in getattr(file, "document", file).attributes
 
 
 async def search_in_animefiller(query):
