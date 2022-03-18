@@ -712,10 +712,13 @@ class googleimagesdownload:
             with open(file_name, "wb") as output_file:
                 output_file.write(data)
         except IOError as e:
-            raise e
+            raise e from e
+        except OSError as e:
+            raise e from e
         print(
             "completed ====> " + image_name.encode("raw_unicode_escape").decode("utf-8")
         )
+        return
 
     def similar_images(self, similar_images):
         try:
@@ -993,6 +996,7 @@ class googleimagesdownload:
         except OSError as e:
             if e.errno != 17:
                 raise
+        return
 
     # Download Image thumbnails
     def download_image_thumbnail(
@@ -1049,6 +1053,12 @@ class googleimagesdownload:
                         "OSError on an image...trying next one..." + " Error: " + str(e)
                     )
 
+                except IOError as e:
+                    download_status = "fail"
+                    download_message = (
+                        "IOError on an image...trying next one..." + " Error: " + str(e)
+                    )
+
                 download_status = "success"
                 download_message = (
                     f"Completed Image Thumbnail ====> {return_image_name}"
@@ -1061,12 +1071,10 @@ class googleimagesdownload:
             except UnicodeEncodeError as e:
                 download_status = "fail"
                 download_message = (
-                    "UnicodeEncodeError on an image...trying next one..."
-                    + " Error: "
-                    + str(e)
-                )
+                    "UnicodeEncodeError on an image...trying next one..." + " Error: "
+                ) + str(e)
 
-        except HTTPError as e:  # If there is any HTTPError
+        except HTTPError as e:
             download_status = "fail"
             download_message = (
                 "HTTPError on an image...trying next one..." + " Error: " + str(e)
@@ -1081,16 +1089,15 @@ class googleimagesdownload:
         except ssl.CertificateError as e:
             download_status = "fail"
             download_message = (
-                "CertificateError on an image...trying next one..."
-                + " Error: "
-                + str(e)
-            )
+                "CertificateError on an image...trying next one..." + " Error: "
+            ) + str(e)
 
-        except IOError as e:  # If there is any IOError
+        except IOError as e:
             download_status = "fail"
             download_message = (
                 "IOError on an image...trying next one..." + " Error: " + str(e)
             )
+
         return download_status, download_message
 
     # Download Images
@@ -1160,7 +1167,7 @@ class googleimagesdownload:
                 image_name = str(image_url[slash:qmark]).lower()
 
                 type = info.get_content_type()
-                if type in ("image/jpeg", "image/jpg"):
+                if type == "image/jpeg" or type == "image/jpg":
                     if not image_name.endswith(".jpg") and not image_name.endswith(
                         ".jpeg"
                     ):
@@ -1174,10 +1181,10 @@ class googleimagesdownload:
                 elif type == "image/gif":
                     if not image_name.endswith(".gif"):
                         image_name += ".gif"
-                elif type in ("image/bmp", "image/x-windows-bmp"):
+                elif type == "image/bmp" or type == "image/x-windows-bmp":
                     if not image_name.endswith(".bmp"):
                         image_name += ".bmp"
-                elif type in ("image/x-icon", "image/vnd.microsoft.icon"):
+                elif type == "image/x-icon" or type == "image/vnd.microsoft.icon":
                     if not image_name.endswith(".ico"):
                         image_name += ".ico"
                 elif type == "image/svg+xml":
@@ -1332,8 +1339,9 @@ class googleimagesdownload:
             if len(image_objects) == 0:
                 print("no_links")
                 break
-            if arguments["offset"] and count <= int(arguments["offset"]):
+            elif arguments["offset"] and count <= int(arguments["offset"]):
                 count += 1
+                # page = page[end_content:]
             else:
                 # format the item for readability
                 object = self.format_object(image_objects[i])
@@ -1427,9 +1435,7 @@ class googleimagesdownload:
             records = []
             json_file = json.load(open(arguments["config_file"]))
             for record in range(len(json_file["Records"])):
-                arguments = {}
-                for i in args_list:
-                    arguments[i] = None
+                arguments = {i: None for i in args_list}
                 for key, value in json_file["Records"][record].items():
                     arguments[key] = value
                 records.append(arguments)

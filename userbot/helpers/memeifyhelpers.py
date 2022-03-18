@@ -9,7 +9,7 @@ from wand.color import Color
 from wand.drawing import Drawing
 from wand.image import Image as catimage
 
-from .utils import _lionutils
+from .utils import _lionxutils
 
 MARGINS = [50, 150, 250, 350, 450]
 
@@ -50,7 +50,7 @@ def get_warp_length(width):
     return int((20.0 / 1024.0) * (width + 0.0))
 
 
-async def lion_meme(CNG_FONTS, topString, bottomString, filename, endname):
+async def lionx_meme(CNG_FONTS, topString, bottomString, filename, endname):
     img = Image.open(filename)
     imageSize = img.size
     # find biggest font size that works
@@ -76,7 +76,7 @@ async def lion_meme(CNG_FONTS, topString, bottomString, filename, endname):
     draw = ImageDraw.Draw(img)
     # draw outlines
     # there may be a better way
-    outlineRange = int(fontSize / 15)
+    outlineRange = fontSize // 15
     for x in range(-outlineRange, outlineRange + 1):
         for y in range(-outlineRange, outlineRange + 1):
             draw.text(
@@ -96,7 +96,7 @@ async def lion_meme(CNG_FONTS, topString, bottomString, filename, endname):
     img.save(endname)
 
 
-async def lion_meeme(upper_text, lower_text, CNG_FONTS, picture_name, endname):
+async def lionx_meeme(upper_text, lower_text, CNG_FONTS, picture_name, endname):
     main_image = catimage(filename=picture_name)
     main_image.resize(
         1024, int(((main_image.height * 1.0) / (main_image.width * 1.0)) * 1024.0)
@@ -129,6 +129,6 @@ async def silently_send_message(conv, text):
 
 
 async def thumb_from_audio(audio_path, output):
-    await _lionutils.runcmd(
+    await _lionxutils.runcmd(
         f"ffmpeg -i {audio_path} -filter:v scale=500:500 -an {output}"
     )

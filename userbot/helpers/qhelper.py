@@ -22,7 +22,7 @@ from fontTools.ttLib import TTFont
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 from telethon.tl import types
 
-from .utils import _lionutils
+from .utils import _lionxutils
 
 COLORS = [
     "#F07975",
@@ -161,7 +161,7 @@ async def process(msg, user, client, reply, replied=None):
                 cmd = (
                     f"lottie_convert.py --frame 0 -if lottie -of png {sticker} {file_1}"
                 )
-                stdout, stderr = (await _lionutils.runcmd(cmd))[:2]
+                stdout, stderr = (await _lionxutils.runcmd(cmd))[:2]
                 stimg = Image.open("./temp/q.png")
             else:
                 stimg = Image.open(sticker)
@@ -202,7 +202,7 @@ async def process(msg, user, client, reply, replied=None):
         file_1 = os.path.join("./temp/", "q.png")
         if sticker.endswith(("tgs")):
             cmd = f"lottie_convert.py --frame 0 -if lottie -of png {sticker} {file_1}"
-            stdout, stderr = (await _lionutils.runcmd(cmd))[:2]
+            stdout, stderr = (await _lionxutils.runcmd(cmd))[:2]
             stimg = Image.open("./temp/q.png")
         else:
             stimg = Image.open(sticker)
@@ -235,7 +235,7 @@ async def process(msg, user, client, reply, replied=None):
         canvas.paste(top, (pfpbg.width, 0))
         canvas.paste(middle, (pfpbg.width, top.height))
         canvas.paste(bottom, (pfpbg.width, top.height + middle.height))
-        canvas = await catdoctype(docname, docsize, doctype, canvas)
+        canvas = await lionxdoctype(docname, docsize, doctype, canvas)
         y = 80 if text else 0
     else:
         canvas.paste(pfpbg, (0, 0))
@@ -366,7 +366,7 @@ async def get_entity(msg):
     return bold, mono, italic, link
 
 
-async def catdoctype(name, size, htype, canvas):
+async def lionxdoctype(name, size, htype, canvas):
     font = ImageFont.truetype("./temp/Roboto-Medium.ttf", 38)
     doc = Image.new("RGBA", (130, 130), (29, 29, 29, 255))
     draw = ImageDraw.Draw(doc)
