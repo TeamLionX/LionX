@@ -3,7 +3,15 @@ from pathlib import Path
 
 from ..Config import Config
 from ..utils import load_module, remove_plugin
-from . import CMD_HELP, CMD_LIST, SUDO_LIST, lionxub, edit_delete, edit_or_reply, reply_id
+from . import (
+    CMD_HELP,
+    CMD_LIST,
+    SUDO_LIST,
+    edit_delete,
+    edit_or_reply,
+    lionxub,
+    reply_id,
+)
 
 plugin_category = "tools"
 

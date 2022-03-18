@@ -27,7 +27,9 @@ class LOG_CHATS:
 LOG_CHATS_ = LOG_CHATS()
 
 
-@lionxub.lionx_cmd(incoming=True, func=lambda e: e.is_private, edited=False, forword=None)
+@lionxub.lionx_cmd(
+    incoming=True, func=lambda e: e.is_private, edited=False, forword=None
+)
 async def monito_p_m_s(event):  # sourcery no-metrics
     if Config.PM_LOGGER_GROUP_ID == -100:
         return
@@ -67,7 +69,9 @@ async def monito_p_m_s(event):  # sourcery no-metrics
                 LOGS.warn(str(e))
 
 
-@lionxub.lionx_cmd(incoming=True, func=lambda e: e.mentioned, edited=False, forword=None)
+@lionxub.lionx_cmd(
+    incoming=True, func=lambda e: e.mentioned, edited=False, forword=None
+)
 async def log_tagged_messages(event):
     hmm = await event.get_chat()
     from .afk import AFK_

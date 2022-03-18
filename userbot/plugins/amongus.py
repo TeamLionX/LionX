@@ -20,9 +20,7 @@ plugin_category = "extra"
 
 
 async def amongus_gen(text: str, clr: int) -> str:
-    url = (
-        "https://github.com/TeamLionX/LionX-Resources/raw/master/Resources/Amongus/"
-    )
+    url = "https://github.com/TeamLionX/LionX-Resources/raw/master/Resources/Amongus/"
     font = ImageFont.truetype(
         BytesIO(
             get(

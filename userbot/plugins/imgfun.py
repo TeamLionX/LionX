@@ -59,7 +59,9 @@ async def imirror(event):  # sourcery no-metrics
             )
         image = Image.open(imag[1])
     except Exception as e:
-        return await edit_delete(lionxevent, f"**Error in identifying image:**\n__{e}__")
+        return await edit_delete(
+            lionxevent, f"**Error in identifying image:**\n__{e}__"
+        )
     flag = event.pattern_match.group(3) or "r"
     w, h = image.size
     if w % 2 != 0 and flag in ["r", "l"] or h % 2 != 0 and flag in ["u", "b"]:
@@ -231,7 +233,9 @@ async def square_cmd(event):
             )
         img = Image.open(imag[1])
     except Exception as e:
-        return await edit_delete(lionxevent, f"**Error in identifying image:**\n__{e}__")
+        return await edit_delete(
+            lionxevent, f"**Error in identifying image:**\n__{e}__"
+        )
     w, h = img.size
     if w == h:
         return await edit_delete(event, "__The replied image is already in 1:1 ratio__")

@@ -1485,12 +1485,16 @@ async def g_download(event):
     lionxevent = await edit_or_reply(
         event, "`Downloading Requested File from G-Drive...`"
     )
-    file_name, lionxrocess = await gdrive_download(event, lionxevent, service, drive_link)
+    file_name, lionxrocess = await gdrive_download(
+        event, lionxevent, service, drive_link
+    )
     if lionxrocess is not None:
         return await edit_delete(lionxevent, file_name)
     thumb = thumb_image_path if os.path.exists(thumb_image_path) else None
     if not cmd:
-        await lionxevent.edit("**File Downloaded.\nLocation : **`" + str(file_name) + "`")
+        await lionxevent.edit(
+            "**File Downloaded.\nLocation : **`" + str(file_name) + "`"
+        )
     else:
         c_time = time.time()
         await event.client.send_file(

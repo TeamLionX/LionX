@@ -10,7 +10,7 @@ import os
 import subprocess
 
 from ..Config import Config
-from . import lionxub, edit_or_reply
+from . import edit_or_reply, lionxub
 
 plugin_category = "tools"
 

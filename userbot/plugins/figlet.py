@@ -1,7 +1,7 @@
 import pyfiglet
 
 from ..helpers.utils import _format
-from . import _format, lionxub, deEmojify, edit_delete, edit_or_reply
+from . import _format, deEmojify, edit_delete, edit_or_reply, lionxub
 
 plugin_category = "extra"
 

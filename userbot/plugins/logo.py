@@ -190,7 +190,9 @@ async def bad(event):
     if not input_str:
         return await edit_delete(event, lbg_list, time=60)
     if input_str not in bg_name:
-        lionxevent = await edit_or_reply(event, "`Give me a correct background name...`")
+        lionxevent = await edit_or_reply(
+            event, "`Give me a correct background name...`"
+        )
         await asyncio.sleep(1)
         await edit_delete(lionxevent, lbg_list, time=60)
     else:

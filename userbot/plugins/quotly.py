@@ -158,14 +158,18 @@ async def stickerchat(lionxquotes):
     repliedreply = None
     mediatype = media_type(reply)
     if mediatype and mediatype in ["Photo", "Round Video", "Gif"]:
-        return await edit_or_reply(lionxquotes, "`Replied message is not supported now`")
+        return await edit_or_reply(
+            lionxquotes, "`Replied message is not supported now`"
+        )
     lionxevent = await edit_or_reply(lionxquotes, "`Making quote...`")
     user = (
         await lionxquotes.client.get_entity(reply.forward.sender)
         if reply.fwd_from
         else reply.sender
     )
-    res, lionxmsg = await process(fetchmsg, user, lionxquotes.client, reply, repliedreply)
+    res, lionxmsg = await process(
+        fetchmsg, user, lionxquotes.client, reply, repliedreply
+    )
     if not res:
         return
     outfi = os.path.join("./temp", "sticker.png")
@@ -195,14 +199,18 @@ async def stickerchat(lionxquotes):
     repliedreply = await reply.get_reply_message()
     mediatype = media_type(reply)
     if mediatype and mediatype in ["Photo", "Round Video", "Gif"]:
-        return await edit_or_reply(lionxquotes, "`Replied message is not supported now`")
+        return await edit_or_reply(
+            lionxquotes, "`Replied message is not supported now`"
+        )
     lionxevent = await edit_or_reply(lionxquotes, "`Making quote...`")
     user = (
         await lionxquotes.client.get_entity(reply.forward.sender)
         if reply.fwd_from
         else reply.sender
     )
-    res, lionxmsg = await process(fetchmsg, user, lionxquotes.client, reply, repliedreply)
+    res, lionxmsg = await process(
+        fetchmsg, user, lionxquotes.client, reply, repliedreply
+    )
     if not res:
         return
     outfi = os.path.join("./temp", "sticker.png")

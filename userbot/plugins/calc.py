@@ -2,7 +2,7 @@ import io
 import sys
 import traceback
 
-from . import lionxub, edit_or_reply
+from . import edit_or_reply, lionxub
 
 plugin_category = "utils"
 

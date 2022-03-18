@@ -105,7 +105,9 @@ async def variable(var):  # sourcery no-metrics
             )
         heroku_var[variable] = value
     elif exe == "del":
-        lionx = await edit_or_reply(var, "`Getting information to deleting variable...`")
+        lionx = await edit_or_reply(
+            var, "`Getting information to deleting variable...`"
+        )
         try:
             variable = var.pattern_match.group(2).split()[0]
         except IndexError:

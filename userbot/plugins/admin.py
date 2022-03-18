@@ -523,7 +523,9 @@ async def kick(event):
             f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`\nReason: {reason}"
         )
     else:
-        await lionxevent.edit(f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`")
+        await lionxevent.edit(
+            f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`"
+        )
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,

@@ -9,7 +9,7 @@ from telethon import Button
 
 from ..Config import Config
 from ..helpers.functions.functions import make_inline
-from . import lionxub, edit_delete, reply_id
+from . import edit_delete, lionxub, reply_id
 
 plugin_category = "tools"
 # regex obtained from:

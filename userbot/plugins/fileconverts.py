@@ -33,7 +33,7 @@ from ..helpers.functions import (
     ud_frames,
     vid_to_gif,
 )
-from ..helpers.utils import _lionxtools, _lionxutils, _format, parse_pre, reply_id
+from ..helpers.utils import _format, _lionxtools, _lionxutils, parse_pre, reply_id
 from . import make_gif
 
 plugin_category = "misc"
@@ -70,7 +70,9 @@ async def pic_gifcmd(event):  # sourcery no-metrics
     if not reply:
         return await edit_delete(event, "`Reply to supported Media...`")
     media_type(reply)
-    lionxevent = await edit_or_reply(event, "__Making round spin video wait a sec.....__")
+    lionxevent = await edit_or_reply(
+        event, "__Making round spin video wait a sec.....__"
+    )
     output = await _lionxtools.media_to_pic(event, reply, noedits=True)
     if output[1] is None:
         return await edit_delete(
@@ -257,7 +259,9 @@ async def video_lionxfile(event):  # sourcery no-metrics
                     )
                 ],
                 force_file=False,
-                thumb=await event.client.upload_file(lionxthumb) if lionxthumb else None,
+                thumb=await event.client.upload_file(lionxthumb)
+                if lionxthumb
+                else None,
             )
             amaan = await event.client.send_file(
                 event.chat_id,
@@ -733,7 +737,8 @@ async def pic_gifcmd(event):  # sourcery no-metrics
     output = await vid_to_gif("Output.gif", final)
     if output is None:
         await edit_delete(
-            lionxevent, "__There was some error in the media. I can't format it to gif.__"
+            lionxevent,
+            "__There was some error in the media. I can't format it to gif.__",
         )
         for i in [final, "Output.gif", imag[1]]:
             if os.path.exists(i):

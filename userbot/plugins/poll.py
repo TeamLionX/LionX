@@ -43,7 +43,8 @@ async def pollcreator(lionxpoll):
             await lionxpoll.delete()
         except PollOptionInvalidError:
             await edit_or_reply(
-                lionxpoll, "`A poll option used invalid data (the data may be too long).`"
+                lionxpoll,
+                "`A poll option used invalid data (the data may be too long).`",
             )
         except ForbiddenError:
             await edit_or_reply(lionxpoll, "`This chat has forbidden the polls`")

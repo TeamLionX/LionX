@@ -23,7 +23,9 @@ if Config.PLUGIN_CHANNEL:
             if os.path.exists(f"userbot/plugins/{plugin_name}"):
                 return
             downloaded_file_name = await lionxub.download_media(
-                await lionxub.get_messages(Config.PLUGIN_CHANNEL, ids=plugin_to_install),
+                await lionxub.get_messages(
+                    Config.PLUGIN_CHANNEL, ids=plugin_to_install
+                ),
                 "userbot/plugins/",
             )
             path1 = Path(downloaded_file_name)

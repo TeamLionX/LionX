@@ -52,9 +52,7 @@ async def _(event):
     "To show all config values in userbot"
     cmd = "env"
     o = (await _lionxutils.runcmd(cmd))[0]
-    OUTPUT = (
-        f"**[LionX's](tg://need_update_for_some_feature/) Environment Module:**\n\n\n{o}"
-    )
+    OUTPUT = f"**[LionX's](tg://need_update_for_some_feature/) Environment Module:**\n\n\n{o}"
     await edit_or_reply(event, OUTPUT)
 
 

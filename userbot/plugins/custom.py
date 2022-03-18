@@ -101,7 +101,9 @@ async def bad(event):  # sourcery no-metrics
                     )
 
                 USERINFO = await lionxub.get_entity(lionxub.uid)
-                FULL_USERINFO = (await lionxub(GetFullUserRequest(lionxub.uid))).full_user
+                FULL_USERINFO = (
+                    await lionxub(GetFullUserRequest(lionxub.uid))
+                ).full_user
                 addgvar("FIRST_NAME", USERINFO.first_name)
                 addgvar("DEFAULT_NAME", USERINFO.first_name)
                 if USERINFO.last_name:
