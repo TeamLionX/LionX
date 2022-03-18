@@ -8,7 +8,7 @@ from telethon.errors import UserIsBlockedError
 from telethon.events import CallbackQuery, StopPropagation
 from telethon.utils import get_display_name
 
-from userbot import Config, lionub
+from userbot import Config, lionxub
 
 from ..funcs import check_owner, pool
 from ..funcs.logger import logging
@@ -29,7 +29,7 @@ from .botmanagers import ban_user_from_bot
 
 LOGS = logging.getLogger(__name__)
 
-plugin_category = "admin"
+plugin_category = "bot"
 botusername = Config.TG_BOT_USERNAME
 
 
@@ -64,14 +64,14 @@ async def check_bot_started_users(user, event):
         await event.client.send_message(BOTLOG_CHATID, notification)
 
 
-@lionub.bot_cmd(
+@lionxub.bot_cmd(
     pattern=f"^/start({botusername})?([\s]+)?$",
     incoming=True,
     func=lambda e: e.is_private,
 )
 async def bot_start(event):
     chat = await event.get_chat()
-    user = await lionub.get_me()
+    user = await lionxub.get_me()
     if check_is_black_list(chat.id):
         return
     reply_to = await reply_id(event)
@@ -106,13 +106,13 @@ async def bot_start(event):
             start_msg = f"Hey! 👤{mention},\
                         \nI am {my_mention}'s assistant bot.\
                         \nYou can contact to my master from here.\
-                        \n\nPowered by [LionX](https://t.me/LionX)"
+                        \n\nPowered by [LionX](https://t.me/TeamLionX)"
         buttons = [
             (
                 Button.url("Repo", "https://github.com/TeamLionX/LionX"),
                 Button.url(
                     "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX&template=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX",
+                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fed%2FHeroku",
                 ),
             )
         ]
@@ -139,7 +139,7 @@ async def bot_start(event):
         await check_bot_started_users(chat, event)
 
 
-@lionub.bot_cmd(incoming=True, func=lambda e: e.is_private)
+@lionxub.bot_cmd(incoming=True, func=lambda e: e.is_private)
 async def bot_pms(event):  # sourcery no-metrics
     chat = await event.get_chat()
     if check_is_black_list(chat.id):
@@ -196,7 +196,7 @@ async def bot_pms(event):  # sourcery no-metrics
                     )
 
 
-@lionub.bot_cmd(edited=True)
+@lionxub.bot_cmd(edited=True)
 async def bot_pms_edit(event):  # sourcery no-metrics
     chat = await event.get_chat()
     if check_is_black_list(chat.id):
@@ -205,12 +205,10 @@ async def bot_pms_edit(event):  # sourcery no-metrics
         users = get_user_reply(event.id)
         if users is None:
             return
-        reply_msg = None
-        for user in users:
-            if user.chat_id == str(chat.id):
-                reply_msg = user.message_id
-                break
-        if reply_msg:
+        if reply_msg := next(
+            (user.message_id for user in users if user.chat_id == str(chat.id)),
+            None,
+        ):
             await event.client.send_message(
                 Config.OWNER_ID,
                 f"⬆️ **This message was edited by the user** {_format.mentionuser(get_display_name(chat) , chat.id)} as :",
@@ -267,11 +265,15 @@ async def handler(event):
                 except Exception as e:
                     LOGS.error(str(e))
         if users_1 is not None:
-            reply_msg = None
-            for user in users_1:
-                if user.chat_id != Config.OWNER_ID:
-                    reply_msg = user.message_id
-                    break
+            reply_msg = next(
+                (
+                    user.message_id
+                    for user in users_1
+                    if user.chat_id != Config.OWNER_ID
+                ),
+                None,
+            )
+
             try:
                 if reply_msg:
                     users = get_user_id(reply_msg)
@@ -290,7 +292,7 @@ async def handler(event):
                 LOGS.error(str(e))
 
 
-@lionub.bot_cmd(pattern="^/uinfo$", from_users=Config.OWNER_ID)
+@lionxub.bot_cmd(pattern="^/uinfo$", from_users=Config.OWNER_ID)
 async def bot_start(event):
     reply_to = await reply_id(event)
     if not reply_to:
@@ -340,7 +342,7 @@ async def send_flood_alert(user_) -> None:
             FloodConfig.ALERT[user_.id]["count"] = 1
         except Exception as e:
             if BOTLOG:
-                await lionub.tgbot.send_message(
+                await lionxub.tgbot.send_message(
                     BOTLOG_CHATID,
                     f"**Error:**\nWhile updating flood count\n`{e}`",
                 )
@@ -367,7 +369,7 @@ async def send_flood_alert(user_) -> None:
                     "Is Flooding your bot !, Check `.help delsudo` to remove the user from Sudo."
                 )
                 if BOTLOG:
-                    await lionub.tgbot.send_message(BOTLOG_CHATID, sudo_spam)
+                    await lionxub.tgbot.send_message(BOTLOG_CHATID, sudo_spam)
             else:
                 await ban_user_from_bot(
                     user_,
@@ -381,7 +383,7 @@ async def send_flood_alert(user_) -> None:
         if not fa_id:
             return
         try:
-            msg_ = await lionub.tgbot.get_messages(BOTLOG_CHATID, fa_id)
+            msg_ = await lionxub.tgbot.get_messages(BOTLOG_CHATID, fa_id)
             if msg_.text != flood_msg:
                 await msg_.edit(flood_msg, buttons=buttons)
         except Exception as fa_id_err:
@@ -389,30 +391,30 @@ async def send_flood_alert(user_) -> None:
             return
     else:
         if BOTLOG:
-            fa_msg = await lionub.tgbot.send_message(
+            fa_msg = await lionxub.tgbot.send_message(
                 BOTLOG_CHATID,
                 flood_msg,
                 buttons=buttons,
             )
         try:
-            chat = await lionub.tgbot.get_entity(BOTLOG_CHATID)
-            await lionub.tgbot.send_message(
+            chat = await lionxub.tgbot.get_entity(BOTLOG_CHATID)
+            await lionxub.tgbot.send_message(
                 Config.OWNER_ID,
                 f"⚠️  **[Bot Flood Warning !](https://t.me/c/{chat.id}/{fa_msg.id})**",
             )
         except UserIsBlockedError:
             if BOTLOG:
-                await lionub.tgbot.send_message(BOTLOG_CHATID, "**Unblock your bot !**")
+                await lionxub.tgbot.send_message(BOTLOG_CHATID, "**Unblock your bot !**")
     if FloodConfig.ALERT[user_.id].get("fa_id") is None and fa_msg:
         FloodConfig.ALERT[user_.id]["fa_id"] = fa_msg.id
 
 
-@lionub.tgbot.on(CallbackQuery(data=re.compile(b"bot_pm_ban_([0-9]+)")))
+@lionxub.tgbot.on(CallbackQuery(data=re.compile(b"bot_pm_ban_([0-9]+)")))
 @check_owner
 async def bot_pm_ban_cb(c_q: CallbackQuery):
     user_id = int(c_q.pattern_match.group(1))
     try:
-        user = await lionub.get_entity(user_id)
+        user = await lionxub.get_entity(user_id)
     except Exception as e:
         await c_q.answer(f"Error:\n{e}")
     else:
@@ -449,7 +451,7 @@ def is_flood(uid: int) -> Optional[bool]:
         return True
 
 
-@lionub.tgbot.on(CallbackQuery(data=re.compile(b"toggle_bot-antiflood_off$")))
+@lionxub.tgbot.on(CallbackQuery(data=re.compile(b"toggle_bot-antiflood_off$")))
 @check_owner
 async def settings_toggle(c_q: CallbackQuery):
     if gvarstatus("bot_antif") is None:
@@ -459,8 +461,8 @@ async def settings_toggle(c_q: CallbackQuery):
     await c_q.edit("BOT_ANTIFLOOD is now disabled !")
 
 
-@lionub.bot_cmd(incoming=True, func=lambda e: e.is_private)
-@lionub.bot_cmd(edited=True, func=lambda e: e.is_private)
+@lionxub.bot_cmd(incoming=True, func=lambda e: e.is_private)
+@lionxub.bot_cmd(edited=True, func=lambda e: e.is_private)
 async def antif_on_msg(event):
     if gvarstatus("bot_antif") is None:
         return

@@ -18,7 +18,7 @@ from telethon.events import CallbackQuery
 from telethon.utils import get_attributes
 from wget import download
 
-from userbot import lionub
+from userbot import lionxub
 
 from ..Config import Config
 from ..funcs import check_owner, pool
@@ -41,10 +41,10 @@ YOUTUBE_REGEX = re.compile(
     r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})"
 )
 PATH = "./userbot/cache/ytsearch.json"
-plugin_category = "admin"
+plugin_category = "bot"
 
 
-@lionub.lion_cmd(
+@lionxub.lionx_cmd(
     pattern="iytdl(?:\s|$)([\s\S]*)",
     command=("iytdl", plugin_category),
     info={
@@ -65,7 +65,7 @@ async def iytdl_inline(event):
         input_url = (reply.text).strip()
     if not input_url:
         return await edit_delete(event, "Give input or reply to a valid youtube URL")
-    lionevent = await edit_or_reply(event, f"🔎 Searching Youtube for: `'{input_url}'`")
+    lionxevent = await edit_or_reply(event, f"🔎 Searching Youtube for: `'{input_url}'`")
     flag = True
     cout = 0
     results = None
@@ -81,13 +81,13 @@ async def iytdl_inline(event):
         if cout > 5:
             flag = False
     if results:
-        await lionevent.delete()
+        await lionxevent.delete()
         await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
     else:
-        await lionevent.edit("`Sorry!. Can't find any results`")
+        await lionxevent.edit("`Sorry!. Can't find any results`")
 
 
-@lionub.tgbot.on(
+@lionxub.tgbot.on(
     CallbackQuery(
         data=re.compile(b"^ytdl_download_(.*)_([\d]+|mkv|mp4|mp3)(?:_(a|v))?")
     )
@@ -182,7 +182,7 @@ async def ytdl_download_callback(c_q: CallbackQuery):  # sourcery no-metrics
     )
 
 
-@lionub.tgbot.on(
+@lionxub.tgbot.on(
     CallbackQuery(data=re.compile(b"^ytdl_(listall|back|next|detail)_([a-z0-9]+)_(.*)"))
 )
 @check_owner

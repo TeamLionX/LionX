@@ -3,7 +3,7 @@ from datetime import datetime
 
 from telethon.errors import BadRequestError, FloodWaitError, ForbiddenError
 
-from userbot import lionub
+from userbot import lionxub
 
 from ..Config import Config
 from ..funcs.logger import logging
@@ -23,25 +23,29 @@ from .botmanagers import (
 
 LOGS = logging.getLogger(__name__)
 
-plugin_category = "admin"
+plugin_category = "bot"
 botusername = Config.TG_BOT_USERNAME
 cmhd = Config.COMMAND_HAND_LER
 
 
-@lionub.bot_cmd(pattern="^/help$", from_users=Config.OWNER_ID)
+@lionxub.bot_cmd(pattern="^/help$", from_users=Config.OWNER_ID)
 async def bot_help(event):
     await event.reply(
         f"""The commands in the bot are:
 **Note : **__This commands work only in this bot__ {botusername}
+
 • **Cmd : **/uinfo <reply to user message>
 • **Info : **__You have noticed that forwarded stickers/emoji doesn't have forward tag so you can identify the user who sent thoose messages by this cmd.__
 • **Note : **__It works for all forwarded messages. even for users who's permission forward message nobody.__
+
 • **Cmd : **/ban <reason> or /ban <username/userid> <reason>
 • **Info : **__Reply to a user message with reason so he will be notified as you banned from the bot and his messages will not be forworded to you further.__
 • **Note : **__Reason is must. without reason it won't work. __
+
 • **Cmd : **/unban <reason(optional)> or /unban <username/userid>
 • **Info : **__Reply to user message or provide username/userid to unban from the bot.__
 • **Note : **__To check banned users list use__ `{cmhd}bblist`.
+
 • **Cmd : **/broadcast
 • **Info : **__Reply to a message to get broadcasted to every user who started your bot. To get list of users use__ `{cmhd}bot_users`.
 • **Note : **__if user stoped/blocked the bot then he will be removed from your database that is he will erased from the bot_starters list.__
@@ -49,7 +53,7 @@ async def bot_help(event):
     )
 
 
-@lionub.bot_cmd(pattern="^/broadcast$", from_users=Config.OWNER_ID)
+@lionxub.bot_cmd(pattern="^/broadcast$", from_users=Config.OWNER_ID)
 async def bot_broadcast(event):
     replied = await event.get_reply_message()
     if not replied:
@@ -108,7 +112,7 @@ async def bot_broadcast(event):
     await br_cast.edit(b_info, parse_mode="html")
 
 
-@lionub.lion_cmd(
+@lionxub.lionx_cmd(
     pattern="bot_users$",
     command=("bot_users", plugin_category),
     info={
@@ -128,7 +132,7 @@ async def ban_starters(event):
     await edit_or_reply(event, msg)
 
 
-@lionub.bot_cmd(pattern="^/ban\\s+([\\s\\S]*)", from_users=Config.OWNER_ID)
+@lionxub.bot_cmd(pattern="^/ban\\s+([\\s\\S]*)", from_users=Config.OWNER_ID)
 async def ban_botpms(event):
     user_id, reason = await get_user_and_reason(event)
     reply_to = await reply_id(event)
@@ -159,7 +163,7 @@ async def ban_botpms(event):
     await event.reply(msg)
 
 
-@lionub.bot_cmd(pattern="^/unban(?:\\s|$)([\\s\\S]*)", from_users=Config.OWNER_ID)
+@lionxub.bot_cmd(pattern="^/unban(?:\\s|$)([\\s\\S]*)", from_users=Config.OWNER_ID)
 async def ban_botpms(event):
     user_id, reason = await get_user_and_reason(event)
     reply_to = await reply_id(event)
@@ -183,7 +187,7 @@ async def ban_botpms(event):
     await event.reply(msg)
 
 
-@lionub.lion_cmd(
+@lionxub.lionx_cmd(
     pattern="bblist$",
     command=("bblist", plugin_category),
     info={
@@ -203,7 +207,7 @@ async def ban_starters(event):
     await edit_or_reply(event, msg)
 
 
-@lionub.lion_cmd(
+@lionxub.lionx_cmd(
     pattern="bot_antif (on|off)$",
     command=("bot_antif", plugin_category),
     info={

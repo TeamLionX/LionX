@@ -3,7 +3,7 @@ from math import floor
 
 from telethon.utils import get_display_name
 
-from userbot import lionub
+from userbot import lionxub
 
 from ..Config import Config
 from ..funcs.logger import logging
@@ -15,7 +15,7 @@ from . import BOTLOG, BOTLOG_CHATID
 
 LOGS = logging.getLogger(__name__)
 
-plugin_category = "admin"
+plugin_category = "bot"
 botusername = Config.TG_BOT_USERNAME
 
 
@@ -65,14 +65,14 @@ async def ban_user_from_bot(user, reason, reply_to=None):
     banned_msg = (
         f"**You have been Banned Forever from using this bot.\nReason** : {reason}"
     )
-    await lionub.tgbot.send_message(user.id, banned_msg)
+    await lionxub.tgbot.send_message(user.id, banned_msg)
     info = f"**#Banned_Bot_PM_User**\
             \n\n👤 {_format.mentionuser(get_display_name(user) , user.id)}\
             \n**First Name:** {user.first_name}\
             \n**User ID:** `{user.id}`\
             \n**Reason:** `{reason}`"
     if BOTLOG:
-        await lionub.send_message(BOTLOG_CHATID, info)
+        await lionxub.send_message(BOTLOG_CHATID, info)
     return info
 
 
@@ -85,11 +85,11 @@ async def unban_user_from_bot(user, reason, reply_to=None):
 
     if reason is not None:
         banned_msg += f"\n**Reason:** __{reason}__"
-    await lionub.tgbot.send_message(user.id, banned_msg)
+    await lionxub.tgbot.send_message(user.id, banned_msg)
     info = f"**#Unbanned_Bot_PM_User**\
             \n\n👤 {_format.mentionuser(get_display_name(user) , user.id)}\
             \n**First Name:** {user.first_name}\
             \n**User ID:** `{user.id}`"
     if BOTLOG:
-        await lionub.send_message(BOTLOG_CHATID, info)
+        await lionxub.send_message(BOTLOG_CHATID, info)
     return info
