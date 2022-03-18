@@ -173,9 +173,7 @@ async def _(event):
     except AttributeError:
         sudousers = {}
     if len(sudochats) == 0:
-        return await edit_delete(
-            event, "__There are no sudo users for your LionX.__"
-        )
+        return await edit_delete(event, "__There are no sudo users for your LionX.__")
     result = "**The list of sudo users for your LionX are :**\n\n"
     for chat in sudochats:
         result += f"☞ **Name:** {mentionuser(sudousers[str(chat)]['chat_name'],sudousers[str(chat)]['chat_id'])}\n"
@@ -219,7 +217,9 @@ async def _(event):  # sourcery no-metrics
         )
     input_str = input_str.split()
     if input_str[0] == "-all":
-        lionxevent = await edit_or_reply(event, "__Enabling all safe cmds for sudo....__")
+        lionxevent = await edit_or_reply(
+            event, "__Enabling all safe cmds for sudo....__"
+        )
         totalcmds = CMD_INFO.keys()
         flagcmds = (
             PLG_INFO["botcontrols"]
@@ -254,9 +254,7 @@ async def _(event):  # sourcery no-metrics
         loadcmds = []
         for plugin in input_str:
             if plugin not in PLG_INFO:
-                errors += (
-                    f"`{plugin}` __There is no such plugin in your LionX__.\n"
-                )
+                errors += f"`{plugin}` __There is no such plugin in your LionX__.\n"
             else:
                 loadcmds += PLG_INFO[plugin]
     else:
@@ -345,9 +343,7 @@ async def _(event):  # sourcery no-metrics
         flagcmds = []
         for plugin in input_str:
             if plugin not in PLG_INFO:
-                errors += (
-                    f"`{plugin}` __There is no such plugin in your LionX__.\n"
-                )
+                errors += f"`{plugin}` __There is no such plugin in your LionX__.\n"
             else:
                 flagcmds += PLG_INFO[plugin]
     else:

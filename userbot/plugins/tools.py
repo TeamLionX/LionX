@@ -19,7 +19,7 @@ from ..Config import Config
 from ..funcs.logger import logging
 from ..funcs.managers import edit_delete, edit_or_reply
 from ..helpers import AioHttp
-from ..helpers.utils import _lionxutils, _format, reply_id
+from ..helpers.utils import _format, _lionxutils, reply_id
 
 plugin_category = "tools"
 
@@ -112,7 +112,9 @@ async def _(event):
             response1 = await conv.get_response()
             if response1.text:
                 await event.client.send_read_acknowledge(conv.chat_id)
-                return await lionxevent.edit(response1.text, parse_mode=_format.parse_pre)
+                return await lionxevent.edit(
+                    response1.text, parse_mode=_format.parse_pre
+                )
             await conv.get_response()
             await event.client.send_read_acknowledge(conv.chat_id)
             response3 = await conv.get_response()
@@ -152,7 +154,9 @@ async def parseqr(event):
     soup = BeautifulSoup(t_response, "html.parser")
     try:
         qr_contents = soup.find_all("pre")[0].text
-        await edit_or_reply(lionxevent, f"**The decoded message is :**\n`{qr_contents}`")
+        await edit_or_reply(
+            lionxevent, f"**The decoded message is :**\n`{qr_contents}`"
+        )
     except IndexError:
         result = soup.text
         await edit_or_reply(lionxevent, f"**Failed to Decode:**\n`{result}`")

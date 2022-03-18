@@ -39,7 +39,9 @@ async def _(event):
             event,
             "`Reply to a voice message or Audio, to get the relevant transcript.`",
         )
-    lionxevent = await edit_or_reply(event, "`Downloading to my local, for analysis  🙇`")
+    lionxevent = await edit_or_reply(
+        event, "`Downloading to my local, for analysis  🙇`"
+    )
     required_file_name = await event.client.download_media(reply, Config.TEMP_DIR)
     await lionxevent.edit("`Starting analysis, using IBM WatSon Speech To Text`")
     headers = {
