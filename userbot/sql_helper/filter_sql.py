@@ -4,7 +4,7 @@ from . import BASE, SESSION
 
 
 class Filter(BASE):
-    __tablename__ = "lionfilters"
+    __tablename__ = "lionxfilters"
     chat_id = Column(String(14), primary_key=True)
     keyword = Column(UnicodeText, primary_key=True, nullable=False)
     reply = Column(UnicodeText)
@@ -68,7 +68,6 @@ def remove_filter(chat_id, keyword):
 
 
 def remove_all_filters(chat_id):
-    saved_filter = SESSION.query(Filter).filter(Filter.chat_id == str(chat_id))
-    if saved_filter:
+    if saved_filter := SESSION.query(Filter).filter(Filter.chat_id == str(chat_id)):
         saved_filter.delete()
         SESSION.commit()

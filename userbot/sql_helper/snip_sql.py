@@ -4,7 +4,7 @@ from . import BASE, SESSION
 
 
 class Note(BASE):
-    __tablename__ = "lionsnip"
+    __tablename__ = "lionxsnip"
     keyword = Column(UnicodeText, primary_key=True, nullable=False)
     reply = Column(UnicodeText)
     f_mesg_id = Column(Numeric)

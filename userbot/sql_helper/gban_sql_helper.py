@@ -1,7 +1,7 @@
 """
-credits to @TeamLionX and @TeamLionX
+credits to @copyless786 and @TeamLionX
 """
-#    Copyright (C) 2020  Copyless786(π.$)
+#    Copyright (C) 2020  Criminal786
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
 #    published by the Free Software Foundation, either version 3 of the
@@ -46,15 +46,14 @@ def get_gbanuser(chat_id):
         SESSION.close()
 
 
-def liongban(chat_id, reason):
+def lionxgban(chat_id, reason):
     adder = GBan(str(chat_id), str(reason))
     SESSION.add(adder)
     SESSION.commit()
 
 
-def lionungban(chat_id):
-    rem = SESSION.query(GBan).get(str(chat_id))
-    if rem:
+def lionxungban(chat_id):
+    if rem := SESSION.query(GBan).get(str(chat_id)):
         SESSION.delete(rem)
         SESSION.commit()
 
