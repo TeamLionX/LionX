@@ -163,7 +163,9 @@ class Config(object):
     BOTLOG_CHATID = 0
     # extra plugins realted vars below  4
     EXTERNAL_REPOBRANCH = os.environ.get("EXTERNAL_REPOBRANCH", "main")
-    LIONX_REPO = os.environ.get("LIONX_REPO", "https://github.com/TeamLionX/LionXPlugins")
+    LIONX_REPO = os.environ.get(
+        "LIONX_REPO", "https://github.com/TeamLionX/LionXPlugins"
+    )
     if LIONX_REPO and not url(LIONX_REPO):
         LIONX_REPO = "https://github.com/TeamLionX/LionXPlugins"
     LIONX_REPOBRANCH = os.environ.get("LIONX_REPOBRANCH", "lionx")
