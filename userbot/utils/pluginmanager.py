@@ -8,9 +8,9 @@ from ..Config import Config
 from ..funcs import LOADED_CMDS, PLG_INFO
 from ..funcs.logger import logging
 from ..funcs.managers import edit_delete, edit_or_reply
-from ..funcs.session import lionub
+from ..funcs.session import lionxub
 from ..helpers.tools import media_type
-from ..helpers.utils import _format, _liontools, _lionutils, install_pip, reply_id
+from ..helpers.utils import _lionxtools, _lionxutils, _format, install_pip, reply_id
 from .decorators import admin_cmd, sudo_cmd
 
 LOGS = logging.getLogger("LionX")
@@ -26,7 +26,7 @@ def load_module(shortname, plugin_path=None):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        LOGS.info("Successfully imported " + shortname)
+        LOGS.info(f"Successfully imported {shortname}")
     else:
         if plugin_path is None:
             path = Path(f"userbot/plugins/{shortname}.py")
@@ -37,28 +37,28 @@ def load_module(shortname, plugin_path=None):
         checkplugins(path)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
-        mod.bot = lionub
+        mod.bot = lionxub
         mod.LOGS = LOGS
         mod.Config = Config
         mod._format = _format
-        mod.tgbot = lionub.tgbot
+        mod.tgbot = lionxub.tgbot
         mod.sudo_cmd = sudo_cmd
         mod.CMD_HELP = CMD_HELP
         mod.reply_id = reply_id
         mod.admin_cmd = admin_cmd
-        mod._lionutils = _lionutils
-        mod._liontools = _liontools
+        mod._lionxutils = _lionxutils
+        mod._lionxtools = _lionxtools
         mod.media_type = media_type
         mod.edit_delete = edit_delete
         mod.install_pip = install_pip
         mod.parse_pre = _format.parse_pre
         mod.edit_or_reply = edit_or_reply
         mod.logger = logging.getLogger(shortname)
-        mod.borg = lionub
+        mod.borg = lionxub
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["userbot.plugins." + shortname] = mod
-        LOGS.info("Successfully imported " + shortname)
+        sys.modules[f"userbot.plugins.{shortname}"] = mod
+        LOGS.info(f"Successfully imported {shortname}")
 
 
 def remove_plugin(shortname):
@@ -71,25 +71,25 @@ def remove_plugin(shortname):
         for cmdname in cmd:
             if cmdname in LOADED_CMDS:
                 for i in LOADED_CMDS[cmdname]:
-                    lionub.remove_event_handler(i)
+                    lionxub.remove_event_handler(i)
                 del LOADED_CMDS[cmdname]
         return True
     except Exception as e:
         LOGS.error(e)
     try:
         for i in LOAD_PLUG[shortname]:
-            lionub.remove_event_handler(i)
+            lionxub.remove_event_handler(i)
         del LOAD_PLUG[shortname]
     except BaseException:
         pass
     try:
         name = f"userbot.plugins.{shortname}"
-        for i in reversed(range(len(lionub._event_builders))):
-            ev, cb = lionub._event_builders[i]
+        for i in reversed(range(len(lionxub._event_builders))):
+            ev, cb = lionxub._event_builders[i]
             if cb.__module__ == name:
-                del lionub._event_builders[i]
-    except BaseException:
-        raise ValueError
+                del lionxub._event_builders[i]
+    except BaseException as exc:
+        raise ValueError from exc
 
 
 def checkplugins(filename):

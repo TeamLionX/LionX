@@ -10,7 +10,7 @@ from ..Config import Config
 from ..funcs.data import _sudousers_list, blacklist_chats_list
 from ..funcs.events import MessageEdited, NewMessage
 from ..funcs.logger import logging
-from ..funcs.session import lionub
+from ..funcs.session import lionxub
 from ..helpers.utils.format import paste_message
 from ..helpers.utils.utils import runcmd
 from ..sql_helper.globals import gvarstatus
@@ -37,12 +37,12 @@ def admin_cmd(pattern=None, command=None, **args):  # sourcery no-metrics
                 CMD_LIST.update({file_test: [cmd]})
         else:
             if len(Config.COMMAND_HAND_LER) == 2:
-                lionreg = "^" + Config.COMMAND_HAND_LER
+                lionxreg = f"^{Config.COMMAND_HAND_LER}"
                 reg = Config.COMMAND_HAND_LER[1]
             elif len(Config.COMMAND_HAND_LER) == 1:
-                lionreg = "^\\" + Config.COMMAND_HAND_LER
+                lionxreg = f"^\\{Config.COMMAND_HAND_LER}"
                 reg = Config.COMMAND_HAND_LER
-            args["pattern"] = re.compile(lionreg + pattern)
+            args["pattern"] = re.compile(lionxreg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -89,12 +89,12 @@ def sudo_cmd(pattern=None, command=None, **args):  # sourcery no-metrics
                 SUDO_LIST.update({file_test: [cmd]})
         else:
             if len(Config.SUDO_COMMAND_HAND_LER) == 2:
-                lionreg = "^" + Config.SUDO_COMMAND_HAND_LER
+                lionxreg = f"^{Config.SUDO_COMMAND_HAND_LER}"
                 reg = Config.SUDO_COMMAND_HAND_LER[1]
             elif len(Config.SUDO_COMMAND_HAND_LER) == 1:
-                lionreg = "^\\" + Config.SUDO_COMMAND_HAND_LER
+                lionxreg = f"^\\{Config.SUDO_COMMAND_HAND_LER}"
                 reg = Config.COMMAND_HAND_LER
-            args["pattern"] = re.compile(lionreg + pattern)
+            args["pattern"] = re.compile(lionxreg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -158,7 +158,7 @@ def errors_handler(func):
             ftext += result
             pastelink = await paste_message(ftext)
             text = "**LionX Error report**\n\n"
-            link = "[here](https://t.me/LionXSupport)"
+            link = "[here](https://t.me/LionXsupport)"
             text += "If you wanna you can report it"
             text += f"- just forward this message {link}.\n"
             text += "Nothing is logged except the fact of error and date\n\n"
@@ -219,8 +219,8 @@ def register(**args):
 
     def decorator(func):
         if not disable_edited:
-            lionub.add_event_handler(func, MessageEdited(**args))
-        lionub.add_event_handler(func, NewMessage(**args))
+            lionxub.add_event_handler(func, MessageEdited(**args))
+        lionxub.add_event_handler(func, NewMessage(**args))
         try:
             LOAD_PLUG[file_test].append(func)
         except Exception:
@@ -276,8 +276,8 @@ def command(**args):
 
     def decorator(func):
         if allow_edited_updates:
-            lionub.add_event_handler(func, MessageEdited(**args))
-        lionub.add_event_handler(func, NewMessage(**args))
+            lionxub.add_event_handler(func, MessageEdited(**args))
+        lionxub.add_event_handler(func, NewMessage(**args))
         try:
             LOAD_PLUG[file_test].append(func)
         except BaseException:
