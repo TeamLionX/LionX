@@ -1,1 +1,1 @@
-from .lionub_config import Config
+from .lionxub_config import Config
