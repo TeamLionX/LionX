@@ -49,7 +49,7 @@ sudo_enabledcmds = sudo_enabled_cmds()
 
 
 class LionXClient(TelegramClient):
-    def lion_cmd(
+    def lionx_cmd(
         self: TelegramClient,
         pattern: str or tuple = None,
         info: Union[str, Dict[str, Union[str, List[str], Dict[str, str]]]]
@@ -113,8 +113,8 @@ class LionXClient(TelegramClient):
                     )
                 try:
                     await func(check)
-                except events.StopPropagation:
-                    raise events.StopPropagation
+                except events.StopPropagation as e:
+                    raise events.StopPropagation from e
                 except KeyboardInterrupt:
                     pass
                 except MessageNotModifiedError:
@@ -171,17 +171,19 @@ class LionXClient(TelegramClient):
                             "date": datetime.datetime.now(),
                         }
                         ftext += "\n\n--------END USERBOT TRACEBACK LOG--------"
-                        command = 'git log --pretty=format:"%an: %s" -5'
                         ftext += "\n\n\nLast 5 commits:\n"
+                        command = 'git log --pretty=format:"%an: %s" -5'
                         output = (await runcmd(command))[:2]
                         result = output[0] + output[1]
                         ftext += result
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        text = "**LionX Error report**\n\n"
-                        link = "[here](https://t.me/LionXSupport)"
-                        text += "If you wanna you can report it"
+                        link = "[here](https://t.me/LionXsupport)"
+                        text = (
+                            "**LionX Error report**\n\n"
+                            + "If you wanna you can report it"
+                        )
                         text += f"- just forward this message {link}.\n"
                         text += (
                             "Nothing is logged except the fact of error and date\n\n"
@@ -191,7 +193,7 @@ class LionXClient(TelegramClient):
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import lionub
+            from .session import lionxub
 
             if not func.__doc__ is None:
                 CMD_INFO[command[0]].append((func.__doc__).strip())
@@ -204,18 +206,18 @@ class LionXClient(TelegramClient):
                     except BaseException:
                         LOADED_CMDS.update({command[0]: [wrapper]})
                 if edited:
-                    lionub.add_event_handler(
+                    lionxub.add_event_handler(
                         wrapper,
                         MessageEdited(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                     )
-                lionub.add_event_handler(
+                lionxub.add_event_handler(
                     wrapper,
                     NewMessage(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                 )
                 if allow_sudo and gvarstatus("sudoenable") is not None:
                     if command is None or command[0] in sudo_enabledcmds:
                         if edited:
-                            lionub.add_event_handler(
+                            lionxub.add_event_handler(
                                 wrapper,
                                 MessageEdited(
                                     pattern=REGEX_.regex2,
@@ -223,7 +225,7 @@ class LionXClient(TelegramClient):
                                     **kwargs,
                                 ),
                             )
-                        lionub.add_event_handler(
+                        lionxub.add_event_handler(
                             wrapper,
                             NewMessage(
                                 pattern=REGEX_.regex2,
@@ -239,8 +241,8 @@ class LionXClient(TelegramClient):
                 except BaseException:
                     LOADED_CMDS.update({file_test: [func]})
                 if edited:
-                    lionub.add_event_handler(func, events.MessageEdited(**kwargs))
-                lionub.add_event_handler(func, events.NewMessage(**kwargs))
+                    lionxub.add_event_handler(func, events.MessageEdited(**kwargs))
+                lionxub.add_event_handler(func, events.NewMessage(**kwargs))
             return wrapper
 
         return decorator
@@ -257,8 +259,8 @@ class LionXClient(TelegramClient):
             async def wrapper(check):
                 try:
                     await func(check)
-                except events.StopPropagation:
-                    raise events.StopPropagation
+                except events.StopPropagation as e:
+                    raise events.StopPropagation from e
                 except KeyboardInterrupt:
                     pass
                 except MessageNotModifiedError:
@@ -297,7 +299,7 @@ class LionXClient(TelegramClient):
                             ftext, pastetype="s", markdown=False
                         )
                         text = "**LionX Error report**\n\n"
-                        link = "[here](https://t.me/LionXSupport)"
+                        link = "[here](https://t.me/LionXsupport)"
                         text += "If you wanna you can report it"
                         text += f"- just forward this message {link}.\n"
                         text += (
@@ -308,12 +310,12 @@ class LionXClient(TelegramClient):
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import lionub
+            from .session import lionxub
 
             if edited is True:
-                lionub.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
+                lionxub.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
             else:
-                lionub.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
+                lionxub.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
 
             return wrapper
 

@@ -13,10 +13,10 @@ loop = None
 if Config.STRING_SESSION:
     session = StringSession(str(Config.STRING_SESSION))
 else:
-    session = "LionX"
+    session = "lionx"
 
 try:
-    lionub = LionXClient(
+    lionxub = LionXClient(
         session=session,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
@@ -31,8 +31,8 @@ except Exception as e:
     sys.exit()
 
 
-lionub.tgbot = tgbot = LionXClient(
-    session="LionTgXBot",
+lionxub.tgbot = tgbot = LionXClient(
+    session="LionXTgbot",
     api_id=Config.APP_ID,
     api_hash=Config.API_HASH,
     loop=loop,
