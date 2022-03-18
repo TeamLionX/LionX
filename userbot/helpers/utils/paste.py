@@ -31,9 +31,9 @@ async def p_paste(message, extension=None):
             else f"https://pasty.lus.pm/{response['id']}.txt"
         )
         try:
-            from ...funcs.session import lionub
+            from ...funcs.session import lionxub
 
-            await lionub.send_message(
+            await lionxub.send_message(
                 Config.BOTLOG_CHATID,
                 f"**You have created a new paste in pasty bin.** Link to pasty is [here]({purl}). You can delete that paste by using this token `{response['deletionToken']}`",
             )
@@ -122,7 +122,7 @@ async def d_paste(message, extension=None):
     """
     To Paste the given message/text/code to dogbin
     """
-    siteurl = "http://lionbin.up.railway.app/documents"
+    siteurl = "http://lionxbin.up.railway.app/documents"
     data = {"content": message}
     try:
         response = requests.post(url=siteurl, data=json.dumps(data), headers=headers)
@@ -131,13 +131,13 @@ async def d_paste(message, extension=None):
     if response.ok:
         response = response.json()
         purl = (
-            f"http://lionbin.up.railway.app/{response['key']}.{extension}"
+            f"http://lionxbin.up.railway.app/{response['key']}.{extension}"
             if extension
-            else f"http://lionbin.up.railway.app/{response['key']}"
+            else f"http://lionxbin.up.railway.app/{response['key']}"
         )
         return {
             "url": purl,
-            "raw": f"http://lionbin.up.railway.app/raw/{response['key']}",
+            "raw": f"http://lionxbin.up.railway.app/raw/{response['key']}",
             "bin": "Dog",
         }
     return {"error": "Unable to reach dogbin."}

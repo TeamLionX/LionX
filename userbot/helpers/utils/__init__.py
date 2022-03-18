@@ -6,8 +6,8 @@ check = 0
 while flag:
     try:
         from . import format as _format
-        from . import tools as _liontools
-        from . import utils as _lionutils
+        from . import tools as _lionxtools
+        from . import utils as _lionxutils
         from .events import *
         from .format import *
         from .tools import *

@@ -34,14 +34,20 @@ def run_async(loop, coro):
     return asyncio.run_coroutine_threadsafe(coro, loop).result()
 
 
-async def unsavegif(event, nadan):
+def runasync(func: callable):
+    """Run async functions with the right event loop."""
+    asyncio.get_event_loop()
+    return loop.run_until_complete(func)
+
+
+async def unsavegif(event, amaan):
     try:
         await event.client(
             functions.messages.SaveGifRequest(
                 id=types.InputDocument(
-                    id=nadan.media.document.id,
-                    access_hash=nadan.media.document.access_hash,
-                    file_reference=nadan.media.document.file_reference,
+                    id=amaan.media.document.id,
+                    access_hash=amaan.media.document.access_hash,
+                    file_reference=amaan.media.document.file_reference,
                 ),
                 unsave=True,
             )

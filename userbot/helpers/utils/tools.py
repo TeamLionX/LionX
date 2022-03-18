@@ -25,52 +25,54 @@ async def media_to_pic(event, reply, noedits=False):  # sourcery no-metrics
         "Document",
     ]:
         return event, None
-    lionevent = (
-        event
-        if noedits
-        else await edit_or_reply(event, "`Transfiguration Time! Converting to ....`")
-    )
-    lionmedia = None
-    lionfile = os.path.join("./temp/", "meme.png")
-    if os.path.exists(lionfile):
-        os.remove(lionfile)
+    if not noedits:
+        lionxevent = await edit_or_reply(
+            event, "`Transfiguration Time! Converting to ....`"
+        )
+
+    else:
+        lionxevent = event
+    lionxmedia = None
+    lionxfile = os.path.join("./temp/", "meme.png")
+    if os.path.exists(lionxfile):
+        os.remove(lionxfile)
     if mediatype == "Photo":
-        lionmedia = await reply.download_media(file="./temp")
-        im = Image.open(lionmedia)
-        im.save(lionfile)
+        lionxmedia = await reply.download_media(file="./temp")
+        im = Image.open(lionxmedia)
+        im.save(lionxfile)
     elif mediatype in ["Audio", "Voice"]:
-        await event.client.download_media(reply, lionfile, thumb=-1)
+        await event.client.download_media(reply, lionxfile, thumb=-1)
     elif mediatype == "Sticker":
-        lionmedia = await reply.download_media(file="./temp")
-        if lionmedia.endswith(".tgs"):
-            lioncmd = f"lottie_convert.py --frame 0 -if lottie -of png '{lionmedia}' '{lionfile}'"
-            stdout, stderr = (await runcmd(lioncmd))[:2]
+        lionxmedia = await reply.download_media(file="./temp")
+        if lionxmedia.endswith(".tgs"):
+            lionxcmd = f"lottie_convert.py --frame 0 -if lottie -of png '{lionxmedia}' '{lionxfile}'"
+            stdout, stderr = (await runcmd(lionxcmd))[:2]
             if stderr:
                 LOGS.info(stdout + stderr)
-        elif lionmedia.endswith(".webp"):
-            im = Image.open(lionmedia)
-            im.save(lionfile)
+        elif lionxmedia.endswith(".webp"):
+            im = Image.open(lionxmedia)
+            im.save(lionxfile)
     elif mediatype in ["Round Video", "Video", "Gif"]:
-        await event.client.download_media(reply, lionfile, thumb=-1)
-        if not os.path.exists(lionfile):
-            lionmedia = await reply.download_media(file="./temp")
+        await event.client.download_media(reply, lionxfile, thumb=-1)
+        if not os.path.exists(lionxfile):
+            lionxmedia = await reply.download_media(file="./temp")
             clip = VideoFileClip(media)
             try:
-                clip = clip.save_frame(lionfile, 0.1)
+                clip = clip.save_frame(lionxfile, 0.1)
             except Exception:
-                clip = clip.save_frame(lionfile, 0)
+                clip = clip.save_frame(lionxfile, 0)
     elif mediatype == "Document":
         mimetype = reply.document.mime_type
         mtype = mimetype.split("/")
         if mtype[0].lower() == "image":
-            lionmedia = await reply.download_media(file="./temp")
-            im = Image.open(lionmedia)
-            im.save(lionfile)
-    if lionmedia and os.path.lexists(lionmedia):
-        os.remove(lionmedia)
-    if os.path.lexists(lionfile):
-        return lionevent, lionfile, mediatype
-    return lionevent, None
+            lionxmedia = await reply.download_media(file="./temp")
+            im = Image.open(lionxmedia)
+            im.save(lionxfile)
+    if lionxmedia and os.path.lexists(lionxmedia):
+        os.remove(lionxmedia)
+    if os.path.lexists(lionxfile):
+        return lionxevent, lionxfile, mediatype
+    return lionxevent, None
 
 
 async def take_screen_shot(
