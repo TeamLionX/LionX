@@ -10,12 +10,12 @@ from userbot import lionub
 @lionub.tgbot.on(CallbackQuery(data=re.compile(b"secret_(.*)")))
 async def on_plug_in_callback_query_handler(event):
     timestamp = int(event.pattern_match.group(1).decode("UTF-8"))
-    if os.path.exists("./userbot/secrets.txt"):
-        jsondata = json.load(open("./userbot/secrets.txt"))
+    if os.path.exists("./userbot/secret.txt"):
+        jsondata = json.load(open("./userbot/secret.txt"))
         try:
             message = jsondata[f"{timestamp}"]
             userid = message["userid"]
-            ids = [userid, lionub.uid]
+            ids = userid + [lionub.uid]
             if event.query.user_id in ids:
                 encrypted_tcxt = message["text"]
                 reply_pop_up_alert = encrypted_tcxt

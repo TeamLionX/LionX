@@ -29,7 +29,7 @@ from .botmanagers import ban_user_from_bot
 
 LOGS = logging.getLogger(__name__)
 
-plugin_category = "admin"
+plugin_category = "bot"
 botusername = Config.TG_BOT_USERNAME
 
 
@@ -69,7 +69,7 @@ async def check_bot_started_users(user, event):
     incoming=True,
     func=lambda e: e.is_private,
 )
-async def bot_start(event):
+async def bot_start(event):  # sourcery skip: low-code-quality
     chat = await event.get_chat()
     user = await lionub.get_me()
     if check_is_black_list(chat.id):
@@ -86,6 +86,7 @@ async def bot_start(event):
     my_last = user.last_name
     my_fullname = f"{my_first} {my_last}" if my_last else my_first
     my_username = f"@{user.username}" if user.username else my_mention
+    custompic = gvarstatus("BOT_START_PIC") or None
     if chat.id != Config.OWNER_ID:
         customstrmsg = gvarstatus("START_TEXT") or None
         if customstrmsg is not None:
@@ -106,13 +107,13 @@ async def bot_start(event):
             start_msg = f"Hey! 👤{mention},\
                         \nI am {my_mention}'s assistant bot.\
                         \nYou can contact to my master from here.\
-                        \n\nPowered by [LionX](https://t.me/LionX)"
+                        \n\nPowered by [LionX](https://t.me/TeamLionX)"
         buttons = [
             (
                 Button.url("Repo", "https://github.com/TeamLionX/LionX"),
                 Button.url(
                     "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX&template=https%3A%2F%2Fgithub.com%2FTeamLionX%2FLionX",
+                    "https://github.com/TeamLionX/Heroku",
                 ),
             )
         ]
@@ -121,13 +122,23 @@ async def bot_start(event):
             \nHow can i help you ?"
         buttons = None
     try:
-        await event.client.send_message(
-            chat.id,
-            start_msg,
-            link_preview=False,
-            buttons=buttons,
-            reply_to=reply_to,
-        )
+        if custompic:
+            await event.client.send_file(
+                chat.id,
+                file=custompic,
+                caption=start_msg,
+                link_preview=False,
+                buttons=buttons,
+                reply_to=reply_to,
+            )
+        else:
+            await event.client.send_message(
+                chat.id,
+                start_msg,
+                link_preview=False,
+                buttons=buttons,
+                reply_to=reply_to,
+            )
     except Exception as e:
         if BOTLOG:
             await event.client.send_message(
@@ -141,6 +152,7 @@ async def bot_start(event):
 
 @lionub.bot_cmd(incoming=True, func=lambda e: e.is_private)
 async def bot_pms(event):  # sourcery no-metrics
+    # sourcery skip: low-code-quality
     chat = await event.get_chat()
     if check_is_black_list(chat.id):
         return
@@ -205,12 +217,10 @@ async def bot_pms_edit(event):  # sourcery no-metrics
         users = get_user_reply(event.id)
         if users is None:
             return
-        reply_msg = None
-        for user in users:
-            if user.chat_id == str(chat.id):
-                reply_msg = user.message_id
-                break
-        if reply_msg:
+        if reply_msg := next(
+            (user.message_id for user in users if user.chat_id == str(chat.id)),
+            None,
+        ):
             await event.client.send_message(
                 Config.OWNER_ID,
                 f"⬆️ **This message was edited by the user** {_format.mentionuser(get_display_name(chat) , chat.id)} as :",
@@ -267,11 +277,15 @@ async def handler(event):
                 except Exception as e:
                     LOGS.error(str(e))
         if users_1 is not None:
-            reply_msg = None
-            for user in users_1:
-                if user.chat_id != Config.OWNER_ID:
-                    reply_msg = user.message_id
-                    break
+            reply_msg = next(
+                (
+                    user.message_id
+                    for user in users_1
+                    if user.chat_id != Config.OWNER_ID
+                ),
+                None,
+            )
+
             try:
                 if reply_msg:
                     users = get_user_id(reply_msg)
@@ -319,7 +333,7 @@ async def bot_start(event):
     await info_msg.edit(uinfo)
 
 
-async def send_flood_alert(user_) -> None:
+async def send_flood_alert(user_) -> None:  # sourcery skip: low-code-quality
     # sourcery no-metrics
     buttons = [
         (
